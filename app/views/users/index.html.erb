@@ -1,9 +1,0 @@
-<h1>HI THERE</h1>
-<% @rooms.each do |room| %>
-  <%= link_to  "Room name: #{room.name}", room_path(room.id), class: "room_info", data: {temp: "#{room.id}"} %><br>
-<% end %>
-<br>
-
-<%= link_to  "CREATE A ROOM", new_room_path %>
-
-

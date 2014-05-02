@@ -23,7 +23,8 @@ var geoHelper = (function(){
   return {
     failure: _failure,
     success: _success,
-    defaultOps: _default
+    defaultOps: _default,
+    randomizeString: _randomizeString
   }
 }())
 

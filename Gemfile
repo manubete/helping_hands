@@ -15,8 +15,10 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'jquery-rails'
   gem 'rspec-rails'
   gem 'jasmine'
+  gem 'jasmine-jquery-rails'
 end
 
 group :test do

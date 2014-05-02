@@ -3,8 +3,9 @@ class RoomsController < ApplicationController
 
   end
 
+  # one of these render is not right. Find bug
   def show
-    @room = Room.find(params[:id])
+    render :show, layout: false
   end
 
   def room_list

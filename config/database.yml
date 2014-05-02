@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: polar_bear_dev
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: polar_bear_test
+  pool: 5
+  timeout: 5000
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: polar_bear
+  pool: 5
+  timeout: 5000

@@ -1,5 +1,5 @@
 PolarBear::Application.routes.draw do
-  root :to => 'users#index'
+  root to: "rooms#index"
   resources :users
   resources :rooms
 end

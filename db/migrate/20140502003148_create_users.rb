@@ -1,6 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      t.belongs_to :room
       t.string :name, default: nil
       t.string :user_token
       t.float :lat

@@ -4,4 +4,7 @@ $('document').ready(function(){
   } else {
     console.log("the fails") // BUGBUG
   }
+
+  var roomLinker = new RoomLinker
+  roomLinker.bindButtons()
 });

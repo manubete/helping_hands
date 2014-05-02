@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
-  after_save :place_user
+  # after_save :place_user
 
   def create
-    username = params[:username].crypt("salt")
-    User.create(name: username)
+    p params
+    user_token = params[:user_token].crypt("salt")
+    User.create(user_token: user_token, lat: params[:lat], lon: params[:lon])
     redirect_to root_path
   end
 

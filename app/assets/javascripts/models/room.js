@@ -5,7 +5,10 @@ function RoomList(name) {
 
 RoomList.prototype = {
   returnDatabase: function( snapshot ){
-    console.log(this)
    this.database = snapshot.val()
+  },
+  returnRooms: function( FireBaseData ){
+    return Object.keys(FireBaseData)
   }
 }
+

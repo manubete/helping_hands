@@ -1,0 +1,9 @@
+RoomList
+  - model
+    x get data from database
+    x get rooms specifically from database
+  - view
+    - place data on the dom using handle bars
+    x inject dom dependancies
+  - controller
+    - grab the data from the model and give it to the view.

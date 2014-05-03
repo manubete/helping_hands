@@ -7,8 +7,8 @@ RoomList.prototype = {
   returnDatabase: function( snapshot ){
    this.database = snapshot.val()
   },
-  returnRooms: function( FireBaseData ){
-    return Object.keys(FireBaseData)
+  returnRooms: function( fireBaseData ){
+    return Object.keys( fireBaseData)
   }
 }
 

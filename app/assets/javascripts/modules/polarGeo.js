@@ -45,9 +45,9 @@ var geoHelper = (function(){
   var _success = function(position){
       document.cookie = _randomizeString()
       $.ajax({
-        url: '/users',
+        url: '/users#create',
         type: 'POST',
-        data: { username: document.cookie, lat: position.coords.latitude, lon: position.coords.longitude }
+        data: { user_token: document.cookie, lat: position.coords.latitude, lon: position.coords.longitude }
       })
       .done(function(){console.log("ajax was goooood")}) //BUGBUG
       .fail(function(){console.log("ajax was baaaaaad")}) //BUGBUG

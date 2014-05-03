@@ -12,7 +12,8 @@ RoomLinker.prototype = {
       if (e.keyCode == 13) {
         var name = $('#nameInput').val();
         var text = $('#messageInput').val();
-        self.firebaseServer.push({name:name, text:text});
+        newRef = self.firebaseServer.push({name:name, text:text});
+        newRef.set(user_token)
         $('#messageInput').val('');
       }
     });

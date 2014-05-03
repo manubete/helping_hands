@@ -1,6 +1,7 @@
 describe("RoomList Thing", function(){
 
   xit("should access data from Firebase", function(){
+
   });
 
   it("should return the rooms in Firebase", function(){

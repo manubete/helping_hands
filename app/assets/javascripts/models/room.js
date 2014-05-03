@@ -1,11 +1,11 @@
 function RoomList(name) {
-  this.users = BASE_URL + name + '/'
-  this.base = new Firebase(BASE_URL);
+  this.dataRef = new Firebase(BASE_URL);
+  this.dataRef.on('value', this.returnDatabase.bind(this));
 }
 
 RoomList.prototype = {
-  all: function(){
-    var rooms = new Firebase(BASE_URL);
-    this.roomList = rooms.on('value', function(snapshot){ return snapshot.val() })
+  returnDatabase: function( snapshot ){
+    console.log(this)
+   this.database = snapshot.val()
   }
 }

@@ -1,0 +1,7 @@
+<h1>Let's make a room</h1>
+
+<%= form_for @room do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: 'Room Name' %>
+  <%= f.submit %>
+<% end %>

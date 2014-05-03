@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :rooms
-  attr_accessible :user_token, :lat, :lon
+  attr_accessible :user_token, :lat, :lon, :name
 
   def self.create_and_place(params)
     user_token = params[:user_token].crypt("salt")
@@ -17,6 +17,5 @@ class User < ActiveRecord::Base
       Room.last.users << self
     end
   end
-
-
 end
+

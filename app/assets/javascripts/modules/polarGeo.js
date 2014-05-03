@@ -54,6 +54,9 @@ var geoHelper = (function(){
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
 
+
+
+
   return {
     failure: _failure,
     success: _success,
@@ -63,5 +66,7 @@ var geoHelper = (function(){
     inRange: _inRange
   }
 }())
+
+
 
 

@@ -1,0 +1,7 @@
+function User(){
+
+}
+User.prototype = {
+
+}
+

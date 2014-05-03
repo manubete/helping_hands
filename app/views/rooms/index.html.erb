@@ -1,7 +1,11 @@
-<h1>HI THERE</h1>
-<% @rooms.each do |room| %>
-  <%= link_to  "Room name: #{room.name}", room_path(room.id), class: "room_info", data: {temp: "#{room.id}"} %><br>
-<% end %>
-<br>
+<div class="container">
+  <h1>HI THERE</h1>
+  <section class="room-list">
 
-<%= link_to  "CREATE A ROOM", new_room_path %>
+  <script id="#room-template" type="text/x-handlebars-template">
+    {{if whatever}}
+    <div>{{json data}}</div>
+    {{/if}}
+  </script>
+  </section>
+</div>

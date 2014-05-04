@@ -13,7 +13,7 @@ RoomLinker.prototype = {
         var name = $('#nameInput').val();
         var text = $('#messageInput').val();
         newRef = self.firebaseServer.push({name:name, text:text});
-        newRef.set(user_token)
+
         $('#messageInput').val('');
       }
     });

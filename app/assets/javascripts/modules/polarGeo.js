@@ -44,13 +44,13 @@ var geoHelper = (function(){
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
   var _success = function(position){
       document.cookie = _randomizeString()
-      $.ajax({
-        url: '/users#create',
-        type: 'POST',
-        data: { user_token: document.cookie, lat: position.coords.latitude, lon: position.coords.longitude }
-      })
-      .done(function(){console.log("ajax was goooood")}) //BUGBUG
-      .fail(function(){console.log("ajax was baaaaaad")}) //BUGBUG
+      // $.ajax({
+      //   url: '/users#create',
+      //   type: 'POST',
+      //   data: { user_token: document.cookie, lat: position.coords.latitude, lon: position.coords.longitude }
+      // })
+      // .done(function(){console.log("ajax was goooood")}) //BUGBUG
+      // .fail(function(){console.log("ajax was baaaaaad")}) //BUGBUG
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
 

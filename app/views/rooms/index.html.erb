@@ -1,8 +1,10 @@
 <div class="container">
   <h1>HI THERE</h1>
   <section class="room-list">
-    <script id="#room-template" type="text/x-handlebars-template">
-    test
+    <script id="room-template" type="text/x-handlebars-template">
+      {{#rooms}}
+        <div>{{name}}</div>
+      {{/rooms}}
     </script>
   </section>
 </div>

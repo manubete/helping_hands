@@ -1,10 +1,5 @@
 var firebaseHelper = (function() {
 
-  var _accessRoom = function(roomUrl){
-      console.log(roomUrl + " courtesy of firebase Helper ")
-      console.log()
-      var chosenChatRoomServer = new Firebase(roomUrl)
-  }
 
   var _createRoom = function(userLocation) {
     var roomPath = geoHelper.randomizeString
@@ -23,9 +18,7 @@ var firebaseHelper = (function() {
   }
 
   return {
-    accessRoom: function(roomUrl){
-      _accessRoom(roomUrl)
-    },
+
     createRoom: _createRoom,
     pushToFirebase: function(firebaseUrl, userToken, userMessage){
       _pushToFirebase(firebaseUrl, userToken, userMessage)

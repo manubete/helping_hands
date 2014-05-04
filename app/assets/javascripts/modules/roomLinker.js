@@ -12,6 +12,8 @@ RoomLinker.prototype = {
       if (e.keyCode == 13) {
         var name = $('#nameInput').val();
         var text = $('#messageInput').val();
+
+        //MAKE THIS A CALL TO THE FIREBASEHELPER MODULE:
         newRef = self.firebaseServer.push({name:name, text:text});
 
         $('#messageInput').val('');

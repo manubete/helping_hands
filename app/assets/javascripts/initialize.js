@@ -6,7 +6,8 @@ $('document').ready( function(){
 PolarBear = {
   initialize: function(){
     this.checkGeoLocation()
-    this.prepareMVC()
+    this.bindRoomListener();
+    this.prepareRoomListMVC()
   },
   checkGeoLocation: function(){
     if ("geolocation" in navigator){
@@ -15,7 +16,15 @@ PolarBear = {
       console.log("the fails")
     }
   },
-  prepareMVC: function(){
+  bindRoomListener: function() {
+    var self = this;
+    new CustomEvent('readyToMakeRoom', {'chatRoomUrl': ''})
+    $(document).on('readyToMakeRoom', function(event, chatRoomUrl) {
+      self.prepareRoomMVC(chatRoomUrl)
+    })
+
+  },
+  prepareRoomListMVC: function(){
     var roomListDomSelectors = {
       roomList: '.room-list',
       roomListTemplate: '#room-list-template'
@@ -24,5 +33,17 @@ PolarBear = {
     var roomList = new RoomList()
     var roomListController = new RoomListController(roomList, roomListView)
     roomListController.listeners()
+  },
+
+  prepareRoomMVC: function(chatRoomUrl){
+    var roomDomSelectors = {
+      messageInput: '#message-input'
+
+      //TEMPLATE
+    }
+
+    var roomView = new RoomView(roomDomSelectors)
+    var room = new Room(chatRoomUrl)
+    var roomController = new RoomController(room, roomView)
   }
 }

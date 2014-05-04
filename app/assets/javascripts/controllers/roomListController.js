@@ -23,7 +23,8 @@ RoomListController.prototype = {
   },
 
   sendInfoToChatRoom: function(roomPath) {
+
     var firebaseRoomUrl = BASE_URL + roomPath
-    console.log(firebaseRoomUrl)
+    $.event.trigger("readyToMakeRoom", firebaseRoomUrl)
   }
 }

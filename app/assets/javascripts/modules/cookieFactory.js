@@ -17,7 +17,7 @@ var cookieFactory =(function(){
   }
 
 //could fail because other cookie synthax is createCookie(name,value,days){}
-var _createCookie = function(userLatitude, userLongitude, days){
+  var _createCookie = function(userLatitude, userLongitude, days){
     var userToken = _createUserToken();
     var date = _createDate(days);
     var cookieString = "user-token=" + userToken + ":user-Latitude=" + userLatitude + ":user-Longitude=" + userLongitude + date + "; path=/" ;
@@ -32,13 +32,11 @@ var _createCookie = function(userLatitude, userLongitude, days){
     return parts[1].split(':').shift()
   }
 
-  var
 
-return {
-  createCookie: _createCookie,
-  getValue: _getValue,
-
-}
+  return {
+    createCookie: _createCookie,
+    getValue: _getValue,
+  }
 
 
 }())

@@ -1,11 +1,11 @@
 var geoHelper = (function(){
-  var _randomizeString = function() {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for( var i=0; i < 15; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
-  }
+  // var _randomizeString = function() {
+  //   var text = "";
+  //   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  //   for( var i=0; i < 15; i++ )
+  //       text += possible.charAt(Math.floor(Math.random() * possible.length));
+  //   return text;
+  // }
 
   var _calculateDistance = function distance(lat1, lon1, lat2, lon2) {
     var radlat1 = Math.PI * lat1/180
@@ -21,6 +21,7 @@ var geoHelper = (function(){
     return dist
 
   }
+
 
   var _inRange = function (location1, location2) {
 
@@ -43,14 +44,17 @@ var geoHelper = (function(){
 
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
   var _success = function(position){
-      document.cookie = _randomizeString()
-      $.ajax({
-        url: '/users#create',
-        type: 'POST',
-        data: { user_token: document.cookie, lat: position.coords.latitude, lon: position.coords.longitude }
-      })
-      .done(function(){console.log("ajax was goooood")}) //BUGBUG
-      .fail(function(){console.log("ajax was baaaaaad")}) //BUGBUG
+
+          cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
+
+       // for future FB functionality
+      // $.ajax({
+      //   url: '/users#create',
+      //   type: 'POST',
+      //   data: { user_token: document.cookie, lat: position.coords.latitude, lon: position.coords.longitude }
+      // })
+      // .done(function(){console.log("ajax was goooood")}) //BUGBUG
+      // .fail(function(){console.log("ajax was baaaaaad")}) //BUGBUG
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
 
@@ -61,7 +65,6 @@ var geoHelper = (function(){
     failure: _failure,
     success: _success,
     defaultOps: _default,
-    randomizeString: _randomizeString,
     calculateDistance: _calculateDistance,
     inRange: _inRange
   }

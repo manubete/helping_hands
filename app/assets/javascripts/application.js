@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require handlebars
 //= require modules/polarGeo
+//= require modules/firebaseHelper
 //= require_tree .

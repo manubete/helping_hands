@@ -5,8 +5,14 @@ function RoomListView(domSelectors){
 
 RoomListView.prototype = {
   drawRoomList: function(roomList){
-     var source   = $("#room-template").html();
-     var template = Handlebars.compile(source);
-     $(".room-list").html(template(json));
+     var rooms = {rooms: roomList}
+     $.ajax({
+      type: 'get',
+      url: '/rooms/1',
+      dataType: "text"
+     }).done(function(data){
+       var template = Handlebars.compile(data);
+       $(".room-list").html(template(rooms));
+     })
   }
 }

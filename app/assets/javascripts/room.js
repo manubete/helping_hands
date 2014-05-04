@@ -7,43 +7,36 @@ RoomController = function(model, view){
 }
 
 RoomController.prototype = {
-    drawRoom: function(roomName){
-      self = this
-      console.log("creating custom chatroom drawn event")
-        this.view.drawChatRoom(roomName);
-
-      //   $(document).on('.ajax-back', function(e) {
-      //     if ($(document).hasClass("ajax-check")) {
-      //     console.log("it lives")
-      //     }
-      //   });
-      // }
-
-        // $(document).on('ajax-back', function() {console.log("it got triggered")} )
-        $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
+  drawRoom: function(roomName){
+    self = this
+    console.log("creating custom chatroom drawn event")
+    this.view.drawChatRoom(roomName);
+    $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
 
 
-    },
-    bindMessageListeners: function(){
-      self = this;
-     $("#messageInput").keypress(function (e){
-        if (e.keycode == 13){
-          var name = $('#nameInput').val();
-          var text = $("#messageInput").val();
-          firebaseHelper.pushToFirebase(self.model.chatRoomUrl, name, text);
-          $("#messageInput").val('');
-        }
-     });
+  },
+  bindMessageListeners: function(){
+    self = this;
+   $(document).bind('keypress',pressed);
+
+   function pressed(e){
+      if (e.keyCode == 13){
+        var name = $('#nameInput').val();
+        var text = $("#messageInput").val();
+
+        firebaseHelper.pushToFirebase(self.model.chatRoomUrl, name, text);
+        $("#messageInput").val('');
+       }
+   };
 
     self.model.firebaseServer.limit(10).on('child_added', function (snapshot){
-        var message = snapshot.val();
-        $('<div>').text(message.text).prepend($('<em/>')
-          .text(message.name+':')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      });
+      var message = snapshot.val();
+      $('<div>').text(message.text).prepend($('<em/>')
+        .text(message.user_token+': '+message.message)).appendTo($('#messagesDiv'));
+      $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    });
 
-    }
-
+  }
 }
 
 //////
@@ -75,10 +68,9 @@ RoomView.prototype = {
        }).done(function(data){
           var template = Handlebars.compile(data)
           $(".room-list").html(template(roomName));
+          $(".room-list").attr("class", "chatroom");
           console.log("sup")
           $.event.trigger("ajax-back")
-
-
        })
     }
 

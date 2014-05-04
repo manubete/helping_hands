@@ -12,5 +12,10 @@ RoomListController.prototype = {
     var rooms = this.model.returnRooms( this.model.database )
     this.view.drawRoomList(rooms)
   },
+  linkRooms: function() {
+    target.on('click', function(event) {
+      window.location = 'http://www.google.com'
+    })
+  }
 
 }

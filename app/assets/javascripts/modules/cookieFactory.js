@@ -17,10 +17,11 @@ var cookieFactory =(function(){
   }
 
 //could fail because other cookie synthax is createCookie(name,value,days){}
+//*Todo: figure out way the days value is not returned in the document.cookie
   var _createCookie = function(userLatitude, userLongitude, days){
     var userToken = _createUserToken();
     var date = _createDate(days);
-    var cookieString = "user-token=" + userToken + ":user-Latitude=" + userLatitude + ":user-Longitude=" + userLongitude + date + "; path=/" ;
+    var cookieString = "user-token=" + userToken + ":user-Latitude=" + userLatitude + ":user-Longitude=" + userLongitude +";" date + "; path=/" ;
     document.cookie = cookieString
 }
 

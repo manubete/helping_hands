@@ -40,14 +40,21 @@ PolarBear = {
   },
 
   prepareRoomMVC: function(chatRoomUrl){
+    // Sets the labels of the chatRoom Dom elements
     var roomDomSelectors = {
-      messageInput: '#message-input'
-
-      //TEMPLATE
+      room: '.room',
+      roomTemplate: '#room-template'
     }
 
+    // Instantiates a room, model and controller
     var roomView = new RoomView(roomDomSelectors)
     var room = new Room(chatRoomUrl)
     var roomController = new RoomController(room, roomView)
+
+    //creates a JSON object to insert a name into the room
+     var roomName = {name: roomController.model.chatRoomUrl}
+    firebaseHelper.accessRoom(roomController.model.chatRoomUrl)
+    roomController.drawRoom(roomName)
+    roomController.bindMessageListeners()
   }
 }

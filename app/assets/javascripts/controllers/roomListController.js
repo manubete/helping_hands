@@ -5,25 +5,25 @@ function RoomListController(model, view){
 
 RoomListController.prototype = {
   listeners: function(){
+    self = this;
     console.log('listening to custom event')
+
     $(document).on('gotData', this.summonRooms.bind(this) )
-    $(document).on('gotData', this.linkRooms())
+
+    $('.room-list').on("click", function(e) {
+      if ($(event.target) && $(event.target).hasClass("individual_room")) {
+        self.sendInfoToChatRoom($(event.target).data('id'));
+      }
+    })
   },
+
   summonRooms: function(){
     var rooms = this.model.returnRooms( this.model.database )
     this.view.drawRoomList(rooms)
   },
-  linkRooms: function() {
-    debugger
-    $('.individual_room').on('click', function(event) {
-      var roomPath = $(event.target).data("id")
 
-
-      // this is the room the user chose.
-      // this is where we want to store the users
-      // messages
-      BASE_URL + roomPath
-    })
+  sendInfoToChatRoom: function(roomPath) {
+    var firebaseRoomUrl = BASE_URL + roomPath
+    console.log(firebaseRoomUrl)
   }
-
 }

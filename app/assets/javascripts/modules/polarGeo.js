@@ -36,7 +36,8 @@ var geoHelper = (function(){
 
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
   var _success = function(position){
-          cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
+
+      cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
   return {
@@ -47,6 +48,7 @@ var geoHelper = (function(){
     inRange: _inRange
   }
 }())
+
 
 
 

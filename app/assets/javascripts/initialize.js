@@ -5,11 +5,15 @@ $('document').ready( function(){
 
 PolarBear = {
   initialize: function(){
+    // makes sure the asynchronous call comes back
+
     this.checkGeoLocation()
-    this.prepareMVC()
+
+    // this.prepareMVC()
   },
   checkGeoLocation: function(){
-    if ("geolocation" in navigator){
+   // if ("geolocation" in navigator)
+       if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(geoHelper.success, geoHelper.failure, geoHelper.defaultOps)
     } else {
       console.log("the fails")

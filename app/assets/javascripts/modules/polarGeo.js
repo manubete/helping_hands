@@ -45,8 +45,14 @@ var geoHelper = (function(){
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
   var _success = function(position){
 
-          cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
 
+
+
+
+
+
+
+      cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
        // for future FB functionality
       // $.ajax({
       //   url: '/users#create',

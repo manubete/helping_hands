@@ -26,8 +26,7 @@ PolarBear = {
     }
     var roomListView = new RoomListView(roomListDomSelectors)
     var roomList = new RoomList()
-    console.log( roomList )
     var roomListController = new RoomListController(roomList, roomListView)
-    roomListController.summonRooms()
+    roomListController.listeners()
   }
 }

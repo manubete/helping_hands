@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20140502003155) do
 
   create_table "rooms", :force => true do |t|
     t.string   "name"
+    t.float    "lat"
+    t.float    "lon"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

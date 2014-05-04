@@ -11,8 +11,14 @@ var firebaseHelper = (function() {
     return newRoomUrl
   }
 
+  var _pushToFirebase = function(firebaseUrl, userToken, userMessage)
+    var chatRoom = new Firebase(firebaseUrl)
+    chatRoom.push({user_token: userToken, message: userMessage})
+  }
+
   return {
     createRoom: _createRoom
+    pushToFirebase: _pushToFirebase
   }
 
 }())

@@ -43,7 +43,17 @@ var geoHelper = (function(){
 
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
   var _success = function(position){
-      document.cookie = _randomizeString()
+
+
+
+
+
+
+
+
+
+
+      cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
       // $.ajax({
       //   url: '/users#create',
       //   type: 'POST',
@@ -61,7 +71,7 @@ var geoHelper = (function(){
     failure: _failure,
     success: _success,
     defaultOps: _default,
-    randomizeString: _randomizeString,
+
     calculateDistance: _calculateDistance,
     inRange: _inRange
   }

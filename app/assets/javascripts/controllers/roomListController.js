@@ -4,10 +4,13 @@ function RoomListController(model, view){
 }
 
 RoomListController.prototype = {
-
+  listeners: function(){
+    console.log('listening to custom event')
+    $(document).on('gotData', this.summonRooms.bind(this) )
+  },
   summonRooms: function(){
-    debugger
     var rooms = this.model.returnRooms( this.model.database )
     this.view.drawRoomList(rooms)
-  }
+  },
+
 }

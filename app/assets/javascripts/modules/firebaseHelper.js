@@ -2,10 +2,9 @@ var firebaseHelper = (function() {
 
   var _createRoom = function(userLocation) {
     var roomPath = geoHelper.randomizeString
-    var newRoomUrl = 'https://luminous-fire-2873.firebaseio.com/' + roomPath
+    var newRoomUrl = BASE_URL + roomPath
     var newRoom = new Firebase(newRoomUrl)
 
-    // BASE_URL
     var roomsLocation = new Firebase(newRoomUrl+'/location')
     roomsLocation.push(userLocation);
     return newRoomUrl

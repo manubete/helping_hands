@@ -3,11 +3,26 @@
 RoomController = function(model, view){
   this.model = model
   this.view = view
+  new CustomEvent('gotData')
 }
 
 RoomController.prototype = {
     drawRoom: function(roomName){
-        this.view.drawChatRoom(roomName)
+      self = this
+      console.log("creating custom chatroom drawn event")
+        this.view.drawChatRoom(roomName);
+
+      //   $(document).on('.ajax-back', function(e) {
+      //     if ($(document).hasClass("ajax-check")) {
+      //     console.log("it lives")
+      //     }
+      //   });
+      // }
+
+        // $(document).on('ajax-back', function() {console.log("it got triggered")} )
+        $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
+
+
     },
     bindMessageListeners: function(){
       self = this;
@@ -24,7 +39,6 @@ RoomController.prototype = {
         var message = snapshot.val();
         $('<div>').text(message.text).prepend($('<em/>')
           .text(message.name+':')).appendTo($('#messagesDiv'));
-        debugger
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       });
 
@@ -45,11 +59,6 @@ Room.prototype = {
 }
 
 //////////
-
-// function RoomView(roomDomSelectors){
-//   this.messageInput = roomDomSelectors["messageInput"]
-// }
-
 function RoomView(domSelectors){
   this.room = domSelectors["room"]
   this.roomTemplate = domSelectors["room-template"]
@@ -58,15 +67,18 @@ function RoomView(domSelectors){
 RoomView.prototype = {
   drawChatRoom: function(roomName){
        var roomName = roomName
+       self = this
        $.ajax({
         type: 'get',
         url:'/room/1',
         dataType: "text"
        }).done(function(data){
           var template = Handlebars.compile(data)
-          $(".individual_room").remove()
-          $(".room-list").add("div").addClass("room");
-          $(".room").html(template(roomName))
+          $(".room-list").html(template(roomName));
+          console.log("sup")
+          $.event.trigger("ajax-back")
+
+
        })
     }
 

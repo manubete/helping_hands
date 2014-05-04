@@ -51,10 +51,12 @@ PolarBear = {
     var room = new Room(chatRoomUrl)
     var roomController = new RoomController(room, roomView)
 
+    roomView.controller = roomController
     //creates a JSON object to insert a name into the room
      var roomName = {name: roomController.model.chatRoomUrl}
-    firebaseHelper.accessRoom(roomController.model.chatRoomUrl)
+
+     // draw the room
     roomController.drawRoom(roomName)
-    roomController.bindMessageListeners()
+
   }
 }

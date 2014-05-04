@@ -1,9 +1,8 @@
 class RoomsController < ApplicationController
   def index
-
   end
 
-  # one of these render is not right. Find bug
+  #shouldn't be same route as show and room_list. Fix bug/route.
   def show
     render :show, layout: false
   end

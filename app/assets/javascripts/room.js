@@ -3,20 +3,17 @@
 RoomController = function(model, view){
   this.model = model
   this.view = view
-  new CustomEvent('gotData')
 }
 
 RoomController.prototype = {
   drawRoom: function(roomName){
-    self = this
-    console.log("creating custom chatroom drawn event")
     this.view.drawChatRoom(roomName);
     $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
 
 
   },
   bindMessageListeners: function(){
-    self = this;
+   self = this;
    $(document).bind('keypress',pressed);
 
    function pressed(e){
@@ -44,7 +41,6 @@ RoomController.prototype = {
 function Room(chatRoomUrl){
   this.chatRoomUrl = chatRoomUrl
   this.firebaseServer = new Firebase(this.chatRoomUrl)
-  //this.chatRoomPosition = cookieFactory.readInfo
 }
 
 Room.prototype = {

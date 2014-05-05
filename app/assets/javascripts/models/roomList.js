@@ -1,6 +1,6 @@
 RoomListApp.RoomList = function(name){
   new CustomEvent('gotData')
-  this.dataRef = new Firebase(BASE_URL);
+  this.dataRef = firebaseHelper.createFireBase(BASE_URL);
   this.dataRef.on('value', this.returnDatabase.bind(this));
 }
 

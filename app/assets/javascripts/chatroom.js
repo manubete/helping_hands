@@ -24,13 +24,7 @@ ChatRoomApp.RoomController.prototype = {
        }
    };
 
-    self.model.firebaseServer.limit(10).on('child_added', function (snapshot){
-      var message = snapshot.val();
-      $('<div>').text(message.text).prepend($('<em/>')
-        .text(message.user_token+': '+message.message)).appendTo($('#messagesDiv'));
-      $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-    });
-
+   firebaseHelper.bindChatWindowButtons(self.model.firebaseServer)
   }
 }
 
@@ -38,12 +32,11 @@ ChatRoomApp.RoomController.prototype = {
 
 ChatRoomApp.Room = function(chatRoomUrl){
   this.chatRoomUrl = chatRoomUrl
-  this.firebaseServer = new Firebase(this.chatRoomUrl)
   //this is only applicable when its the first user
-  this.geoLocationLat = cookieFactory.getValue;
-
   //we need to listen for the number of users for this to work
   //this.numberUsers = what we hear from the DB
+
+  this.firebaseServer = firebaseHelper.createFireBase(chatRoomUrl)
 }
 
 ChatRoomApp.Room.prototype = {
@@ -70,6 +63,5 @@ ChatRoomApp.RoomView.prototype = {
           $(".room-list").attr("class", "chatroom");
           $.event.trigger("ajax-back")
        })
-    }
-
+  }
 }

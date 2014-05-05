@@ -11,7 +11,6 @@ var geoHelper = (function(){
     dist = dist * 180/Math.PI
     dist = dist * 60 * 1.1515
     return dist
-
   }
 
 
@@ -39,6 +38,11 @@ var geoHelper = (function(){
       cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> modified firebase nesting structure
   return {
     failure: _failure,
     success: _success,

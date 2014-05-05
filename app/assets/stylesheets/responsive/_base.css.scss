@@ -11,6 +11,7 @@ blockquote {}
 
 body {
 	background-color: black;
+	color: #fff;
 }
 
 
@@ -176,4 +177,33 @@ NAVIGATION STYLES
 			}
 		}
 	}
+}
+/*********************
+Chatroom STYLES
+*********************/
+
+#messagesDiv {
+	width: 80%;
+	margin: 0 auto;
+	border: 1px solid black;
+	overflow: scroll;
+	height: 30em;
+	div {
+		margin: 2% 0;
+		padding: 5%;
+		background-color: #eee;
+		color: black;
+		border-left: 10px solid blue;
+		&:nth-child(even) {
+			border-left: 10px solid red;
+		}
+
+	}
+}
+#messageInput {
+	text-align: center;
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 3.5em;
 }

@@ -10,7 +10,7 @@ RoomListApp.RoomList.prototype = {
    $.event.trigger('gotData')
   },
   returnRooms: function( fireBaseData ){
-    var roomNames = Object.keys(fireBaseData)
+    var roomNames = Object.keys( fireBaseData)
     var roomArray = []
     for(var i = 0; i < roomNames.length; i++){
       roomArray.push({name: roomNames[i]})
@@ -18,3 +18,4 @@ RoomListApp.RoomList.prototype = {
     return roomArray
   }
 }
+

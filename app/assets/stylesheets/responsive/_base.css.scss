@@ -10,16 +10,9 @@ a {}
 blockquote {}
 
 body {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	background-color: black;
+
+	background: url('http://subtlepatterns.com/patterns/congruent_outline.png');
 	color: #fff;
-=======
-	background-color: green;
->>>>>>> update of console.log
-=======
-	background-color: white;
->>>>>>> extracted Firebase functionality to firebaseHelper
 }
 
 
@@ -190,28 +183,40 @@ NAVIGATION STYLES
 Chatroom STYLES
 *********************/
 
-#messagesDiv {
+.chatroom{
 	width: 80%;
 	margin: 0 auto;
-	border: 1px solid black;
+}
+#messagesDiv {
 	overflow: scroll;
 	height: 30em;
 	div {
-		margin: 2% 0;
+		width: 100%;
+		margin: 3% 0;
 		padding: 5%;
 		background-color: #eee;
 		color: black;
-		border-left: 10px solid blue;
+		border-bottom: 1em solid rgba(162, 228, 231, 0.79);
 		&:nth-child(even) {
-			border-left: 10px solid red;
+			border-bottom: 1em solid rgb(194, 206, 147);
 		}
 
 	}
 }
 #messageInput {
+	// margin: 0 auto;
+	width: 100%;
 	text-align: center;
   background: #fff;
-  border: none;
   border-radius: 5px;
-  font-size: 3.5em;
+  font-size: 1.2em;
+  padding: 5%;
+  margin-top: 1%;
+}
+
+.logo {
+	height: 30%;
+	width: 16%;
+	margin: 3% auto;
+	display: block;
 }

@@ -32,12 +32,13 @@ var cookieFactory =(function(){
     var parts = value.split(":" + name + "=");
     return parts[1].split(':').shift()
   }
-
-
   return {
     createCookie: _createCookie,
     getValue: _getValue
   }
-
-
 }())
+
+
+
+
+

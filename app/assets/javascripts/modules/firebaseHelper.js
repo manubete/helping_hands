@@ -4,6 +4,15 @@ var firebaseHelper = (function() {
     return newFirebase
   }
 
+  var _getFirebaseValue = function(firebaseObject) {
+
+    var val;
+    firebaseObject.on('value', function(snapshot) {
+      val = snapshot.val()
+    })
+    return val
+  }
+
   var _createRoom = function() {
     var roomPath = _makeRoomName()
     var newRoomUrl = BASE_URL + roomPath
@@ -44,6 +53,7 @@ var firebaseHelper = (function() {
   return {
     createFireBase: _createFireBase,
     createRoom: _createRoom,
+    getFirebaseValue: _getFirebaseValue,
     pushToFirebase: _pushToFirebase,
     bindChatWindowButtons: _bindChatWindowButtons
   }

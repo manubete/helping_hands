@@ -14,25 +14,41 @@ var geoHelper = (function(){
   }
 
   var _parseRoomsToDisplayEligibleRooms = function() {
-    var roomListJson = firebaseHelper.createFirebase(BASE_URL + ROOM_LIST_PATH)
+
+    roomListFirebaseObject = firebaseHelper.createFireBase(BASE_URL + ROOM_LIST_PATH)
+    var roomListJson = firebaseHelper.getFirebaseValue(roomListFirebaseObject)
+
     var roomNames = Object.keys(roomListJson)
 
-    for (var i = 0; i < roomNames.length; i++){
-      var roomLatitude = _getLatitude(i)
-      var roomLongitude = _getLongitude(i)
+    var roomLocations = []
 
+    for (var i = 0; i < roomNames.length; i++){
+
+      var roomLatitude = _getRoomLatitude(roomNames[i])
+      // debugger
+      var roomLongitude = _getRoomLongitude(roomNames[i])
+      roomLocations.push({room: roomNames[i], roomLatitude: roomLatitude, roomLongitude: roomLongitude})
     }
+
+    return roomLocations
 
   }
 
   var _getRoomLatitude = function(roomName) {
-    roomLatitudeUrl = BASE_URL + ROOM_LIST_PATH +
-    roomLatitudeFirebase = firebaseHelper.createFireBase()
+    var roomLatitudeUrl = BASE_URL + ROOM_LIST_PATH + roomName + '/location/latitude'
+    var roomLatitudeFirebase = firebaseHelper.createFireBase(roomLatitudeUrl)
+    var latitude = firebaseHelper.getFirebaseValue(roomLatitudeFirebase)
+
+    return latitude
 
   }
 
   var _getRoomLongitude = function(roomName) {
+    var roomLongitudeUrl = BASE_URL + ROOM_LIST_PATH + roomName + '/location/longitude'
+    var roomLongitudeFirebase = firebaseHelper.createFireBase(roomLongitudeUrl)
+    var longitude = firebaseHelper.getFirebaseValue(roomLongitudeFirebase)
 
+    return longitude
   }
 
 
@@ -68,7 +84,8 @@ var geoHelper = (function(){
     success: _success,
     defaultOps: _default,
     calculateDistance: _calculateDistance,
-    inRange: _inRange
+    inRange: _inRange,
+    parseRoomsToDisplayEligibleRooms: _parseRoomsToDisplayEligibleRooms
   }
 }())
 

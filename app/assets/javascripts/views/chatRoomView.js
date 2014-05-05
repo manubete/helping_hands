@@ -14,6 +14,7 @@ ChatRoomApp.RoomView.prototype = {
        }).done(function(data){
           var template = Handlebars.compile(data)
           $(".room-list").html(template(roomName));
+          $("#create_room_button").html('');
           $(".room-list").attr("class", "chatroom");
           $.event.trigger("ajax-back")
        })

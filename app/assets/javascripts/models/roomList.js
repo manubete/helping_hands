@@ -1,16 +1,17 @@
 RoomListApp.RoomList = function(name){
-  new CustomEvent('gotData')
-  this.dataRef = firebaseHelper.createFireBase(BASE_URL);
-  this.dataRef.on('value', this.returnDatabase.bind(this));
+  new CustomEvent('gotFirebaseRoomsData')
+  this.roomListFromFirebase = firebaseHelper.createFireBase(BASE_URL + ROOM_LIST_PATH);
+  this.roomListFromFirebase.on('value', this.returnDatabase.bind(this));
 }
 
 RoomListApp.RoomList.prototype = {
   returnDatabase: function( snapshot ){
    this.database = snapshot.val()
-   $.event.trigger('gotData')
+   $.event.trigger('gotFirebaseRoomsData')
   },
-  returnRooms: function( fireBaseData ){
-    var roomNames = Object.keys( fireBaseData)
+
+  returnRooms: function( fireBaseRoomsData){
+    var roomNames = Object.keys(fireBaseRoomsData)
     var roomArray = []
     for(var i = 0; i < roomNames.length; i++){
       roomArray.push({name: roomNames[i]})

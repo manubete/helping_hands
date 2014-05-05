@@ -7,10 +7,14 @@ RoomListApp.RoomListController.prototype = {
   listeners: function(){
     $(document).on('gotFirebaseRoomsData', this.summonRooms.bind(this) )
     $('.room-list').on("click", function(e) {
+      var chatroom = $(event.target).data('id')
       if ($(event.target) && $(event.target).hasClass("individual_room")) {
-        this.sendInfoToChatRoom($(event.target).data('id'));
+        this.sendInfoToChatRoom(chatroom);
+
+        firebaseHelper.getFirebaseUserLocations(chatroom)
+
         firebaseHelper.createFirebaseUserLocations({
-          roomPath: $(event.target).data('id'),
+          roomPath: chatroom,
           userToken: cookieFactory.getValue('user-token')
         })
       }

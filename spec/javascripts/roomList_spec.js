@@ -1,13 +1,8 @@
 describe("RoomList Thing", function(){
 
-  //x makes the test pending
-  xit("should access data from Firebase", function(){
-
-  });
-
-  xit("should return the rooms in Firebase", function(){
-    var roomList = new RoomList()
-    var rooms = roomList.returnRooms( database )
-    expect(rooms).toEqual( ['room1', 'room2', 'skippers'] )
+  it("should return the rooms in Firebase", function(){
+    var roomList = new RoomListApp.RoomList()
+    var rooms = roomList.returnRooms( dummyFirebaseDatabase )
+    expect(rooms).toEqual( [{ name : 'Carey1' }, { name : 'Gregg3' }, { name : 'roomQuarterMileAway' }, { name : 'room_list' }, { name : 'skippers' }, { name : 'IndiaRoom' }, { name : 'Rosalia2' }, { name : 'Abelardo2' }, { name : 'sanJoseRoom' }, { name : 'Izabella5' }])
   });
 })

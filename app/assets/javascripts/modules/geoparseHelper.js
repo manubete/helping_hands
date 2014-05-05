@@ -53,7 +53,12 @@ var geoparseHelper = (function(){
   }
 
   return {
-    parseRoomsToDisplayEligibleRooms: _parseRoomsToDisplayEligibleRooms
+    parseRoomsToDisplayEligibleRooms: _parseRoomsToDisplayEligibleRooms,
+    // _getEligibleRooms,
+    // _getRoomLongitude,
+    // _getRoomLatitude,
+    // _getRoomLocations,
+    // _roomIsEligible,
   }
 
 }())

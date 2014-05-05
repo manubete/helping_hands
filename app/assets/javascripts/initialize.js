@@ -34,9 +34,9 @@ PolarBear = {
       roomList: '.room-list',
       roomListTemplate: '#room-list-template'
     }
-    var roomListView = new RoomListView(roomListDomSelectors)
-    var roomList = new RoomList()
-    var roomListController = new RoomListController(roomList, roomListView)
+    var roomListView = new RoomListApp.RoomListView(roomListDomSelectors)
+    var roomList = new RoomListApp.RoomList()
+    var roomListController = new RoomListApp.RoomListController(roomList, roomListView)
     roomListController.listeners()
   },
 
@@ -48,11 +48,11 @@ PolarBear = {
     }
 
     // Instantiates a room, model and controller
-    var roomView = new RoomView(roomDomSelectors)
-    var room = new Room(chatRoomUrl)
-    var roomController = new RoomController(room, roomView)
+    var roomView = new ChatRoomApp.RoomView(roomDomSelectors)
+    var room = new ChatRoomApp.Room(chatRoomUrl)
+    var roomController = new ChatRoomApp.RoomController(room, roomView)
 
-    roomView.controller = roomController
+
     //creates a JSON object to insert a name into the room
      var roomName = {name: roomController.model.chatRoomUrl}
 

@@ -1,22 +1,17 @@
-//  Needs to split up into different files for MVC
-
-RoomController = function(model, view){
+ChatRoomApp.RoomController = function(model, view){
   this.model = model
   this.view = view
-  new CustomEvent('gotData')
 }
 
-RoomController.prototype = {
+ChatRoomApp.RoomController.prototype = {
   drawRoom: function(roomName){
-    self = this
-    console.log("creating custom chatroom drawn event")
     this.view.drawChatRoom(roomName);
     $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
 
 
   },
   bindMessageListeners: function(){
-    self = this;
+   self = this;
    $(document).bind('keypress',pressed);
 
    function pressed(e){
@@ -29,48 +24,40 @@ RoomController.prototype = {
        }
    };
 
-    self.model.firebaseServer.limit(10).on('child_added', function (snapshot){
-      var message = snapshot.val();
-      $('<div>').text(message.user_token+': '+message.message).fadeIn().appendTo($('#messagesDiv'));
-      $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-    });
-
+   firebaseHelper.bindChatWindowButtons(self.model.firebaseServer)
   }
 }
 
 //////
 
-function Room(chatRoomUrl){
+ChatRoomApp.Room = function(chatRoomUrl){
   this.chatRoomUrl = chatRoomUrl
-  this.firebaseServer = new Firebase(this.chatRoomUrl)
-  //this.chatRoomPosition = cookieFactory.readInfo
+  this.firebaseServer = firebaseHelper.createFireBase(chatRoomUrl)
 }
 
-Room.prototype = {
+ChatRoomApp.Room.prototype = {
 
 }
 
 //////////
-function RoomView(domSelectors){
+ChatRoomApp.RoomView = function (domSelectors){
   this.room = domSelectors["room"]
   this.roomTemplate = domSelectors["room-template"]
 }
 
-RoomView.prototype = {
+ChatRoomApp.RoomView.prototype = {
   drawChatRoom: function(roomName){
        var roomName = roomName
        self = this
        $.ajax({
         type: 'get',
-        url:'/room/1',
+        url:'/chatrooms/1',
         dataType: "text"
        }).done(function(data){
           var template = Handlebars.compile(data)
           $(".room-list").html(template(roomName));
           $(".room-list").attr("class", "chatroom");
-          console.log("sup")
           $.event.trigger("ajax-back")
        })
-    }
-
+  }
 }

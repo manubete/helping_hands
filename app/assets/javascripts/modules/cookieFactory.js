@@ -17,6 +17,8 @@ var cookieFactory =(function(){
   }
 
 //could fail because other cookie synthax is createCookie(name,value,days){}
+//key value pairs are probably way the days/expiration are not showing up
+//*Todo: figure out way the days value is not returned in the document.cookie
   var _createCookie = function(userLatitude, userLongitude, days){
     var userToken = _createUserToken();
     var date = _createDate(days);
@@ -30,11 +32,15 @@ var cookieFactory =(function(){
     return parts[1].split(':').shift()
   }
 
-
   return {
     createCookie: _createCookie,
-    getValue: _getValue,
+    getValue: _getValue
   }
-
-
 }())
+
+
+
+
+
+
+

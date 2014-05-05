@@ -27,8 +27,8 @@ var cookieFactory =(function(){
 }
 
   var _getValue = function(name){
-    var value = ":" + document.cookie;
-    var parts = value.split(":" + name + "=");
+    var value = ":"+ document.cookie;
+    var parts = value.split(name + "=");
     return parts[1].split(':').shift()
   }
 

@@ -102,3 +102,29 @@ NAVIGATION STYLES
 
  /* end .nav */
 
+
+/*********************
+Chatroom STYLES
+*********************/
+
+ #messagesDiv {
+	div {
+		margin: 2% 0;
+		padding: 3.5%;
+		background-color: #eee;
+		color: black;
+		font-size: 1.2em;
+		&:nth-child(even) {
+		}
+
+	}
+}
+#messageInput {
+  padding: 2.5%;
+
+}
+.logo {
+	margin: 1% auto;
+	width: 11%
+}
+

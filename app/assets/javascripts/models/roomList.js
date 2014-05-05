@@ -9,6 +9,7 @@ RoomListApp.RoomList.prototype = {
    this.database = snapshot.val()
    $.event.trigger('gotFirebaseRoomsData')
   },
+
   returnRooms: function( fireBaseRoomsData){
     var roomNames = Object.keys(fireBaseRoomsData)
     var roomArray = []

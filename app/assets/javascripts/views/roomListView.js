@@ -12,7 +12,7 @@ RoomListView.prototype = {
       dataType: "text"
      }).done(function(data){
        var template = Handlebars.compile(data);
-       $(".room-list").html(template(rooms));
+       $(".room-list").html(template(rooms))
      })
   }
 }

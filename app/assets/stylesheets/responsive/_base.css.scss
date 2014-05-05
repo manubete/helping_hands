@@ -10,7 +10,8 @@ a {}
 blockquote {}
 
 body {
-	background-color: white;
+	background: url('http://subtlepatterns.com/patterns/congruent_outline.png');
+	color: #fff;
 }
 
 
@@ -176,4 +177,45 @@ NAVIGATION STYLES
 			}
 		}
 	}
+}
+/*********************
+Chatroom STYLES
+*********************/
+
+.chatroom{
+	width: 80%;
+	margin: 0 auto;
+}
+#messagesDiv {
+	overflow: scroll;
+	height: 30em;
+	div {
+		width: 100%;
+		margin: 3% 0;
+		padding: 5%;
+		background-color: #eee;
+		color: black;
+		border-bottom: 1em solid rgba(162, 228, 231, 0.79);
+		&:nth-child(even) {
+			border-bottom: 1em solid rgb(194, 206, 147);
+		}
+
+	}
+}
+#messageInput {
+	// margin: 0 auto;
+	width: 100%;
+	text-align: center;
+  background: #fff;
+  border-radius: 5px;
+  font-size: 1.2em;
+  padding: 5%;
+  margin-top: 1%;
+}
+
+.logo {
+	height: 30%;
+	width: 16%;
+	margin: 3% auto;
+	display: block;
 }

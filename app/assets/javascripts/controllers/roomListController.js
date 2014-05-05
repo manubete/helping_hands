@@ -19,7 +19,7 @@ RoomListApp.RoomListController.prototype = {
   },
 
   summonRooms: function(){
-    var activeRooms = geoHelper.parseRoomsToDisplayEligibleRooms()
+    var activeRooms = geoparseHelper.parseRoomsToDisplayEligibleRooms()
     this.view.drawRoomList(activeRooms)
   },
 

@@ -1,5 +1,5 @@
 BASE_URL = 'https://luminous-fire-2873.firebaseio.com/'
-ROOM_LIST_PATH = 'room_list/'
+ROOM_LIST_PATH = BASE_URL + 'room_list/'
 
 
 $('document').ready( function(){

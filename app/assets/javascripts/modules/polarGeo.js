@@ -17,21 +17,37 @@ var geoHelper = (function(){
 
     roomListFirebaseObject = firebaseHelper.createFireBase(BASE_URL + ROOM_LIST_PATH)
     var roomListJson = firebaseHelper.getFirebaseValue(roomListFirebaseObject)
-
     var roomNames = Object.keys(roomListJson)
-
-    var roomLocations = []
-
-    for (var i = 0; i < roomNames.length; i++){
-
-      var roomLatitude = _getRoomLatitude(roomNames[i])
-      // debugger
-      var roomLongitude = _getRoomLongitude(roomNames[i])
-      roomLocations.push({room: roomNames[i], roomLatitude: roomLatitude, roomLongitude: roomLongitude})
+    var roomLocationArray = _getRoomLocations(roomNames)
+    
+    var eligibleRoomsArray = []
+    for (var i = 0; i < roomLocationArray.length; i++){
+      if (_roomIsEligible(roomLocationArray[i])) {
+        eligibleRoomsArray.push(roomLocationArray[i])
+      }
     }
+    return eligibleRoomsArray 
+  }
 
-    return roomLocations
+  var _roomIsEligible = function(roomObject) {
+    var userLocation = [cookieFactory.getValue('user-Latitude'), cookieFactory.getValue('user-Longitude')]
+    var roomLocation = [roomObject['roomLatitude'], roomObject['roomLongitude']]
+    
+    if (_inRange(userLocation, roomLocation)) {
+      return true
+    } else {
+      return false
+    }
+  }
 
+  var _getRoomLocations = function(roomNames) {
+    var roomLocationArray = []
+    for (var i = 0; i < roomNames.length; i++){
+      var roomLatitude = _getRoomLatitude(roomNames[i])
+      var roomLongitude = _getRoomLongitude(roomNames[i])
+      roomLocationArray.push({room: roomNames[i], roomLatitude: roomLatitude, roomLongitude: roomLongitude})
+    }
+    return roomLocationArray
   }
 
   var _getRoomLatitude = function(roomName) {
@@ -50,8 +66,6 @@ var geoHelper = (function(){
 
     return longitude
   }
-
-
 
   var _inRange = function (location1, location2) {
 

@@ -8,7 +8,6 @@ ChatRoomApp.RoomController.prototype = {
     this.view.drawChatRoom(roomName);
     $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
 
-
   },
   bindMessageListeners: function(){
    self = this;

@@ -1,4 +1,7 @@
 BASE_URL = 'https://luminous-fire-2873.firebaseio.com/'
+ROOM_LIST_PATH = 'room_list/'
+
+
 $('document').ready( function(){
   PolarBear.initialize()
 } );

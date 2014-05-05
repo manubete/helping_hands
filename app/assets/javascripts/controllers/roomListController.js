@@ -5,12 +5,16 @@ RoomListApp.RoomListController = function(model, view){
 
 RoomListApp.RoomListController.prototype = {
   listeners: function(){
-    $(document).on('gotData', this.summonRooms.bind(this) )
+    $(document).on('gotFirebaseRoomsData', this.summonRooms.bind(this) )
 
     $('.room-list').on("click", function(e) {
       if ($(event.target) && $(event.target).hasClass("individual_room")) {
         this.sendInfoToChatRoom($(event.target).data('id'));
       }
+    }.bind(this))
+
+    $('#create_room').on("click", function() {
+      this.sendInfoToChatRoom(firebaseHelper.createRoom())
     }.bind(this))
   },
 
@@ -20,7 +24,6 @@ RoomListApp.RoomListController.prototype = {
   },
 
   sendInfoToChatRoom: function(roomPath) {
-
     var firebaseRoomUrl = BASE_URL + roomPath
     $.event.trigger("readyToMakeRoom", firebaseRoomUrl)
   }

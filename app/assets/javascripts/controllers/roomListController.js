@@ -19,8 +19,8 @@ RoomListApp.RoomListController.prototype = {
   },
 
   summonRooms: function(){
-    var rooms = this.model.returnRooms( this.model.database )
-    this.view.drawRoomList(rooms)
+    var activeRooms = geoHelper.parseRoomsToDisplayEligibleRooms()
+    this.view.drawRoomList(activeRooms)
   },
 
   sendInfoToChatRoom: function(roomPath) {

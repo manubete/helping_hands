@@ -113,11 +113,18 @@ Chatroom STYLES
 		padding: 3.5%;
 		background-color: #eee;
 		color: black;
-		border-left: 10px solid blue;
+		font-size: 1.2em;
 		&:nth-child(even) {
-			border-left: 10px solid red;
 		}
 
 	}
+}
+#messageInput {
+  padding: 2.5%;
+
+}
+.logo {
+	margin: 1% auto;
+	width: 11%
 }
 

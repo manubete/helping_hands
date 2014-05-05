@@ -13,6 +13,7 @@ RoomList.prototype = {
   },
   returnRooms: function( fireBaseData ){
     var roomNames = Object.keys( fireBaseData)
+
     var roomArray = []
     for(var i = 0; i < roomNames.length; i++){
       roomArray.push({name: roomNames[i]})

@@ -31,8 +31,7 @@ RoomController.prototype = {
 
     self.model.firebaseServer.limit(10).on('child_added', function (snapshot){
       var message = snapshot.val();
-      $('<div>').text(message.text).prepend($('<em/>')
-        .text(message.user_token+': '+message.message)).appendTo($('#messagesDiv'));
+      $('<div>').text(message.user_token+': '+message.message).fadeIn().appendTo($('#messagesDiv'));
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     });
 

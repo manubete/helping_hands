@@ -15,7 +15,7 @@ var firebaseHelper = (function() {
   var _pushToFirebase = function(firebaseUrl, userToken, userMessage) {
     var chatRoom = new Firebase(firebaseUrl)
 
-    chatRoom.push({user_token: userToken, message: userMessage})
+    chatRoom.push({user_token: cookieFactory.getValue('user-token'), message: userMessage})
   }
 
   return {

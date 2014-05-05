@@ -20,9 +20,9 @@ PolarBear = {
       roomList: '.room-list',
       roomListTemplate: '#room-list-template'
     }
-    var roomListView = new RoomListView(roomListDomSelectors)
-    var roomList = new RoomList()
-    var roomListController = new RoomListController(roomList, roomListView)
+    var roomListView = new RoomListApp.RoomListView(roomListDomSelectors)
+    var roomList = new RoomListApp.RoomList()
+    var roomListController = new RoomListApp.RoomListController(roomList, roomListView)
     roomListController.listeners()
   }
 }

@@ -5,5 +5,6 @@ PolarBear::Application.routes.draw do
   resources :chatrooms, only: [:show]
 
   get '/room_list', to: 'rooms#room_list'
-
 end
+
+

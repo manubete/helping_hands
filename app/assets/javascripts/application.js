@@ -15,4 +15,5 @@
 //= require handlebars
 //= require modules/polarGeo
 //= require modules/cookieFactory
+//= require modules/firebaseHelper
 //= require_tree .

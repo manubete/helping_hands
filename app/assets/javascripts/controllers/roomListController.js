@@ -5,7 +5,6 @@ RoomListApp.RoomListController = function(model, view){
 
 RoomListApp.RoomListController.prototype = {
   listeners: function(){
-
     $(document).on('gotData', this.summonRooms.bind(this) )
 
     $('.room-list').on("click", function(e) {

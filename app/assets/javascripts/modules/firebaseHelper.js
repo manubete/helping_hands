@@ -1,5 +1,8 @@
 var firebaseHelper = (function() {
-
+  var _createFireBase = function(firebaseUrl) {
+    var newFirebase = new Firebase(firebaseUrl)
+    return newFirebase
+  }
 
   var _createRoom = function(userLocation) {
     var roomPath = geoHelper.randomizeString
@@ -11,20 +14,24 @@ var firebaseHelper = (function() {
     return newRoomUrl
   }
 
-<<<<<<< HEAD
-
   var _pushToFirebase = function(firebaseUrl, userToken, userMessage) {
-=======
-  var _pushToFirebase = function(firebaseUrl, userToken, userMessage){
->>>>>>> User can see roomlist and click on individual rooms. User can post messages.
     var chatRoom = new Firebase(firebaseUrl)
-
-    chatRoom.push({user_token: userToken, message: userMessage})
+  }
+  var _bindChatWindowButtons = function(firebaseServer) {
+    var chatRoom = firebaseServer
+    chatRoom.limit(10).on('child_added', function (snapshot) {
+      var message = snapshot.val();
+      $('<div>').text(message.text).prepend($('<em/>')
+        .text(message.user_token+': '+message.message)).appendTo($('#messagesDiv'));
+      $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    })
   }
 
   return {
+    createFireBase: _createFireBase,
     createRoom: _createRoom,
-    pushToFirebase: _pushToFirebase
+    pushToFirebase: _pushToFirebase,
+    bindChatWindowButtons: _bindChatWindowButtons
   }
 
 }())

@@ -220,3 +220,44 @@ Chatroom STYLES
 	margin: 3% auto;
 	display: block;
 }
+.room-list {
+	width: 80%;
+	margin: 2% auto;
+	overflow: scroll;
+	height: 40em;
+}
+.room {
+	text-align: left;
+	width: 100%;
+	padding: 4%;
+	margin: 2% 0;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	background-color: $polar-blue;
+	color: darken($polar-blue, 60%);
+	border-bottom: 0.5em solid white;
+	opacity: 0.8;
+	position: relative;
+	&:nth-child(even) {
+		background-color: $polar-white;
+		color: darken($polar-white, 50%)
+	}
+	&:hover {
+		opacity: 1;
+		i {
+			color: rgb(127, 98, 241);
+		}
+	}
+	i {
+		color: white;
+		position: absolute;
+		right: 1%;
+		top: 1%;
+
+	}
+}
+
+.inactive {
+	background-color: #ACACAC;
+	color: rgba(160, 160, 160, 0.65);
+}

@@ -13,6 +13,17 @@ var geoHelper = (function(){
     return dist
   }
 
+  var _getCentroid = function(userLocations){
+    var latSum = 0
+    var longSum = 0
+    for(var i = 0; i < userLocations.length; i++) {
+      latSum += userLocations[i].latitude
+      longSum += userLocations[i].longitude
+    }
+    var centroid = { latitude: latSum / 3, longitude: longSum / 3 }
+    return centroid
+  }
+
   var _parseRoomsToDisplayEligibleRooms = function() {
     var roomListJson = firebaseHelper.createFirebase(BASE_URL + ROOM_LIST_PATH)
     var roomNames = Object.keys(roomListJson)
@@ -61,7 +72,8 @@ var geoHelper = (function(){
     success: _success,
     defaultOps: _default,
     calculateDistance: _calculateDistance,
-    inRange: _inRange
+    inRange: _inRange,
+    getCentroid: _getCentroid
   }
 }())
 

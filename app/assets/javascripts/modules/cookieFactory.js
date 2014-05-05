@@ -29,10 +29,16 @@ var cookieFactory =(function(){
     var parts = value.split(name + "=");
     return parts[1].split(':').shift()
   }
+  var _getUserLocation = function() {
+    var userLat = _getValue('user-Latitude')
+    var userLon = _getValue('user-Longitude')
+    return { latitude: userLat, longitude: userLon }
+  }
 
   return {
     createCookie: _createCookie,
-    getValue: _getValue
+    getValue: _getValue,
+    getUserLocation: _getUserLocation
   }
 }())
 

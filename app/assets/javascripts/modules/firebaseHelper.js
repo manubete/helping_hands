@@ -39,13 +39,20 @@ var firebaseHelper = (function() {
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }
+  var _createFirebaseUserLocations = function(fbInfo) {
+    var userLatLong = cookieFactory.getUserLocation()
+    var fireBasePath = BASE_URL + '/room_list/' + fbInfo.roomPath + "/user_locations"
+    var userLocation = new Firebase( fireBasePath )
+    userLocation.push(userLatLong)
+  }
 
 
   return {
     createFireBase: _createFireBase,
     createRoom: _createRoom,
     pushToFirebase: _pushToFirebase,
-    bindChatWindowButtons: _bindChatWindowButtons
+    bindChatWindowButtons: _bindChatWindowButtons,
+    createFirebaseUserLocations: _createFirebaseUserLocations
   }
 
 }())

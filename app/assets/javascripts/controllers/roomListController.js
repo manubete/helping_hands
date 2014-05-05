@@ -6,10 +6,13 @@ RoomListApp.RoomListController = function(model, view){
 RoomListApp.RoomListController.prototype = {
   listeners: function(){
     $(document).on('gotFirebaseRoomsData', this.summonRooms.bind(this) )
-
     $('.room-list').on("click", function(e) {
       if ($(event.target) && $(event.target).hasClass("individual_room")) {
         this.sendInfoToChatRoom($(event.target).data('id'));
+        firebaseHelper.createFirebaseUserLocations({
+          roomPath: $(event.target).data('id'),
+          userToken: cookieFactory.getValue('user-token')
+        })
       }
     }.bind(this))
 

@@ -14,7 +14,6 @@ var geoHelper = (function(){
   }
 
   var _parseRoomsToDisplayEligibleRooms = function() {
-
     roomListFirebaseObject = firebaseHelper.createFireBase(BASE_URL + ROOM_LIST_PATH)
     var roomListJson = firebaseHelper.getFirebaseValue(roomListFirebaseObject)
     var roomNames = Object.keys(roomListJson)
@@ -102,6 +101,19 @@ var geoHelper = (function(){
     parseRoomsToDisplayEligibleRooms: _parseRoomsToDisplayEligibleRooms
   }
 }())
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

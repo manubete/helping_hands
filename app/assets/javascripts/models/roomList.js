@@ -1,11 +1,11 @@
-function RoomList(name) {
+RoomListApp.RoomList = function(name){
   console.log('creating cusom event...')
   new CustomEvent('gotData')
   this.dataRef = new Firebase(BASE_URL);
   this.dataRef.on('value', this.returnDatabase.bind(this));
 }
 
-RoomList.prototype = {
+RoomListApp.RoomList.prototype = {
   returnDatabase: function( snapshot ){
    this.database = snapshot.val()
    console.log('triggering custom event...')

@@ -1,9 +1,9 @@
-function RoomListController(model, view){
+RoomListApp.RoomListController = function(model, view){
   this.model = model
   this.view = view
 }
 
-RoomListController.prototype = {
+RoomListApp.RoomListController.prototype = {
   listeners: function(){
     self = this;
     console.log('listening to custom event')

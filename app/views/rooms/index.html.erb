@@ -1,5 +1,5 @@
 <div class="container">
-  <%= image_tag('white_bear.png', :class => "logo") %>
+  <%= link_to image_tag('white_bear.png', :class => "logo"), root_path %>
   <section class="room-list">
     <script id="room-template" type="text/x-handlebars-template">
       {{#rooms}}
@@ -8,5 +8,7 @@
     </script>
 
   </section>
-  <span id="create_room_button"><button id="create_room" type="submit">Create a Room</button></span
+  <div class="create-room">
+    <button id="create_room" class="button" type="submit">Create a Room</button>
+  </div>
 </div>

@@ -18,15 +18,4 @@ describe('geoparseHelper', function(){
       expect(actualLatitude).toEqual(expectedLatitude)
     })
   })
-
-
-
-  describe('the parsing method returns the appropriate rooms', function() {
-
-    it('returns an ', function() {
-      var geoparseHelper = new geoparseHelper()
-
-
-    })
-  })
 });

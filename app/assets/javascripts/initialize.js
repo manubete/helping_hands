@@ -10,16 +10,26 @@ PolarBear = {
     this.checkGeoLocation()
 
     // this.prepareMVC()
+    this.bindRoomListener();
+    this.prepareRoomListMVC()
   },
   checkGeoLocation: function(){
    // if ("geolocation" in navigator)
-       if(navigator.geolocation){
+    if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(geoHelper.success, geoHelper.failure, geoHelper.defaultOps)
     } else {
       console.log("the fails")
     }
   },
-  prepareMVC: function(){
+  bindRoomListener: function() {
+    var self = this;
+    new CustomEvent('readyToMakeRoom', {'chatRoomUrl': ''})
+    $(document).on('readyToMakeRoom', function(event, chatRoomUrl) {
+      self.prepareRoomMVC(chatRoomUrl)
+    })
+
+  },
+  prepareRoomListMVC: function(){
     var roomListDomSelectors = {
       roomList: '.room-list',
       roomListTemplate: '#room-list-template'
@@ -28,5 +38,26 @@ PolarBear = {
     var roomList = new RoomList()
     var roomListController = new RoomListController(roomList, roomListView)
     roomListController.listeners()
+  },
+
+  prepareRoomMVC: function(chatRoomUrl){
+    // Sets the labels of the chatRoom Dom elements
+    var roomDomSelectors = {
+      room: '.room',
+      roomTemplate: '#room-template'
+    }
+
+    // Instantiates a room, model and controller
+    var roomView = new RoomView(roomDomSelectors)
+    var room = new Room(chatRoomUrl)
+    var roomController = new RoomController(room, roomView)
+
+    roomView.controller = roomController
+    //creates a JSON object to insert a name into the room
+     var roomName = {name: roomController.model.chatRoomUrl}
+
+     // draw the room
+    roomController.drawRoom(roomName)
+
   }
 }

@@ -39,6 +39,11 @@ ChatRoomApp.RoomController.prototype = {
 ChatRoomApp.Room = function(chatRoomUrl){
   this.chatRoomUrl = chatRoomUrl
   this.firebaseServer = new Firebase(this.chatRoomUrl)
+  //this is only applicable when its the first user
+  this.geoLocationLat = cookieFactory.getValue;
+
+  //we need to listen for the number of users for this to work
+  //this.numberUsers = what we hear from the DB
 }
 
 ChatRoomApp.Room.prototype = {

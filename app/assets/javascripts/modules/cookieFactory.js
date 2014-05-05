@@ -37,11 +37,11 @@ var cookieFactory =(function(){
 
   return {
     createCookie: _createCookie,
-
     getValue: _getValue
-
-
   }
-
-
 }())
+
+
+
+
+

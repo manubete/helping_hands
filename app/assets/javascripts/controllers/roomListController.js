@@ -11,6 +11,7 @@ RoomListApp.RoomListController.prototype = {
       if ($(event.target) && $(event.target).hasClass("individual_room")) {
         this.sendInfoToChatRoom(chatroom);
 
+        // user event driven programming here
         firebaseHelper.getFirebaseUserLocations(chatroom)
 
         firebaseHelper.createFirebaseUserLocations({

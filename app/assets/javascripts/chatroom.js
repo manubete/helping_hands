@@ -57,7 +57,7 @@ ChatRoomApp.RoomView.prototype = {
        self = this
        $.ajax({
         type: 'get',
-        url:'/room/1',
+        url:'/chatrooms/1',
         dataType: "text"
        }).done(function(data){
           var template = Handlebars.compile(data)

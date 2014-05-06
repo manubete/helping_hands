@@ -18,7 +18,7 @@ PolarBear = {
       url: '/landing_page',
       dataType: "text"
      }).done(function(data){
-       $(".room-list").html(data)
+       $(".other_stuff").html(data)
        console.log(data)
      })
   },

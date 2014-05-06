@@ -14,6 +14,7 @@ RoomListApp.RoomListView.prototype = {
      }).done(function(data){
        var template = Handlebars.compile(data);
        $(".room-list").html(template(rooms))
+       $(".other_stuff").html("")
      })
   }
 }

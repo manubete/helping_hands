@@ -7,13 +7,52 @@ $('document').ready( function(){
 
 PolarBear = {
   initialize: function(){
+    //makes a landing page that fades off on geosuccess
+    this.landingPage()
     // makes sure the asynchronous call comes back
-
     this.checkGeoLocation()
-    // this.prepareMVC()
     this.bindRoomListener();
     this.prepareRoomListMVC()
+
+    $(document).on('geoDataReceived', this.indexPage.bind(this) )
+    $(document).on('geoDataReceived', this.bindRoomListener.bind(this) )
+    $(document).on('geoDataReceived', this.prepareRoomListMVC.bind(this) )
   },
+
+  landingPage: function(){
+    console.log("landing page")
+    // changing the room list class so it fits the landing page
+    $('section').removeClass('room-list').addClass('room-list-landing')
+
+    // changing the create room button class so it fits the landing page
+    $('.create-room').removeClass('create-room').addClass('create-room-landing')
+
+    //change the logo class so it fits the landing page
+    $('.logo').removeClass('logo').addClass('logo-landing')
+
+    //add the motto
+    jQuery('<section/>', {
+    id: 'motto',
+    rel: 'external',
+    text: 'PolarBear, big enough to break the Ice'
+    }).appendTo('.room-list-landing');
+  },
+
+  indexPage: function(){
+    console.log("index page")
+    // changing the room list class so it fits the index page
+    $('section').removeClass('room-list-landing').addClass('room-list')
+
+    // changing the create room button class so it fits the index page
+    $('.create-room-landing').removeClass('create-room-landing').addClass('create-room')
+
+    //change the logo class so it fits the index page
+    $('.logo-landing').removeClass('logo-landing').addClass('logo')
+
+    //remove the motto
+    $('#motto').remove()
+  },
+
   checkGeoLocation: function(){
    // if ("geolocation" in navigator)
     if(navigator.geolocation){
@@ -28,8 +67,8 @@ PolarBear = {
     $(document).on('readyToMakeRoom', function(event, chatRoomUrl) {
       self.prepareRoomMVC(chatRoomUrl)
     })
-
   },
+
   prepareRoomListMVC: function(){
     var roomListDomSelectors = {
       roomList: '.room-list',
@@ -53,13 +92,11 @@ PolarBear = {
     var room = new ChatRoomApp.Room(chatRoomUrl)
     var roomController = new ChatRoomApp.RoomController(room, roomView)
 
-
     //creates a JSON object to insert a name into the room
      var roomName = {name: roomController.model.chatRoomUrl}
 
      // draw the room
     roomController.drawRoom(roomName)
-
   }
 }
 

@@ -34,7 +34,6 @@ PolarBear = {
 
   fireRoomListEvents: function() {
     $(document).on("geoDataReceived", function(){
-      console.log("trigger was heard")
       this.bindRoomListener();
       this.prepareRoomListMVC()
     }.bind(this))

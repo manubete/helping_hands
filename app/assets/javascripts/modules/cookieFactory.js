@@ -37,7 +37,7 @@ var cookieFactory =(function(){
   return {
     createCookie: _createCookie,
     getValue: _getValue,
-    createUserToken: _createUserToken
+    createUserToken: _createUserToken,
     getUserLocation: _getUserLocation
   }
 }())

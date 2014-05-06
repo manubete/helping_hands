@@ -15,6 +15,7 @@ RoomListApp.RoomListView.prototype = {
        var template = Handlebars.compile(data);
        $(".room-list").html(template(rooms))
        $(".other_stuff").html("")
+       $(".create-room").toggle()
      })
   }
 }

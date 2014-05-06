@@ -274,7 +274,9 @@ Chatroom STYLES
 }
 
 .create-room {
-	width: 100%;
+	width: 70%;
+	margin: auto;
+	display:none;
 	button {
 		width: 80%;
 		margin: 0 auto
@@ -302,3 +304,4 @@ Chatroom STYLES
 #make_space {
 	height: 20em;
 }
+

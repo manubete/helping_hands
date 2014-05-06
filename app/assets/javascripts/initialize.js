@@ -19,7 +19,7 @@ PolarBear = {
       dataType: "text"
      }).done(function(data){
        $(".other_stuff").html(data)
-       console.log(data)
+
      })
   },
 

@@ -35,6 +35,7 @@ var firebaseHelper = (function() {
   }
 
   var _pushToFirebase = function(firebaseUrl, userToken, userMessage){
+    debugger
     var chatRoom = new Firebase(firebaseUrl)
     chatRoom.push({user_token: cookieFactory.getValue('user-token'), message: userMessage})
   }
@@ -58,5 +59,3 @@ var firebaseHelper = (function() {
   }
 
 }())
-
-

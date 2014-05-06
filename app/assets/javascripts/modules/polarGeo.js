@@ -13,30 +13,6 @@ var geoHelper = (function(){
     return dist
   }
 
-  var _parseRoomsToDisplayEligibleRooms = function() {
-    var roomListJson = firebaseHelper.createFirebase(BASE_URL + ROOM_LIST_PATH)
-    var roomNames = Object.keys(roomListJson)
-    for (var i = 0; i < roomNames.length; i++){
-      var roomLatitude = _getLatitude(i)
-      var roomLongitude = _getLongitude(i)
-    }
-  }
-
-  var _getRoomLatitude = function(roomName) {
-    roomLatitudeUrl = BASE_URL + ROOM_LIST_PATH +
-    roomLatitudeFirebase = firebaseHelper.createFireBase()
-  }
-
-
-
-
-
-  var _getRoomLongitude = function(roomName) {
-
-  }
-
-
-
   var _inRange = function (location1, location2) {
     var acceptable_range = .5 // this is the range variable to set
     var lat1 = location1[0]
@@ -51,11 +27,12 @@ var geoHelper = (function(){
     } else {
       return false
     }
-
   }
 
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
   var _success = function(position){
+     $.event.trigger("geoDataReceived")
+      console.log("polar geo success gets triggered")
       cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
@@ -68,17 +45,3 @@ var geoHelper = (function(){
     inRange: _inRange
   }
 }())
-
-
-
-
-
-
-
-
-
-
-
-
-
-

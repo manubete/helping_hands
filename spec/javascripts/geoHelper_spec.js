@@ -1,6 +1,4 @@
 describe('geoHelper', function(){
-
-
   it("calculates the distance between two geo points", function(){
     var location1 = [37.780446, -122.405950]
     var location2 = [37.456906, -122.161077]
@@ -11,13 +9,10 @@ describe('geoHelper', function(){
 
   it("returns true for value within set radius (.5m)", function(){
     expect(geoHelper.inRange([37.795134, -122.413548], [37.796186, -122.407025])).toEqual(true)
-
   })
 
   it("returns false for value beyond set radius (.5m)", function(){
     expect(geoHelper.inRange([37.795643, -122.415436], [37.985575, -121.979245])).toEqual(false)
-
   })
-
 
 });

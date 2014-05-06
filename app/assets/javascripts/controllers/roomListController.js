@@ -5,9 +5,11 @@ RoomListApp.RoomListController = function(model, view){
 
 RoomListApp.RoomListController.prototype = {
   listeners: function(){
+    $(document).on('gotFirebaseRoomsData', this.summonRooms.bind(this) )
+
     $('.room-list').on("click", function(e) {
       if ($(event.target) && $(event.target).hasClass("individual_room")) {
-        self.sendInfoToChatRoom($(event.target).data('id'));
+        this.sendInfoToChatRoom($(event.target).data('id'));
       }
     }.bind(this))
 
@@ -17,8 +19,9 @@ RoomListApp.RoomListController.prototype = {
   },
 
   summonRooms: function(){
-    var rooms = this.model.returnRooms( this.model.database )
-    this.view.drawRoomList(rooms)
+    var activeRooms = geoparseHelper.parseRoomsToDisplayEligibleRooms()
+
+    this.view.drawRoomList(activeRooms)
   },
 
   sendInfoToChatRoom: function(roomPath) {

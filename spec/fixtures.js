@@ -1,4 +1,4 @@
-{
+var dummyFirebaseDatabase = {
   "Carey1" : {
     "-JMA_yjNJuYQ2RbsjysN" : {
       "user_token" : "LpukoIaru2YnHPw",

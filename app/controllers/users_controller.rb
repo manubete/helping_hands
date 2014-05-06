@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  after_save :place_user
+  # after_save :place_user
   def index
 
   end

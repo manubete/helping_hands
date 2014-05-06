@@ -39,6 +39,14 @@ var firebaseHelper = (function() {
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }
+  // testin this function. add it to a basicHelper module?
+  Object.size = function(obj) {
+      var size = 0, key;
+      for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+      }
+      return size;
+  };
 
   var _createFirebaseUserLocations = function(fbInfo) {
     var userLatLong = cookieFactory.getUserLocation()
@@ -51,6 +59,7 @@ var firebaseHelper = (function() {
     var usersLocation = new Firebase( fireBasePath )
     usersLocation.on('value', function(snapshot){
       $.event.trigger( 'gotLocations' , { userLocation: snapshot.val() } )
+      Object.userLocations = Object.size(snapshot.val())
     })
   }
 

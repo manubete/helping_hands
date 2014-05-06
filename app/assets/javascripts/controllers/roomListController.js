@@ -9,7 +9,7 @@ RoomListApp.RoomListController.prototype = {
     $('.room-list').on("click", ".individual_room", this.handleUserRoomAssignment.bind(this))
 
     $('#create_room').on("click", function() {
-      this.sendInfoToChatRoom(firebaseHelper.createRoom())
+      this.sendUserToChatroom(firebaseHelper.createRoom())
     }.bind(this))
   },
 
@@ -20,20 +20,24 @@ RoomListApp.RoomListController.prototype = {
   getInfoFromChatroom: function(roomPath){
     firebaseHelper.getFirebaseUserLocations(roomPath)
   },
-  sendInfoToChatRoom: function(roomPath) {
+  sendUserToChatroom: function(roomPath){
     var firebaseRoomUrl = BASE_URL + roomPath
-
-    console.log($.event.trigger("readyToMakeRoom", firebaseRoomUrl))
-
+    $.event.trigger("readyToMakeRoom", firebaseRoomUrl)
+  },
+  sendInfoToChatRoom: function(roomPath) {
     firebaseHelper.createFirebaseUserLocations({
-      roomPath: roomPath,
-      userToken: cookieFactory.getValue('user-token')
+      roomPath: roomPath
     })
   },
   handleUserRoomAssignment: function() {
-    var chatroom = $(event.target).data('id')
-    this.sendInfoToChatRoom(chatroom);
+    var $room = $(event.target)
+    var chatroom = $room.data('id')
+
     this.getInfoFromChatroom(chatroom);
+    if (Object.userLocations < 3) {
+      this.sendInfoToChatRoom(chatroom);
+    }
+    this.sendUserToChatroom(chatroom)
   }
 
 }

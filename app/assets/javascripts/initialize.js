@@ -7,15 +7,11 @@ $('document').ready( function(){
 
 PolarBear = {
   initialize: function(){
-    // makes sure the asynchronous call comes back
-
     this.checkGeoLocation()
-    // this.prepareMVC()
     this.bindRoomListener();
     this.prepareRoomListMVC()
   },
   checkGeoLocation: function(){
-   // if ("geolocation" in navigator)
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(geoHelper.success, geoHelper.failure, geoHelper.defaultOps)
     } else {
@@ -42,22 +38,14 @@ PolarBear = {
   },
 
   prepareRoomMVC: function(chatRoomUrl){
-    // Sets the labels of the chatRoom Dom elements
     var roomDomSelectors = {
       room: '.room',
       roomTemplate: '#room-template'
     }
-
-    // Instantiates a room, model and controller
     var roomView = new ChatRoomApp.RoomView(roomDomSelectors)
     var room = new ChatRoomApp.Room(chatRoomUrl)
     var roomController = new ChatRoomApp.RoomController(room, roomView)
-
-
-    //creates a JSON object to insert a name into the room
-     var roomName = {name: roomController.model.chatRoomUrl}
-
-     // draw the room
+    var roomName = {name: roomController.model.chatRoomUrl}
     roomController.drawRoom(roomName)
 
   }

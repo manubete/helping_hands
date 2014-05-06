@@ -19,3 +19,4 @@ RoomListApp.RoomList.prototype = {
     return roomArray
   }
 }
+

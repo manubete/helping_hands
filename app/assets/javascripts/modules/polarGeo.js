@@ -14,9 +14,7 @@ var geoHelper = (function(){
   }
 
   var _inRange = function (location1, location2) {
-
     var acceptable_range = .5 // this is the range variable to set
-
     var lat1 = location1[0]
     var lat2 = location2[0]
     var lon1 = location1[1]
@@ -37,7 +35,6 @@ var geoHelper = (function(){
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
 
-
   return {
     failure: _failure,
     success: _success,
@@ -46,20 +43,3 @@ var geoHelper = (function(){
     inRange: _inRange
   }
 }())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

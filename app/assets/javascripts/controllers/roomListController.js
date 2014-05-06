@@ -9,7 +9,9 @@ RoomListApp.RoomListController.prototype = {
 
     $('.room-list').on("click", function(e) {
       if ($(event.target) && $(event.target).hasClass("individual_room")) {
+        debugger
         this.sendInfoToChatRoom($(event.target).data('id'));
+
       }
     }.bind(this))
 

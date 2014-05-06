@@ -35,10 +35,3 @@ var cookieFactory =(function(){
     createUserToken: _createUserToken
   }
 }())
-
-
-
-
-
-
-

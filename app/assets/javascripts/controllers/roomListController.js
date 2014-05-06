@@ -26,6 +26,6 @@ RoomListApp.RoomListController.prototype = {
 
   sendInfoToChatRoom: function(roomPath) {
     var firebaseRoomUrl = BASE_URL + roomPath
-    $.event.trigger("readyToMakeRoom", firebaseRoomUrl)
+    $.event.trigger("readyToMakeRoom", roomPath)
   }
 }

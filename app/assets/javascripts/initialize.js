@@ -21,11 +21,12 @@ PolarBear = {
   bindRoomListener: function() {
     var self = this;
     new CustomEvent('readyToMakeRoom', {'chatRoomUrl': ''})
-    $(document).on('readyToMakeRoom', function(event, chatRoomUrl) {
-      self.prepareRoomMVC(chatRoomUrl)
+    $(document).on('readyToMakeRoom', function(event, roomPath) {
+      var chatRoomUrl = BASE_URL + roomPath
+      self.prepareRoomMVC(chatRoomUrl, roomPath)
     })
-
   },
+
   prepareRoomListMVC: function(){
     var roomListDomSelectors = {
       roomList: '.room-list',
@@ -37,13 +38,13 @@ PolarBear = {
     roomListController.listeners()
   },
 
-  prepareRoomMVC: function(chatRoomUrl){
+  prepareRoomMVC: function(chatRoomUrl, roomPath){
     var roomDomSelectors = {
       room: '.room',
       roomTemplate: '#room-template'
     }
     var roomView = new ChatRoomApp.RoomView(roomDomSelectors)
-    var room = new ChatRoomApp.Room(chatRoomUrl)
+    var room = new ChatRoomApp.Room(chatRoomUrl, roomPath)
     var roomController = new ChatRoomApp.RoomController(room, roomView)
     var roomName = {name: roomController.model.chatRoomUrl}
     roomController.drawRoom(roomName)

@@ -49,13 +49,26 @@ var firebaseHelper = (function() {
     })
   }
 
+  var _setUserToRoom = function(chatRoomUrl, roomPath){
+
+    var userPresenceListUrl = ROOM_LIST_PATH + roomPath + '/presentUsers'
+    var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
+
+    // debugger
+
+    // var userToken = cookieFactory.getValue('user-token')
+    // var userRef = BASE_URL + 'presence/' + userToken
+
+  }
+
 
   return {
     createFireBase: _createFireBase,
     createRoom: _createRoom,
     getFirebaseValue: _getFirebaseValue,
     pushToFirebase: _pushToFirebase,
-    bindChatWindowButtons: _bindChatWindowButtons
+    bindChatWindowButtons: _bindChatWindowButtons,
+    setUserToRoom: _setUserToRoom
   }
 
 }())

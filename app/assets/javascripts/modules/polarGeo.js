@@ -43,23 +43,3 @@ var geoHelper = (function(){
     inRange: _inRange
   }
 }())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> rebase

@@ -48,6 +48,29 @@ var firebaseHelper = (function() {
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }
+  // testin this function. add it to a basicHelper module?
+  Object.size = function(obj) {
+      var size = 0, key;
+      for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+      }
+      return size;
+  };
+
+  var _createFirebaseUserLocations = function(fbInfo) {
+    var userLatLong = cookieFactory.getUserLocation()
+    var fireBasePath = BASE_URL + '/room_list/' + fbInfo.roomPath + "/user_locations"
+    var userLocation = new Firebase( fireBasePath )
+    userLocation.push(userLatLong)
+  }
+  var _getFirebaseUserLocations = function(room) {
+    var fireBasePath = BASE_URL + '/room_list/' + room + "/user_locations"
+    var usersLocation = new Firebase( fireBasePath )
+    usersLocation.on('value', function(snapshot){
+      $.event.trigger( 'gotLocations' , { userLocation: snapshot.val() } )
+      Object.userLocations = Object.size(snapshot.val())
+    })
+  }
 
   var _setUserToRoom = function(chatRoomUrl, roomPath){
 
@@ -61,14 +84,14 @@ var firebaseHelper = (function() {
 
   }
 
-
   return {
     createFireBase: _createFireBase,
     createRoom: _createRoom,
     getFirebaseValue: _getFirebaseValue,
     pushToFirebase: _pushToFirebase,
     bindChatWindowButtons: _bindChatWindowButtons,
-    setUserToRoom: _setUserToRoom
+    setUserToRoom: _setUserToRoom,
+    createFirebaseUserLocations: _createFirebaseUserLocations,
+    getFirebaseUserLocations: _getFirebaseUserLocations
   }
-
 }())

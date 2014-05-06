@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
-  def index
 
+  def index
+    render :index
   end
 
   def show

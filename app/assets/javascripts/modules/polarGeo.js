@@ -13,6 +13,22 @@ var geoHelper = (function(){
     return dist
   }
 
+  var _getCentroid = function(userLocations){
+    var latSum = 0
+    var longSum = 0
+    var latFloat;
+    var longFloat;
+    var locationsLength = userLocations.length
+    for(var i = 0; i < locationsLength; i++) {
+      latFloat = parseFloat(userLocations[i].latitude)
+      longFloat = parseFloat(userLocations[i].longitude)
+      latSum += latFloat
+      longSum += longFloat
+    }
+    var centroid = { latitude: latSum / locationsLength, longitude: longSum / locationsLength }
+    return centroid
+  }
+
   var _inRange = function (location1, location2) {
     var acceptable_range = .5 // this is the range variable to set
     var lat1 = location1[0]
@@ -42,6 +58,7 @@ var geoHelper = (function(){
     success: _success,
     defaultOps: _default,
     calculateDistance: _calculateDistance,
-    inRange: _inRange
+    inRange: _inRange,
+    getCentroid: _getCentroid
   }
 }())

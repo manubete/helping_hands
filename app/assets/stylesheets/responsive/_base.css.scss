@@ -187,7 +187,7 @@ Chatroom STYLES
 	margin: 0 auto;
 }
 #messagesDiv {
-	overflow: scroll;
+	overflow: overlay;
 	height: 30em;
 	div {
 		margin: 3% auto;
@@ -211,9 +211,9 @@ Chatroom STYLES
   margin-top: 1%;
 }
 
-.logo {
-	height: 30%;
-	width: 16%;
+.bear {
+	height: 46%;
+	width: 30%;
 	margin: 3% auto;
 	display: block;
 }

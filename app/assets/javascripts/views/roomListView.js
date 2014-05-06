@@ -1,3 +1,4 @@
+
 RoomListApp.RoomListView = function(domSelectors){
   this.roomList = domSelectors["roomList"]
   this.roomListTemplate = domSelectors["room-list-template"]

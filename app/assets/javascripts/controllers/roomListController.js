@@ -9,7 +9,7 @@ RoomListApp.RoomListController.prototype = {
 
     $('.room-list').on("click", function(e) {
       if ($(event.target) && $(event.target).hasClass("individual_room")) {
-        this.sendInfoToChatRoom($(event.target).data('id'));
+        self.sendInfoToChatRoom($(event.target).data('id'));
       }
     }.bind(this))
 
@@ -19,8 +19,8 @@ RoomListApp.RoomListController.prototype = {
   },
 
   summonRooms: function(){
-    var rooms = this.model.returnRooms( this.model.database )
-    this.view.drawRoomList(rooms)
+    var activeRooms = geoparseHelper.parseRoomsToDisplayEligibleRooms()
+    this.view.drawRoomList(activeRooms)
   },
 
   sendInfoToChatRoom: function(roomPath) {

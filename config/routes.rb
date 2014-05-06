@@ -6,4 +6,3 @@ PolarBear::Application.routes.draw do
   get '/room_list', to: 'rooms#room_list'
 end
 
-

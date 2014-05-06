@@ -16,23 +16,23 @@ var cookieFactory =(function(){
     return expires
   }
 
-
   var _createCookie = function(userLatitude, userLongitude, days){
     var userToken = _createUserToken();
     var date = _createDate(days);
     var cookieString = "user-token=" + userToken + ":user-Latitude=" + userLatitude + ":user-Longitude=" + userLongitude + date + "; path=/" ;
     document.cookie = cookieString
-}
+  }
 
   var _getValue = function(name){
-    var value = ":"+ document.cookie;
-    var parts = value.split(name + "=");
+    var value = ":" + document.cookie;
+    var parts = value.split(":" + name + "=");
     return parts[1].split(':').shift()
   }
 
   return {
     createCookie: _createCookie,
-    getValue: _getValue
+    getValue: _getValue,
+    createUserToken: _createUserToken
   }
 }())
 

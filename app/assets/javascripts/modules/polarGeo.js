@@ -13,27 +13,8 @@ var geoHelper = (function(){
     return dist
   }
 
-  var _parseRoomsToDisplayEligibleRooms = function() {
-    var roomListJson = firebaseHelper.createFirebase(BASE_URL + ROOM_LIST_PATH)
-    var roomNames = Object.keys(roomListJson)
-    for (var i = 0; i < roomNames.length; i++){
-      var roomLatitude = _getLatitude(i)
-      var roomLongitude = _getLongitude(i)
-    }
-  }
-
-  var _getRoomLatitude = function(roomName) {
-    roomLatitudeUrl = BASE_URL + ROOM_LIST_PATH +
-    roomLatitudeFirebase = firebaseHelper.createFireBase()
-  }
-
-  var _getRoomLongitude = function(roomName) {
-  }
-
   var _inRange = function (location1, location2) {
-
     var acceptable_range = .5 // this is the range variable to set
-
     var lat1 = location1[0]
     var lat2 = location2[0]
     var lon1 = location1[1]
@@ -46,7 +27,6 @@ var geoHelper = (function(){
     } else {
       return false
     }
-
   }
 
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
@@ -54,7 +34,6 @@ var geoHelper = (function(){
       cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
-
 
   return {
     failure: _failure,
@@ -78,6 +57,9 @@ var geoHelper = (function(){
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> rebase

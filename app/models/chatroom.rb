@@ -1,4 +1,3 @@
 class Chatroom < ActiveRecord::Base
-  attr_accessible :name
-  has_many :users
+  # attr_accessible :name
 end

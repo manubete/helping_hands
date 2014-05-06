@@ -190,8 +190,7 @@ Chatroom STYLES
 	overflow: scroll;
 	height: 30em;
 	div {
-		width: 100%;
-		margin: 3% 0;
+		margin: 3% auto;
 		padding: 5%;
 		background-color: #eee;
 		color: black;
@@ -204,7 +203,6 @@ Chatroom STYLES
 }
 #messageInput {
 	// margin: 0 auto;
-	width: 100%;
 	text-align: center;
   background: #fff;
   border-radius: 5px;
@@ -242,9 +240,8 @@ Chatroom STYLES
 }
 .room {
 	text-align: left;
-	width: 100%;
 	padding: 4%;
-	margin: 2% 0;
+	margin: 2% auto;
 	font-size: 1.2em;
 	text-transform: uppercase;
 	background-color: $polar-blue;

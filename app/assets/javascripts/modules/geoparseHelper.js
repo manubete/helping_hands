@@ -6,6 +6,7 @@ var geoparseHelper = (function(){
     var roomLocationArray = _getRoomLocations(roomNames)
     var eligibleRoomsArray = _getEligibleRooms(roomLocationArray)
 
+
     return eligibleRoomsArray
   }
 
@@ -16,13 +17,14 @@ var geoparseHelper = (function(){
         eligibleRoomsArray.push(roomLocationArray[i])
       }
     }
+
     return eligibleRoomsArray
   }
 
   var _roomIsEligible = function(roomObject) {
     var userLocation = [cookieFactory.getValue('user-Latitude'), cookieFactory.getValue('user-Longitude')]
     var roomLocation = [roomObject['roomLatitude'], roomObject['roomLongitude']]
-
+    // debugger
     return geoHelper.inRange(userLocation, roomLocation)
   }
 

@@ -39,6 +39,7 @@ var firebaseHelper = (function() {
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }
+
   var _createFirebaseUserLocations = function(fbInfo) {
     var userLatLong = cookieFactory.getUserLocation()
     var fireBasePath = BASE_URL + '/room_list/' + fbInfo.roomPath + "/user_locations"

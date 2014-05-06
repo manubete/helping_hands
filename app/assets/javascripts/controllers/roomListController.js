@@ -24,17 +24,16 @@ RoomListApp.RoomListController.prototype = {
     var firebaseRoomUrl = BASE_URL + roomPath
 
     console.log($.event.trigger("readyToMakeRoom", firebaseRoomUrl))
-    if ($(event.target) && $(event.target).hasClass('individual_room')){
-      firebaseHelper.createFirebaseUserLocations({
-        roomPath: roomPath,
-        userToken: cookieFactory.getValue('user-token')
-      })
-    }
+
+    firebaseHelper.createFirebaseUserLocations({
+      roomPath: roomPath,
+      userToken: cookieFactory.getValue('user-token')
+    })
   },
   handleUserRoomAssignment: function() {
     var chatroom = $(event.target).data('id')
-    this.getInfoFromChatroom(chatroom);
     this.sendInfoToChatRoom(chatroom);
+    this.getInfoFromChatroom(chatroom);
   }
 
 }

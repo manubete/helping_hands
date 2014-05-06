@@ -18,14 +18,13 @@ var geoHelper = (function(){
     var longSum = 0
     var latFloat;
     var longFloat;
-    for(var i = 0; i < userLocations.length - 3; i++) {
+    var locationsLength = userLocations.length
+    for(var i = 0; i < locationsLength; i++) {
       latFloat = parseFloat(userLocations[i].latitude)
       longFloat = parseFloat(userLocations[i].longitude)
       latSum += latFloat
       longSum += longFloat
-      console.log(latSum, longSum)
     }
-    var locationsLength = userLocations.length - 3
     var centroid = { latitude: latSum / locationsLength, longitude: longSum / locationsLength }
     return centroid
   }

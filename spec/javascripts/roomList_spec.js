@@ -15,5 +15,15 @@ describe("RoomList Thing", function(){
 
     spyOn(roomListController, 'summonRooms');
     expect(geoparseHelper.parseRoomsToDisplayEligibleRooms).toHaveBeenCalled();
+
+  xit("should access data from Firebase", function(){
+
+  });
+
+  xit("should return the rooms in Firebase", function(){
+    var roomList = new RoomList()
+    var rooms = roomList.returnRooms( database )
+    expect(rooms).toEqual( ['room1', 'room2', 'skippers'] )
+
   });
 })

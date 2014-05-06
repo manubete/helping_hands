@@ -1,4 +1,4 @@
-var dummyFirebaseDatabase = {
+{
   "Carey1" : {
     "-JMA_yjNJuYQ2RbsjysN" : {
       "user_token" : "LpukoIaru2YnHPw",
@@ -15,6 +15,10 @@ var dummyFirebaseDatabase = {
     "-JMAarVM09kJQOddWETL" : {
       "user_token" : "4RVIto0KumtFlZd",
       "message" : "fasfsadf"
+    },
+    "-JMDb1WXxCnuc87JORC2" : {
+      "user_token" : "xxD4KqXTTQFjsFC",
+      "message" : "fsadfa"
     },
     "-JMAars62NIhS97nbl85" : {
       "user_token" : "4RVIto0KumtFlZd",
@@ -33,26 +37,94 @@ var dummyFirebaseDatabase = {
       "message" : "booo"
     }
   },
+  "Alexane6" : {
+    "-JMDl9oFXXYX4F53mAjL" : {
+      "user_token" : "8Yp3OvDy5s4KsU9",
+      "message" : "asdfasdf"
+    },
+    "-JMDl9dJ8WdI5m63sOr_" : {
+      "user_token" : "8Yp3OvDy5s4KsU9",
+      "message" : "asdfasdf"
+    },
+    "-JMDl9SaLfW9a4vG0gdw" : {
+      "user_token" : "8Yp3OvDy5s4KsU9",
+      "message" : "fsafsdaf"
+    }
+  },
   "Gregg3" : {
     "-JMC8Tk-gk1t7RSFTNrP" : {
       "user_token" : "PeQdaYcgh8uV0fq",
       "message" : "What, what!!!"
+    },
+    "-JMDhMOkJWISpDCEMo7P" : {
+      "user_token" : "xxD4KqXTTQFjsFC",
+      "message" : "he;'s hust a dawg"
+    },
+    "-JMDh_UgSbcKSBsFeB9o" : {
+      "user_token" : "xxD4KqXTTQFjsFC",
+      "message" : "kao "
+    },
+    "-JMDh_vbKqG8RRl2O_PS" : {
+      "user_token" : "xxD4KqXTTQFjsFC",
+      "message" : "AESFGPOKWEG"
+    },
+    "-JMDhbBqUhs3tUesM59Q" : {
+      "user_token" : "xxD4KqXTTQFjsFC",
+      "message" : "go home"
+    },
+    "-JMDhNV2MntJWgXfo_Gf" : {
+      "user_token" : "xxD4KqXTTQFjsFC",
+      "message" : "yes"
     }
   },
   "roomQuarterMileAway" : {
     "ashwin" : "kgkg"
   },
   "room_list" : {
+    "Alexane6" : {
+      "location" : {
+        "latitude" : 37.784395499999995,
+        "longitude" : -122.3970908
+      },
+      "user_locations" : {
+        "-JMDlGXpiSUXaoMmk8vK" : {
+          "latitude" : "37.7844239",
+          "longitude" : "-122.39709739999998"
+        },
+        "-JMDm1H8BOyO6Cm04JVg" : {
+          "latitude" : "37.7844239",
+          "longitude" : "-122.39709739999998"
+        }
+      }
+    },
     "Carey1" : {
       "location" : {
         "latitude" : 37.7844286,
         "longitude" : -122.39706880000001
+      },
+      "user_locations" : {
+        "-JMDazTLhQjjbA8W653M" : {
+          "latitude" : "-122.39712319999998",
+          "longitude" : "-122.39712319999998"
+        },
+        "xxD4KqXTTQFjsFC" : {
+          "-JMDan-Z7WhArJQ1vCK3" : {
+            "latitude" : "-122.39712319999998",
+            "longitude" : "-122.39712319999998"
+          }
+        }
       }
     },
     "Gregg3" : {
       "location" : {
         "latitude" : 37.7846121,
         "longitude" : -122.39681779999998
+      },
+      "user_locations" : {
+        "-JMDbKsIshAmU7PJmZsV" : {
+          "latitude" : "37.784402",
+          "longitude" : "-122.39712319999998"
+        }
       }
     },
     "roomQuarterMileAway" : {
@@ -67,22 +139,103 @@ var dummyFirebaseDatabase = {
         "longitude" : -122.397446
       }
     },
+    "Gretchen9" : {
+      "location" : {
+        "latitude" : 37.7844477,
+        "longitude" : -122.3970648
+      }
+    },
     "IndiaRoom" : {
       "location" : {
         "latitude" : 13.235453,
         "longitude" : 78.157953
       }
     },
-    "Rosalia2" : {
-      "location" : {
-        "latitude" : 37.7844286,
-        "longitude" : -122.39706880000001
-      }
-    },
     "Abelardo2" : {
       "location" : {
         "latitude" : 37.7845134,
         "longitude" : -122.39701120000001
+      },
+      "status" : {
+        "locked" : false
+      },
+      "user_locations" : {
+        "user1" : {
+          "12312312" : "[{latitude:123123123}]"
+        },
+        "-JMDk7rkMVh7V5EeU-am" : {
+          "latitude" : "37.7844352",
+          "longitude" : "-122.39707960000001"
+        },
+        "user2" : {
+          "234234234" : 23423423
+        },
+        "xxD4KqXTTQFjsFC" : {
+          "-JMDabu6UlY9LbA_3Gba" : {
+            "latitude" : "-122.39712319999998",
+            "longitude" : "-122.39712319999998"
+          }
+        },
+        "-JMDk0VVAyoVnrCvpwnK" : {
+          "latitude" : "37.784402",
+          "longitude" : "-122.39712319999998"
+        }
+      }
+    },
+    "Chase3" : {
+      "location" : {
+        "latitude" : 37.7844086,
+        "longitude" : -122.39711199999999
+      }
+    },
+    "Rosalia2" : {
+      "location" : {
+        "latitude" : 37.7844286,
+        "longitude" : -122.39706880000001
+      },
+      "user_locations" : {
+        "-JMDhobJo_MmlGOgAGah" : {
+          "latitude" : "37.784402",
+          "longitude" : "-122.39712319999998"
+        },
+        "-JMDkc4MEkKpUY4eXefm" : {
+          "latitude" : "37.784395499999995",
+          "longitude" : "-122.3970908"
+        },
+        "-JMDhs6zPDTUnMKUNIG4" : {
+          "latitude" : "37.784402",
+          "longitude" : "-122.39712319999998"
+        }
+      }
+    },
+    "John6" : {
+      "location" : {
+        "latitude" : 37.7844477,
+        "longitude" : -122.3970648
+      }
+    },
+    "Ellsworth5" : {
+      "location" : {
+        "latitude" : 37.7844086,
+        "longitude" : -122.39711199999999
+      }
+    },
+    "Mohamed4" : {
+      "location" : {
+        "latitude" : 37.7844086,
+        "longitude" : -122.39711199999999
+      }
+    },
+    "Ursula2" : {
+      "location" : {
+        "latitude" : 37.7844086,
+        "longitude" : -122.39711199999999
+      }
+    },
+    "Mina4" : {
+      "location" : {
+        "latitude" : 37.7844477,
+        "longitude" : -122.3970648
       }
     },
     "sanJoseRoom" : {
@@ -91,10 +244,28 @@ var dummyFirebaseDatabase = {
         "longitude" : -122.03805
       }
     },
+    "Emilia7" : {
+      "location" : {
+        "latitude" : 37.7844086,
+        "longitude" : -122.39711199999999
+      }
+    },
     "Izabella5" : {
       "location" : {
         "latitude" : 37.7844434,
         "longitude" : -122.3970774
+      }
+    },
+    "Lysanne2" : {
+      "location" : {
+        "latitude" : 37.7844086,
+        "longitude" : -122.39711199999999
+      }
+    },
+    "Amaya6" : {
+      "location" : {
+        "latitude" : 37.7844086,
+        "longitude" : -122.39711199999999
       }
     }
   },
@@ -134,6 +305,10 @@ var dummyFirebaseDatabase = {
     "-JMA4E_ZpSknJvUFYJgP" : {
       "user_token" : "28jhV8rtXfmsCL5",
       "message" : "fdasfdsa"
+    },
+    "-JMDXkM5ckaj71G4JmpB" : {
+      "user_token" : "ucLyVka7k0JFGoB",
+      "message" : "asdkfjaskldfj"
     },
     "-JMALFN2jRd6QzoREPCE" : {
       "user_token" : "RNIt2NG931gPzXB",
@@ -435,6 +610,10 @@ var dummyFirebaseDatabase = {
       "user_token" : "qPubXBQTJWg24yF",
       "message" : "dsfas"
     },
+    "-JMDXk6VTzJOYUQMfB6q" : {
+      "user_token" : "ucLyVka7k0JFGoB",
+      "message" : "sadlfjsald"
+    },
     "-JMA2loLFKt5nxbNXA7B" : {
       "user_token" : "zyKxy5gkqdNDRca",
       "message" : "fasfd"
@@ -643,6 +822,10 @@ var dummyFirebaseDatabase = {
   "IndiaRoom" : {
     "ashwin" : "asdfdsff"
   },
+  "-JMD_m9kbhJu-GjaQCPY" : {
+    "latitude" : "-122.39712319999998",
+    "longitude" : "-122.39712319999998"
+  },
   "Rosalia2" : {
     "-JMCYtGIdDduzoTnFY5Y" : {
       "user_token" : "U59sI0WzSEvHe8P",
@@ -654,6 +837,10 @@ var dummyFirebaseDatabase = {
     }
   },
   "Abelardo2" : {
+    "-JMDZXnsDlVsbHrLvMYO" : {
+      "user_token" : "bTuLpId6uqQ3YhX",
+      "message" : "fdfsadf"
+    },
     "-JMAbQnREkuDhw2uII8C" : {
       "user_token" : "iXPasTbJ4cjX1u9",
       "message" : "new room"
@@ -661,6 +848,14 @@ var dummyFirebaseDatabase = {
     "-JMC9-BLOvJZt71UV_sG" : {
       "user_token" : "BcCwJlceeN2UxnX",
       "message" : "Haha"
+    },
+    "user_locations" : {
+      "xxD4KqXTTQFjsFC" : {
+        "-JMDaTtSdFWwbCGWjnoe" : {
+          "latitude" : "-122.39712319999998",
+          "longitude" : "-122.39712319999998"
+        }
+      }
     }
   },
   "sanJoseRoom" : {

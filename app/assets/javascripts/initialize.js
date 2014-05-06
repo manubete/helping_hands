@@ -11,7 +11,6 @@ PolarBear = {
     // makes sure the asynchronous call comes back
 
     this.checkGeoLocation()
-
     // this.prepareMVC()
     this.bindRoomListener();
     this.prepareRoomListMVC()
@@ -64,3 +63,4 @@ PolarBear = {
 
   }
 }
+

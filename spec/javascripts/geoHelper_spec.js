@@ -14,4 +14,5 @@ describe('geoHelper', function(){
   it("returns false for value beyond set radius (.5m)", function(){
     expect(geoHelper.inRange([37.795643, -122.415436], [37.985575, -121.979245])).toEqual(false)
   })
+
 });

@@ -11,3 +11,4 @@ class RoomsController < ApplicationController
     render :show, layout: false
   end
 end
+

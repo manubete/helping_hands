@@ -49,7 +49,7 @@ var firebaseHelper = (function() {
     var fireBasePath = BASE_URL + '/room_list/' + room + "/user_locations"
     var usersLocation = new Firebase( fireBasePath )
     usersLocation.on('value', function(snapshot){
-      return snapshot.val()
+      $.event.trigger( 'gotLocations' , { userLocation: snapshot.val() } )
     })
   }
 

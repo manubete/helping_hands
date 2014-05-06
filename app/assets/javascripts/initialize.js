@@ -3,6 +3,9 @@ ROOM_LIST_PATH = 'room_list/'
 
 
 $('document').ready( function(){
+    $(document).on( "gotLocations", "chatroom", function(event){
+       console.log("success")
+    })
   PolarBear.initialize()
 } );
 
@@ -30,8 +33,15 @@ PolarBear = {
     $(document).on('readyToMakeRoom', function(event, chatRoomUrl) {
       self.prepareRoomMVC(chatRoomUrl)
     })
-
+    $(document).on('gotLocations', function(e, thing) {
+      var objects = []
+      for(var i in thing.userLocation) {
+        objects.push(thing.userLocation[i])
+      }
+      console.log(geoHelper.getCentroid(objects))
+    })
   },
+
   prepareRoomListMVC: function(){
     var roomListDomSelectors = {
       roomList: '.room-list',

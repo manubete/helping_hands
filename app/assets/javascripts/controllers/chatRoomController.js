@@ -23,6 +23,7 @@ ChatRoomApp.RoomController.prototype = {
    };
 
    firebaseHelper.bindChatWindowButtons(self.model.firebaseServer)
-  }
+  },
+
 }
 

@@ -16,11 +16,17 @@ var geoHelper = (function(){
   var _getCentroid = function(userLocations){
     var latSum = 0
     var longSum = 0
-    for(var i = 0; i < userLocations.length; i++) {
-      latSum += userLocations[i].latitude
-      longSum += userLocations[i].longitude
+    var latFloat;
+    var longFloat;
+    for(var i = 0; i < userLocations.length - 3; i++) {
+      latFloat = parseFloat(userLocations[i].latitude)
+      longFloat = parseFloat(userLocations[i].longitude)
+      latSum += latFloat
+      longSum += longFloat
+      console.log(latSum, longSum)
     }
-    var centroid = { latitude: latSum / 3, longitude: longSum / 3 }
+    var locationsLength = userLocations.length - 3
+    var centroid = { latitude: latSum / locationsLength, longitude: longSum / locationsLength }
     return centroid
   }
 
@@ -76,16 +82,6 @@ var geoHelper = (function(){
     getCentroid: _getCentroid
   }
 }())
-
-
-
-
-
-
-
-
-
-
 
 
 

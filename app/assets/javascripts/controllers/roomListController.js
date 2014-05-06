@@ -6,20 +6,7 @@ RoomListApp.RoomListController = function(model, view){
 RoomListApp.RoomListController.prototype = {
   listeners: function(){
     $(document).on('gotFirebaseRoomsData', this.summonRooms.bind(this) )
-    $('.room-list').on("click", function(e) {
-      var chatroom = $(event.target).data('id')
-      if ($(event.target) && $(event.target).hasClass("individual_room")) {
-        this.sendInfoToChatRoom(chatroom);
-
-        // user event driven programming here
-        firebaseHelper.getFirebaseUserLocations(chatroom)
-
-        firebaseHelper.createFirebaseUserLocations({
-          roomPath: chatroom,
-          userToken: cookieFactory.getValue('user-token')
-        })
-      }
-    }.bind(this))
+    $('.room-list').on("click", ".individual_room", this.handleUserRoomAssignment.bind(this))
 
     $('#create_room').on("click", function() {
       this.sendInfoToChatRoom(firebaseHelper.createRoom())
@@ -30,9 +17,28 @@ RoomListApp.RoomListController.prototype = {
     var rooms = this.model.returnRooms( this.model.database )
     this.view.drawRoomList(rooms)
   },
-
+  getInfoFromChatroom: function(roomPath){
+    firebaseHelper.getFirebaseUserLocations(roomPath)
+  },
   sendInfoToChatRoom: function(roomPath) {
     var firebaseRoomUrl = BASE_URL + roomPath
-    $.event.trigger("readyToMakeRoom", firebaseRoomUrl)
+
+    console.log($.event.trigger("readyToMakeRoom", firebaseRoomUrl))
+    if ($(event.target) && $(event.target).hasClass('individual_room')){
+      firebaseHelper.createFirebaseUserLocations({
+        roomPath: roomPath,
+        userToken: cookieFactory.getValue('user-token')
+      })
+    }
+  },
+  handleUserRoomAssignment: function() {
+    var chatroom = $(event.target).data('id')
+    this.getInfoFromChatroom(chatroom);
+    this.sendInfoToChatRoom(chatroom);
   }
+
 }
+
+// when we send information to the firebase, we also need to get previous room information back.
+// lets create a custom event when asking for the firebase data, trigger it once we've gotten it. and
+// listen for it in the chatrooms controller.

@@ -2,16 +2,14 @@ BASE_URL = 'https://luminous-fire-2873.firebaseio.com/'
 ROOM_LIST_PATH = BASE_URL + 'room_list/'
 
 $('document').ready( function(){
-  PolarBear.initialize()
+  PolarBear.initialize();
 } );
 
 PolarBear = {
   initialize: function(){
-
-    this.drawLandingPage()
-    this.checkGeoLocation()
-    this.fireRoomListEvents()
-    debugger
+    this.drawLandingPage();
+    this.checkGeoLocation();
+    this.fireRoomListEvents();
   },
 
   drawLandingPage: function(){
@@ -20,8 +18,7 @@ PolarBear = {
       url: '/landing_page',
       dataType: "text"
      }).done(function(data){
-       $(".other_stuff").html(data)
-
+       $(".other_stuff").html(data);
      })
   },
 

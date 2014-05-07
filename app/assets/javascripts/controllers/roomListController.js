@@ -13,7 +13,7 @@ RoomListApp.RoomListController.prototype = {
     }.bind(this))
   },
   updateGeoLocation: function(e, eventData) {
-    var firebaseUrl = BASE_URL + ROOM_LIST_PATH + eventData.roomName + '/location'
+    var firebaseUrl = ROOM_LIST_PATH + eventData.roomName + '/location'
     var objects = []
     for(var i in eventData.userLocation) {
       objects.push(eventData.userLocation[i])
@@ -27,6 +27,7 @@ RoomListApp.RoomListController.prototype = {
     this.view.drawRoomList(activeRooms)
   },
   getInfoFromChatroom: function(roomPath){
+
     firebaseHelper.getFirebaseUserLocations(roomPath)
   },
   createChatRoom: function(roomPath){

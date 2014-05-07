@@ -7,12 +7,20 @@ RoomListApp.RoomListController.prototype = {
   listeners: function(){
     $(document).on('gotFirebaseRoomsData', this.summonRooms.bind(this) )
     $('.room-list').on("click", ".individual_room", this.handleUserRoomAssignment.bind(this))
-
+    $(document).on('gotLocations', this.updateGeoLocation.bind(this))
     $('#create_room').on("click", function() {
-      this.sendUserToChatroom(firebaseHelper.createRoom())
+      this.createChatRoom(firebaseHelper.createRoom())
     }.bind(this))
   },
-
+  updateGeoLocation: function(e, eventData) {
+    var firebaseUrl = BASE_URL + ROOM_LIST_PATH + eventData.roomName + '/location'
+    var objects = []
+    for(var i in eventData.userLocation) {
+      objects.push(eventData.userLocation[i])
+    }
+    var centroid = geoHelper.getCentroid(objects)
+    firebaseHelper.updateFireBase(firebaseUrl, { latitude: centroid.latitude, longitude: centroid.longitude })
+  },
   summonRooms: function(){
     var activeRooms = geoparseHelper.parseRoomsToDisplayEligibleRooms()
 
@@ -21,30 +29,37 @@ RoomListApp.RoomListController.prototype = {
   getInfoFromChatroom: function(roomPath){
     firebaseHelper.getFirebaseUserLocations(roomPath)
   },
+  createChatRoom: function(roomPath){
+    this.sendUserToChatroom(roomPath)
+  },
   sendUserToChatroom: function(roomPath){
     var firebaseRoomUrl = BASE_URL + roomPath
     $.event.trigger("readyToMakeRoom", roomPath)
   },
 
   sendInfoToChatRoom: function(roomPath) {
-    firebaseHelper.createFirebaseUserLocations({
-      roomPath: roomPath
-    })
+    // if(Object.userLocations.keys < 3) {
+      firebaseHelper.createFirebaseUserLocations({
+        roomPath: roomPath
+      })
+    // }
   },
 
   handleUserRoomAssignment: function() {
     var $room = $(event.target)
     var chatroom = $room.data('id')
-
-    this.getInfoFromChatroom(chatroom);
-    if (Object.userLocations < 3) {
+    var test = this.objectToArray(Object.userLocations)
+    if(test.length < 3){
       this.sendInfoToChatRoom(chatroom);
+      this.getInfoFromChatroom(chatroom);
     }
     this.sendUserToChatroom(chatroom)
+  },
+  objectToArray: function(object){
+    var collection = []
+    for(var i in object){
+      collection.push(i)
+    }
+    return collection
   }
-
 }
-
-// when we send information to the firebase, we also need to get previous room information back.
-// lets create a custom event when asking for the firebase data, trigger it once we've gotten it. and
-// listen for it in the chatrooms controller.

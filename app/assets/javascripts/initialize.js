@@ -10,16 +10,37 @@ $('document').ready( function(){
 
 PolarBear = {
   initialize: function(){
+
+    this.drawLandingPage()
     this.checkGeoLocation()
-    this.bindRoomListener();
-    this.prepareRoomListMVC()
+    this.fireRoomListEvents()
   },
+
+  drawLandingPage: function(){
+     $.ajax({
+      type: 'get',
+      url: '/landing_page',
+      dataType: "text"
+     }).done(function(data){
+       $(".other_stuff").html(data)
+
+     })
+  },
+
+
   checkGeoLocation: function(){
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(geoHelper.success, geoHelper.failure, geoHelper.defaultOps)
     } else {
       console.log("the fails")
     }
+  },
+
+  fireRoomListEvents: function() {
+    $(document).on("geoDataReceived", function(){
+      this.bindRoomListener();
+      this.prepareRoomListMVC()
+    }.bind(this))
   },
 
   bindRoomListener: function() {

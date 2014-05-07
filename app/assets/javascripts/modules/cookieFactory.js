@@ -1,9 +1,10 @@
 var cookieFactory =(function(){
 
-  var _createUserToken = function(){
+
+  var _createUserToken = function(possible){
     var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for( var i=0; i < 15; i++ )
+    var possible = possible || "ABCDEFGHIJKLMNOPQRSTUVWX YZabcdefghijklmnopqrstuvwxyz0123456789";
+      for( var i=0; i < 15; i++ )
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
   }
@@ -12,7 +13,7 @@ var cookieFactory =(function(){
     var days = days || 100
     var date = new Date();
     date.setTime(date.getTime() + (days*24*60*60*1000));
-    var expires = "; expires="+date.toGMTString();
+    var expires = ":expires="+date.toGMTString();
     return expires
   }
 

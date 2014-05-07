@@ -1,6 +1,6 @@
 ChatRoomApp.RoomView = function (domSelectors){
   this.room = domSelectors["room"]
-  this.roomTemplate = domSelectors["room-template"]
+  this.roomTemplate = domSelectors["roomTemplate"]
 }
 
 ChatRoomApp.RoomView.prototype = {

@@ -4,5 +4,6 @@ PolarBear::Application.routes.draw do
   resources :chatrooms, only: [:show]
 
   get '/room_list', to: 'rooms#room_list'
+  get 'landing_page', to: 'rooms#landing'
 end
 

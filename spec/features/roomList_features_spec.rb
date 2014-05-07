@@ -6,5 +6,14 @@ feature 'Users' do
       visit root_path
       expect(page).to have_content("Create a Room")
     end
+
+
+    it "can go to the homepage and see a list of room" do
+      visit root_path
+      #wait_for_ajax_to_finish
+      page.should have_selector('div')
+      page.should have_selector('i')
+    end
+
   end
 end

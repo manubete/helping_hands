@@ -11,5 +11,9 @@ class RoomsController < ApplicationController
   def room_list
     render :show, layout: false
   end
+
+  def landing
+    render :landing, layout: false
+  end
 end
 

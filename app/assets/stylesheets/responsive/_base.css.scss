@@ -12,6 +12,7 @@ blockquote {}
 body {
 	background: url('http://subtlepatterns.com/patterns/congruent_outline.png');
 	color: #fff;
+	overflow-y:overlay;
 }
 
 
@@ -277,6 +278,7 @@ Chatroom STYLES
 	width: 70%;
 	margin: auto;
 	display:none;
+
 	button {
 		width: 80%;
 		margin: 0 auto
@@ -288,7 +290,7 @@ Chatroom STYLES
 	button {
 		width: 80%;
 		margin: 0 auto;
-		visibility: hidden;
+
 	}
 }
 #landing_slogan {

@@ -53,7 +53,7 @@ var firebaseHelper = (function() {
     var chatRoom = firebaseServer
     chatRoom.limit(10).on('child_added', function (snapshot) {
       var message = snapshot.val();
-      $('<div class="elevencol">').text(self.userColor+': '+message.message).fadeIn().appendTo($('#messagesDiv'));
+      $('<div class="elevencol">').text(message.userColor+': '+message.message).fadeIn().appendTo($('#messagesDiv'));
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }

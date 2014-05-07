@@ -35,7 +35,6 @@ var firebaseHelper = (function() {
   }
 
   var _pushToFirebase = function(firebaseUrl, userToken, userMessage){
-
     var chatRoom = new Firebase(firebaseUrl)
     chatRoom.push({user_token: cookieFactory.getValue('user-token'), message: userMessage})
   }
@@ -76,12 +75,21 @@ var firebaseHelper = (function() {
 
     var userPresenceListUrl = ROOM_LIST_PATH + roomPath + '/presentUsers'
     var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
-
+    userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
     // debugger
-
     // var userToken = cookieFactory.getValue('user-token')
     // var userRef = BASE_URL + 'presence/' + userToken
 
+  }
+
+  var _getUserCount = function(roomName){
+    var userPresenceListUrl = ROOM_LIST_PATH + roomName + '/presentUsers'
+    var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
+    var userCount = Object.size(_getFirebaseValue(userPresenceFirebase))
+    return userCount
+
+
+    // debugger
   }
 
   return {
@@ -92,6 +100,7 @@ var firebaseHelper = (function() {
     bindChatWindowButtons: _bindChatWindowButtons,
     setUserToRoom: _setUserToRoom,
     createFirebaseUserLocations: _createFirebaseUserLocations,
-    getFirebaseUserLocations: _getFirebaseUserLocations
+    getFirebaseUserLocations: _getFirebaseUserLocations,
+    getUserCount: _getUserCount
   }
 }())

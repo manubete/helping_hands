@@ -9,10 +9,10 @@ PolarBear = {
   initialize: function(){
     // makes sure the asynchronous call comes back
 
-    this.checkGeoLocation()
+    this.checkGeoLocation();
     // this.prepareMVC()
     this.bindRoomListener();
-    this.prepareRoomListMVC()
+    this.prepareRoomListMVC();
   },
   checkGeoLocation: function(){
    // if ("geolocation" in navigator)

@@ -7,7 +7,12 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+
 RSpec.configure do |config|
+
+  Capybara.default_wait_time = 5
+
+  config.include CapybaraHelpers
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

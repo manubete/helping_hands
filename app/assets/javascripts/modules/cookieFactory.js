@@ -20,8 +20,9 @@ var cookieFactory =(function(){
   var _createCookie = function(userLatitude, userLongitude, days){
     var userToken = _createUserToken();
     var date = _createDate(days);
-    var cookieString = "user-token=" + userToken + ":user-Latitude=" + userLatitude + ":user-Longitude=" + userLongitude + date + "; path=/" ;
+    var cookieString = "user-token=" + userToken + ":user-Latitude=" + userLatitude + ":user-Longitude=" + userLongitude + date + ": path=/" ;
     document.cookie = cookieString
+
   }
 
   var _getValue = function(name){
@@ -29,10 +30,16 @@ var cookieFactory =(function(){
     var parts = value.split(name + "=");
     return parts[1].split(':').shift()
   }
+  var _getUserLocation = function() {
+    var userLat = _getValue('user-Latitude')
+    var userLon = _getValue('user-Longitude')
+    return { latitude: userLat, longitude: userLon }
+  }
 
   return {
     createCookie: _createCookie,
     getValue: _getValue,
-    createUserToken: _createUserToken
+    createUserToken: _createUserToken,
+    getUserLocation: _getUserLocation
   }
 }())

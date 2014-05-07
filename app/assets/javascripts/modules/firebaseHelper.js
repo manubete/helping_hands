@@ -3,16 +3,17 @@ var firebaseHelper = (function() {
     var newFirebase = new Firebase(firebaseUrl)
     return newFirebase
   }
-
   var _getFirebaseValue = function(firebaseObject) {
-
     var val;
     firebaseObject.on('value', function(snapshot) {
       val = snapshot.val()
     })
     return val
   }
-
+  var _updateFireBase = function(firebaseUrl, options) {
+    var firebaseRoom = new Firebase(firebaseUrl)
+    firebaseRoom.set({latitude: options.latitude, longitude: options.longitude})
+  }
   var _createRoom = function() {
     var roomPath = _makeRoomName()
     var newRoomUrl = BASE_URL + roomPath
@@ -35,7 +36,6 @@ var firebaseHelper = (function() {
   }
 
   var _pushToFirebase = function(firebaseUrl, userToken, userMessage){
-
     var chatRoom = new Firebase(firebaseUrl)
     chatRoom.push({user_token: cookieFactory.getValue('user-token'), message: userMessage})
   }
@@ -48,14 +48,56 @@ var firebaseHelper = (function() {
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }
+  // testin this function. add it to a basicHelper module?
+  Object.size = function(obj) {
+      var size = 0, key;
+      for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+      }
+      return size;
+  };
 
+  var _createFirebaseUserLocations = function(fbInfo) {
+    var userLatLong = cookieFactory.getUserLocation()
+    var fireBasePath = BASE_URL + '/room_list/' + fbInfo.roomPath + "/user_locations"
+    var userLocation = new Firebase( fireBasePath )
+    userLocation.push(userLatLong)
+  }
+  var _getFirebaseUserLocations = function(room) {
+    var fireBasePath = BASE_URL + '/room_list/' + room + "/user_locations"
+    var usersLocation = new Firebase( fireBasePath )
+    usersLocation.on('value', function(snapshot){
+      $.event.trigger( 'gotLocations' , { userLocation: snapshot.val(), roomName: room } )
+      Object.userLocations = snapshot.val()
+    })
+  }
+
+  var _setUserToRoom = function(chatRoomUrl, roomPath){
+    var userPresenceListUrl = ROOM_LIST_PATH + roomPath + '/presentUsers'
+    var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
+    var justPushed = userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
+    var userId = justPushed.name()
+    var userToDelete = new Firebase(userPresenceListUrl + '/' + userId)
+    userToDelete.onDisconnect().remove()
+  }
+
+  var _getUserCount = function(roomName){
+    var userPresenceListUrl = ROOM_LIST_PATH + roomName + '/presentUsers'
+    var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
+    var userCount = Object.size(_getFirebaseValue(userPresenceFirebase))
+    return userCount
+  }
 
   return {
     createFireBase: _createFireBase,
     createRoom: _createRoom,
     getFirebaseValue: _getFirebaseValue,
     pushToFirebase: _pushToFirebase,
-    bindChatWindowButtons: _bindChatWindowButtons
+    updateFireBase: _updateFireBase,
+    bindChatWindowButtons: _bindChatWindowButtons,
+    setUserToRoom: _setUserToRoom,
+    createFirebaseUserLocations: _createFirebaseUserLocations,
+    getFirebaseUserLocations: _getFirebaseUserLocations,
+    getUserCount: _getUserCount
   }
-
 }())

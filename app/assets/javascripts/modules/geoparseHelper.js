@@ -13,6 +13,7 @@ var geoparseHelper = (function(){
   var _getEligibleRooms = function(roomLocationArray){
     var eligibleRoomsArray = []
     for (var i = 0; i < roomLocationArray.length; i++){
+
       if (_roomIsEligible(roomLocationArray[i])) {
 
 
@@ -20,8 +21,10 @@ var geoparseHelper = (function(){
 
 
         eligibleRoomsArray.push(roomLocationArray[i])
+
       }
     }
+
 
     return eligibleRoomsArray
   }
@@ -36,7 +39,6 @@ var geoparseHelper = (function(){
   var _roomIsEligible = function(roomObject) {
     var userLocation = [cookieFactory.getValue('user-Latitude'), cookieFactory.getValue('user-Longitude')]
     var roomLocation = [roomObject['roomLatitude'], roomObject['roomLongitude']]
-    // debugger
     return geoHelper.inRange(userLocation, roomLocation)
   }
 
@@ -45,8 +47,11 @@ var geoparseHelper = (function(){
     for (var i = 0; i < roomNames.length; i++){
       var roomLatitude = _getRoomLatitude(roomNames[i])
       var roomLongitude = _getRoomLongitude(roomNames[i])
-      roomLocationArray.push({name: roomNames[i], roomLatitude: roomLatitude, roomLongitude: roomLongitude})
+      var userCount = firebaseHelper.getUserCount(roomNames[i])
+
+      roomLocationArray.push({name: roomNames[i], roomLatitude: roomLatitude, roomLongitude: roomLongitude, userCount: userCount})
     }
+
     return roomLocationArray
   }
 

@@ -13,10 +13,13 @@ var geoparseHelper = (function(){
   var _getEligibleRooms = function(roomLocationArray){
     var eligibleRoomsArray = []
     for (var i = 0; i < roomLocationArray.length; i++){
+
       if (_roomIsEligible(roomLocationArray[i])) {
         eligibleRoomsArray.push(roomLocationArray[i])
+
       }
     }
+
 
     return eligibleRoomsArray
   }
@@ -24,7 +27,8 @@ var geoparseHelper = (function(){
   var _roomIsEligible = function(roomObject) {
     var userLocation = [cookieFactory.getValue('user-Latitude'), cookieFactory.getValue('user-Longitude')]
     var roomLocation = [roomObject['roomLatitude'], roomObject['roomLongitude']]
-    // debugger
+    debugger
+
     return geoHelper.inRange(userLocation, roomLocation)
   }
 
@@ -37,6 +41,7 @@ var geoparseHelper = (function(){
 
       roomLocationArray.push({name: roomNames[i], roomLatitude: roomLatitude, roomLongitude: roomLongitude, userCount: userCount})
     }
+
     return roomLocationArray
   }
 

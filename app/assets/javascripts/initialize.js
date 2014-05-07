@@ -2,9 +2,6 @@ BASE_URL = 'https://luminous-fire-2873.firebaseio.com/'
 ROOM_LIST_PATH = BASE_URL + 'room_list/'
 
 $('document').ready( function(){
-    $(document).on( "gotLocations", "chatroom", function(event){
-       console.log("success")
-    })
   PolarBear.initialize()
 } );
 
@@ -14,6 +11,7 @@ PolarBear = {
     this.drawLandingPage()
     this.checkGeoLocation()
     this.fireRoomListEvents()
+    debugger
   },
 
   drawLandingPage: function(){
@@ -40,23 +38,17 @@ PolarBear = {
     $(document).on("geoDataReceived", function(){
       this.bindRoomListener();
       this.prepareRoomListMVC()
+
     }.bind(this))
   },
 
   bindRoomListener: function() {
     var self = this;
+
     new CustomEvent('readyToMakeRoom', {'chatRoomUrl': ''})
     $(document).on('readyToMakeRoom', function(event, roomPath) {
       var chatRoomUrl = BASE_URL + roomPath
       self.prepareRoomMVC(chatRoomUrl, roomPath)
-    })
-
-    $(document).on('gotLocations', function(e, thing) {
-      var objects = []
-      for(var i in thing.userLocation) {
-        objects.push(thing.userLocation[i])
-      }
-      console.log(geoHelper.getCentroid(objects))
     })
   },
 

@@ -63,3 +63,4 @@ RoomListApp.RoomListController.prototype = {
     return collection
   }
 }
+

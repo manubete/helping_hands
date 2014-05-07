@@ -12,6 +12,7 @@ blockquote {}
 body {
 	background: url('http://subtlepatterns.com/patterns/congruent_outline.png');
 	color: #fff;
+	overflow-y:overlay;
 }
 
 
@@ -187,11 +188,10 @@ Chatroom STYLES
 	margin: 0 auto;
 }
 #messagesDiv {
-	overflow: scroll;
+	overflow: overlay;
 	height: 30em;
 	div {
-		width: 100%;
-		margin: 3% 0;
+		margin: 3% auto;
 		padding: 5%;
 		background-color: #eee;
 		color: black;
@@ -204,7 +204,6 @@ Chatroom STYLES
 }
 #messageInput {
 	// margin: 0 auto;
-	width: 100%;
 	text-align: center;
   background: #fff;
   border-radius: 5px;
@@ -213,9 +212,9 @@ Chatroom STYLES
   margin-top: 1%;
 }
 
-.logo {
-	height: 30%;
-	width: 16%;
+.bear {
+	height: 46%;
+	width: 30%;
 	margin: 3% auto;
 	display: block;
 }
@@ -242,9 +241,8 @@ Chatroom STYLES
 }
 .room {
 	text-align: left;
-	width: 100%;
 	padding: 4%;
-	margin: 2% 0;
+	margin: 2% auto;
 	font-size: 1.2em;
 	text-transform: uppercase;
 	background-color: $polar-blue;
@@ -277,7 +275,10 @@ Chatroom STYLES
 }
 
 .create-room {
-	width: 100%;
+	width: 70%;
+	margin: auto;
+	display:none;
+
 	button {
 		width: 80%;
 		margin: 0 auto
@@ -289,6 +290,20 @@ Chatroom STYLES
 	button {
 		width: 80%;
 		margin: 0 auto;
-		visibility: hidden;
+
 	}
 }
+#landing_slogan {
+	max-width: 40%;
+	text-align: center;
+	font-size:1.4em;
+	margin: 0 auto;
+	border-bottom: dotted .1em;
+	padding: 1em 0;
+	bottom: 20%;
+}
+
+#make_space {
+	height: 20em;
+}
+

@@ -11,7 +11,6 @@ PolarBear = {
     this.drawLandingPage()
     this.checkGeoLocation()
     this.fireRoomListEvents()
-    debugger
   },
 
   drawLandingPage: function(){

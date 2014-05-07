@@ -27,7 +27,6 @@ var geoparseHelper = (function(){
   var _roomIsEligible = function(roomObject) {
     var userLocation = [cookieFactory.getValue('user-Latitude'), cookieFactory.getValue('user-Longitude')]
     var roomLocation = [roomObject['roomLatitude'], roomObject['roomLongitude']]
-    debugger
 
     return geoHelper.inRange(userLocation, roomLocation)
   }

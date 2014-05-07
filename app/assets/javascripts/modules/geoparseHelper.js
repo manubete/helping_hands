@@ -15,6 +15,11 @@ var geoparseHelper = (function(){
     for (var i = 0; i < roomLocationArray.length; i++){
 
       if (_roomIsEligible(roomLocationArray[i])) {
+
+
+         roomLocationArray[i]["distance"] = _distanceFromRoom(roomLocationArray[i])
+
+
         eligibleRoomsArray.push(roomLocationArray[i])
 
       }
@@ -24,11 +29,16 @@ var geoparseHelper = (function(){
     return eligibleRoomsArray
   }
 
+  var _distanceFromRoom = function(roomObject){
+      var distance = geoHelper.calculateDistance(cookieFactory.getValue("user-Latitude"), cookieFactory.getValue("user-Longitude"), roomObject["roomLatitude"], roomObject["roomLongitude"])
+      distance = distance + ''
+      distance = distance.substring(0,7) + ' miles'
+      return distance
+  }
+
   var _roomIsEligible = function(roomObject) {
     var userLocation = [cookieFactory.getValue('user-Latitude'), cookieFactory.getValue('user-Longitude')]
     var roomLocation = [roomObject['roomLatitude'], roomObject['roomLongitude']]
-    debugger
-
     return geoHelper.inRange(userLocation, roomLocation)
   }
 
@@ -67,7 +77,8 @@ var geoparseHelper = (function(){
     getRoomLongitude: _getRoomLongitude,
     getRoomLatitude: _getRoomLatitude,
     getRoomLocations: _getRoomLocations,
-    roomIsEligible: _roomIsEligible
+    roomIsEligible: _roomIsEligible,
+    distanceFromRoom: _distanceFromRoom
   }
 
 }())

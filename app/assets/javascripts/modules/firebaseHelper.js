@@ -32,8 +32,7 @@ var firebaseHelper = (function() {
 
     var availableIconsUrl = ROOM_LIST_PATH + roomPath + '/available_icons'
     var availableIconsFirebase = new Firebase(availableIconsUrl)
-
-
+    availableIconsFirebase.set({user1: 'red', user2: 'blue', user3: 'purple', user4: 'green', user5: 'pink'})
 
     return roomPath
   }
@@ -43,16 +42,18 @@ var firebaseHelper = (function() {
     return randomName
   }
 
-  var _pushToFirebase = function(firebaseUrl, userToken, userMessage){
+  var _pushToFirebase = function(firebaseUrl, userMessage){
+    var self = this;
     var chatRoom = new Firebase(firebaseUrl)
-    chatRoom.push({user_token: cookieFactory.getValue('user-token'), message: userMessage})
+    chatRoom.push({userColor: self.userColor, message: userMessage})
   }
 
   var _bindChatWindowButtons = function(firebaseServer) {
+    var self = this;
     var chatRoom = firebaseServer
     chatRoom.limit(10).on('child_added', function (snapshot) {
       var message = snapshot.val();
-      $('<div class="elevencol">').text(message.user_token+': '+message.message).fadeIn().appendTo($('#messagesDiv'));
+      $('<div class="elevencol">').text(self.userColor+': '+message.message).fadeIn().appendTo($('#messagesDiv'));
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }
@@ -103,7 +104,7 @@ var firebaseHelper = (function() {
     var randomIndexInHash = Math.floor(Math.random() * (numberOfAvailableIcons)+1);
     var identifiedKeyInHash = 'user' + randomIndexInHash
     var colorForUser = availableIconsHash[identifiedKeyInHash]
-
+    this.userColor = colorForUser
 
     // Identify the key in the hash and make a firebase reference to it
     var usersKeyUrl = availableIconsUrl + '/' + identifiedKeyInHash
@@ -114,11 +115,6 @@ var firebaseHelper = (function() {
 
     // When he disconnects, add it back to the hash
     usersKeyFirebase.onDisconnect().set(colorForUser)
-
-
-
-
-
   }
 
   var _getUserCount = function(roomName){

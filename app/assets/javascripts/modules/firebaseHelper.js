@@ -78,10 +78,13 @@ var firebaseHelper = (function() {
 
     var userPresenceListUrl = ROOM_LIST_PATH + roomPath + '/presentUsers'
     var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
-    userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
+    var justPushed = userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
 
-    // var amOnline = new Firebase(BASE_URL + '.info/connected')
-    userPresenceFirebase.onDisconnect().remove()
+
+    var userId = justPushed.name()
+
+    var userToDelete = new Firebase(userPresenceListUrl + '/' + userId)
+    userToDelete.onDisconnect().remove()
 
   }
 

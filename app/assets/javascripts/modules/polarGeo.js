@@ -35,21 +35,14 @@ var geoHelper = (function(){
     var lat2 = location2[0]
     var lon1 = location1[1]
     var lon2 = location2[1]
-
     var distance = _calculateDistance(lat1, lon1, lat2, lon2)
-
-    if (distance < acceptable_range){
-      return true
-    } else {
-      return false
-    }
+    return distance < acceptable_range
   }
 
   var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
   var _success = function(position){
-      new CustomEvent("geoDataReceived")
-      $.event.trigger("geoDataReceived")
       cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
+      PolarBear.fireRoomListEvents()
   }
   var _failure = function(position){ return "Sorry, we couldn't find you" }
 

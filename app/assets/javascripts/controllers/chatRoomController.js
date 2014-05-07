@@ -9,15 +9,13 @@ ChatRoomApp.RoomController.prototype = {
     $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
   },
   bindMessageListeners: function(){
-   self = this;
+   var self = this;
    $(document).bind('keypress',pressed);
 
    function pressed(e){
       if (e.keyCode == 13){
-        var name = $('#nameInput').val();
         var text = $("#messageInput").val();
-
-        firebaseHelper.pushToFirebase(self.model.chatRoomUrl, name, text);
+        firebaseHelper.pushToFirebase(self.model.chatRoomUrl, text);
         $("#messageInput").val('');
        }
    };

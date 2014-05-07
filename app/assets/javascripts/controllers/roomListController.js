@@ -15,6 +15,7 @@ RoomListApp.RoomListController.prototype = {
 
   summonRooms: function(){
     var activeRooms = geoparseHelper.parseRoomsToDisplayEligibleRooms()
+
     this.view.drawRoomList(activeRooms)
   },
   getInfoFromChatroom: function(roomPath){

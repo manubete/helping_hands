@@ -4,7 +4,6 @@ var firebaseHelper = (function() {
     return newFirebase
   }
   var _getFirebaseValue = function(firebaseObject) {
-
     var val;
     firebaseObject.on('value', function(snapshot) {
       val = snapshot.val()
@@ -65,7 +64,6 @@ var firebaseHelper = (function() {
     userLocation.push(userLatLong)
   }
   var _getFirebaseUserLocations = function(room) {
-
     var fireBasePath = BASE_URL + '/room_list/' + room + "/user_locations"
     var usersLocation = new Firebase( fireBasePath )
     usersLocation.on('value', function(snapshot){

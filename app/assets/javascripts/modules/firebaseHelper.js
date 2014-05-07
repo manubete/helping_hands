@@ -3,7 +3,10 @@ var firebaseHelper = (function() {
     var newFirebase = new Firebase(firebaseUrl)
     return newFirebase
   }
-
+  var _updateFireBase = function(firebaseUrl, options) {
+    var firebaseRoom = new Firebase(firebaseUrl)
+    firebaseRoom.set({latitude: options.latitude, longitude: options.longitude})
+  }
   var _createRoom = function() {
     var roomPath = _makeRoomName()
     var newRoomUrl = BASE_URL + roomPath
@@ -55,11 +58,12 @@ var firebaseHelper = (function() {
     userLocation.push(userLatLong)
   }
   var _getFirebaseUserLocations = function(room) {
+
     var fireBasePath = BASE_URL + '/room_list/' + room + "/user_locations"
     var usersLocation = new Firebase( fireBasePath )
     usersLocation.on('value', function(snapshot){
-      $.event.trigger( 'gotLocations' , { userLocation: snapshot.val() } )
-      Object.userLocations = Object.size(snapshot.val())
+      $.event.trigger( 'gotLocations' , { userLocation: snapshot.val(), roomName: room } )
+      Object.userLocations = snapshot.val()
     })
   }
 
@@ -68,6 +72,7 @@ var firebaseHelper = (function() {
     createFireBase: _createFireBase,
     createRoom: _createRoom,
     pushToFirebase: _pushToFirebase,
+    updateFireBase: _updateFireBase,
     bindChatWindowButtons: _bindChatWindowButtons,
     createFirebaseUserLocations: _createFirebaseUserLocations,
     getFirebaseUserLocations: _getFirebaseUserLocations

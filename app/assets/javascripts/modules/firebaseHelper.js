@@ -76,9 +76,9 @@ var firebaseHelper = (function() {
     var userPresenceListUrl = ROOM_LIST_PATH + roomPath + '/presentUsers'
     var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
     userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
-    // debugger
-    // var userToken = cookieFactory.getValue('user-token')
-    // var userRef = BASE_URL + 'presence/' + userToken
+
+    // var amOnline = new Firebase(BASE_URL + '.info/connected')
+    userPresenceFirebase.onDisconnect().remove()
 
   }
 
@@ -87,9 +87,6 @@ var firebaseHelper = (function() {
     var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
     var userCount = Object.size(_getFirebaseValue(userPresenceFirebase))
     return userCount
-
-
-    // debugger
   }
 
   return {

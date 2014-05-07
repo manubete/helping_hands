@@ -196,6 +196,9 @@ Chatroom STYLES
 		background-color: #eee;
 		color: black;
 		border-bottom: 1em solid rgba(162, 228, 231, 0.79);
+		i{
+			color: green;
+		}
 		&:nth-child(even) {
 			border-bottom: 1em solid rgb(194, 206, 147);
 		}
@@ -232,8 +235,10 @@ Chatroom STYLES
 .room-list {
 	width: 80%;
 	margin: 2% auto;
+}
+.room-list > .room-wrap {
 	overflow: scroll;
-	height: 40em;
+	max-height: 40em;
 }
 .room-list-landing {
 	width: 80%;

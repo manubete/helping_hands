@@ -235,8 +235,10 @@ Chatroom STYLES
 .room-list {
 	width: 80%;
 	margin: 2% auto;
+}
+.room-list > .room-wrap {
 	overflow: scroll;
-	height: 40em;
+	max-height: 40em;
 }
 .room-list-landing {
 	width: 80%;

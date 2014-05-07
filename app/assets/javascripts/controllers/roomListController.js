@@ -8,7 +8,7 @@ RoomListApp.RoomListController.prototype = {
     $(document).on('gotFirebaseRoomsData', this.summonRooms.bind(this) )
     $('.room-list').on("click", ".individual_room", this.handleUserRoomAssignment.bind(this))
     $(document).on('gotLocations', this.updateGeoLocation.bind(this))
-    $('#create_room').on("click", function() {
+    $('.room-list').on("click", '#create_room', function() {
       this.createChatRoom(firebaseHelper.createRoom())
     }.bind(this))
   },
@@ -27,7 +27,6 @@ RoomListApp.RoomListController.prototype = {
     this.view.drawRoomList(activeRooms)
   },
   getInfoFromChatroom: function(roomPath){
-
     firebaseHelper.getFirebaseUserLocations(roomPath)
   },
   createChatRoom: function(roomPath){

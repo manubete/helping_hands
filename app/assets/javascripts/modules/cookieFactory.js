@@ -13,7 +13,7 @@ var cookieFactory =(function(){
     var days = days || 100
     var date = new Date();
     date.setTime(date.getTime() + (days*24*60*60*1000));
-    var expires = ":expires="+date.toGMTString();
+    var expires = ";expires="+date.toGMTString();
     return expires
   }
 
@@ -22,6 +22,7 @@ var cookieFactory =(function(){
     var date = _createDate(days);
     var cookieString = "user-token=" + userToken + ":user-Latitude=" + userLatitude + ":user-Longitude=" + userLongitude + date + ": path=/" ;
     document.cookie = cookieString
+
   }
 
   var _getValue = function(name){
@@ -42,3 +43,4 @@ var cookieFactory =(function(){
     getUserLocation: _getUserLocation
   }
 }())
+// ((":"+ document.cookie).split('user-Latitude' + "="))[1].split(':').shift()

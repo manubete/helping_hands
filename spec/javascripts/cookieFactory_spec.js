@@ -1,5 +1,6 @@
 describe("cookieFactory", function(){
 
+
   describe("create user token", function(){
 
     it("returns a random 15 character string", function(){
@@ -35,6 +36,7 @@ describe("cookieFactory", function(){
       expect(cookieFactory.getValue('user-Latitude')).toEqual("37.780446")
 
      })
+
   })
 
   describe("get user longitude", function(){

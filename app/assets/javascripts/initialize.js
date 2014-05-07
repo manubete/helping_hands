@@ -11,6 +11,7 @@ PolarBear = {
     this.drawLandingPage()
     this.checkGeoLocation()
     this.fireRoomListEvents()
+    debugger
   },
 
   drawLandingPage: function(){
@@ -37,6 +38,7 @@ PolarBear = {
     $(document).on("geoDataReceived", function(){
       this.bindRoomListener();
       this.prepareRoomListMVC()
+
     }.bind(this))
   },
 

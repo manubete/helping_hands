@@ -32,7 +32,7 @@ var firebaseHelper = (function() {
 
     var availableIconsUrl = ROOM_LIST_PATH + roomPath + '/available_icons'
     var availableIconsFirebase = new Firebase(availableIconsUrl)
-    availableIconsFirebase.set({user1: 'red', user2: 'blue', user3: 'purple', user4: 'green', user5: 'pink'})
+    availableIconsFirebase.set({user1: 'bell', user2: 'gavel', user3: 'glass', user4: 'eye', user5: 'folder', user6: 'leaf', user7: 'magic', user8: 'male', user9:'female', user10: 'globe' })
 
     return roomPath
   }
@@ -45,7 +45,7 @@ var firebaseHelper = (function() {
   var _pushToFirebase = function(firebaseUrl, userMessage){
     var self = this;
     var chatRoom = new Firebase(firebaseUrl)
-    chatRoom.push({userColor: self.userColor, message: userMessage})
+    chatRoom.push({userIcon: self.userIcon, message: userMessage})
   }
 
   var _bindChatWindowButtons = function(firebaseServer) {
@@ -53,7 +53,7 @@ var firebaseHelper = (function() {
     var chatRoom = firebaseServer
     chatRoom.limit(10).on('child_added', function (snapshot) {
       var message = snapshot.val();
-      $('<div class="elevencol">').text(message.userColor+': '+message.message).fadeIn().appendTo($('#messagesDiv'));
+      $('<div class="elevencol '+message.userIcon+'">').html('<i class="fa fa-'+message.userIcon+' fa-2x"></i>:'+message.message).fadeIn().appendTo($('#messagesDiv'));
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }
@@ -104,7 +104,7 @@ var firebaseHelper = (function() {
     var randomIndexInHash = Math.floor(Math.random() * (numberOfAvailableIcons)+1);
     var identifiedKeyInHash = 'user' + randomIndexInHash
     var colorForUser = availableIconsHash[identifiedKeyInHash]
-    this.userColor = colorForUser
+    this.userIcon = colorForUser
 
     // Identify the key in the hash and make a firebase reference to it
     var usersKeyUrl = availableIconsUrl + '/' + identifiedKeyInHash

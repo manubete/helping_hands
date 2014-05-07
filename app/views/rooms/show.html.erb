@@ -1,3 +1,8 @@
-{{#rooms}}
-  <div data-id='{{name}}' class="individual_room room elevencol"><i class="fa fa-comments-o fa-2x"></i>{{name}}<br>{{distance}}<br>( {{userCount}} / 15 )</div>
-{{/rooms}}
+<div class="room-wrap">
+  {{#rooms}}
+    <div data-id='{{name}}' class="individual_room room elevencol"><i class="fa fa-comments-o fa-2x"></i>{{name}}<br>{{distance}}<br>( {{userCount}} / 15 )</div>
+  {{/rooms}}
+</div>
+<div class="create-room">
+  <button id="create_room" class="button" type="submit">Create a Room</button>
+</div>

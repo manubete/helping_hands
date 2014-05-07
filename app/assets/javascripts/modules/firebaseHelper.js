@@ -73,14 +73,12 @@ var firebaseHelper = (function() {
   }
 
   var _setUserToRoom = function(chatRoomUrl, roomPath){
-
     var userPresenceListUrl = ROOM_LIST_PATH + roomPath + '/presentUsers'
     var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
-    userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
-
-    // var amOnline = new Firebase(BASE_URL + '.info/connected')
-    userPresenceFirebase.onDisconnect().remove()
-
+    var justPushed = userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
+    var userId = justPushed.name()
+    var userToDelete = new Firebase(userPresenceListUrl + '/' + userId)
+    userToDelete.onDisconnect().remove()
   }
 
   var _getUserCount = function(roomName){

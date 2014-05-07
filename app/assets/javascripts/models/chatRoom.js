@@ -7,5 +7,5 @@ ChatRoomApp.Room = function(chatRoomUrl, roomPath){
 ChatRoomApp.Room.prototype = {
   assignUserToRoom: function(chatRoomUrl, roomPath){
     firebaseHelper.setUserToRoom(chatRoomUrl, roomPath)
-  },
+  }
 }

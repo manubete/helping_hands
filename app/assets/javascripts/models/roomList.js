@@ -14,7 +14,9 @@ RoomListApp.RoomList.prototype = {
     var roomNames = Object.keys(fireBaseRoomsData)
     var roomArray = []
     for(var i = 0; i < roomNames.length; i++){
-      roomArray.push({name: roomNames[i]})
+
+      roomArray.push({name: roomNames[i], userCount: userCount})
+      console.log(roomNames[i]+': '+userCount)
     }
     return roomArray
   }

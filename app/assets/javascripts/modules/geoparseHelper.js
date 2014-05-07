@@ -18,7 +18,6 @@ var geoparseHelper = (function(){
 
          roomLocationArray[i]["distance"] = _distanceFromRoom(roomLocationArray[i])
 
-        console.log(roomLocationArray[i])
 
         eligibleRoomsArray.push(roomLocationArray[i])
       }

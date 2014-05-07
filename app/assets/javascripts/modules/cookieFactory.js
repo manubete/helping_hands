@@ -43,4 +43,3 @@ var cookieFactory =(function(){
     getUserLocation: _getUserLocation
   }
 }())
-// ((":"+ document.cookie).split('user-Latitude' + "="))[1].split(':').shift()

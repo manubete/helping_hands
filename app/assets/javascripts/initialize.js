@@ -9,7 +9,6 @@ PolarBear = {
   initialize: function(){
     this.drawLandingPage();
     this.checkGeoLocation();
-    this.fireRoomListEvents();
   },
 
   drawLandingPage: function(){
@@ -27,16 +26,13 @@ PolarBear = {
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(geoHelper.success, geoHelper.failure, geoHelper.defaultOps)
     } else {
-      console.log("the fails")
+      console.log('no geolocation')
     }
   },
 
   fireRoomListEvents: function() {
-    $(document).on("geoDataReceived", function(){
-      this.bindRoomListener();
-      this.prepareRoomListMVC()
-
-    }.bind(this))
+    this.bindRoomListener();
+    this.prepareRoomListMVC();
   },
 
   bindRoomListener: function() {

@@ -7,7 +7,6 @@ $('document').ready( function(){
 
 PolarBear = {
   initialize: function(){
-    this.drawLandingPage();
     this.checkGeoLocation();
   },
 

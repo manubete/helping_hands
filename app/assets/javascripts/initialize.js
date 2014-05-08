@@ -7,20 +7,8 @@ $('document').ready( function(){
 
 PolarBear = {
   initialize: function(){
-    this.drawLandingPage();
     this.checkGeoLocation();
   },
-
-  drawLandingPage: function(){
-     $.ajax({
-      type: 'get',
-      url: '/landing_page',
-      dataType: "text"
-     }).done(function(data){
-       $(".other_stuff").html(data);
-     })
-  },
-
 
   checkGeoLocation: function(){
     if(navigator.geolocation){

@@ -39,17 +39,7 @@ var geoHelper = (function(){
     return distance < acceptable_range
   }
 
-  var _default = { enableHighAccuracy: true, timeout: 1000, maximumAge: 0}
-  var _success = function(position){
-      cookieFactory.createCookie(position.coords.latitude, position.coords.longitude)
-      PolarBear.fireRoomListEvents()
-  }
-  var _failure = function(position){ return "Sorry, we couldn't find you" }
-
   return {
-    failure: _failure,
-    success: _success,
-    defaultOps: _default,
     calculateDistance: _calculateDistance,
     inRange: _inRange,
     getCentroid: _getCentroid

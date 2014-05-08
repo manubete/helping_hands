@@ -12,7 +12,7 @@ PolarBear = {
 
   checkGeoLocation: function(){
     if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(geoHelper.success, geoHelper.failure, geoHelper.defaultOps)
+      navigator.geolocation.getCurrentPosition(userFactory.success, userFactory.failure, userFactory.defaultOps)
     } else {
       console.log('no geolocation')
     }

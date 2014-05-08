@@ -32,7 +32,7 @@ var firebaseHelper = (function() {
 
     var availableIconsUrl = ROOM_LIST_PATH + roomPath + '/available_icons'
     var availableIconsFirebase = new Firebase(availableIconsUrl)
-    availableIconsFirebase.set({user1: 'bell', user2: 'gavel', user3: 'glass', user4: 'eye', user5: 'folder', user6: 'leaf', user7: 'magic', user8: 'male', user9:'female', user10: 'globe' })
+    availableIconsFirebase.set({user1: 'beer', user2: 'gavel', user3: 'glass', user4: 'bolt', user5: 'cloud', user6: 'crosshairs', user7: 'magic', user8: 'flask', user9:'flag-checkered', user10: 'globe', user11: 'fighter-jet', user12: 'money', user13: 'rocket', user14: 'smile-o', user15: 'floppy-o', user16: 'users', user17: 'puzzle-piece', user18: 'group', user19: 'cogs', user20: 'code-fork' })
 
     return roomPath
   }
@@ -103,8 +103,8 @@ var firebaseHelper = (function() {
     var numberOfAvailableIcons = Object.size(availableIconsHash)
     var randomIndexInHash = Math.floor(Math.random() * (numberOfAvailableIcons)+1);
     var identifiedKeyInHash = 'user' + randomIndexInHash
-    var colorForUser = availableIconsHash[identifiedKeyInHash]
-    this.userIcon = colorForUser
+    var iconForUser = availableIconsHash[identifiedKeyInHash]
+    this.userIcon = iconForUser
 
     // Identify the key in the hash and make a firebase reference to it
     var usersKeyUrl = availableIconsUrl + '/' + identifiedKeyInHash
@@ -114,7 +114,7 @@ var firebaseHelper = (function() {
     usersKeyFirebase.remove()
 
     // When he disconnects, add it back to the hash
-    usersKeyFirebase.onDisconnect().set(colorForUser)
+    usersKeyFirebase.onDisconnect().set(iconForUser)
   }
 
   var _getUserCount = function(roomName){

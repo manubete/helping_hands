@@ -191,17 +191,14 @@ Chatroom STYLES
 	overflow: overlay;
 	max-height: 30em;
 	div {
-		margin: 0 auto;
+		margin: 1% auto;
 		padding: 2%;
 		background-color: #eee;
 		color: black;
 		font-family: 'Lato', sans-serif;
-		border-bottom: 0.25em solid rgba(162, 228, 231, 0.79);
-		i{
-			color: green;
-		}
+		// border-bottom: 0.25em solid rgba(162, 228, 231, 0.79);
 		&:nth-child(even) {
-			border-bottom: 0.25em solid rgb(194, 206, 147);
+			// border-bottom: 0.25em solid rgb(194, 206, 147);
 		}
 
 	}

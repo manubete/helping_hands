@@ -42,18 +42,18 @@ var firebaseHelper = (function() {
     return randomName
   }
 
-  var _pushToFirebase = function(firebaseUrl, userMessage){
+  var _pushToFirebase = function(firebaseUrl, userMessage, room){
     var self = this;
     var chatRoom = new Firebase(firebaseUrl)
-    chatRoom.push({userIcon: self.userIcon, message: userMessage})
+    chatRoom.push({userIcon: self.userIcon, message: userMessage, color: room.color})
   }
 
-  var _bindChatWindowButtons = function(firebaseServer) {
-    var self = this;
+  var _bindChatWindowButtons = function(firebaseServer, room) {
+    console.log(room.color)
     var chatRoom = firebaseServer
     chatRoom.limit(10).on('child_added', function (snapshot) {
       var message = snapshot.val();
-      $('<div class="elevencol '+message.userIcon+'">').html('<i class="fa fa-'+message.userIcon+' fa-2x"></i>:'+message.message).fadeIn().appendTo($('#messagesDiv'));
+      $('<div class="elevencol '+message.color+'">').html('<i class="fa fa-'+message.userIcon+' fa-2x"></i>'+message.message).fadeIn().appendTo($('#messagesDiv'));
       $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     })
   }

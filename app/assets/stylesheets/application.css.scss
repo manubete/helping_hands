@@ -30,7 +30,8 @@
  you set a great foundation, you won't need to add too many styles in
  the other stylesheets. Keep it light: Speed is Important.
  */
-
+// chatroom colors
+@import "responsive/chatcolors";
  // styles in base.scss
  @import "responsive/base";
  @import "responsive/grid";

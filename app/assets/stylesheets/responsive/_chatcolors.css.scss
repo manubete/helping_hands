@@ -1,0 +1,39 @@
+#messagesDiv {
+  i {
+    margin-right: 5%;
+  }
+}
+.red {
+  border-bottom: 0.25em solid $polar-chat-red;
+  i {
+    color: $polar-chat-red;
+  }
+}
+
+.yellow {
+  border-bottom: 0.25em solid $polar-chat-yellow;
+  i {
+    color: $polar-chat-yellow;
+  }
+}
+
+.orange {
+  border-bottom: 0.25em solid $polar-chat-orange;
+  i {
+    color: $polar-chat-orange;
+  }
+}
+
+.blue {
+  border-bottom: 0.25em solid $polar-chat-blue;
+  i {
+    color: $polar-chat-blue;
+  }
+}
+
+.green {
+  border-bottom: 0.25em solid $polar-chat-green;
+  i {
+    color: $polar-chat-green;
+  }
+}

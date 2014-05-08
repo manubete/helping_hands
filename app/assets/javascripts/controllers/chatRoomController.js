@@ -9,18 +9,18 @@ ChatRoomApp.RoomController.prototype = {
     $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
   },
   bindMessageListeners: function(){
-   var self = this;
    $(document).bind('keypress',pressed);
-
+   var self = this;
    function pressed(e){
       if (e.keyCode == 13){
         var text = $("#messageInput").val();
-        firebaseHelper.pushToFirebase(self.model.chatRoomUrl, text);
+        firebaseHelper.pushToFirebase(self.model.chatRoomUrl, text, self.model);
         $("#messageInput").val('');
        }
    };
+   this.model.randomizeColor()
+   firebaseHelper.bindChatWindowButtons(this.model.firebaseServer, this.model)
+  }
 
-   firebaseHelper.bindChatWindowButtons(self.model.firebaseServer)
-  },
 
 }

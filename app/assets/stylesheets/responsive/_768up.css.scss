@@ -109,14 +109,11 @@ Chatroom STYLES
 
  #messagesDiv {
 	div {
-		margin: 2% 0;
-		padding: 3.5%;
+		margin: 1% 0;
+		padding: 2%;
 		background-color: #eee;
 		color: black;
 		font-size: 1.2em;
-		&:nth-child(even) {
-		}
-
 	}
 }
 #messageInput {
@@ -125,6 +122,13 @@ Chatroom STYLES
 }
 .logo {
 	margin: 1% auto;
-	width: 11%
+	width: 11%;
 }
 
+#landing_slogan {
+	p {
+		text-transform: capitalize;
+		font-size: 2em;
+		font-family: 'Arvo', sans-serif
+	}
+}

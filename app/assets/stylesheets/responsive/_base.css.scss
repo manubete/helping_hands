@@ -10,7 +10,7 @@ a {}
 blockquote {}
 
 body {
-	background: url('http://subtlepatterns.com/patterns/congruent_outline.png');
+	background: url('http://subtlepatterns.com/patterns/wood_1.png');
 	color: #fff;
 	overflow-y:overlay;
 }
@@ -189,18 +189,16 @@ Chatroom STYLES
 }
 #messagesDiv {
 	overflow: overlay;
-	height: 30em;
+	max-height: 30em;
 	div {
-		margin: 3% auto;
-		padding: 5%;
+		margin: 1% auto;
+		padding: 2%;
 		background-color: #eee;
 		color: black;
-		border-bottom: 1em solid rgba(162, 228, 231, 0.79);
-		i{
-			color: green;
-		}
+		font-family: 'Lato', sans-serif;
+		// border-bottom: 0.25em solid rgba(162, 228, 231, 0.79);
 		&:nth-child(even) {
-			border-bottom: 1em solid rgb(194, 206, 147);
+			// border-bottom: 0.25em solid rgb(194, 206, 147);
 		}
 
 	}
@@ -211,6 +209,7 @@ Chatroom STYLES
   background: #fff;
   border-radius: 5px;
   font-size: 1.2em;
+  font-family: 'Abel', sans-serif;
   padding: 5%;
   margin-top: 1%;
 }
@@ -303,12 +302,11 @@ Chatroom STYLES
 	text-align: center;
 	font-size:1.4em;
 	margin: 0 auto;
-	border-bottom: dotted .1em;
 	padding: 1em 0;
-	bottom: 20%;
-}
 
-#make_space {
-	height: 20em;
+	p {
+		text-transform: capitalize;
+		font-size: 1em;
+		font-family: 'Arvo', sans-serif
+	}
 }
-

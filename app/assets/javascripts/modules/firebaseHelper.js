@@ -23,11 +23,11 @@ var firebaseHelper = (function() {
     var newRoom = new Firebase(newRoomUrl)
 
     var roomsLatitude = new Firebase(ROOM_LIST_PATH + roomPath + '/location/latitude')
-    var roomLat = cookieFactory.getValue("user-Latitude");
+    var roomLat = userFactory.getUserValue("userLatitude");
     roomsLatitude.set(Number(roomLat))
 
     var roomsLongitude = new Firebase(ROOM_LIST_PATH + roomPath + '/location/longitude')
-    var roomLong = cookieFactory.getValue("user-Longitude");
+    var roomLong = userFactory.getUserValue("userLongitude");
     roomsLongitude.set(Number(roomLong))
 
     var availableIconsUrl = ROOM_LIST_PATH + roomPath + '/available_icons'
@@ -67,7 +67,11 @@ var firebaseHelper = (function() {
   };
 
   var _createFirebaseUserLocations = function(fbInfo) {
-    var userLatLong = cookieFactory.getUserLocation()
+
+    var userLat = userFactory.getUserValue('userLatitude')
+    var userLong = userFactory.getUserValue('userLongitude')
+    var userLatLong = { latitude: userLat, longitude: userLong }
+
     var fireBasePath = BASE_URL + '/room_list/' + fbInfo.roomPath + "/user_locations"
     var userLocation = new Firebase( fireBasePath )
     userLocation.push(userLatLong)
@@ -87,7 +91,7 @@ var firebaseHelper = (function() {
     // Adds the user to the 'present users' list
     var userPresenceListUrl = ROOM_LIST_PATH + roomPath + '/presentUsers'
     var userPresenceFirebase = firebaseHelper.createFireBase(userPresenceListUrl)
-    var justPushed = userPresenceFirebase.push({user_token: cookieFactory.getValue('user-token')})
+    var justPushed = userPresenceFirebase.push({user_token: userFactory.getUserValue('userToken')})
 
     // Sets the user to be deleted from the 'presence' list when he disconnects
     var userId = justPushed.name()

@@ -7,24 +7,12 @@ $('document').ready( function(){
 
 PolarBear = {
   initialize: function(){
-    this.drawLandingPage();
     this.checkGeoLocation();
   },
 
-  drawLandingPage: function(){
-     $.ajax({
-      type: 'get',
-      url: '/landing_page',
-      dataType: "text"
-     }).done(function(data){
-       $(".other_stuff").html(data);
-     })
-  },
-
-
   checkGeoLocation: function(){
     if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(geoHelper.success, geoHelper.failure, geoHelper.defaultOps)
+      navigator.geolocation.getCurrentPosition(userFactory.success, userFactory.failure, userFactory.defaultOps)
     } else {
       console.log('no geolocation')
     }

@@ -9,7 +9,7 @@ ChatRoomApp.Room.prototype = {
     firebaseHelper.setUserToRoom(chatRoomUrl, roomPath)
   },
   randomizeColor: function(){
-    var colors = ["red", "yellow", "blue", "orange", "green"]
+    var colors = ["pink", "purple", "blue", "orange", "green", "moss", "brown", "dark-purple", "light-blue", "grey"]
     this.color = colors[Math.floor(Math.random()*colors.length)];
   }
 }

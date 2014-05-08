@@ -45,11 +45,17 @@ $grey:  			       #3F403F;
 $polar-blue:         rgba(165, 243, 246, 0.79);
 $polar-white:        rgba(171, 251, 255, 0.94);
 
-$polar-chat-red:     rgba(219, 68, 240, 0.61);
-$polar-chat-yellow:  rgba(96, 240, 68, 0.53);
-$polar-chat-orange:  rgba(68, 226, 240, 0.53);
-$polar-chat-blue:    rgba(96, 68, 240, 0.53);
-$polar-chat-green:   rgba(240, 68, 68, 0.53);
+$polar-chat-pink:         rgba(219, 68, 240, 0.61);
+$polar-chat-green:        rgba(96, 240, 68, 0.53);
+$polar-chat-blue:         rgba(68, 226, 240, 0.53);
+$polar-chat-purple:       rgba(96, 68, 240, 0.53);
+$polar-chat-orange:       rgba(240, 68, 68, 0.53);
+
+$polar-chat-moss:         rgba(130, 196, 78, 0.53);
+$polar-chat-brown:        rgba(196, 154, 78, 0.53);
+$polar-chat-dark-purple:  rgba(135, 40, 255, 0.53);
+$polar-chat-light-blue:   rgba(85, 201, 182, 0.74);
+$polar-chat-grey:   rgba(206, 174, 174, 0.46);
 
 $polar-light-grey: 		#BEC4C4;
 
@@ -77,7 +83,7 @@ $categories-blue:   #006A9F;
 TYPOGRAPHY
 *********************/
 $body_copy:					"Droid Sans", sans-serif;
-$sans-serif:        "Abel", Helvetica, Arial, sans-serif;
+$sans-serif:        "Lato", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
 
@@ -191,7 +197,6 @@ BUTTONS
 	display: inline-block;
 	font-size: 1em;
 	cursor: pointer;
-
 	line-height: 21px;
 	@include css-gradient($link-color, darken($link-color, 5%));
 

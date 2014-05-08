@@ -120,6 +120,12 @@ Chatroom STYLES
   padding: 2.5%;
 
 }
+.room{
+	opacity: 0.8;
+	&:hover {
+		opacity: 1;
+	}
+}
 .logo {
 	margin: 1% auto;
 	width: 11%;

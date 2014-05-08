@@ -9,6 +9,7 @@ ChatRoomApp.RoomController.prototype = {
     $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
   },
   bindMessageListeners: function(){
+    $('.button').remove()
    $(document).bind('keypress',pressed);
    var self = this;
    function pressed(e){

@@ -189,7 +189,7 @@ Chatroom STYLES
 }
 #messagesDiv {
 	overflow: overlay;
-	max-height: 25em;
+	max-height: 22em;
 	div {
 		margin: 1% auto;
 		padding: 2%;
@@ -237,7 +237,7 @@ Chatroom STYLES
 }
 .room-list > .room-wrap {
 	overflow: scroll;
-	max-height: 40em;
+	max-height: 26em;
 	font-family: 'Abel'
 }
 .room-list-landing {
@@ -247,37 +247,42 @@ Chatroom STYLES
 .room {
 	text-align: left;
 	padding: 4%;
-	margin: 2% auto;
+	margin: 0.7% auto;
 	font-size: 1.2em;
+	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
-	background-color: $polar-blue;
-	color: darken($polar-blue, 60%);
-	border-bottom: 0.5em solid white;
-	opacity: 0.8;
+	background-color: white;
+	color: darken($polar-blue, 70%);
+	border-left: 0.4em solid rgb(32, 185, 223);
+	border-bottom: 0.1em solid darken(white,10%);
 	position: relative;
-	&:nth-child(even) {
-		background-color: $polar-white;
-		color: darken($polar-white, 50%)
-	}
+	min-height: 4em;
 	&:hover {
-		opacity: 1;
 		i {
-			color: rgb(127, 98, 241);
+			color: rgb(32, 185, 223);
 		}
 	}
+	// rgb(32, 185, 223)
 	i {
 		color: white;
+		padding: 1%;
 		position: absolute;
 		right: 1%;
 		top: 1%;
-
+	}
+	span {
+		font-family: 'Abel', sans-serif;
+		text-transform: capitalize;
+		position:absolute;
+		bottom:8%;
+		font-size: 0.8em;
+		margin-top: 1%;
+		&.user-count {
+			right: 1%;
+		}
 	}
 }
 
-.inactive {
-	background-color: #ACACAC;
-	color: rgba(160, 160, 160, 0.65);
-}
 
 .create-room {
 	.create-button {

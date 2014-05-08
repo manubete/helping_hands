@@ -9,7 +9,6 @@ ChatRoomApp.RoomController.prototype = {
     $(document).on('ajax-back', this.bindMessageListeners.bind(this) )
   },
   bindMessageListeners: function(){
-   var self = this;
    $(document).bind('keypress',pressed);
 
    function pressed(e){
@@ -19,8 +18,9 @@ ChatRoomApp.RoomController.prototype = {
         $("#messageInput").val('');
        }
    };
+   console.log('hello')
+   firebaseHelper.bindChatWindowButtons(this.model.firebaseServer)
+  }
 
-   firebaseHelper.bindChatWindowButtons(self.model.firebaseServer)
-  },
 
 }

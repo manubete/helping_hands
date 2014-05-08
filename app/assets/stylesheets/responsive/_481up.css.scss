@@ -50,3 +50,11 @@ NAVIGATION STYLES
 			}  /* end current highlighters */
 		} /* end .menu ul */
 	} /* end .menu */
+
+	#landing_slogan {
+		p {
+			text-transform: capitalize;
+			font-size: 1.5em;
+			font-family: 'Arvo', sans-serif
+		}
+	}

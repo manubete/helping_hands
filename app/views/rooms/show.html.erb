@@ -1,6 +1,7 @@
 <div class="room-wrap">
   {{#rooms}}
-    <div data-id='{{name}}' class="individual_room room elevencol"><i class="fa fa-comments-o fa-2x"></i>{{name}}<br>{{distance}}<br>( {{userCount}} / 15 )</div>
+    <div data-id='{{name}}' class="individual_room room elevencol"><i class="fa fa-comments-o fa-2x"></i>{{name}}<br>
+      <span>{{distance}}( {{userCount}} / 15 )</span></div>
   {{/rooms}}
 </div>
 <div class="create-room">

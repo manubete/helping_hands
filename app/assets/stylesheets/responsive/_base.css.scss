@@ -189,7 +189,7 @@ Chatroom STYLES
 }
 #messagesDiv {
 	overflow: overlay;
-	max-height: 30em;
+	max-height: 25em;
 	div {
 		margin: 1% auto;
 		padding: 2%;
@@ -238,6 +238,7 @@ Chatroom STYLES
 .room-list > .room-wrap {
 	overflow: scroll;
 	max-height: 40em;
+	font-family: 'Abel'
 }
 .room-list-landing {
 	width: 80%;

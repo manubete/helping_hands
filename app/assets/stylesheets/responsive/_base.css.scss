@@ -280,13 +280,10 @@ Chatroom STYLES
 }
 
 .create-room {
-	width: 70%;
-	margin: auto;
-	display:none;
-
-	button {
-		width: 80%;
-		margin: 0 auto
+	.create-button {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
 	}
 }
 

@@ -7,4 +7,4 @@ With Helping Hands, organizations issue 'promises', contracts that specify a par
 
 These promises allow organizations to crowdsource their needs effectively and not waste precious resources sorting through unneeded donations and resources.
 
-Helping Hands promises makes every little piece of help count
+Helping Hands promises make every little piece of help count.

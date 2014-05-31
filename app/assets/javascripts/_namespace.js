@@ -1,2 +1,0 @@
-RoomListApp = {};
-ChatRoomApp = {};

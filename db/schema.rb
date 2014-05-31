@@ -11,6 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140506035654) do
+ActiveRecord::Schema.define(:version => 20140531205402) do
+
+  create_table "promises", :force => true do |t|
+    t.string  "organization"
+    t.string  "resource"
+    t.integer "resource_count"
+    t.string  "address"
+    t.string  "description"
+    t.string  "disaster"
+  end
 
 end

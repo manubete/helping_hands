@@ -1,0 +1,27 @@
+<div class="topLinks">
+      <a href="profile.html">HOME</a>
+      <a href="profile.html">ACCOUNT</a>
+      <a href="new1.html">MESSAGES</a>
+  </div>
+
+  <div id="fillBox">
+      <%= form_for @request do |f| %>
+
+      <p id="name" >Name of Organization: <%= f.text_field :organization %></p>
+      <p id="rNeed">Resource Needed: <%= f.text_field :resource %></p>
+      <p>Quantity Needed: <%= f.text_field :resource_count %></p>
+       <p >Quantity Needed: <%= f.text_field :resource_count %></p>
+     <p>Description: <%= f.text_field :description %></p>
+      <p>Disaster: <%= f.text_field :purpose %></p>
+      <p><%= f.submit %></p>
+      <% end %>
+
+  </div>
+<footer>
+  <nav class="bottomLinks">
+      <a href="index.html">About Us</a>
+      <a href="profile.html">Community</a>
+      <a href="new1.html">Education</a>
+      <a>(c) HelpingHands, 2014</a>
+  </nav>
+</footer>

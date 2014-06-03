@@ -13,13 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20140531205402) do
 
-  create_table "promises", :force => true do |t|
+  create_table "requests", :force => true do |t|
     t.string  "organization"
     t.string  "resource"
-    t.integer "resource_count"
+    t.integer "resource_count", :default => 0
     t.string  "address"
     t.string  "description"
-    t.string  "disaster"
+    t.string  "purpose"
   end
 
 end

@@ -9,14 +9,19 @@ class RequestsController < ApplicationController
   end
 
   def create
-    p "#{params["Request"]["organization"]}"
-    @request = Request.new(organization: params["Request"]["organization"], resource: params["Request"]["resource"], address: params["Request"]["address"], description: params["Request"]["description"], disaster: params["Request"]["disaster"])
+    p "#{params["request"]["organization"]}"
+    @request = Request.new(organization: params["request"]["organization"], resource: params["request"]["resource"],resource_count: params["request"]["resource_count"], address: params["request"]["address"], description: params["request"]["description"], purpose: params["request"]["purpose"])
     @request.save
     redirect_to root_path
   end
 
-  # def show
-  #   @requests = Request.all
-  #   render :show
-  # end
+  def list
+    @requests = Request.all
+    render :list
+  end
+
+  def show
+    @request = Request.find( params["id"])
+    render :show
+  end
 end

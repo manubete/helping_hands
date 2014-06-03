@@ -3,7 +3,7 @@ class CreateRequests < ActiveRecord::Migration
     create_table :requests do |col|
       col.string :organization
       col.string :resource
-      col.integer :resource_count, default: 0
+      col.integer :resource_count
       col.string :address
       col.string :description
       col.string :purpose

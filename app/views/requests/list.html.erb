@@ -1,19 +1,22 @@
-
 <div class="topLinks">
       <%= link_to "HOME", controller: "requests", action: "index" %>
       <a href="#">ACCOUNT</a>
       <a href="#">MESSAGES</a>
   </div>
 
-  <div id="promiseBox">
-      <img src="http://i1.minus.com/jbbUCKWnG1pFdf.png">
-      <%= link_to "Add new Request", controller: "requests", action: "new" %>
-      <p> </p>
-    <%= link_to "Current Requests", controller: "requests", action: "list" %>
+  <div id="needsBox">
+    <p>list</p>
+
+    <% @requests.each do |request| %>
+
+       <%= link_to "#{request.organization}: #{request.resource_count} #{request.resource} ", request_path(request) %>
+
+    <% end %>
+
   </div>
 <footer>
   <nav class="bottomLinks">
-     <a href="#">About Us</a>
+      <a href="#">About Us</a>
       <a href="#">Community</a>
       <a href="#">Education</a>
       <a >(c) HelpingHands, 2014</a>

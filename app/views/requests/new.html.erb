@@ -1,27 +1,27 @@
 <div class="topLinks">
-      <a href="profile.html">HOME</a>
-      <a href="profile.html">ACCOUNT</a>
-      <a href="new1.html">MESSAGES</a>
+    <%= link_to "HOME", controller: "requests", action: "index" %>
+      <a href="#">ACCOUNT</a>
+      <a href="#">MESSAGES</a>
   </div>
 
   <div id="fillBox">
       <%= form_for @request do |f| %>
 
-      <p id="name" >Name of Organization: <%= f.text_field :organization %></p>
-      <p id="rNeed">Resource Needed: <%= f.text_field :resource %></p>
-      <p>Quantity Needed: <%= f.text_field :resource_count %></p>
-       <p >Quantity Needed: <%= f.text_field :resource_count %></p>
-     <p>Description: <%= f.text_field :description %></p>
-      <p>Disaster: <%= f.text_field :purpose %></p>
+      <p id="name" >Name of Organization: <%= f.text_field :organization, :placeholder => "The Salvation Army" %></p>
+      <p id="rNeed">Resource Needed: <%= f.text_field :resource, :placeholder => "water bottles, blankets" %></p>
+      <p>Quantity Needed: <%= f.text_field :resource_count, :placeholder => "500, 200" %></p>
+       <p >Address: <%= f.text_field :address, :placeholder => "1234 Valencia St, CA 94103" %></p>
+     <p>Description: <%= f.text_field :description, :placeholder => "Dehydrated Refugees" %></p>
+      <p>Purpose: <%= f.text_field :purpose, :placeholder => "SOMA shelter" %></p>
       <p><%= f.submit %></p>
       <% end %>
 
   </div>
 <footer>
   <nav class="bottomLinks">
-      <a href="index.html">About Us</a>
-      <a href="profile.html">Community</a>
-      <a href="new1.html">Education</a>
-      <a>(c) HelpingHands, 2014</a>
+      <a href="#">About Us</a>
+      <a href="#">Community</a>
+      <a href="#">Education</a>
+      <a >(c) HelpingHands, 2014</a>
   </nav>
 </footer>

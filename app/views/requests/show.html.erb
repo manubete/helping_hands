@@ -1,17 +1,22 @@
   <div class="topLinks">
-      <a href="index.html">HOME</a>
-      <a href="profile.html">ACCOUNT</a>
-      <a href="new1.html">MESSAGES</a>
+     <%= link_to "HOME", controller: "requests", action: "index" %>
+      <a href="#">ACCOUNT</a>
+      <a href="#">MESSAGES</a>
   </div>
 
   <div id="needsBox">
 
+      <p><%= @request.organization %></p>
+
+      <p>We need <%= @request.resource_count %> of <%= @request.resource %> to send to <%= @request.address %></p><br>
+      <p>Please let us know if you can donate </p>
+      <button type="button"> Donate </button>
   </div>
 <footer>
   <nav class="bottomLinks">
-      <a href="index.html">About Us</a>
-      <a href="profile.html">Community</a>
-      <a href="new1.html">Education</a>
+      <a href="#">About Us</a>
+      <a href="#">Community</a>
+      <a href="#">Education</a>
       <a >(c) HelpingHands, 2014</a>
   </nav>
 </footer>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PolarBear</title>
+  <title>Helping Hands</title>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -11,8 +11,8 @@
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
 </head>
 <body>
-
+<%= render "layouts/header" %>
 <%= yield %>
-
+<%= render "layouts/footer" %>
 </body>
 </html>

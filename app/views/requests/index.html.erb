@@ -1,6 +1,8 @@
-  <div id="promiseBox">
-      <img src="/assets/helping_hands_logo.png">
-      <%= link_to "Add new Request", controller: "requests", action: "new" %>
-      <p> </p>
-    <%= link_to "Current Requests", controller: "requests", action: "list" %>
+  <div id="needsBox">
+    <% @requests.each do |request| %>
+
+       <p><%= link_to "#{request.organization}: #{request.resource_count} #{request.resource} ", request_path(request) %></p>
+
+    <% end %>
+
   </div>

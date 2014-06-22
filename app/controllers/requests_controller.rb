@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   def index
+    @requests = Request.all
     render :index
   end
 
@@ -15,9 +16,16 @@ class RequestsController < ApplicationController
     redirect_to root_path
   end
 
-  def list
-    @requests = Request.all
-    render :list
+  def landing_page
+    render :landing_page
+  end
+
+  def api_request
+    requests = Request.all
+
+    respond_to do |format|
+      format.json {render json: requests, status:200 }
+    end
   end
 
   def show

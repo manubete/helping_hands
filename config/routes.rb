@@ -1,13 +1,22 @@
 PolarBear::Application.routes.draw do
 
-  #routes and roads wont be there, in promise specify how the help can arrive
-  root to: "requests#index"
 
-  resources :requests do
-    collection do
-      get :list
-    end
-  end
+  root to: "requests#landing_page"
+
+  #requests resources with an api namespace
+  #requests are used in both the website and the api
+
+      resources :requests do
+        #temporarily adding the list path
+        #will later turn this into an ajax call
+        collection do
+          get :landing_page
+          get :api_request
+        end
+      end
+
+
+   root to: "requests#landing_page"
 
 
 end

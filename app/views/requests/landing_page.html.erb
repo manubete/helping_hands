@@ -1,6 +1,15 @@
   <div id="promiseBox">
       <img src="/assets/helping_hands_logo.png">
+    <h5> Previous landing</h5>
       <%= link_to "Add new Request", controller: "requests", action: "new" %>
       <p> </p>
     <%= link_to "Current Requests", controller: "requests", action: "index" %>
+
+    <h5>New Landing Pg Format</h5>
+    <p>Or start Searching</p>
+     <%= form_tag requests_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+      <% end %>
+
   </div>

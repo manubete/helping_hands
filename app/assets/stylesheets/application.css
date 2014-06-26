@@ -17,8 +17,8 @@ body {
 #promiseBox{
   border-radius:1em;
   margin-top: 200px;
-  width: 432px;
-  height: 300px;
+  width: 55%;
+  height: 70%;
   background: rgba(0, 0, 0, 0.70);
   margin: 200px auto 0 auto;
   padding:1em;
@@ -43,11 +43,29 @@ body {
   text-transform:uppercase;
 }
 
+div .sorting_category {
+  border: 1px solid white;
+  border-radius: 5px;
+  width:45%;
+}
+
+a .asc {
+  background-image: url(/images/up21.png);
+}
+
+a .desc {
+  background-image: url(/images/up21.png);
+}
+
+
+.request {
+  width: 80%;
+}
 #needsBox{
   border-radius:1em;
   margin-top: 200px;
-  width: 432px;
-  height: 330px;
+  width: 40%;
+  height: 55%;
   background: rgba(0, 0, 0, 0.70);
   margin: 110px auto 0 auto;
   padding:4em;

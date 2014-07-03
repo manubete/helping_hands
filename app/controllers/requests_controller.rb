@@ -27,6 +27,10 @@ class RequestsController < ApplicationController
     render :landing_page
   end
 
+  def user_type_confirmation
+    render :user_type_confirmation
+  end
+
   def api_request
     requests = Request.all
 

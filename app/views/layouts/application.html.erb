@@ -4,14 +4,14 @@
   <title>Helping Hands</title>
 
   <%= stylesheet_link_tag "normalize.css" %>
-  <%= stylesheet_link_tag "layout.css" %>
+  <%= stylesheet_link_tag "layout.css", :media => "all" %>
   <%= stylesheet_link_tag "application.css",  :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
-<%= render "layouts/header" %>
+<%#= render "layouts/header" %>
 <%= yield %>
 <%= render "layouts/footer" %>
 </body>

@@ -1,4 +1,4 @@
-/*Landing Page*/
+/* ------ Landing Page Styling -------------- */
 
 html {
   background: url(/assets/helping_hands_bckground_img.jpeg) no-repeat center center fixed;
@@ -8,168 +8,7 @@ html {
   background-size: cover;
 }
 
-/*user type confirmation*/
-
-#promiseBox{
-  border-radius:1em;
-  width: 50%;
-  height: 50%;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 10% auto 0 auto;
-  padding: 2.5%;
-  box-sizing: border-box;
-  text-align:center;
-  line-height:1.5;
-}
-#promiseBox a {
-  display:block;
-}
-
-/* New Organizations and New Requests Forms */
-
-.fillBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 65%;
-  height: 90%;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 200px auto 0 auto;
-  padding:0.5em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-  text-transform:uppercase;
-}
-
-/*Requests*/
-
-div .sorting_category {
-  border: 1px solid white;
-  border-radius: 5px;
-  width:45%;
-}
-
-/*Upvote and Downvote Links??? */
-
-a .asc {
-  background-image: url(/images/up21.png);
-}
-
-a .desc {
-  background-image: url(/images/up21.png);
-}
-
-/*Actual List of Requests from Organizations */
-
-.request {
-  width: 80%;
-}
-
-/*Requests index and show pages */
-
-#needsBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 40%;
-  height: 55%;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 110px auto 0 auto;
-  padding:4em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-}
-
-/* New Donor Form - Has inline styling! TODO move to this page */
-
-.box{
-  border-radius: 0.5em;
-  background: rgba(0, 0, 0, 0.70);
-  /*
-  margin: 5% auto 0 auto;
-  text-align:left;
-  line-height:1.5;*/
-  height: 55%;
-  padding: 2em;
-}
-
-/*Header on the New Donor and New Organization pages */
-
-header.fulfilled{
-  font-size: 2.5em;
-  text-align: center;
-  font-family: Tahoma;
-  font-weight: bold;
-  color:white;
-}
-
-/*Can't find this??? */
-
-header.contHead{
-  font-size: 2.5em;
-  text-align: center;
-  font-family: Tahoma;
-  font-weight: bold;
- }
-
-/*New Donors and New Organizations pages*/
-
-ul.longSign {
-  list-style: none;
-}
-
-
-
-/*Submit button on New Orgs and New Donors pages */
-
-.tfbutton {
-    margin: 0;
-    padding: 5px 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:0.9em;
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    border: solid 1px #0076a3; border-right:0px;
-    background: #0095cd;
-    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-    border-top-right-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
-  }
-
-  .tfbutton:hover {
-    text-decoration: none;
-    background: #007ead;
-    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
-    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
-  }
-  /* Fixes submit button height problem in Firefox */
-  .tfbutton::-moz-focus-inner {
-    border: 0;
-  }
-
-/*Can't find this and it was doubled up???*/
-
-.contactInput{
-  background-color: #ffffff;
-  margin: 0em 1em 0em 1em;
-  float: right;
-  align: center;
-}
-/*.contactInput{
-  background-color: #ffffff;
-  margin: 0em 1em 0em 1em;
-  float: right;
-  align: center;
-}*/
-
-/*
-MAIN PAGE HEADER */
-
-.topLinks{
+/*.topLinks {
   position: fixed;
   box-sizing:border-box;
   width: 100%;
@@ -187,6 +26,158 @@ MAIN PAGE HEADER */
   text-decoration: none;
   color: #000000;
   font-size: 1rem;
+}*/
+
+.bottomLinks {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background: #000;
+  padding-left: 1%;
+}
+
+
+#promiseBox {
+  border-radius:1em;
+  width: 50%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.70);
+  margin: 10% auto 0 auto;
+  padding: 2.5%;
+  box-sizing: border-box;
+  text-align:center;
+  line-height:1.5;
+}
+#promiseBox a {
+  display:block;
+}
+
+/*------------- Requests Index and Show Pages -------------- */
+
+#needsBox {
+  border-radius:1em;
+  margin-top: 200px;
+  width: 40%;
+  height: 55%;
+  background: rgba(0, 0, 0, 0.70);
+  margin: 110px auto 0 auto;
+  padding:4em;
+  box-sizing:border-box;
+  text-align:center;
+  line-height:1.5;
+}
+
+.sorting_category {
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 40%;
+  margin: 5px auto;
+}
+
+.request {
+  width: 80%;
+}
+
+/*------------- Requests New and Organizations New Pages -------------- */
+
+.fillBox{
+  border-radius:1em;
+  margin-top: 200px;
+  width: 65%;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.70);
+  margin: 200px auto 0 auto;
+  padding:0.5em;
+  box-sizing:border-box;
+  text-align:center;
+  line-height:1.5;
+  text-transform:uppercase;
+}
+
+/*------------- Donor Index and New Pages -------------- */
+
+/* New Donor Form - Has inline styling! TODO move to this page!!! */
+
+.box{
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.70);
+  /*
+  margin: 5% auto 0 auto;
+  text-align:left;
+  line-height:1.5;*/
+  height: 55%;
+  padding: 2em;
+}
+
+/*------------- Donors New and Organizations New Forms -------------- */
+
+header.fulfilled{
+  font-size: 2.5em;
+  text-align: center;
+  font-family: Tahoma;
+  font-weight: bold;
+  color:white;
+}
+
+ul.longSign {
+  list-style: none;
+}
+
+.tfbutton {
+  margin: 0;
+  padding: 5px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:0.9em;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3; border-right:0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+  border-top-right-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+}
+
+.tfbutton:hover {
+  text-decoration: none;
+  background: #007ead;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+  background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+}
+/* Fixes submit button height problem in Firefox */
+.tfbutton::-moz-focus-inner {
+  border: 0;
+}
+
+
+
+/*------------- NOT SURE WHERE THESE BELONG -------------- */
+
+
+a .asc {
+  background-image: url(/images/up21.png);
+}
+
+a .desc {
+  background-image: url(/images/up21.png);
+}
+
+header.contHead{
+  font-size: 2.5em;
+  text-align: center;
+  font-family: Tahoma;
+  font-weight: bold;
+ }
+
+.contactInput{
+  background-color: #ffffff;
+  margin: 0em 1em 0em 1em;
+  float: right;
+  align: center;
 }
 
 .saveButton {
@@ -238,10 +229,6 @@ MAIN PAGE HEADER */
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
   }
 
-/*????*/
-
-
-
 #titleLine{
   margin-top: 10px;
   margin-bottom: 20px;
@@ -250,16 +237,6 @@ MAIN PAGE HEADER */
   background-color: #000000;
 }
 
-footer{
-  position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 35px;
-  background: #000;
-}
-
-
-
 .form_label {
   width: 4em;
   text-align: left;
@@ -267,70 +244,57 @@ footer{
   display: block;
 }
 
+#menu {
+  position:relative;
+  z-index:0;
+  font-family: 'Tahoma';
+}
 
-        #menu {
-            position:relative;
-            z-index:0;
-      font: Tahoma;
-        }
+.parent-menu {
+  background-color: #536985;
+  min-width:200px;
+  float:left;
+}
 
+#menu ul{
+  list-style-type:none;
+}
 
-        .parent-menu {
-            background-color: #536985;
-            min-width:200px;
-            float:left;
-        }
+#menu ul li a {
+  padding:10px 15px;
+  display:block;
+  text-decoration:none;
+}
 
+#menu ul li a:hover{
+  background-color:#97b7d8;
+}
 
-        #menu ul
-        {
-            list-style-type:none;
-        }
-
-
-
-        #menu ul li a
-        {
-            padding:10px 15px;
-            display:block;
-            text-decoration:none;
-        }
-
-
-            #menu ul li a:hover
-            {
-                background-color:#97b7d8;
-              }
 #menu ul li:hover > ul {
-
-                left: 200px;
-                -webkit-transition: left 200ms ease-in;
-                -moz-transition: left 200ms ease-in;
-                -ms-transition: left 200ms ease-in;
-                transition: left 200ms ease-in;
-
-            }
+  left: 200px;
+  -webkit-transition: left 200ms ease-in;
+  -moz-transition: left 200ms ease-in;
+  -ms-transition: left 200ms ease-in;
+  transition: left 200ms ease-in;
+}
 
 
 
-            #menu ul li > ul {
-                position: absolute;
-                background-color: #333;
-                top: 0;
-                left: -200px;
-                min-width: 200px;
-                z-index: -1;
-                height: 100%;
-                -webkit-transition: left 200ms ease-in;
-                -moz-transition: left 200ms ease-in;
-                -ms-transition: left 200ms ease-in;
-                transition: left 200ms ease-in;
+#menu ul li > ul {
+  position: absolute;
+  background-color: #333;
+  top: 0;
+  left: -200px;
+  min-width: 200px;
+  z-index: -1;
+  height: 100%;
+  -webkit-transition: left 200ms ease-in;
+  -moz-transition: left 200ms ease-in;
+  -ms-transition: left 200ms ease-in;
+  transition: left 200ms ease-in;
+}
 
-            }
 
-
-            #menu ul li > ul li a:hover
-            {
-                background-color:#2e2e2e;
-
-            }
+#menu ul li > ul li a:hover{
+  background-color:#2e2e2e;
+}

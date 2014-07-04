@@ -1,116 +1,369 @@
 html {
-  background: url(/assets/helping_hands_bckground_img.jpeg) no-repeat center center fixed;
+  background: url(images/helping-hand.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+html, body {
+  width:100%;
+  height:100%
+}
 
-html,body{width:100%;height:100%;}
 body {
-  height: 800px;
   margin: 0px;
-  padding:0;
+  padding: 0;
+  height: 60em;
   overflow-y: scroll;
+  font-family: Tahoma;
 }
 
 #promiseBox{
   border-radius:1em;
-  margin-top: 200px;
-  width: 55%;
-  height: 60%;
+  width: 50%;
+  height: 70%;
   background: rgba(0, 0, 0, 0.70);
-  margin: 200px auto 0 auto;
-  padding:1em;
-  box-sizing:border-box;
+  margin: 10% auto 0 auto;
+  padding: 2.5%;
+  box-sizing: border-box;
   text-align:center;
   line-height:1.5;
-  text-transform:uppercase;
 }
-#promiseBox a{display:block;}
+#promiseBox a {
+  display:block;
+}
 
-.fillBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 65%;
-  height: 90%;
+.overflowBox{
+  height: 100%;
+  width: 100%;
+}
+
+#newAcctBox{
+  border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
-  margin: 200px auto 0 auto;
-  padding:0.5em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-  text-transform:uppercase;
-}
-
-div .sorting_category {
-  border: 1px solid white;
-  border-radius: 5px;
-  width:45%;
-}
-
-a .asc {
-  background-image: url(/images/up21.png);
-}
-
-a .desc {
-  background-image: url(/images/up21.png);
-}
-
-
-.request {
   width: 80%;
-}
-#needsBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 40%;
-  height: 55%;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 110px auto 0 auto;
-  padding:4em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
+  height: 20em;
+  padding: 2%;
+  margin: 5% auto 0 auto;
 }
 
-.box{
+.reqAcctBox{
+  float: right;
+  width: 50%;
+}
+
+/* TOP STUFF*/
+
+/*.topLinks{
+  z-index: 5;
+  position: fixed;
+  box-sizing:border-box;
+  width: 100%;
+  padding:1em;
+  top: 0;
+  background-color: #000;
+  height: 70px;
+  display: block;
+  font-size: 2rem;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+  font-size: 1rem;
+}*/
+
+#introBox{
+  margin-top: 3em;
+  padding: 2.5em 1.5em 2em 1.5em;
+  width: 100%;
+  height: 9%;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+div.log{
+  float: right;
+  margin-bottom: 2rem;
+  margin: 0 2rem 2rem 0;
+}
+
+header.inbox{
+  padding-left: 5%;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+ul.inbox-list{
+  overflow: scroll;
+}
+
+/* end top stuff */
+
+li hr{
+  width: 100%;
+  margin: 2%;
+}
+
+#box{
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   /*
   margin: 5% auto 0 auto;
   text-align:left;
+  width: 80%;
   line-height:1.5;*/
-  height: 55%;
   padding: 2em;
 }
+
+header.reqHead{
+  padding-left: 5%;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+p.reqDateP{
+  margin:0;
+  padding: 0;
+}
+
+label.dateReqL{
+  display: inline;
+}
+
+/*request history contributor info */
+
+.progressBar{
+  width: 100%;
+  height: 2em;
+  background-color: #f5f5f5;
+  margin: 5% 0 5% 0;
+}
+
+.completeBar{
+  background-color: #B50000;
+  height: 100%;
+}
+
+nav.reqHisNav{
+  height: 3em;
+  float: center;
+}
+
+span.reqNav{
+  width: 10em;
+  height: 3em;
+}
+
+p.contAmt{
+  width: 8em;
+  float: right;
+  font-size: 2em;
+  text-align: right;
+  margin: 0 1em 0 1em;
+}
+ a.contName{
+  color: #ABDFFF;
+  font-size: 1.5em;
+  font-family: Tahoma;
+ }
+
+ a.contName:hover{
+  text-decoration: underline;
+ }
 
 header.fulfilled{
   font-size: 2.5em;
   text-align: center;
-  font-family: Tahoma;
   font-weight: bold;
-  color:white;
 }
 
 header.contHead{
   font-size: 2.5em;
   text-align: center;
-  font-family: Tahoma;
   font-weight: bold;
  }
 
-ul.longSign {
-  list-style: none;
+ p.contDate{
+  margin: 0 0 1em 0;
+ }
+
+ /* end the request history contributor info */
+
+ /* REQUEST HISTORY CONT info */
+img.followReqPic{
+  height: 10em;
+  width: 10em;
 }
 
-ul li {
-  color:white;
+.account li label{
+  text-align: left;
+  font-size: 1em;
+  font-color: #408c99;
 }
-.tfbutton {
+
+ul li{
+  list-style-type: none;
+}
+
+input{
+  display: inline-block;
+  }
+
+/* message system stuff */
+
+div.messageContainer{
+  overflow-y:scroll;
+}
+
+li.inboxItem{
+  height: 3em;
+  position: relative;
+  padding-bottom: 5%;
+  padding-top: 1.5%;
+  display: block;
+  background-color: #fff;
+}
+
+label.orgNameOnMail{
+  text-align: left;
+  font-family: Tahoma;
+  font-size: 1.5em;
+}
+
+.orgNameOnMail a{
+  color: #000;
+}
+
+ol.inbox-list{
+  background-color: #fff;
+}
+
+.messageContent{
+  color: #000;
+  float: right;
+  width: 70%;
+  margin: 2% 4% 2% 4%;
+}
+
+div.messageDate{
+  float: right;
+}
+
+a#mailPreview{
+  color: #000;
+}
+
+a#mailPreview:hover{
+  text-decoration: underline;
+}
+
+div.photo{
+  float: left;
+  width: 5em;
+  height: 5em;
+  overflow: hidden;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+img.photo{
+  height: 90%;
+  display: block;
+  margin: 10%;
+}
+
+nav.inboxNav{
+  float: center;
+  margin: 0.5em 0 0.5em 2.1em;
+  font-size: 1.5em;
+}
+
+/* end message system stuff */
+
+.profileImg{
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 7em;
+  height: 7em;
+  overflow: hidden;
+  float: left;
+}
+
+#imgOptions{
+  height: 8em;
+}
+
+div.donatePhoto{
+  margin-top: 2em;
+  height: 10em;
+}
+
+div.photo a{
+  float: left;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  padding-left: 5%;
+}
+
+div.date{
+  float: right;
+}
+
+
+/* SEARCH STUFF */
+
+div.searchContent{
+  height: 5em;
+  margin: 0 2em 2em 0;
+}
+
+a#searchReqPreview{
+}
+
+label.searchOrgName{
+  text-align: left;
+  font-size: 2em;
+}
+
+ul.searchResults{
+  padding: 0;
+}
+
+input.search{
+  height: 1.95em;
+  width: 25em;
+  }
+
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+  #tfheader{
+    background-color:#c3dfef;
+  }
+  #tfnewsearch{
+    float:center;
+    padding:2%;
+  }
+  .tftextinput{
     margin: 0;
     padding: 5px 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-size:14px;
+    border:1px solid #0076a3; border-right:0px;
+    border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+  }
+  .tfbutton {
+    margin: 0;
+    padding: 5px 15px;
+    /*font-family: Arial, Helvetica, sans-serif;*/
     font-size:0.9em;
     outline: none;
     cursor: pointer;
@@ -124,9 +377,6 @@ ul li {
     border-top-right-radius: 5px 5px;
     border-bottom-right-radius: 5px 5px;
   }
-
-
-
   .tfbutton:hover {
     text-decoration: none;
     background: #007ead;
@@ -137,32 +387,65 @@ ul li {
   .tfbutton::-moz-focus-inner {
     border: 0;
   }
+  .tfclear{
+    clear:both;
+  }
+
+/* end search stuff */
+
+
+div header{
+  color: #fff;
+  font-size: 1.5rem;
+  }
+
+/* REGISTRATION STUFF */
+
+ul.longSign li input{
+  width: 40%;
+}
+
+.socialSign{
+  float: left;
+  width: 35%;
+}
+
+div.longSign{
+  float: right;
+  width: 60%;
+}
+
+.vertLine{
+  width: 0px; /* Use only border style */
+  height: 100%;
+  float: left;
+  border: 1px inset; /* This is default border style for <hr> tag */
+}
+
+/* end REGISTRATION STUFF */
+
+label{
+  color:#fff;
+  text-align:right;
+  width: 40%;
+  font-size: 1.5em;
+}
+
+
+li label{
+  font-size: 1em;
+  display:inline-block;
+}
+
+#respondBox{
+  font-size: 2 rem;
+}
 
 .contactInput{
   background-color: #ffffff;
   margin: 0em 1em 0em 1em;
   float: right;
   align: center;
-}
-
-.topLinks{
-  position: fixed;
-  box-sizing:border-box;
-  width: 100%;
-  padding:1em;
-  top: 0;
-  background-color: rgba(0,0,0);
-  height: 70px;
-  display: block;
-  font-size: 2rem;
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000000;
-  font-size: 1rem;
 }
 
 a{
@@ -178,13 +461,6 @@ a:hover{
 
 
 
-img {
-  margin-top: 0px;
-  height: 170px;
-  /*width: 170px;*/
-
-}
-
 .contactInput{
   background-color: #ffffff;
   margin: 0em 1em 0em 1em;
@@ -192,67 +468,31 @@ img {
   align: center;
 }
 
-
-  background:#ffffff;
-  width: 600px;
-  height: 400px;
-  overflow: scroll;
-  margin-bottom: 100px;
-}
-
-
-.saveButton {
-  -webkit-box-shadow: 0px 0px 0px 0px #276873;
-  box-shadow: 0px 0px 0px 0px #276873;
-  background-color:#599bb3;
-  -moz-border-radius:13px;
-  -webkit-border-radius:13px;
-  border-radius:13px;
-  border:1px solid #29668f;
-  display:inline-block;
+button, .button{
+  background-color: #408c99;
+  border-radius: 5px;
+  border-color: #679ab7;
+  border-width:2px;
+  text-align:center;
+  font-size: 1rem;
+  background-image: -webkit-linear-gradient(#679ab7, #3a7094);
   cursor:pointer;
-  color:#ffffff;
-  font-family: Tahoma;
-  font-size:1.4rem;
-  padding:11px 21px;
-  text-decoration:none;
+  color:white;
+  padding:0.1em .3em .1em .3em;
 }
-.saveButton:hover {
-  background-color:#408c99;
-}
-
-.saveButton:active {
-  position:relative;
-  top:1px;
-}
+.button:hover{color:white;}
 
 #buttonDiv{
   position: relative;
   float: right;
 }
 
-.textbox {
-    height:25px;
-    width: 300px;
-  border: solid 1px #9e9e9e;
-  outline: 0;
-  font: normal 13px/100% Verdana, Tahoma, sans-serif;
-  background: #FFFFFF url('bg_form.png') left top repeat-x;
-  background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
-  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
-  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-  }
 
-.textbox :focus {
-  border-color: #797979;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
-  }
+
 
 hr{
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 #titleLine{
@@ -269,58 +509,65 @@ footer{
     width: 100%;
     height: 35px;
   background: #000;
+  padding-left: 1%;
 }
 
-p {
+div p {
   font-family: Tahoma;
   font-size: 1rem;
   color: #ffffff;
 }
 
-.form_label {
-  width: 4em;
-  text-align: left;
-  margin-right: 0.5em;
-  display: block;
+#special{
+  font-size: 5 rem;
+}
+
+#label{
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
 }
 
 
-
- ul, li, div, nav
+li, nav
         {
             padding:0;
             margin:0;
-        }
-
-        body
-        {
-            font-family:Calibri;
         }
 
         #menu {
             position:relative;
             z-index:0;
       font: Tahoma;
+      overflow: scroll;
         }
 
 
         .parent-menu {
-            background-color: #536985;
-            min-width:200px;
-            float:left;
+            /*background-color: #536985;*/
+            width: 100%;
         }
 
 
         #menu ul
         {
+          padding: 0;
             list-style-type:none;
+        }
+
+        #menu ul li{
+          background: -webkit-linear-gradient(#405461, #405461, #232E36); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#405461, #405461, #232E36); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#405461, #405461, #232E36); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#405461, #405461, #232E36);
         }
 
 
 
         #menu ul li a
         {
-            padding:10px 15px;
+          height: 2em;
+            padding: 1em;
             display:block;
             text-decoration:none;
         }
@@ -329,6 +576,7 @@ p {
             #menu ul li a:hover
             {
                 background-color:#97b7d8;
+            }
 #menu ul li:hover > ul {
 
                 left: 200px;
@@ -362,11 +610,3 @@ p {
                 background-color:#2e2e2e;
 
             }
-
-
-  width: 500px;
-  height: 300px;
-  border: 1px red;
-  border-color: #000000;
-  background: #757575;
-}

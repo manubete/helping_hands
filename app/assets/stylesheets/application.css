@@ -29,11 +29,11 @@ body {
 }
 #promiseBox a{display:block;}
 
-#fillBox{
+.fillBox{
   border-radius:1em;
   margin-top: 200px;
-  width: 432px;
-  height: 360px;
+  width: 65%;
+  height: 90%;
   background: rgba(0, 0, 0, 0.70);
   margin: 200px auto 0 auto;
   padding:0.5em;
@@ -74,7 +74,7 @@ a .desc {
   line-height:1.5;
 }
 
-#box{
+.box{
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   /*

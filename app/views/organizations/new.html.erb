@@ -1,13 +1,12 @@
+<div class="fillBox" style="padding: 3% 3% 3% 3%; margin: 2% auto 0 auto; width: 40%;">
 
-<div class="box" style="padding: 3% 3% 3% 3%; margin: 2% auto 0 auto; width: 40%;">
-
-        <%= form_for @donor do |f| %>
+        <%= form_for @organization do |f| %>
 
         <header class="fulfilled" style="margin-bottom: 5%;">Make an Account</header>
         <p style="text-align: center;">*Required Fields</p>
         <ul class="longSign">
           <li>
-            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank" %></label>
+            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank Charity" %></label>
           </li>
           <li>
             <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "eg San Francisco" %></label>
@@ -19,7 +18,16 @@
             <label class="form_label" for="email">*Email: <%= f.text_field :email, :placeholder => "eg name@company.com" %></label>
           </li>
           <li>
-            <label class="form_label" for="username">*Username: <%= f.text_field :username, :placeholder => "eg handyhank201" %></label>
+            <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "eg www.handyhank.com" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="linked_in">*LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "eg www.linked_in.com/handyhank" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="facebook">*Facebook: <%= f.text_field :facebook_url, :placeholder => "eg www.facebook.com/handyhank" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "eg handyhank201" %></label>
           </li>
           <li>
             <label class="form_label" for="password">*Password: <%= f.text_field :password, :placeholder => "eg secretpassword909" %></label>

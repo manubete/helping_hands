@@ -14,7 +14,7 @@ PolarBear::Application.routes.draw do
     end
 
     resources :donors
-    resoureces :organizations
+    resources :organizations
 
    root to: "requests#landing_page"
 

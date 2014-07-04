@@ -5,6 +5,6 @@
 
       <p> Would you like to contribute?</p>
       <%= button_to("Register as a Donor", new_donor_path, :method => :get, :class => "tfbutton") %>
-      <p> Are you an organization?</p>
-      <button onclick="window.location.href='newOrg.html'" href="recieved.html" class="tfbutton">Register as an Organization</button>
+      <p> Are you an Organization?</p>
+      <%= button_to("Register as an Organization", new_organization_path, :method => :get, :class => "tfbutton") %>
   </div>

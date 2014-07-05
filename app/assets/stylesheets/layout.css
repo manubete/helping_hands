@@ -48,6 +48,10 @@ p {
   color: #ffffff;
 }
 
+.centered_text {
+  text-align: center;
+}
+
 /* ul, li, div, nav {
   padding:0;
   margin:0;

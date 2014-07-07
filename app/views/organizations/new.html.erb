@@ -1,5 +1,8 @@
 <div class="fillBox" style="padding: 3% 3% 3% 3%; margin: 2% auto 0 auto; width: 40%;">
 
+        <% if flash[:notice] %>
+          <div class="error"><%= flash[:notice] %></div>
+          <% end %>
         <%= form_for @organization do |f| %>
 
         <header class="fulfilled" style="margin-bottom: 5%;">Make an Account</header>
@@ -30,7 +33,7 @@
             <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "eg handyhank201" %></label>
           </li>
           <li>
-            <label class="form_label" for="password">*Password: <%= f.text_field :password, :placeholder => "eg secretpassword909" %></label>
+            <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909" %></label>
           </li>
           <li><%= f.submit 'Register', :class => 'tfbutton' %></li>
         </ul>

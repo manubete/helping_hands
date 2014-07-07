@@ -14,7 +14,7 @@ body {
   overflow-y: scroll;
 }
 
-#promiseBox{
+.promiseBox{
   border-radius:1em;
   margin-top: 200px;
   width: 55%;
@@ -27,7 +27,38 @@ body {
   line-height:1.5;
   text-transform:uppercase;
 }
-#promiseBox a{display:block;}
+
+.loginBox{
+  border-radius:1em;
+  margin-top: 200px;
+  width: 45%;
+  height: 45%;
+  background: rgba(0, 0, 0, 0.70);
+  margin: 200px auto 0 auto;
+  padding:1em;
+  box-sizing:border-box;
+  text-align:center;
+  line-height:1.5;
+  text-transform:uppercase;
+}
+
+.loginBoxForm{
+  border-radius:1em;
+  margin-top: 20%;
+  margin-left:20%;
+  width: 50%;
+  height: 35%;
+  background: rgba(0, 0, 0, 0.70);
+  padding:1em;
+  box-sizing:border-box;
+  text-align:center;
+  line-height:1.5;
+  text-transform:uppercase;
+}
+
+
+
+.promiseBox a{display:block;}
 
 .fillBox{
   border-radius:1em;
@@ -81,7 +112,7 @@ a .desc {
   margin: 5% auto 0 auto;
   text-align:left;
   line-height:1.5;*/
-  height: 55%;
+  height: 60%;
   padding: 2em;
 }
 
@@ -107,8 +138,10 @@ ul.longSign {
 ul li {
   color:white;
 }
+
 .tfbutton {
-    margin: 0;
+    width:50%;
+    margin: 0 auto;
     padding: 5px 15px;
     font-family: Arial, Helvetica, sans-serif;
     font-size:0.9em;
@@ -125,6 +158,43 @@ ul li {
     border-bottom-right-radius: 5px 5px;
   }
 
+  .tfbutton_search {
+    width:20%;
+    margin: 0 auto;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.9em;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3; border-right:0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+  }
+
+  .tfbutton_login {
+    width:45%;
+    margin: 0 auto;
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.9em;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3; border-right:0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+  }
 
 
   .tfbutton:hover {
@@ -133,6 +203,21 @@ ul li {
     background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
     background: -moz-linear-gradient(top,  #0095cc,  #00678e);
   }
+
+   .tfbutton_search:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+  }
+
+   .tfbutton_login:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+  }
+
   /* Fixes submit button height problem in Firefox */
   .tfbutton::-moz-focus-inner {
     border: 0;
@@ -277,10 +362,36 @@ p {
   color: #ffffff;
 }
 
+div .error {
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  background-color: red;
+  width:40%;
+  margin: 0 auto;
+}
+
+div .signup {
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  background-color: #0095cc;
+  width:40%;
+  margin: 0 auto;
+}
 .form_label {
   width: 4em;
   text-align: left;
   margin-right: 0.5em;
+  display: block;
+}
+
+.login_label {
+  color:white;
+  font-size: 1.2em;
+  margin:0 auto;
+  width: 30%;
+  text-align: center;
   display: block;
 }
 

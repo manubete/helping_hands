@@ -1,11 +1,7 @@
 PolarBear::Application.routes.draw do
 
-  #requests resources with an api namespace
-  #requests are used in both the website and the api
-
+  #requests resources has custom routes that serve as a landing page, API endpoints and a user type confirmation for registration as both a donor or an organization
     resources :requests do
-      #temporarily adding the list path
-      #will later turn this into an ajax call
       collection do
         get :landing_page
         get :api_request
@@ -13,8 +9,23 @@ PolarBear::Application.routes.draw do
       end
     end
 
-    resources :donors
-    resources :organizations
+    #added routes for the sessions
+     resources :sessions do
+      collection do
+        get :user_type_confirmation
+        get :user_type_login_confirmation
+        get :new_donor
+        get :new_organization
+      end
+    end
+
+    #added log in and log out routes
+    get "log_out" => "sessions#destroy", :as => "log_out"
+    get "log_in" => "sessions#user_type_login_confirmation", :as => "log_in"
+
+    #renames some of the paths for clarity
+    resources :donors, :controller => "donors", :path_names => { :new => "sign_up"}
+    resources :organizations, :controller => "organizations", :path_names => { :new => "sign_up"}
 
    root to: "requests#landing_page"
 

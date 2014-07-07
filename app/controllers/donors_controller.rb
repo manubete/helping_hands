@@ -5,10 +5,15 @@ class DonorsController < ApplicationController
   end
 
   def create
-    p "#{params.inspect}"
     @donor = Donor.new(params["donor"])
-    @donor.save
-    redirect_to root_path
+
+    if @donor.save
+      flash[:notice] = "You have successfully signed up!"
+      redirect_to requests_path
+    else
+       flash[:notice] = "Incorrect signup information"
+      render :new
+    end
   end
 
 end

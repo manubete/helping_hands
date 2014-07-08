@@ -60,14 +60,12 @@ html {
 
 #needsBox {
   border-radius:1em;
-  margin-top: 200px;
   width: 40%;
-  height: 55%;
   background: rgba(0, 0, 0, 0.70);
-  margin: 110px auto 0 auto;
-  padding:4em;
+  margin: 10% auto;
+  padding: 4em;
   box-sizing:border-box;
-  text-align:center;
+  text-align: center;
   line-height:1.5;
 }
 
@@ -80,7 +78,6 @@ html {
 }
 
 .request {
-  width: 80%;
 }
 
 /*------------- Requests New and Organizations New Pages -------------- */
@@ -100,7 +97,7 @@ html {
 
 /* New Donor Form - Has inline styling! TODO move to this page!!! */
 
-.box{
+.box {
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   height: 55%;

@@ -11,6 +11,7 @@ body {
   height: 60em;
   overflow-y: scroll;
   font-family: 'Tahoma', sans-serif;
+  color: white;
 }
 
 ul li {

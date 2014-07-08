@@ -5,9 +5,11 @@
           <%= submit_tag "Search", :name => nil %>
       <% end %>
 
-        <div class = "sorting_category"><%= sortable "organization" %></div>
-        <div class = "sorting_category"><%= sortable "resource_count", "Quantity" %></div>
-        <div class = "sorting_category"><%= sortable  "resource", "Resource Needed" %></div>
+      <ul class="sorting_category">
+        <li><%= sortable "organization" %></li>
+        <li><%= sortable "resource_count", "Quantity" %></li>
+        <li><%= sortable  "resource", "Resource Needed" %></li>
+      </ul>
 
 
       <% @requests.each do |request| %>

@@ -1,0 +1,41 @@
+/* ----- iPhone 5 ------ */
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) { /* STYLES GO HERE */}
+
+Screen Width = 320px (CSS Pixels)
+Screen Height = 568px (CSS Pixels)
+
+Screen Width = 640px (Actual Pixels)
+Screen Height = 1136px (Actual Pixels)
+
+Device-pixel-ratio: 2
+
+/* ----- iPhone 4 and 4s ------ */
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) { /* STYLES GO HERE */}
+
+Screen Width = 320px (CSS Pixels)
+Screen Height = 480px (CSS Pixels)
+
+Screen Width = 640px (Actual Pixels)
+Screen Height = 960px (Actual Pixels)
+
+Device-pixel-ratio: 2
+
+
+/* ----- iPad ------ */
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) { /* STYLES GO HERE */}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) { /* STYLES GO HERE */ }
+

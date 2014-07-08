@@ -72,10 +72,11 @@ html {
 }
 
 .sorting_category {
-  border: 1px solid white;
-  border-radius: 5px;
-  width: 40%;
-  margin: 5px auto;
+  list-style: none;
+}
+.sorting_category li {
+  display: inline;
+  text-decoration: underline;
 }
 
 .request {

@@ -30,10 +30,8 @@ a:hover {
 }
 
 img {
-  margin-top: 0px;
   height: 170px;
-  /*width: 170px;*/
-
+  width: 170px;
 }
 
 hr {

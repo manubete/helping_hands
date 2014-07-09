@@ -1,41 +1,64 @@
 /* ----- iPhone 5 ------ */
 
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) { /* STYLES GO HERE */}
-
-Screen Width = 320px (CSS Pixels)
-Screen Height = 568px (CSS Pixels)
-
-Screen Width = 640px (Actual Pixels)
-Screen Height = 1136px (Actual Pixels)
-
-Device-pixel-ratio: 2
+  and (min-device-width : 320px)
+  and (max-device-width : 568px)
+  and (-webkit-device-pixel-ratio: 2) {
+    html, body {height: 568px; width: 320px;}
+  }
 
 /* ----- iPhone 4 and 4s ------ */
 
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) { /* STYLES GO HERE */}
+  and (min-device-width : 320px)
+  and (max-device-width : 480px)
+  and (-webkit-device-pixel-ratio: 2) {
+    html, body {height: 480px; width: 320px;}
+  }
 
-Screen Width = 320px (CSS Pixels)
-Screen Height = 480px (CSS Pixels)
-
-Screen Width = 640px (Actual Pixels)
-Screen Height = 960px (Actual Pixels)
-
-Device-pixel-ratio: 2
-
-
-/* ----- iPad ------ */
+/* ----- iPad (portrait and landscape) ------ */
 
 @media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : landscape) { /* STYLES GO HERE */}
+  and (min-device-width : 768px)
+  and (max-device-width : 1024px)
+  and (orientation : landscape)
+  and (-webkit-device-pixel-ratio: 2) {
+    html, body {height:768px; width:1024px;}
+  }
 
 @media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : portrait) { /* STYLES GO HERE */ }
+  and (min-device-width : 768px)
+  and (max-device-width : 1024px)
+  and (orientation : portrait)
+  and (-webkit-device-pixel-ratio: 2) {
+    html, body {height: 1024px; width:768px;}
+  }
+
+/* ----- Samsung Galaxy S4 ------ */
+
+@media screen
+  and (device-width: 320px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3) {
+    html, body { height: 640px; width:320px;}
+  }
+
+/* ----- Asus Nexus 7 ------ */
+
+@media screen
+  and (device-width: 601px)
+  and (device-height: 906px)
+  and (-webkit-min-device-pixel-ratio: 1)
+  and (-webkit-max-device-pixel-ratio: 1) {
+    html, body { height: 906px; width:601px;}
+  }
+
+/* ----- HTC One ------ */
+
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3) {
+    html, body { height: 640px; width:360px;}
+  }
 

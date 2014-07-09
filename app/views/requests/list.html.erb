@@ -1,8 +1,0 @@
-  <div id="needsBox">
-    <% @requests.each do |request| %>
-
-       <p><%= link_to "#{request.organization}: #{request.resource_count} #{request.resource} ", request_path(request) %></p>
-
-    <% end %>
-
-  </div>

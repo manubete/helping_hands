@@ -3,15 +3,16 @@
 <head>
   <title>Helping Hands</title>
 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "normalize.css" %>
+  <%= stylesheet_link_tag "layout.css" %>
+  <%= stylesheet_link_tag "application.css" %>
+   <%= stylesheet_link_tag "media_queries.css" %>
+  <%= javascript_include_tag "application.js" %>
   <%= csrf_meta_tags %>
 
-  <script src = "http://cdnjs.cloudflare.com/ajax/libs/Faker/0.7.0/MinFaker.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
 </head>
 <body>
-<%= render "layouts/header" %>
+<%#= render "layouts/header" %>
 <%= yield %>
 <%= render "layouts/footer" %>
 </body>

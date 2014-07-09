@@ -1,0 +1,12 @@
+  <div id="promiseBox">
+      <img src="/assets/helping_hands_logo.png">
+      <%= link_to "Sign Up", { controller: "requests", action: "user_type_confirmation"}, :class => "tfbutton" %>
+      <br>
+    <%= link_to "Browse",{ controller: "requests", action: "index" }, :class => "tfbutton" %>
+
+    <p>Or start searching: </p>
+     <%= form_tag requests_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :class => 'tfbutton',:name => nil %>
+      <% end %>
+  </div>

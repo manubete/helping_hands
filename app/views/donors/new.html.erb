@@ -1,0 +1,32 @@
+
+<div class="box">
+
+        <%= form_for @donor do |f| %>
+
+        <header class="fulfilled" style="margin-bottom: 5%;">Make an Account</header>
+        <p style="text-align: center;">*Required Fields</p>
+        <ul class="longSign">
+          <li>
+            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "eg San Francisco" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "eg 646-832-08394" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "eg name@company.com" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="username">*Username: <%= f.text_field :username, :placeholder => "eg handyhank201" %></label>
+          </li>
+          <li>
+            <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909" %></label>
+          </li>
+          <li><%= f.submit 'Register', :class => 'tfbutton' %></li>
+        </ul>
+
+        <% end %>
+
+    </div>

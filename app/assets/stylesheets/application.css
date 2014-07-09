@@ -1,3 +1,5 @@
+/* ------ Landing Page Styling -------------- */
+
 html {
   background: url(/assets/helping_hands_bckground_img.jpeg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -6,64 +8,8 @@ html {
   background-size: cover;
 }
 
-html,body{width:100%;height:100%;}
-body {
-  height: 800px;
-  margin: 0px;
-  padding:0;
-  overflow-y: scroll;
-}
-
-#promiseBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 432px;
-  height: 300px;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 200px auto 0 auto;
-  padding:1em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-  text-transform:uppercase;
-}
-#promiseBox a{display:block;}
-
-#fillBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 432px;
-  height: 360px;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 200px auto 0 auto;
-  padding:0.5em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-  text-transform:uppercase;
-}
-
-#needsBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 432px;
-  height: 330px;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 110px auto 0 auto;
-  padding:4em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-}
-
-.contactInput{
-  background-color: #ffffff;
-  margin: 0em 1em 0em 1em;
-  float: right;
-  align: center;
-}
-
-.topLinks{
+/* No longer using top links??? */
+/*.topLinks {
   position: fixed;
   box-sizing:border-box;
   width: 100%;
@@ -81,43 +27,132 @@ body {
   text-decoration: none;
   color: #000000;
   font-size: 1rem;
+}*/
+
+.bottomLinks {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background: #000;
+  padding: 0 1%;
 }
 
-a{
-  text-decoration: none;
-  color: #ffffff;
-  font: Calibri;
-  margin-right: 0.7em;
+
+#promiseBox {
+  border-radius:1em;
+  width: 50%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.70);
+  margin: 10% auto 0 auto;
+  padding: 2.5%;
+  box-sizing: border-box;
+  text-align:center;
+  line-height:1.5;
+}
+#promiseBox a {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
 }
 
-a:hover{
-  color: #a2c6e8;
+/*------------- Requests Index and Show Pages -------------- */
+
+#needsBox {
+  border-radius:1em;
+  width: 40%;
+  background: rgba(0, 0, 0, 0.70);
+  margin: 10% auto;
+  padding: 4em;
+  box-sizing:border-box;
+  text-align: center;
+  line-height:1.5;
+}
+
+.sorting_category {
+  list-style: none;
+}
+.sorting_category li {
+  display: inline;
+  text-decoration: underline;
+}
+
+.request {
+}
+
+/*------------- Requests New and Organizations New Pages -------------- */
+
+.fillBox{
+  border-radius:1em;
+  width: 45%;
+  background-color: rgba(0, 0, 0, 0.70);
+  margin: 2% auto;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  line-height:1.5;
+}
+
+/*------------- Donor Index and New Pages -------------- */
+
+.box {
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.70);
+  padding: 3%;
+  margin: 2% auto 0 auto;
+  width: 40%;
   }
 
+/*------------- Donors New and Organizations New Forms -------------- */
 
-
-img {
-  margin-top: 0px;
-  height: 170px;
-  /*width: 170px;*/
-
+header.fulfilled{
+  font-size: 2.5em;
+  text-align: center;
+  font-family: Tahoma;
+  font-weight: bold;
+  color:white;
+  margin-bottom: 5%;
 }
+.longSign li {
+  list-style: none;
+  padding: 1%;
+}
+.longSign li label{
+  display: inline;
+}
+
+.form_label {
+  width: 4em;
+  text-align: left;
+  margin-right: 0.5em;
+  display: block;
+}
+
+
+/*------------- WHERE DO THESE THINGS BELONG? -------------- */
+
+
+a .asc {
+  background-image: url(/images/up21.png);
+}
+
+a .desc {
+  background-image: url(/images/up21.png);
+}
+
+header.contHead{
+  font-size: 2.5em;
+  text-align: center;
+  font-family: 'Tahoma', sans-serif;
+  font-weight: bold;
+ }
 
 .contactInput{
-  background-color: #ffffff;
+  background-color: #fff;
   margin: 0em 1em 0em 1em;
   float: right;
-  align: center;
+  text-align: center;
 }
-
-
-  background:#ffffff;
-  width: 600px;
-  height: 400px;
-  overflow: scroll;
-  margin-bottom: 100px;
-}
-
 
 .saveButton {
   -webkit-box-shadow: 0px 0px 0px 0px #276873;
@@ -129,8 +164,8 @@ img {
   border:1px solid #29668f;
   display:inline-block;
   cursor:pointer;
-  color:#ffffff;
-  font-family: Tahoma;
+  color:#fff;
+  font-family: 'Tahoma', sans-serif;
   font-size:1.4rem;
   padding:11px 21px;
   text-decoration:none;
@@ -150,8 +185,8 @@ img {
 }
 
 .textbox {
-    height:25px;
-    width: 300px;
+  height:25px;
+  width: 300px;
   border: solid 1px #9e9e9e;
   outline: 0;
   font: normal 13px/100% Verdana, Tahoma, sans-serif;
@@ -166,11 +201,6 @@ img {
 .textbox :focus {
   border-color: #797979;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
-  }
-
-hr{
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 #titleLine{
@@ -181,109 +211,54 @@ hr{
   background-color: #000000;
 }
 
-footer{
-  position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 35px;
-  background: #000;
+#menu {
+  position:relative;
+  z-index:0;
+  font-family: 'Tahoma';
 }
 
-p {
-  font-family: Tahoma;
-  font-size: 1rem;
-  color: #ffffff;
+.parent-menu {
+  background-color: #536985;
+  min-width:200px;
+  float:left;
 }
 
-#label{
-  font-size: 2rem;
-  font-family: Calibri;
-  font-weight: 300;
-  color: #000000;
+#menu ul{
+  list-style-type:none;
 }
 
+#menu ul li a {
+  padding:10px 15px;
+  display:block;
+  text-decoration:none;
+}
 
- ul, li, div, nav
-        {
-            padding:0;
-            margin:0;
-        }
+#menu ul li a:hover{
+  background-color:#97b7d8;
+}
 
-        body
-        {
-            font-family:Calibri;
-        }
-
-        #menu {
-            position:relative;
-            z-index:0;
-      font: Tahoma;
-        }
-
-
-        .parent-menu {
-            background-color: #536985;
-            min-width:200px;
-            float:left;
-        }
-
-
-        #menu ul
-        {
-            list-style-type:none;
-        }
-
-
-
-        #menu ul li a
-        {
-            padding:10px 15px;
-            display:block;
-            text-decoration:none;
-        }
-
-
-            #menu ul li a:hover
-            {
-                background-color:#97b7d8;
 #menu ul li:hover > ul {
+  left: 200px;
+  -webkit-transition: left 200ms ease-in;
+  -moz-transition: left 200ms ease-in;
+  -ms-transition: left 200ms ease-in;
+  transition: left 200ms ease-in;
+}
 
-                left: 200px;
-                -webkit-transition: left 200ms ease-in;
-                -moz-transition: left 200ms ease-in;
-                -ms-transition: left 200ms ease-in;
-                transition: left 200ms ease-in;
+#menu ul li > ul {
+  position: absolute;
+  background-color: #333;
+  top: 0;
+  left: -200px;
+  min-width: 200px;
+  z-index: -1;
+  height: 100%;
+  -webkit-transition: left 200ms ease-in;
+  -moz-transition: left 200ms ease-in;
+  -ms-transition: left 200ms ease-in;
+  transition: left 200ms ease-in;
+}
 
-            }
-
-
-
-            #menu ul li > ul {
-                position: absolute;
-                background-color: #333;
-                top: 0;
-                left: -200px;
-                min-width: 200px;
-                z-index: -1;
-                height: 100%;
-                -webkit-transition: left 200ms ease-in;
-                -moz-transition: left 200ms ease-in;
-                -ms-transition: left 200ms ease-in;
-                transition: left 200ms ease-in;
-
-            }
-
-
-            #menu ul li > ul li a:hover
-            {
-                background-color:#2e2e2e;
-
-            }
-
-
-  width: 500px;
-  height: 300px;
-  border: 1px red;
-  border-color: #000000;
-  background: #757575;
+#menu ul li > ul li a:hover{
+  background-color:#2e2e2e;
 }

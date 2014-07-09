@@ -1,6 +1,22 @@
-  <div id="promiseBox">
-      <img src="/assets/helping_hands_logo.png">
-      <%= link_to "Add new Request", controller: "requests", action: "new" %>
-      <p> </p>
-    <%= link_to "Current Requests", controller: "requests", action: "list" %>
+<div id="needsBox">
+  <h2>Find organizations in need:</h2>
+
+    <%= form_tag requests_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+
+    <ul class="sorting_category">
+      <li><%= sortable "organization" %></li>
+      <li><%= sortable "resource_count", "Quantity" %></li>
+      <li><%= sortable  "resource", "Resource Needed" %></li>
+    </ul>
+
+  <div class="request">
+    <ul>
+      <% @requests.each do |request| %>
+        <li><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} ", request_path(request) %></li>
+      <% end %>
+    </ul>
   </div>
+</div>

@@ -1,4 +1,6 @@
-  <div id="needsBox">
+<div id="needsBox">
+  <h2>Find organizations in need:</h2>
+
 
       <% if flash[:notice] %>
           <div class="signup"><%= flash[:notice] %></div>
@@ -13,10 +15,11 @@
         <div class = "sorting_category"><%= sortable "resource_count", "Quantity" %></div>
         <div class = "sorting_category"><%= sortable  "resource", "Resource Needed" %></div>
 
-
+  <div class="request">
+    <ul>
       <% @requests.each do |request| %>
-
-         <div class="request"><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} ", request_path(request) %></div>
-
+        <li><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} ", request_path(request) %></li>
       <% end %>
+    </ul>
   </div>
+</div>

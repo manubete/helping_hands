@@ -14,6 +14,19 @@ body {
   overflow-y: scroll;
 }
 
+.introBox{
+  margin-top: 3em;
+  padding: 2.5em 1.5em 2em 1.5em;
+  width: 100%;
+  height: 9%;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+.overflowBox{
+  height: 100%;
+  width: 100%;
+}
+
 .promiseBox{
   border-radius:1em;
   margin-top: 200px;
@@ -26,6 +39,21 @@ body {
   text-align:center;
   line-height:1.5;
   text-transform:uppercase;
+}
+
+.profileImg{
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 7em;
+  height: 7em;
+  overflow: hidden;
+  float: left;
+}
+
+div.log{
+  float: right;
+  margin-bottom: 2rem;
+  margin: 0 2rem 2rem 0;
 }
 
 .loginBox{
@@ -92,6 +120,18 @@ a .desc {
 .request {
   width: 80%;
 }
+
+.reqAcctBox{
+  float: right;
+  width: 50%;
+}
+
+header.reqHead{
+  padding-left: 5%;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
 #needsBox{
   border-radius:1em;
   margin-top: 200px;
@@ -133,6 +173,12 @@ header.contHead{
 
 ul.longSign {
   list-style: none;
+}
+
+.account li label{
+  text-align: left;
+  font-size: 1em;
+  font-color: #408c99;
 }
 
 ul li {

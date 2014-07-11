@@ -1,8 +1,7 @@
 <div class="topLinks">
       <%= link_to "HOME", controller: "requests", action: "landing_page" %>
-      <a href="#">ACCOUNT</a>
         <% if session[:organization_id] %>
-        <%= link_to "Profile", organization_path(session[:organization_id]), :method => :get %>
+        <%= link_to "PROFILE", organization_path(session[:organization_id]), :method => :get %>
         <% end %>
       <% if session[:organization_id] || session[:donor_id] %>
         <%= link_to "LOG OUT", log_out_path %>

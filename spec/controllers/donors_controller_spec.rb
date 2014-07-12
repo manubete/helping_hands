@@ -1,4 +1,5 @@
 require 'spec_helper'
+require_relative 'factories'
 
 describe DonorsController do
   context "#new" do
@@ -11,7 +12,7 @@ describe DonorsController do
   context "#create" do
     it "should save a donor with valid params to the database" do
       expect{
-        Donor.create(name: "Erin", city: "San Francisco", phone_number: "555-555-5555", email: "erin@erin.com", username: "ErinJoan", password: "erinisgreat")
+        FactoryGirl.create(:donor)
       }.to change { Donor.count }.by(1)
     end
 

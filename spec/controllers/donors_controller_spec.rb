@@ -28,6 +28,8 @@ describe DonorsController do
       }.to_not change{ Donor.count }
     end
 
+    # For some reason, the following test will NOT work if I use FactoryGirl.create(:organization) but WILL work if I use Organization.create, even though it's essentially the exact same thing. TODO: Figure out why that is!
+
     it "should not save a second donor to the database when params are not unique" do
       expect{
         2.times do

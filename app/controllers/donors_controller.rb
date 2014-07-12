@@ -16,5 +16,27 @@ class DonorsController < ApplicationController
     end
   end
 
+  def show
+    @donor = Donor.find(params[:id])
+    render :show
+  end
+
+  def edit
+    @donor = Donor.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @donor = Donor.find(params[:id])
+
+     p "#{params.inspect}"
+
+     if @donor.update_attributes(params[:donor])
+      redirect_to(@donor)
+    else
+      render :edit
+    end
+  end
+
 end
 

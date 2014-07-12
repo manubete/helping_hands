@@ -23,5 +23,11 @@ FactoryGirl.define do
   end
 
   factory :request do
+    organization "Test Organization"
+    resource "bottled water"
+    resource_count "100"
+    address "100 Fake Street"
+    description "Refugees without clean water supply"
+    purpose "Providing water to those who need it"
   end
 end

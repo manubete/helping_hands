@@ -23,4 +23,22 @@ class OrganizationsController < ApplicationController
     render :show
   end
 
+  def edit
+    @organization = Organization.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @organization = Organization.find(params[:id])
+
+     p "#{params.inspect}"
+
+     if @organization.update_attributes(params[:organization])
+      redirect_to(@organization)
+    else
+      render :edit
+    end
+
+  end
+
 end

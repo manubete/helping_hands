@@ -1,58 +1,36 @@
-  <div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
+<div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
     <div class="box" style="float: left; width: 40%;">
-      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
+      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @donor.name %> </header>
 
       <img src="/assets/salvationArmy.jpg" height="100%"><br>
 
 
       <ul class="account">
+
+
         <li>
           <div style="width: 35%; float: left; height: 80%;">
-            <label for="name">Description:</label>
+            <label for="name">Location:<%= @donor.city %></label>
           </div>
 
-          <div style="width: 65%; float: right; height: 80%;">
-          <p class="orgDes">The Salvation Army, an international movement, is an evangelical part of the universal Christian church. </p>
-          </div>
-
-        </li>
-
-        <li><hr></li>
+        </li><hr>
 
         <li>
           <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">Location:<%= @organization.city %></label>
+            <label for="name">Phone Number:<%= @donor.phone_number %> </label>
           </div>
 
-        </li>
+        </li><hr>
 
-        <li><hr></li>
 
         <li>
           <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">Phone Number:<%= @organization.phone_number %> </label>
-          </div>
-
-        </li>
-
-        <li><hr></li>
-
-        <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">E-mail:<%= @organization.email %></label>
+            <label for="name">E-mail:<%= @donor.email %></label>
           </div>
         </li>
 
-        <li><hr></li>
-
-        <li>
-          <div style="width: 80%; float: left;">
-            <label for="name">Website: <%= @organization.website_url %></label>
-          </div>
-        </li>
-
-        <li><hr></li>
-            <%= link_to "Edit Profile", edit_organization_path(session[:organization_id]), :class => "tfbutton" %><br><br>
+        <hr>
+            <%= link_to "Edit Profile", edit_donor_path(session[:donor_id]), :class => "tfbutton" %><br><br>
       </ul>
 
 
@@ -60,10 +38,6 @@
 
     <div class="reqAcctBox">
       <div class="box" style="height: 15em; margin-bottom: 3%;">
-        <div>
-          <%= link_to "Make New Request", new_request_path, :class => "tfbutton" %>
-
-        </div>
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 

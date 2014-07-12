@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140704000055) do
+ActiveRecord::Schema.define(:version => 20140712062308) do
 
   create_table "donors", :force => true do |t|
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20140704000055) do
     t.string  "address"
     t.string  "description"
     t.string  "purpose"
+    t.boolean "complete"
   end
 
 end

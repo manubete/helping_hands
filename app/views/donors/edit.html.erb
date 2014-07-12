@@ -1,0 +1,44 @@
+<div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
+    <div class="box" style="float: left; width: 40%;">
+      <%= form_for @donor do |f| %>
+        <% if @donor.errors %>
+          <div>
+            <ul>
+              <% for message in @donor.errors.full_messages %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <img src="/assets/salvationArmy.jpg" height="100%"><br>
+        <ul class="longSign">
+
+        <li>
+          <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie 'Helper Hank'" %></label>
+        </li>
+        <li>
+          <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "ie 'San Francisco'" %></label>
+        </li>
+        <li>
+          <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
+        </li>
+        <li>
+          <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "ie 'name@company.com'" %></label>
+        </li>
+
+
+          <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "ie 'HandyHank2001'" %></label>
+        </li>
+        <li>
+          <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
+        </li>
+        <li><%= f.submit 'Save Changes', :class => 'tfbutton' %></li>
+      </ul>
+      <% end %>
+
+    </div>
+
+
+
+  </div>

@@ -61,7 +61,8 @@
     <div class="reqAcctBox">
       <div class="box" style="height: 15em; margin-bottom: 3%;">
         <div>
-          <button class="tfbutton" onclick="window.location.href='orgAccount.html'" href="postings.html">Make New Request</button>
+          <%= link_to "Make New Request", new_request_path, :class => "tfbutton" %>
+
         </div>
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>

@@ -6,10 +6,10 @@
       <img src="/assets/helping_hands_logo.png">
     </div>
 
-      <%= link_to "Sign Up", { controller: "sessions", action: "user_type_confirmation"}, :class => "tfbutton"%>
+      <%= link_to "Sign Up", { controller: "sessions", action: "user_type_confirmation"}, :class => "tfbutton" unless session[:organization_id] || session[:donor_id] %>
 
-
-    <%= link_to "Log In",{ controller: "sessions", action: "user_type_login_confirmation" }, :class => "tfbutton" %>
+      <br>
+    <%= link_to "Log In",{ controller: "sessions", action: "user_type_login_confirmation" }, :class => "tfbutton" unless session[:organization_id] || session[:donor_id] %>
 
 
     <p>Or start Searching</p>

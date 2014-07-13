@@ -166,12 +166,13 @@ header.reqHead{
   border-radius:1em;
   width: 45%;
   background-color: rgba(0, 0, 0, 0.70);
-  margin: 2% auto;
+  margin: 10% auto;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
-  line-height:1.5;
+  line-height:1.8;
 }
+
 
 /*------------- Donor Index and New Pages -------------- */
 

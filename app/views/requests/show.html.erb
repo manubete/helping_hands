@@ -1,7 +1,11 @@
   <div id="needsBox">
 
       <p><%= @request.organization %></p>
-      <p>We need <%= @request.resource_count %> of <%= @request.resource %> to send to <%= @request.address %></p>
-      <p>Please let us know if you can donate </p>
-      <button type="button"> Donate </button>
+      <p><%= "We need #{@request.resource_count} of #{@request.resource} to send to #{@request.address}" unless @request.complete %></p>
+      <p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" if @request.complete %></p>
+      <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete %>
+      <p><%= "Please let us know if you can donate" if session[:donor_id] %></p>
+      <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
+      <p><%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%></p>
+
   </div>

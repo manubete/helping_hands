@@ -1,5 +1,7 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :city, :phone_number, :email, :website_url, :linked_in_url, :facebook_url, :username, :password, :password_confirmation
+  attr_accessible :name, :city, :address, :operation_days, :operation_hours, :phone_number, :email, :website_url, :linked_in_url, :facebook_url, :username, :password, :password_confirmation
+
+  has_many :requests
 
   validates :password, confirmation: true
   validates :password, :email, presence: true

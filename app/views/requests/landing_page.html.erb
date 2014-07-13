@@ -2,20 +2,22 @@
        <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
+    <div class="logoBig">
       <img src="/assets/helping_hands_logo.png">
+    </div>
 
       <%= link_to "Sign Up", { controller: "sessions", action: "user_type_confirmation"}, :class => "tfbutton"%>
 
-      <br>
-    <%= link_to "Login",{ controller: "sessions", action: "user_type_login_confirmation" }, :class => "tfbutton" %>
+
+    <%= link_to "Log In",{ controller: "sessions", action: "user_type_login_confirmation" }, :class => "tfbutton" %>
 
 
     <p>Or start Searching</p>
-    <%= link_to "Browse",{ controller: "requests", action: "index" }, :class => "tfbutton" %><br>
-
 
      <%= form_tag requests_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", :class => 'tfbutton_search',:name => nil %>
+
+    <%= link_to "Browse",{ controller: "requests", action: "index" }, :class => "tfbutton" %><br>
       <% end %>
   </div>

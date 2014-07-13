@@ -11,32 +11,33 @@
         <p style="text-align: center;">*Required Fields</p>
         <ul class="longSign">
           <li>
-            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank" %></label>
+            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank", :id=> "input" %></label>
           </li>
           <li>
-            <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "eg San Francisco" %></label>
+            <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "eg San Francisco", :id=> "input" %></label>
           </li>
           <li>
-            <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "eg 646-832-08394" %></label>
+            <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "eg 646-832-08394", :id=> "input" %></label>
           </li>
           <li>
-            <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "eg name@company.com" %></label>
+            <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "eg name@company.com", :id=> "input" %></label>
           </li>
           <li>
-            <label class="form_label" for="username">*Username: <%= f.text_field :username, :placeholder => "eg handyhank201" %></label>
+            <label class="form_label" for="username">*Username: <%= f.text_field :username, :placeholder => "eg handyhank201", :id=> "input" %></label>
           </li>
           <li>
-            <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909" %></label>
+            <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909", :id=> "input" %></label>
 
           </li>
           <li>
-            <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
+            <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
 
 
           </li>
+          <li><br></br></li>
           <li><%= f.submit 'Register', :class => 'tfbutton' %></li>
         </ul>
 
         <% end %>
 
-    </div>
+</div>

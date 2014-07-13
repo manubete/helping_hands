@@ -59,7 +59,7 @@
     </div>
 
     <div class="reqAcctBox">
-      <div class="box" style="height: 15em; margin-bottom: 3%;">
+      <div class="box" >
         <div>
           <%= link_to "Make New Request", new_request_path, :class => "tfbutton" %>
 
@@ -69,20 +69,15 @@
 
         <div style="height: 85%; overflow-y: scroll">
           <nav id="menu">
+            <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
+                <div style="float: left;"><%= link_to "#{request.resource_count} of #{request.resource} needed at #{request.address}", request_path(request.id) if !request.complete %></div>
                 <div style="float: right;">6/20/14</div>
               </a>
             </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">6/16/14</div>
-              </a>
-            </li>
             </ul>
+            <% end %>
           </nav>
         </div>
 
@@ -92,32 +87,16 @@
 
         <div style="height: 85%; overflow-y: scroll">
           <nav id="menu">
+             <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
               <a href="#">
-                <div style="float: left;">Request Name</div>
+                <div style="float: left;"><%= link_to "#{request.resource_count} of #{request.resource} needed at #{request.address}", request_path(request.id) if request.complete %></div>
                 <div style="float: right;">6/13/14</div>
               </a>
             </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">5/10/14</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">5/1/14</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">4/1/14</div>
-              </a>
-            </li>
             </ul>
+            <% end %>
           </nav>
         </div>
       </div>

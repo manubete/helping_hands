@@ -13,14 +13,23 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @organization = Organization.find(session[:organization_id])
     render :new
   end
 
   def create
     p "#{params["request"]["organization"]}"
-    @request = Request.new(organization: params["request"]["organization"], resource: params["request"]["resource"],resource_count: params["request"]["resource_count"], address: params["request"]["address"], description: params["request"]["description"], purpose: params["request"]["purpose"])
-    @request.save
-    redirect_to root_path
+    @request = Request.new(params["request"])
+
+
+    if @request.save
+      flash[:notice] = "You have successfully created the request!"
+      redirect_to requests_path
+    else
+      flash[:notice] = "Incorrect signup information for the request"
+      render :new
+    end
+
   end
 
   def landing_page

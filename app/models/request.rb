@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :organization, :resource, :resource_count, :address, :description, :purpose
+  attr_accessible :organization_id, :resource, :resource_count, :address, :organization, :description, :complete
 
   def self.search(search)
     if search

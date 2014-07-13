@@ -20,6 +20,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @requests = @organization.requests
     render :show
   end
 

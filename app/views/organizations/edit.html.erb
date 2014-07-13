@@ -20,6 +20,15 @@
         <li>
           <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "ie 'San Francisco'" %></label>
         </li>
+          <li>
+      <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "ie 637 15th Street" %></label>
+    </li>
+     <li>
+      <label class="form_label" for="operation_days">*Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
+    </li>
+    <li>
+      <label class="form_label" for="operation_hours">*Operation Hours: <%= f.text_field :operation_hours, :placeholder => "ie 9am - 5pm, 9am - 4pm on Thursdays" %></label>
+    </li>
         <li>
           <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
         </li>

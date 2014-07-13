@@ -1,12 +1,12 @@
   <div class="fillBox">
     <header class="fulfilled">Make a Request</header>
       <%= form_for @request do |f| %>
-        <p id="name" >Name of Organization: <%= f.text_field :organization, :placeholder => "The Salvation Army" %></p>
+         <p id="rNeed">Organization: <%= f.hidden_field :organization, :value => @organization.name %></p>
+        <p id="organization_id" ><%= f.hidden_field :organization_id, :value => session[:organization_id] %></p>
         <p id="rNeed">Resource Needed: <%= f.text_field :resource, :placeholder => "water bottles, blankets" %></p>
         <p>Quantity Needed: <%= f.text_field :resource_count, :placeholder => "500, 200" %></p>
         <p>Address: <%= f.text_field :address, :placeholder => "1234 Valencia St, CA 94103" %></p>
         <p>Description: <%= f.text_field :description, :placeholder => "Dehydrated Refugees" %></p>
-        <p>Purpose: <%= f.text_field :purpose, :placeholder => "SOMA shelter" %></p>
         <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
       <% end %>
   </div>

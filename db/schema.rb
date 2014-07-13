@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140712062308) do
+ActiveRecord::Schema.define(:version => 20140713012601) do
 
   create_table "donors", :force => true do |t|
     t.string "name"
     t.string "city"
+    t.string "address"
     t.string "phone_number"
     t.string "email"
     t.string "username"
@@ -26,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20140712062308) do
     t.string "name"
     t.string "city"
     t.string "address"
+    t.string "operation_days"
+    t.string "operation_hours"
     t.string "phone_number"
     t.string "email"
     t.string "website_url"
@@ -36,13 +39,13 @@ ActiveRecord::Schema.define(:version => 20140712062308) do
   end
 
   create_table "requests", :force => true do |t|
-    t.string  "organization"
+    t.integer "organization_id"
     t.string  "resource"
-    t.integer "resource_count"
+    t.integer "resource_count",  :default => 0
     t.string  "address"
+    t.string  "organization"
     t.string  "description"
-    t.string  "purpose"
-    t.boolean "complete"
+    t.boolean "complete",        :default => false
   end
 
 end

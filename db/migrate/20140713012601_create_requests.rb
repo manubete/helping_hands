@@ -1,16 +1,17 @@
 class CreateRequests < ActiveRecord::Migration
   def up
     create_table :requests do |col|
-      col.string :organization
+      col.belongs_to :organization
       col.string :resource
-      col.integer :resource_count
+      col.integer :resource_count, :default => 0
       col.string :address
+      col.string :organization
       col.string :description
-      col.string :purpose
+      col.boolean :complete, :default => false
     end
   end
 
   def down
-    drop_table :requests
+     drop_table :requests
   end
 end

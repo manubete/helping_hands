@@ -28,6 +28,5 @@ FactoryGirl.define do
     resource_count "100"
     address "100 Fake Street"
     description "Refugees without clean water supply"
-    purpose "Providing water to those who need it"
   end
 end

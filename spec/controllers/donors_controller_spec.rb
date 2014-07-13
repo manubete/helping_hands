@@ -24,7 +24,7 @@ describe DonorsController do
 
     it "should not save a donor to the database when params are left blank" do
       expect{
-      Donor.create(name: "", city: "", phone_number: "", email: "", username: "", password: "")
+      Donor.create(name: nil, city: nil, phone_number: nil, email: nil, username: nil, password: nil)
       }.to_not change{ Donor.count }
     end
 

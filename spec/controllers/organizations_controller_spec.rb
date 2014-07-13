@@ -24,7 +24,7 @@ describe OrganizationsController do
 
     it "should not save an organization to the database when params are left blank" do
       expect{
-        Organization.create(name: "", city: "", phone_number: "", email: "", website_url: "", linked_in_url: "", facebook_url: "", username: "", password: "", password_confirmation: "")
+        Organization.create(name: nil, city: nil, phone_number: nil, email: nil, website_url: nil, linked_in_url: nil, facebook_url: nil, username: nil, password: nil, password_confirmation: nil)
       }.to_not change { Organization.count }.by(1)
     end
 

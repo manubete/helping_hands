@@ -4,7 +4,7 @@ class Request < ActiveRecord::Base
   has_many :donors, through: :contributions
 
   validates :resource_count, :numericality => {:only_integer => true}
-  validates :organization, :resource, :resource_count, :address, :description, :purpose, presence: true
+  validates :organization, :resource, :resource_count, :address, :description, presence: true
 
 
   def self.search(search)

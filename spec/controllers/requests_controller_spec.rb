@@ -37,13 +37,13 @@ describe RequestsController do
 
     it "should not save a request to the database when params are left blank" do
       expect{
-        Request.create(organization: "", resource: "", resource_count: "", address: "", description: "", purpose: "")
+        Request.create(organization: nil, resource: nil, resource_count: nil, address: nil, description: nil)
       }.to_not change { Request.count }.by(1)
     end
 
     it "should not save a request with invalid resource_count field to the database" do
       expect{
-        Request.create(organization: "Blah", resource: "Blah", resource_count: "eighty", address: "Blah", description: "Blah", purpose: "Blah")
+        Request.create(organization: "Blah", resource: "Blah", resource_count: "eighty", address: "Blah", description: "Blah")
       }.to_not change { Request.count }.by(1)
     end
   end

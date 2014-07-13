@@ -18,7 +18,8 @@
   <div class="request">
     <ul>
       <% @requests.each do |request| %>
-        <li><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} ", request_path(request) %></li>
+        <li><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} ", request_path(request) unless request.complete %></li>
+        <%= link_to "#{request.organization} needs #{request.resource} ", request_path(request) if request.complete %>
       <% end %>
     </ul>
   </div>

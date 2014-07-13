@@ -1,8 +1,7 @@
   <div class="fillBox">
     <header class="fulfilled">Make a Request</header>
       <%= form_for @request do |f| %>
-         <p id="rNeed">Organization: <%= f.hidden_field :organization, :value => @organization.name %></p>
-        <p id="organization_id" ><%= f.hidden_field :organization_id, :value => session[:organization_id] %></p>
+
         <p id="rNeed">Resource Needed: <%= f.text_field :resource, :placeholder => "water bottles, blankets" %></p>
         <p>Quantity Needed: <%= f.text_field :resource_count, :placeholder => "500, 200" %></p>
         <p>Address: <%= f.text_field :address, :placeholder => "1234 Valencia St, CA 94103" %></p>

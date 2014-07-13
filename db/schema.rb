@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20140713012601) do
     t.string  "address"
     t.string  "organization"
     t.string  "description"
+    t.date    "start_date"
+    t.date    "end_date"
     t.boolean "complete",        :default => false
   end
 

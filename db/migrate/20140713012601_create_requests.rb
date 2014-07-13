@@ -7,6 +7,8 @@ class CreateRequests < ActiveRecord::Migration
       col.string :address
       col.string :organization
       col.string :description
+      col.date :start_date
+      col.date :end_date
       col.boolean :complete, :default => false
     end
   end

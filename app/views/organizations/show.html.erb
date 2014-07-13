@@ -52,7 +52,7 @@
         </li>
 
         <li><hr></li>
-            <%= link_to "Edit Profile", edit_organization_path(session[:organization_id]), :class => "tfbutton" %><br><br>
+            <%= link_to "Edit Profile", edit_organization_path(session[:organization_id]), :class => "tfbutton" if session[:organization_id] %><br><br>
       </ul>
 
 
@@ -61,7 +61,7 @@
     <div class="reqAcctBox">
       <div class="box" >
         <div>
-          <%= link_to "Make New Request", new_request_path, :class => "tfbutton" %>
+          <%= link_to "Make New Request", new_request_path, :class => "tfbutton" if session[:organization_id] %>
 
         </div>
 
@@ -75,7 +75,6 @@
                 <div style="float: left;"><%= link_to "#{request.resource_count} of #{request.resource} needed at #{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></div>
                 <div style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
                 <div style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
-              </a>
             </li>
             </ul>
             <% end %>
@@ -91,10 +90,9 @@
              <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
-              <a href="#">
+
                 <div style="float: left;"><%= link_to "#{request.resource_count} of #{request.resource} needed at #{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></div>
                 <div style="float: right;"><%= "Finished at #{request.end_date}" if !request.end_date.nil? && request.end_date < Date.today %></div>
-              </a>
             </li>
             </ul>
             <% end %>

@@ -32,8 +32,21 @@ class RequestsController < ApplicationController
 
   end
 
-  def landing_page
-    render :landing_page
+  def edit
+    @request = Request.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @request = Request.find(params[:id])
+
+     p "#{params.inspect}"
+
+     if @request.update_attributes(params[:request])
+      redirect_to(@request)
+    else
+      render :edit
+    end
   end
 
   def api_request
@@ -46,6 +59,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find( params["id"])
+    @organization = Organization.find(@request.organization_id)
     render :show
   end
 

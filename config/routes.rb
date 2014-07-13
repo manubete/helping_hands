@@ -3,11 +3,11 @@ PolarBear::Application.routes.draw do
   #requests resources has custom routes that serve as a landing page, API endpoints and a user type confirmation for registration as both a donor or an organization
     resources :requests do
       collection do
-        get :landing_page
         get :api_request
-        get :user_type_confirmation
       end
     end
+
+    resources :contributions
 
     #added routes for the sessions
      resources :sessions do

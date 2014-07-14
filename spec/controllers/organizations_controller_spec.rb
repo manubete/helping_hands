@@ -60,31 +60,38 @@ describe OrganizationsController do
   end
 
   context "#edit" do
-    before :each do
+    it "should render the edit view when given a valid organization id" do
+      org = FactoryGirl.create(:organization)
+      get :edit, id: org
+      expect(response.status).to eq 200
+    end
+  end
+
+  context "#update" do
+    before(:each) do
       @org = FactoryGirl.create(:organization)
     end
 
-    xit "should save valid changes to organization attributes" do
-        put :update, id: @org, organization: FactoryGirl.attributes_for(:organization, name: "JoeBobJim", city: "San Diego")
+    it "should save valid changes to organization attributes" do
+      put :update, id: @org, organization: FactoryGirl.attributes_for(:organization, name: "JoeBobJim", city: "San Diego")
         @org.reload
         @org.name.should eq("JoeBobJim")
         @org.city.should eq("San Diego")
     end
 
-    xit "should redirect to the updated organization page" do
+    it "should redirect to the updated organization page" do
       put :update, id: @org, organization: FactoryGirl.attributes_for(:organization)
       response.should redirect_to @org
     end
 
-    xit "should not update an organization when params are invalid" do
-        put :update, id: @org, organization: FactoryGirl.attributes_for(:organization, name: nil, city: "The Moon")
+    it "should not update an organization when params are invalid" do
+      put :update, id: @org, organization: FactoryGirl.attributes_for(:organization, email: nil)
         @org.reload
-        @org.name.should_not eq(nil)
-        @org.city.should_not eq("The Moon")
+        @org.email.should_not eq(nil)
         @org.city.should eq("San Francisco")
     end
 
-    xit "re-renders the edit method" do
+    it "re-renders the edit view when params are invalid" do
      expect{
       render_template :edit
      }

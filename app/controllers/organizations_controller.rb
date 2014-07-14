@@ -5,8 +5,6 @@ class OrganizationsController < ApplicationController
   end
 
    def create
-    #p "#{params.inspect}"
-    p session[:errors]
     @organization = Organization.new(params["organization"])
 
     if @organization.save
@@ -32,9 +30,6 @@ class OrganizationsController < ApplicationController
 
   def update
     @organization = Organization.find(params[:id])
-
-     p "#{params.inspect}"
-
      if @organization.update_attributes(params[:organization])
       redirect_to(@organization)
     else

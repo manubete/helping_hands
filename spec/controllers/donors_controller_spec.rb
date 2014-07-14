@@ -18,7 +18,7 @@ describe DonorsController do
 
     it "should redirect to the requests path after creating a valid donor" do
       expect{
-        redirect_to Donor.last
+        redirect_to requests_path
       }
     end
 
@@ -35,13 +35,44 @@ describe DonorsController do
         2.times do
           Donor.create(name: "Erin", city: "San Francisco", phone_number: "555-555-5555", email: "erin@erin.com", username: "ErinJoan", password: "erinisgreat")
         end
-      }.to_not change { Donor.count }.by(2)
+      }.to change { Donor.count }.by(1)
+    end
+
+    it "should re-render the :new template after not saving a non-valid donor to the database" do
+      expect{
+      render_template :new
+      }
     end
   end
 
-  it "should re-render the :new template after not saving a non-valid donor to the database" do
-    expect{
-      render_template :new
-      }
+  context "#show" do
+    it "should render the show view when given a valid donor id" do
+      donor1 = FactoryGirl.create(:donor)
+      get :show, id: donor1
+      expect(response.status).to eq 200
+    end
+  end
+
+  context "#edit" do
+    it "should render the edit view when given a valid donor id" do
+      donor1 = FactoryGirl.create(:donor)
+      get :edit, id: donor1
+      expect(response.status).to eq 200
+    end
+
+  end
+
+  context "update" do
+    it "should save valid changes to donor attributes" do
+    end
+
+    it "should redirect to the updated donor page" do
+    end
+
+    it "should not update an organization when params are invalid" do
+    end
+
+    it "re-renders the edit view when params are invalid" do
+    end
   end
 end

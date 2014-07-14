@@ -7,24 +7,42 @@ class RequestsController < ApplicationController
       else
         @requests = Request.order("#{sort_column} #{sort_direction}")
       end
-
       render :index
   end
 
   def new
     @request = Request.new
+    @organization = Organization.find(session[:organization_id])
     render :new
   end
 
   def create
     p "#{params["request"]["organization"]}"
-    @request = Request.new(organization: params["request"]["organization"], resource: params["request"]["resource"],resource_count: params["request"]["resource_count"], address: params["request"]["address"], description: params["request"]["description"], purpose: params["request"]["purpose"])
-    @request.save
-    redirect_to root_path
+    @request = Request.new(params["request"])
+
+
+    if @request.save
+      flash[:notice] = "You have successfully created the request!"
+      redirect_to requests_path
+    else
+      flash[:notice] = "Incorrect signup information for the request"
+      render :new
+    end
+
   end
 
-  def landing_page
-    render :landing_page
+  def edit
+    @request = Request.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @request = Request.find(params[:id])
+     if @request.update_attributes(params[:request])
+      redirect_to(@request)
+    else
+      render :edit
+    end
   end
 
   def api_request
@@ -37,6 +55,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find( params["id"])
+    @organization = Organization.find(@request.organization_id)
     render :show
   end
 

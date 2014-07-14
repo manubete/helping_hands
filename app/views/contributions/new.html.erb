@@ -1,0 +1,9 @@
+  <div class="fillBox">
+    <header class="fulfilled">Make a Contribution</header>
+      <%= form_for @contribution do |f| %>
+       <p id="donor_id"> <%= f.hidden_field :donor_id, :value => @contribution.donor_id %></p>
+       <p id="request_id"> <%= f.hidden_field :request_id, :value => @contribution.request_id %></p>
+         <p id="rNeed">Resource Amount: <%= f.number_field :resource_amount, :placeholder => 2  %></p>
+        <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
+      <% end %>
+  </div>

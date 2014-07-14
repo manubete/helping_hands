@@ -35,7 +35,5 @@ class OrganizationsController < ApplicationController
     else
       render :edit
     end
-
   end
-
 end

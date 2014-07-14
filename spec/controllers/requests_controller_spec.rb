@@ -3,6 +3,9 @@ require_relative 'factories'
 
 describe RequestsController do
   context "#index" do
+
+    # TODO: Test the search functionality
+
     it "should render the index view" do
       get :index
       expect(response.status).to eq 200
@@ -17,7 +20,9 @@ describe RequestsController do
 
   context "#new" do
     it "should render the new view" do
-      get :new
+      req = FactoryGirl.create(:request)
+      org = FactoryGirl.create(:organization)
+      get :show, id: req.org
       expect(response.status).to eq 200
     end
   end
@@ -48,19 +53,42 @@ describe RequestsController do
     end
   end
 
-  context "#show" do
-    it "should render the show view when given a valid Request id" do
+  context "#edit" do
+    it "should render the edit view when given a valid request id" do
       req = FactoryGirl.create(:request)
       get :show, id: req
       expect(response.status).to eq 200
     end
   end
 
-  context "landing page" do
-    it "should render the landing page" do
-      expect{
-        render_template :landing_page
-      }
+  context "#update" do
+    before(:each) do
+      @req = FactoryGirl.create(:request)
     end
+
+    it "should save valid changes to request attributes" do
+      # put :update, id: @req,
+    end
+
+    it "should redirect to the updated request page" do
+    end
+
+    it "should not update an request when params are invalid" do
+    end
+
+    it "re-renders the edit view when params are invalid" do
+    end
+  end
+
+  context "#show" do
+    it "should render the show view when given a valid Request id" do
+      req = FactoryGirl.create(:request)
+      org = FactoryGirl.create(:organization)
+      get :show, id: req.org
+      expect(response.status).to eq 200
+    end
+  end
+
+  context "api request" do
   end
 end

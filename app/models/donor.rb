@@ -10,7 +10,7 @@ class Donor < ActiveRecord::Base
   def self.authenticate(email, password)
     @donor = Donor.find_by_email(email)
     if @donor && @donor.password == password
-      p "#{email} #{password} #{@donor}"
+      # p "#{email} #{password} #{@donor}"
       @donor
     else
       nil

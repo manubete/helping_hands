@@ -59,20 +59,36 @@ describe DonorsController do
       get :edit, id: donor1
       expect(response.status).to eq 200
     end
-
   end
 
   context "update" do
+    before(:each) do
+      @donor1 = FactoryGirl.create(:donor)
+    end
+
     it "should save valid changes to donor attributes" do
+      put :update, id: @donor1, donor: FactoryGirl.attributes_for(:donor, email: "test22test@test.com", password: "12345")
+      @donor1.reload
+      @donor1.email.should eq("test22test@test.com")
+      @donor1.password.should eq("12345")
     end
 
     it "should redirect to the updated donor page" do
+      put :update, id: @donor1, donor: FactoryGirl.attributes_for(:donor)
+      response.should redirect_to @donor1
     end
 
-    it "should not update an organization when params are invalid" do
+    it "should not update a donor when params are invalid" do
+      put :update, id: @donor1, donor: FactoryGirl.attributes_for(:donor, email: nil, password: nil)
+      @donor1.reload
+      @donor1.email.should_not eq(nil)
+      @donor1.password.should_not eq(nil)
     end
 
     it "re-renders the edit view when params are invalid" do
+      expect{
+        render_template :edit
+      }
     end
   end
 end

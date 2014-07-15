@@ -15,7 +15,16 @@ body {
 }
 
 ul li {
+  list-style: none;
   color: white;
+}
+ul{
+  list-style: none;
+  margin: 0;
+}
+
+li hr{
+  width: 100%;
 }
 
 a {
@@ -31,13 +40,6 @@ a:hover {
 
 img {
   height: 170px;
-}
-
-hr {
-  margin-top: 50px;
-  margin-bottom: 50px;
-/*  width: 100%;
-  margin: 2%;*/
 }
 
 p {

@@ -1,5 +1,7 @@
-<div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
-    <div class="box" style="float: left; width: 40%;">
+<div class="overflowBox" style="margin: 3% auto 5% auto; width: 80%;">
+
+    <!-- form box -->
+    <div class="box" style="float: right; width: 40%;">
       <%= form_for @organization do |f| %>
         <% if @organization.errors %>
           <div>
@@ -11,7 +13,6 @@
           </div>
         <% end %>
 
-      <img src="/assets/salvationArmy.jpg" height="100%"><br>
         <ul class="longSign">
 
         <li>
@@ -48,12 +49,35 @@
         <li>
           <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
         </li>
-        <li><%= f.submit 'Save Changes', :class => 'tfbutton' %></li>
+        <li>
+        </li>
       </ul>
+      <div class="formButton">
+          <%= f.submit 'Save Changes', :class => 'tfbutton' %>
+      </div>
       <% end %>
 
     </div>
 
+    <!-- photo and description box -->
+    <div class="box" style="float: left; width 40%;">
+      <div class="proPhoto">
+        <img src="/assets/salvationArmy.jpg" height="100%">
+      </div>
+      <div class="photoButton">
 
+        <!--make this real button-->
+        <button class="tfbutton">Edit Photo</button>
+      </div>
+
+      <div style="clear: both;">
+        <label for="description">Description:</label>
+        <form style="margin-bottom: 2em;">
+            <textarea class="desRequest" rows="10" cols="50" placeholder="The Salvation Army, an international movement, is an evangelical part of the universal Christian church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination."></textarea><br />
+        </form>
+      </div>
+        <!--make this real button-->
+        <button class="tfbutton">Save Description</button>
+    </div>
 
   </div>

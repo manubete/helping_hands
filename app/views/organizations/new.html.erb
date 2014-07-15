@@ -1,4 +1,4 @@
-<div class="fillBox">
+<div style="height: 38em;"class="box">
   <header class="fulfilled">Make an Account</header>
   <p class="centered_text">*Required Fields</p>
 
@@ -44,7 +44,12 @@
     <li>
       <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
     </li>
-    <li><%= f.submit 'Register', :class => 'tfbutton' %></li>
+    <li><p></p></li>
+    <li>
+      <div class="formButton" >
+      <%= f.submit 'Register', :class => 'tfbutton' %>
+    </div>
+    </li>
   </ul>
   <% end %>
 </div>

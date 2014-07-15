@@ -12,9 +12,9 @@
 
 </head>
 <body>
-<% if !current_page?("/")%>
+
   <%= render "layouts/header" %>
-<% end %>
+
 <% if !current_page?("/") && !current_page?("/sessions/user_type_confirmation")%>
   <%= render "layouts/intro" unless @disable_intro%>
 <% end %>

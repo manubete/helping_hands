@@ -1,6 +1,6 @@
 
 
-<div class="box" style="padding: 3% 3% 3% 3%; margin: 2% auto 0 auto; width: 40%;">
+<div class="box" style="height: 32em;">
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
@@ -34,11 +34,12 @@
           </li>
           <li>
             <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
-
-
           </li>
-          <li><br></br></li>
-          <li><%= f.submit 'Register', :class => 'tfbutton' %></li>
+          <li>
+            <div class="formButton">
+            <%= f.submit 'Register', :class => 'tfbutton' %>
+          </div>
+          </li>
         </ul>
 
         <% end %>

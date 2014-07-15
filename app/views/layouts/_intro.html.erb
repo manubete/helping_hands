@@ -1,21 +1,8 @@
 <div class="introBox">
+  <!--how to make this not show up on the index sheet? assuming user is logged in-->
   <div class="logoDiv">
     <img class="logo" src="/assets/helping_hands_logo.png">
    </div>
 
-      <% if session[:donor_id] %>
-        <%= link_to donors.name, donor_path(session[:donor_id]), :method => :get %>
-      <% end %>
-
-      <% if session[:organization_id] %>
-        <%= link_to organizations.name, organization_path(session[:organization_id]), :method => :get %>
-      <% end %>
-
-      <div class="log">
-        <% if session[:organization_id] || session[:donor_id] %>
-          <%= link_to "LOG OUT", log_out_path %>
-        <% else %>
-          <%= link_to "LOGIN", log_in_path %>
-        <% end %>
     </div>
   </div>

@@ -1,25 +1,57 @@
-<div id="needsBox">
-  <h2>Find organizations in need:</h2>
+<div class="box">
+  <header class="fulfilled">Needs of Organizations:</header>
 
 
       <% if flash[:notice] %>
           <div class="signup"><%= flash[:notice] %></div>
           <% end %>
 
-      <%= form_tag requests_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
+
+      <%= form_tag requests_path, :method => 'get', :class => 'searchPage' do %>
+          <%= text_field_tag :search, params[:search], :class =>"searchInput"%>
+          <%= submit_tag "Search", :name => nil, :class=>"tfbutton_search" %>
       <% end %>
 
-        <div class = "sorting_category"><%= sortable "organization" %></div>
-        <div class = "sorting_category"><%= sortable "resource_count", "Quantity" %></div>
-        <div class = "sorting_category"><%= sortable  "resource", "Resource Needed" %></div>
+
+    <div class="sorting">
+      <span class = "sorting_category"><%= sortable "organization" %></span>
+      <span class = "sorting_category"><%= sortable "resource_count", "Quantity" %></span>
+      <span class = "sorting_category"><%= sortable  "resource", "Resource Needed" %></span>
+      <span class = "sorting_category"><%= sortable  "start_date", "Date Posted" %></span>
+      <span class = "sorting_category"><%= sortable  "end_date", "Expiration" %></span>
+    </div>
 
   <div class="request">
     <ul>
       <% @requests.each do |request| %>
-        <li><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} ", request_path(request) unless request.complete %></li>
-        <%= link_to "#{request.organization} needs #{request.resource} ", request_path(request) if request.complete %>
+        <li>
+
+          <div class="searchResults">
+
+          <%= link_to request_path(request) unless request.complete %>
+            <div class="photo">
+              <img alt="OrganizationName" class="photo" src="images/salvationArmy.jpg">
+            </div>
+
+            <div class="searchContent">
+              <div class="searchOrgName">
+                <%= "#{request.organization}" %>
+                <p></p>
+                <div class="reqPre">
+
+                  <%= "#{request.resource}"%>
+                </div>
+              </div>
+              <div class="date">
+                <%= "Posted #{request.start_date}" %>
+                <p></p>
+                <%= "Ends #{request.end_date}" %>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li><hr class="style-six"></hr></li>
       <% end %>
     </ul>
   </div>

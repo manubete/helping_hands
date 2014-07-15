@@ -7,11 +7,11 @@
 
       <ul class="account">
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
+          <div class="fill_label">
             <label for="name">Description:</label>
           </div>
 
-          <div style="width: 65%; float: right; height: 80%;">
+          <div class="fill_p">
           <p class="orgDes">The Salvation Army, an international movement, is an evangelical part of the universal Christian church. </p>
           </div>
 
@@ -20,8 +20,12 @@
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">Location:<%= @organization.city %></label>
+          <div class="fill_label">
+            <label for="name">Location:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @organization.city %></p>
           </div>
 
         </li>
@@ -29,8 +33,11 @@
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">Phone Number:<%= @organization.phone_number %> </label>
+          <div class="fill_label">
+            <label for="name">Phone Number:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @organization.phone_number %> </p>
           </div>
 
         </li>
@@ -38,16 +45,22 @@
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">E-mail:<%= @organization.email %></label>
+          <div class="fill_label">
+            <label for="name">E-mail:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @organization.email %></p>
           </div>
         </li>
 
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left;">
-            <label for="name">Website: <%= @organization.website_url %></label>
+          <div class="fill_label">
+            <label for="name">Website:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @organization.website_url %></p>
           </div>
         </li>
 
@@ -58,8 +71,8 @@
 
     </div>
 
-    <div class="reqAcctBox">
-      <div class="box" >
+    <div class="reqAcctBox" style="margin-top: 2%";>
+      <div class="box" style="margin-top: 0; width: 100%">
         <div>
           <%= link_to "Make New Request", new_request_path, :class => "tfbutton" if session[:organization_id] %>
 
@@ -82,7 +95,7 @@
         </div>
 
       </div>
-      <div class="box" style=" height: 20em; ">
+      <div class="box" style="width: 100%; height: 20em; ">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
 
         <div style="height: 85%; overflow-y: scroll">

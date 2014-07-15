@@ -32,7 +32,7 @@ class DonorsController < ApplicationController
   def update
     @donor = Donor.find(params[:id])
 
-     p "#{params.inspect}"
+     # p "#{params.inspect}"
 
      if @donor.update_attributes(params[:donor])
       redirect_to(@donor)

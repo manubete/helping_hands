@@ -7,7 +7,6 @@ class RequestsController < ApplicationController
       else
         @requests = Request.order("#{sort_column} #{sort_direction}")
       end
-
       render :index
   end
 
@@ -39,9 +38,6 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-
-     p "#{params.inspect}"
-
      if @request.update_attributes(params[:request])
       redirect_to(@request)
     else

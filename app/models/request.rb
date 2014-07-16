@@ -1,10 +1,11 @@
 class Request < ActiveRecord::Base
-  attr_accessible :organization_id, :resource, :resource_count, :address, :organization, :description, :start_date, :end_date, :complete
+  attr_accessible :organization_id, :resource, :resource_count, :address, :organization, :description, :start_date, :end_date, :complete, :tag_list
   has_many :contributions
   has_many :donors, through: :contributions
 
   validates :resource_count, :numericality => {:only_integer => true}
   validates :organization, :resource, :resource_count, :address, :description, presence: true
+  acts_as_taggable
 
 
   def self.search(search)

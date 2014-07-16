@@ -5,7 +5,19 @@
       <p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" if @request.complete %></p>
       <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete %>
       <p><%= "Please let us know if you can donate" if session[:donor_id] %></p>
-      <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
-      <p><%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%></p>
 
+      <p><%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%></p>
+        </div>
+
+
+        <div class="fillBox">
+    <header class="fulfilled">Make a Contribution</header>
+      <%= form_for @contribution do |f| %>
+       <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
+       <p id="request_id"> <%= f.hidden_field :request_id, :value => @request.id %></p>
+         <p id="rNeed">Resource Amount: <%= f.number_field :resource_amount, :placeholder => 2  %></p>
+        <p><%= f.submit 'Donate', :class => 'tfbutton'%></p>
+      <% end %>
   </div>
+
+

@@ -1,9 +1,4 @@
 class ContributionsController < ApplicationController
-  def new
-    @contribution = Contribution.new(params[:contribution])
-    p "#{@contribution.inspect} yes"
-    render :new
-  end
 
     def create
     p "#{params["contribution"]}"

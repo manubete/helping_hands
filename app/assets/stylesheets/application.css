@@ -67,12 +67,12 @@ html {
 }
 
 .profileImg{
-  margin-left: 1em;
-  margin-right: 1em;
-  width: 7em;
-  height: 7em;
+  margin: 0 10em 2em 3em;
+  width: 10em;
+  height: 10em;
   overflow: hidden;
   float: left;
+  display: block;
 }
 
 div.log{
@@ -93,6 +93,10 @@ header.fulfilled{
 .smallHeader{
   font-size: 1.5em;
   text-align: center;
+}
+
+.adjustBox, .contentBox{
+  height: 100%;
 }
 
 /*------------- Requests Index and Show Pages -------------- */

@@ -8,7 +8,7 @@ html, body {
 body {
   margin: 0px;
   padding: 0;
-  height: 60em;
+  /*height: 60em;*/
   overflow-y: scroll;
   font-family: 'Tahoma', sans-serif;
   color: white;

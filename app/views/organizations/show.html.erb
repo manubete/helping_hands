@@ -1,9 +1,10 @@
-  <div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
+  <div class="contentBox" style="margin: 5% auto 5% auto; width: 90em;">
     <div class="box" style="float: left; width: 40%;">
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
 
-      <img src="/assets/salvationArmy.jpg" height="100%"><br>
-
+      <div class="profileImg">
+        <img src="/assets/salvationArmy.jpg" height="100%"><br>
+      </div>
 
       <ul class="account">
         <li>
@@ -90,12 +91,16 @@
                   <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></p>
                 </div>
                 <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
-                <div style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
                 <hr></hr>
             </li>
             </ul>
             <% end %>
           </nav>
+            <% if @requests.size == 0 %>
+              <p> No requests active </p>
+            <% end %>
+
         </div>
 
       </div>
@@ -103,6 +108,7 @@
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
 
         <div style="height: 85%; overflow-y: scroll">
+
           <nav id="menu">
              <% @requests.each do |request| %>
             <ul class="parent-menu">
@@ -118,6 +124,11 @@
             </li>
             </ul>
             <% end %>
+
+            <% if @requests.size == 0 %>
+              <p> No requests in history </p>
+            <% end %>
+
           </nav>
         </div>
       </div>

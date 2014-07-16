@@ -1,13 +1,19 @@
-<div class="loginBoxForm" >
+<div class="box" style="width: 30em">
 
 
 
         <%= form_tag sessions_path do %>
 
-
-            <br><label class="login_label" for="username">* Email <%= text_field_tag :email, params[:email] %></label><br><br>
-
-            <label class="login_label" for="password">*Password: <%= password_field_tag :password, params[:password] %></label><br><br>
+        <ul>
+          <li>
+            <label class="login_label" for="username">Email </label>
+            <p><%= text_field_tag :email, params[:email] %></p>
+          </li>
+          <li>
+            <label class="login_label" for="password">Password</label>
+            <p><%= password_field_tag :password, params[:password] %></p>
+          </li>
+        </ul>
 
           <%= submit_tag 'Log In', :class => 'tfbutton_login' %>
 

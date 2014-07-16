@@ -7,27 +7,27 @@
 
         <%= form_for @donor do |f| %>
 
-        <header class="fulfilled" style="margin-bottom: 5%;">Make an Account</header>
+        <header class="fulfilled" style="margin-bottom: 5%;">Make a Contributor Account</header>
         <p style="text-align: center;">*Required Fields</p>
         <ul class="longSign">
           <li>
             <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank", :id=> "input" %></label>
           </li>
-          <li>
-            <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "eg San Francisco", :id=> "input" %></label>
-          </li>
+
            <li>
-            <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "eg 768 15th Street" %></label>
+            <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "Door, Street" %></label>
           </li>
+          <li>
+            <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "City, State, Zip", :id=> "input" %></label>
+          </li>
+
           <li>
             <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "eg 646-832-08394", :id=> "input" %></label>
           </li>
           <li>
             <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "eg name@company.com", :id=> "input" %></label>
           </li>
-          <li>
-            <label class="form_label" for="username">*Username: <%= f.text_field :username, :placeholder => "eg handyhank201", :id=> "input" %></label>
-          </li>
+
           <li>
             <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909", :id=> "input" %></label>
 

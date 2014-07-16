@@ -81,39 +81,7 @@ div.log{
   margin: 0 2rem 2rem 0;
 }
 
-.loginBox{
-  border-radius:1em;
-  margin-top: 200px;
-  width: 45%;
-  height: 45%;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 200px auto 0 auto;
-  padding:1em;
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-  text-transform:uppercase;
-}
 
-.loginBoxForm{
-  padding: 3% 3% 3% 3%;
-  margin: 2% auto 0 auto;
-  width: 40%;
-  border-radius:1em;
-  width: 50%;
-  height: 35%;
-  background: rgba(0, 0, 0, 0.70);
-  box-sizing:border-box;
-  text-align:center;
-  line-height:1.5;
-  text-transform:uppercase;
-}
-
-
-
-.promiseBox a{
-  margin: 0 0.1em 0 0.1em;
-}
 
 /*------------- general -------------- */
 header.fulfilled{
@@ -122,6 +90,10 @@ header.fulfilled{
   font-weight: bold;
 }
 
+.smallHeader{
+  font-size: 1.5em;
+  text-align: center;
+}
 
 /*------------- Requests Index and Show Pages -------------- */
 
@@ -135,6 +107,7 @@ header.fulfilled{
 
 .request {
 }
+
 
 /*------------- Requests New and Organizations New Pages -------------- */
 
@@ -189,15 +162,54 @@ header.reqHead{
   margin: 0.5em 0 0.5em 0.5em;
 }
 
+/*------------- Donation form -------------- */
+div.donatePhoto{
+  margin: 2em;
+  height: 10em;
+}
+
+.donate_img{
+  padding-left: 4%;
+  float: left;
+  height: 100%;
+
+}
+
+.picButton{
+  float: right;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.fillIn{
+  width: 55%;
+  float: right;
+  height: 80%;
+  margin-bottom: 1em;
+}
+
+#contentBox{
+  width: 70em;
+  margin: 3% auto 5% auto;
+}
+
 /*------------- Donor Index and New Pages -------------- */
 
-.box {
+.box, .loginBox {
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   padding: 2.5em 1.5em 2.5em 1.5em;
   margin: 2% auto 0 auto;
   width: 50em;
   }
+
+.loginBox{
+  width: 45em;
+  margin: 5% auto 0 auto;
+  padding:1em;
+  text-align:center;
+  line-height:1.5;
+}
 
 /*------------- Donors New and Organizations New Forms -------------- */
 
@@ -225,7 +237,7 @@ ul li {
   color:white;
 }
 
-.tfbutton, .tfbutton_login{
+.tfbutton, .tfbutton_login, .tfbuttonWhich{
     margin: 0 auto;
     padding: 5px 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -242,9 +254,15 @@ ul li {
     border-radius: 0.45em;
   }
 
-  .tfbutton_login {
-    width:10em;
-  }
+.tfbuttonWhich {
+  width:10em;
+  margin: 0 auto 0 auto;
+}
+
+.tfbutton_login {
+  width:7em;
+  margin: 0 auto 0 auto;
+}
 
   .formButton{
     width: 100%;
@@ -329,7 +347,7 @@ ul li {
 
 .topLinks{
   position: fixed;
-  box-sizing:border-box;
+  z-index: 10;
   width: 100%;
   padding:1em;
   top: 0;
@@ -414,7 +432,6 @@ div.photo img{
 }
 
 .reqPre{
-  width: 30%;
   text-align: left;
   font-size: 0.5em;
   float:left;
@@ -423,6 +440,7 @@ div.photo img{
 div.searchOrgName{
   float: left;
   font-size: 2em;
+  width: 50%;
 }
 
 /*------------- WHERE DO THESE THINGS BELONG? -------------- */
@@ -475,17 +493,6 @@ header.contHead{
   background-color: #000000;
 }
 
-#menu {
-  position:relative;
-  z-index:0;
-  font-family: 'Tahoma';
-}
-
-.parent-menu {
-  background-color: #536985;
-  min-width:200px;
-  float:left;
-}
 
 
 div .error {
@@ -515,26 +522,64 @@ div .signup {
 .login_label {
   color:white;
   font-size: 1.2em;
-  margin:0 auto;
+  margin:0 1em 0 0;
   width: 30%;
-  text-align: center;
-  display: block;
+  text-align: right;
+  float: left;
 }
 
+/*------------- account display requests -------------- */
+
+#menu {
+  position:relative;
+  font-family: 'Tahoma';
+}
+
+.parent-menu {
+  /*background-color: #536985;*/
+  width: 95%;
+  padding: 0;
+  float:left;
+}
+
+.parent-menu li div p{
+  margin: 0.1em 1em 0.1em 0.1em;
+  font-size: 0.8em;
+}
+
+.acc_reqMainContent{
+  float: left;
+  margin: 1em 1em 1em 1em;
+}
+
+.acc_reqDate{
+  float: right;
+  margin: 1em 1em 1em 1em;
+}
+
+.parent-menu li div a{
+  font-size: 1.5em;
+}
 
 #menu ul{
   list-style-type:none;
 }
 
 #menu ul li a {
-  padding:10px 15px;
   display:block;
   text-decoration:none;
 }
 
-#menu ul li a:hover{
+#menu ul li:hover{
   background-color:#97b7d8;
 }
+
+#menu ul li{
+  background: -webkit-linear-gradient(#405461, #232E36); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#405461, #232E36); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#405461, #232E36); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#405461, #232E36);
+ }
 
 #menu ul li:hover > ul {
   left: 200px;

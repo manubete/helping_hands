@@ -134,6 +134,8 @@ GEM
       websocket (~> 1.0.4)
     shoulda-matchers (2.6.0)
       activesupport (>= 3.0.0)
+    simple-navigation (3.13.0)
+      activesupport (>= 2.3.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -175,5 +177,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   selenium-webdriver
   shoulda-matchers
+  simple-navigation
   uglifier (>= 1.0.3)
   unicorn

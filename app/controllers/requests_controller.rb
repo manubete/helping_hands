@@ -60,6 +60,7 @@ class RequestsController < ApplicationController
   def show
     @request = Request.find( params["id"])
     @organization = Organization.find(@request.organization_id)
+    @contribution = Contribution.new
     render :show
   end
 

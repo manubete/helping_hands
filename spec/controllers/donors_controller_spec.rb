@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative 'factories'
 
 describe DonorsController do
   context "#new" do
@@ -67,7 +66,8 @@ describe DonorsController do
     end
 
     it "should save valid changes to donor attributes" do
-      put :update, id: @donor1, donor: FactoryGirl.attributes_for(:donor, email: "test22test@test.com", password: "12345")
+      @attributes = { email: "test22test@test.com", password: "12345" }
+      put :update, :id => @donor1.id, :donor => @attributes
       @donor1.reload
       @donor1.email.should eq("test22test@test.com")
       @donor1.password.should eq("12345")

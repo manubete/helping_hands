@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative 'factories'
 
 describe RequestsController do
   context "#index" do

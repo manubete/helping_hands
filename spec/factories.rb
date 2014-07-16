@@ -3,10 +3,12 @@ FactoryGirl.define do
   factory :donor do
     name "Erin"
     city "San Francisco"
+    address "814 California St"
     phone_number "555-555-5555"
     email "erin@erin.com"
     username "ErinJoan"
     password "erinisgreat"
+    password_confirmation "erinisgreat"
   end
 
   factory :organization do

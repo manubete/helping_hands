@@ -12,11 +12,17 @@
 
         <div class="fillBox">
     <header class="fulfilled">Make a Contribution</header>
+       <% if flash[:notice] %>
+          <div class="error"><%= flash[:notice] %></div>
+        <% end %>
       <%= form_for @contribution do |f| %>
        <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
        <p id="request_id"> <%= f.hidden_field :request_id, :value => @request.id %></p>
+        <%  if flash[:resource_amount] %>
+        <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
+        <% end %>
          <p id="rNeed">Resource Amount: <%= f.number_field :resource_amount, :placeholder => 2  %></p>
-        <p><%= f.submit 'Donate', :class => 'tfbutton'%></p>
+        <p><%= f.submit 'Donate', :class => 'tfbutton' if session[:donor_id] %></p>
       <% end %>
   </div>
 

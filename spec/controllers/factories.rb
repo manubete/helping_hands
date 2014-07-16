@@ -36,5 +36,6 @@ FactoryGirl.define do
     complete false
     address "100 Fake Street"
     description "Refugees without clean water supply"
+    tag_list ["sdf","sds"]
   end
 end

@@ -1,12 +1,31 @@
   <div class="fillBox">
+
+    <% if flash[:notice] %>
+          <div class="error"><%= flash[:notice] %></div>
+        <% end %>
     <header class="fulfilled">Make a Request</header>
       <%= form_for @request do |f| %>
-         <p id="rNeed">Organization: <%= f.hidden_field :organization, :value => @organization.name %></p>
+         <p id="rNeed"> <%= f.hidden_field :organization, :value => @organization.name %></p>
         <p id="organization_id" ><%= f.hidden_field :organization_id, :value => session[:organization_id] %></p>
+        <%  if flash[:resource] %>
+        <p class="error"> Resource Needed <%= flash[:resource].join(', and ') %></p>
+        <% end %>
         <p id="rNeed">Resource Needed: <%= f.text_field :resource, :placeholder => "water bottles, blankets" %></p>
-        <p>Quantity Needed: <%= f.text_field :resource_count, :placeholder => "500, 200" %></p>
+        <%  if flash[:resource_count] %>
+        <p class="error" > Quantity Needed <%= flash[:resource_count].join(', and ') %></p>
+        <% end %>
+        <p>Quantity Needed: <%= f.text_field :resource_count, :value => nil, :placeholder => "500, 200" %></p>
+        <%  if flash[:address] %>
+        <p class="error"> Address <%= flash[:address].join(', and ') %></p>
+        <% end %>
         <p>Address: <%= f.text_field :address, :placeholder => "1234 Valencia St, CA 94103" %></p>
+          <%  if flash[:description] %>
+        <p class="error"> Description <%= flash[:description].join(', and ') %></p>
+        <% end %>
         <p>Description: <%= f.text_field :description, :placeholder => "Dehydrated Refugees" %></p>
+        <%  if flash[:tag_list] %>
+        <p class="error"> Tags <%= flash[:tag_list].join(', and ') %></p>
+        <% end %>
          <p>Tags(separated by commas): <%= f.text_field :tag_list, :placeholder => "Clothing" %></p>
         <p>Start Date: <%= f.date_select :start_date  %></p>
         <p>End Date: <%= f.date_select :end_date, :include_blank => true  %></p>

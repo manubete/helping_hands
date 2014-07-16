@@ -9,6 +9,9 @@ PolarBear::Application.routes.draw do
 
     resources :contributions
 
+    #route for tags
+    get 'tags/:tag' => 'requests#index', as: 'tag'
+
     #added routes for the sessions
      resources :sessions do
       collection do

@@ -10,31 +10,55 @@
   <%= form_for @organization do |f| %>
   <ul class="longSign">
 
-    <li>
-      <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "Organization" %></label>
-    </li>
+       <li>
+          <%  if flash[:name] %>
+            <p class="error"> Name <%= flash[:name].join(', and ') %></p>
+          <% end %>
+          <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "Organization" %></label>
+       </li>
+      <li>
+        <%  if flash[:city] %>
+          <p class="error"> City <%= flash[:city].join(', and ') %></p>
+            <% end %>
+        <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
+      </li>
 
      <li>
+        <%  if flash[:address] %>
+        <p class="error"> Address <%= flash[:address].join(', and ') %></p>
+          <% end %>
       <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "door, street" %></label>
     </li>
 
-    <li>
-      <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "city, state, zip" %></label>
-    </li>
 
      <li>
+       <%  if flash[:operation_days] %>
+        <p class="error"> Operation Days <%= flash[:operation_days].join(', and ') %></p>
+          <% end %>
       <label class="form_label" for="operation_days">*Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
     </li>
     <li>
+      <%  if flash[:operation_hours] %>
+        <p class="error"> Operation Hours <%= flash[:operation_hours].join(', and ') %></p>
+          <% end %>
       <label class="form_label" for="operation_hours">*Operation Hours: <%= f.text_field :operation_hours, :placeholder => "ie 9am - 5pm, 9am - 4pm on Thursdays" %></label>
     </li>
     <li>
+       <%  if flash[:phone_number] %>
+        <p class="error"> Phone Number <%= flash[:phone_number].join(', and ') %></p>
+          <% end %>
       <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
     </li>
     <li>
+      <%  if flash[:email] %>
+        <p class="error"> Email <%= flash[:email].join(', and ') %></p>
+          <% end %>
       <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "ie 'name@company.com'" %></label>
     </li>
     <li>
+      <%  if flash[:website_url] %>
+        <p class="error"> Website url <%= flash[:website_url].join(', and ') %></p>
+          <% end %>
       <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
     </li>
     <li>
@@ -42,12 +66,20 @@
     <li>
       <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
     <li>
+      <%  if flash[:username] %>
+        <p class="error"> Username <%= flash[:username].join(', and ') %></p>
+          <% end %>
+      <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "ie 'HandyHank2001'" %></label>
+    </li>
+    <li>
+        <%  if flash[:password] %>
+        <p class="error"> Password <%= flash[:password].join(', and ') %></p>
+          <% end %>
       <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
     </li>
     <li>
-      <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
+       <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
     </li>
-    <li><p></p></li>
     <li>
       <div class="formButton" >
       <%= f.submit 'Register', :class => 'tfbutton' %>

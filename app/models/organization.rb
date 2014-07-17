@@ -4,8 +4,9 @@ class Organization < ActiveRecord::Base
   has_many :requests
 
   validates :password, confirmation: true
-  validates :password, :email, presence: true
-  validates :password, :email, uniqueness: true
+
+  validates :name, :city, :address,:operation_days, :operation_hours, :phone_number, :website_url, :username, :password, :email, presence: true
+  validates :name, :address, :phone_number, :website_url, :username, :password, :email, uniqueness: true
 
 
   def self.authenticate(email, password)

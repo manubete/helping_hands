@@ -4,15 +4,16 @@ class RequestsController < ApplicationController
   def index
       if params[:search]
         @requests = Request.search(params[:search])
+      elsif params[:tag]
+        @requests = Request.tagged_with(params[:tag])
       else
         @requests = Request.order("#{sort_column} #{sort_direction}")
       end
-
       render :index
   end
 
   def new
-    @request = Request.new
+  @request = Request.new
     @organization = Organization.find(session[:organization_id])
     render :new
   end
@@ -26,7 +27,17 @@ class RequestsController < ApplicationController
       flash[:notice] = "You have successfully created the request!"
       redirect_to requests_path
     else
+      #flash errors on user signup
       flash[:notice] = "Incorrect signup information for the request"
+      flash[:resource] = @request.errors[:resource] unless @request.errors[:resource].empty?
+     flash[:resource_count] = @request.errors[:resource_count] unless @request.errors[:resource_count].empty?
+    flash[:address] = @request.errors[:address] unless @request.errors[:address].empty?
+    flash[:description] = @request.errors[:description] unless @request.errors[:description].empty?
+    flash[:tag_list] = @request.errors[:tag_list] unless @request.errors[:tag_list].empty?
+
+
+       @request = Request.new
+       @organization = Organization.find(session[:organization_id])
       render :new
     end
 
@@ -39,9 +50,6 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-
-     p "#{params.inspect}"
-
      if @request.update_attributes(params[:request])
       redirect_to(@request)
     else

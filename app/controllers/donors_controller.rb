@@ -13,6 +13,17 @@ class DonorsController < ApplicationController
       redirect_to requests_path
     else
        flash[:notice] = "Incorrect signup information"
+
+      flash[:name] = @donor.errors[:name] unless @donor.errors[:name].empty?
+     flash[:city] = @donor.errors[:city] unless @donor.errors[:city].empty?
+    flash[:address] = @donor.errors[:address] unless @donor.errors[:address].empty?
+    flash[:phone_number] = @donor.errors[:phone_number] unless @donor.errors[:phone_number].empty?
+    flash[:email] = @donor.errors[:email] unless @donor.errors[:email].empty?
+    flash[:username] = @donor.errors[:username] unless @donor.errors[:username].empty?
+     flash[:password] = @donor.errors[:password] unless @donor.errors[:password].empty?
+
+     @donor = Donor.new
+
       render :new
     end
   end
@@ -32,7 +43,7 @@ class DonorsController < ApplicationController
   def update
     @donor = Donor.find(params[:id])
 
-     p "#{params.inspect}"
+     # p "#{params.inspect}"
 
      if @donor.update_attributes(params[:donor])
       redirect_to(@donor)

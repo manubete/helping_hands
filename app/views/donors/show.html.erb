@@ -43,39 +43,20 @@
 
     </div>
 
+
     <div class="reqAcctBox" style="margin-top: 2%;">
       <div class="box" style="width: 100%; margin-top: 0;">
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
         <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
-              <% @requests.each do |request| %>
-            <ul class="parent-menu">
-            <li>
-                <div style="float: left;"><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} at #{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></div>
-                <div style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
-                <div style="float: right;"><%= "End Date: indefinite" if !request.complete && request.end_date.nil?  %></div>
-            </li>
-            </ul>
-               <% end %>
-          </nav>
-        </div>
-
-      </div>
-
-      <div class="box" style="width: 100%;">
-
-        <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Contribution</header>
-
-        <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
+             <nav id="menu">
               <% @contributions.each do |contribution| %>
                 <% @requests.each do |request| %>
             <ul class="parent-menu">
-            <li>
-                <div style="float: left;"><%= "Donated #{contribution.resource_amount} #{request.resource} needed at #{request.address}" if contribution.request_id == request.id %></div>
-            </li>
+                <div style="float: left;"><%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %></div>
+                <div style="float: right;"><%= "End Date: #{request.end_date}" if contribution.request_id == request.id && (!request.end_date.nil? && request.end_date > Date.today) %></div>
+                <div style="float: right;"><%= "End Date: indefinite" if contribution.request_id == request.id && (!request.complete && request.end_date.nil? ) %></div>
             </ul>
                   <% end %>
                <% end %>
@@ -83,8 +64,6 @@
         </div>
 
       </div>
-
-
 
       <div class="box" style=" height: 20em; width: 100%;">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>

@@ -508,6 +508,11 @@ div .error {
   margin: 0 auto;
 }
 
+p.error {
+  color: red;
+  background-color: red;
+}
+
 div .signup {
   border: 2px solid white;
   border-radius: 3px;

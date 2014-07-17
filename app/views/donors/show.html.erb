@@ -53,9 +53,13 @@
               <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
-                <div style="float: left;"><%= link_to "#{request.organization} needs #{request.resource_count} #{request.resource} at #{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></div>
-                <div style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
-                <div style="float: right;"><%= "End Date: indefinite" if !request.complete && request.end_date.nil?  %></div>
+                <div class="acc_reqMainContent">
+                  <strong><%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></strong>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></p>
+                </div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+                <hr></hr>
             </li>
             </ul>
                <% end %>
@@ -94,10 +98,14 @@
              <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
-             <div style="float: left;"><%= link_to "#{request.resource_count} of #{request.resource} needed at #{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></div>
-                <div style="float: right;"><%= "Finished at #{request.end_date}" if !request.end_date.nil? && request.end_date < Date.today %></div>
+                <div class="acc_reqMainContent">
+                  <strong><%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></strong>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></p>
+                </div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+                <hr></hr>
             </li>
-
             </ul>
             <% end %>
           </nav>

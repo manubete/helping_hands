@@ -3,7 +3,7 @@ class Donor < ActiveRecord::Base
 
   validates :password, confirmation: true
   validates :password, :email, presence: true
-  validates :username, :password, :email, uniqueness: true
+  validates :password, :email, uniqueness: true
   has_many :contributions
   has_many :requests, through: :contributions
 

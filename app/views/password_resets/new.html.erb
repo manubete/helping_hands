@@ -1,0 +1,19 @@
+<div class="box" style="width: 30em">
+
+  <%= form_tag password_resets_path, :method => :post do %>
+    <ul>
+      <li>
+
+        <label class="pw_label">E-mail:</label>
+          <%= text_field_tag :email, params[:email], :class=>"pw_input" %>
+
+      </li>
+      <li>
+        <div style="padding-top: 3em;">
+          <%= submit_tag "Reset Password", :class=> "tfbutton"%>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+
+</div>

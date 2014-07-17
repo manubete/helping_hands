@@ -436,6 +436,22 @@ div.searchOrgName{
   width: 50%;
 }
 
+/*------------- password reset -------------- */
+.pw_label{
+  margin: 0.5em 1em 0 1em;
+  text-align: right;
+  width: 10em;
+  float: left;
+  height: 80%;
+
+}
+
+.pw_input{
+  margin-top: 0.5em;
+  width: 10em;
+  float: left;
+}
+
 /*------------- WHERE DO THESE THINGS BELONG? -------------- */
 
 

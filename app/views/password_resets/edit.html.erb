@@ -1,0 +1,36 @@
+<div class="box" style="width: 30em">
+
+  <%= form_for @donor, :url => password_reset_path(params[:id]) do |f| %>
+    <% if @donor.errors.any? %>
+      <div>
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @donor.errors.full_messages %>
+            <li>
+              <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+      <ul>
+        <li>
+          <%= f.label :password, :class=>"pw_label" %>
+          <%= f.password_field :password, :class=>"pw_input" %>
+        </li>
+        <li>
+          <%= f.label :password_confirmation, :class=>"pw_label" %>
+          <%= f.password_field :password_confirmation, :class=>"pw_input" %>
+        </li>
+        <li><br></br></li>
+        <li>
+          <div style="padding-top: 2em;">
+            <%= f.submit "Update Password", :class=> "tfbutton" %>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+
+</div>

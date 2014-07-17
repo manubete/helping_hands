@@ -1,7 +1,5 @@
 <div style="height: 40em;"class="box">
   <header class="fulfilled">Make an Organization Account</header>
-  <p class="centered_text">*Required Fields</p>
-
 
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
@@ -15,6 +13,12 @@
             <p class="error"> Name <%= flash[:name].join(', and ') %></p>
           <% end %>
           <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "Organization" %></label>
+       </li>
+        <li>
+          <%  if flash[:description] %>
+            <p class="error"> Description <%= flash[:description].join(', and ') %></p>
+          <% end %>
+          <label class="form_label" for="description">*Description: <%= f.text_area :description, :cols => 33, :rows => 5, :placeholder => "Our organization delivers quality care to homeless people all over our community" %></label>
        </li>
       <li>
         <%  if flash[:city] %>
@@ -33,15 +37,21 @@
 
      <li>
        <%  if flash[:operation_days] %>
-        <p class="error"> Operation Days <%= flash[:operation_days].join(', and ') %></p>
+        <p class="error"> Open on Operating Days <%= flash[:operation_days].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="operation_days">*Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
+      <label class="form_label" for="operation_days">*Open on Operating Days: <%= f.text_field :operation_days, :placeholder => "Monday to Friday" %></label>
     </li>
     <li>
-      <%  if flash[:operation_hours] %>
-        <p class="error"> Operation Hours <%= flash[:operation_hours].join(', and ') %></p>
+      <%  if flash[:opening_time] %>
+        <p class="error"> Open from <%= flash[:opening_time].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="operation_hours">*Operation Hours: <%= f.text_field :operation_hours, :placeholder => "ie 9am - 5pm, 9am - 4pm on Thursdays" %></label>
+      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time %></label>
+    </li>
+     <li>
+      <%  if flash[:closing_time] %>
+        <p class="error"> Until <%= flash[:closing_time].join(', and ') %></p>
+          <% end %>
+      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time %></label>
     </li>
     <li>
        <%  if flash[:phone_number] %>
@@ -66,12 +76,6 @@
     <li>
       <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
     <li>
-      <%  if flash[:username] %>
-        <p class="error"> Username <%= flash[:username].join(', and ') %></p>
-          <% end %>
-      <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "ie 'HandyHank2001'" %></label>
-    </li>
-    <li>
         <%  if flash[:password] %>
         <p class="error"> Password <%= flash[:password].join(', and ') %></p>
           <% end %>
@@ -84,7 +88,7 @@
       <div class="formButton" >
       <%= f.submit 'Register', :class => 'tfbutton' %>
     </div>
-    </li>
+    </li><br>
   </ul>
   <% end %>
 </div>

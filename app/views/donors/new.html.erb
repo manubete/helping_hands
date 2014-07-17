@@ -42,12 +42,6 @@
           <% end %>
             <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "eg name@company.com" %></label>
           </li>
-          <li>
-        <%  if flash[:username] %>
-        <p class="error"> Username <%= flash[:username].join(', and ') %></p>
-        <% end %>
-            <label class="form_label" for="username">*Username: <%= f.text_field :username, :placeholder => "eg handyhank201" %></label>
-          </li>
 
           <li>
             <%  if flash[:password] %>

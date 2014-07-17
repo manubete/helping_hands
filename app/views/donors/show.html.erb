@@ -37,7 +37,7 @@
         </li>
 
         <li><hr></li>
-            <%= link_to "Edit Profile", edit_donor_path(session[:donor_id]), :class => "tfbutton" %><br><br>
+            <%= link_to "Edit Profile", edit_donor_path(session[:donor_id]), :class => "tfbutton" if session[:donor_id]%><br><br>
       </ul>
 
 

@@ -12,6 +12,23 @@ class RequestsController < ApplicationController
       render :index
   end
 
+  def donor_index
+    #returns the list of donors that contributed to a particular request
+    p "#{params.inspect}"
+    @request = Request.find(params["request"]["id"])
+    @contributions = @request.contributions
+
+    @donors = []
+
+    @contributions.each do |contribution|
+
+      @donor = Donor.find(contribution.donor_id)
+      @donors.push(@donor)
+    end
+
+    render :donor_index
+  end
+
   def new
   @request = Request.new
     @organization = Organization.find(session[:organization_id])

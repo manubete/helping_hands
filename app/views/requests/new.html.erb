@@ -6,9 +6,6 @@
       <%= form_for @request do |f| %>
       <ul>
         <li>
-          <div class="reqLabel">
-            <label>Organization: </label>
-          </div>
           <div class="reqInput">
             <p id="rNeed"><%= f.hidden_field :organization, :value => @organization.name %></p>
           </div>

@@ -12,6 +12,11 @@ class ContributionsController < ApplicationController
 
       @request.update_count(@contribution.resource_amount)
 
+      #send an email
+        @donor = Donor.find(@contribution.donor_id)
+
+         #sent it
+
       redirect_to requests_path
     else
       flash[:notice] = "Incorrect signup information for the contribution"

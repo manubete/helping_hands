@@ -2,16 +2,17 @@ class CreateOrganizations < ActiveRecord::Migration
   def up
      create_table :organizations do |col|
       col.string :name
+      col.string :description
       col.string :city
       col.string :address
       col.string :operation_days
-      col.string :operation_hours
+      col.time :opening_time
+      col.time :closing_time
       col.string :phone_number
       col.string :email
       col.string :website_url
       col.string :linked_in_url
       col.string :facebook_url
-      col.string :username
       col.string :password
     end
   end

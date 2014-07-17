@@ -25,22 +25,22 @@ ActiveRecord::Schema.define(:version => 20140715060559) do
     t.string "address"
     t.string "phone_number"
     t.string "email"
-    t.string "username"
     t.string "password"
   end
 
   create_table "organizations", :force => true do |t|
     t.string "name"
+    t.string "description"
     t.string "city"
     t.string "address"
     t.string "operation_days"
-    t.string "operation_hours"
+    t.time   "opening_time"
+    t.time   "closing_time"
     t.string "phone_number"
     t.string "email"
     t.string "website_url"
     t.string "linked_in_url"
     t.string "facebook_url"
-    t.string "username"
     t.string "password"
   end
 

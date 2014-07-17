@@ -48,6 +48,11 @@ html {
   line-height:1.5;
 }
 
+.text_area {
+  height:5%;
+  width:45%;
+}
+
 .fill_label{
   width: 40%;
   float: left;

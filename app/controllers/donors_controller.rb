@@ -19,7 +19,6 @@ class DonorsController < ApplicationController
     flash[:address] = @donor.errors[:address] unless @donor.errors[:address].empty?
     flash[:phone_number] = @donor.errors[:phone_number] unless @donor.errors[:phone_number].empty?
     flash[:email] = @donor.errors[:email] unless @donor.errors[:email].empty?
-    flash[:username] = @donor.errors[:username] unless @donor.errors[:username].empty?
      flash[:password] = @donor.errors[:password] unless @donor.errors[:password].empty?
 
      @donor = Donor.new

@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def disable_intro
+    @disable_intro = true
+  end
   def new_donor
     render :new_donor
   end
@@ -41,4 +44,5 @@ end
  def user_type_login_confirmation
   render :user_type_login_confirmation
  end
+
 end

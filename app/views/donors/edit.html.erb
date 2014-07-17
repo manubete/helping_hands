@@ -1,5 +1,7 @@
 <div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
-    <div class="box" style="float: left; width: 40%;">
+    <div class="box" style=" width: 40em;">
+      <header class="fulfilled" style="margin-bottom: 5%;">Edit Account</header>
+
       <%= form_for @donor do |f| %>
         <% if @donor.errors %>
           <div>
@@ -11,30 +13,29 @@
           </div>
         <% end %>
 
-      <img src="/assets/salvationArmy.jpg" height="100%"><br>
         <ul class="longSign">
 
         <li>
-          <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie 'Helper Hank'" %></label>
+          <label class="form_label" for="name">Name: <%= f.text_field :name, :placeholder => @donor.name %></label>
         </li>
         <li>
-          <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "ie 'San Francisco'" %></label>
+          <label class="form_label" for="city">Address: <%= f.text_field :city, :placeholder => @donor.address %></label>
         </li>
          <li>
-            <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "eg 758 15th Street" %></label>
+            <label class="form_label" for="address"><%= f.text_field :address, :placeholder => "city state zip" %></label>
           </li>
         <li>
-          <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
+          <label class="form_label" for="phone">Phone: <%= f.telephone_field :phone_number, :placeholder => @donor.phone_number %></label>
         </li>
         <li>
-          <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "ie 'name@company.com'" %></label>
+          <label class="form_label" for="email">Email: <%= f.email_field :email, :placeholder => @donor.email %></label>
         </li>
 
-
-          <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "ie 'HandyHank2001'" %></label>
+        <li>
+          <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
         </li>
         <li>
-          <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
+          <label class="form_label" for="password">Confirm New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
         </li>
         <li><%= f.submit 'Save Changes', :class => 'tfbutton' %></li>
       </ul>

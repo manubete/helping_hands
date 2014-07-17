@@ -1,25 +1,23 @@
 require 'spec_helper'
 
 describe Organization do
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:city) }
+  it { should validate_presence_of(:address) }
+  it { should validate_presence_of(:operation_days) }
+  it { should validate_presence_of(:operation_hours) }
+  it { should validate_presence_of(:phone_number) }
+  it { should validate_presence_of(:website_url) }
+  it { should validate_presence_of(:username) }
+  it { should validate_presence_of(:password) }
+  it { should validate_presence_of(:email) }
 
-  let(:organization){ Organization.create(username: "Test Org", email: "test@test.com", password: "password11", password_confirmation: "password11")}
+  it { should have_many(:requests) }
 
-  it "is invalid without an email address" do
-    organization.update_attributes(email: nil).should eq false
-  end
-
-  it "is invaid without a password" do
-    organization.update_attributes(password: nil).should eq false
-  end
-
-  it "is invalid if the password and password_confirmation do not match" do
-    organization.update_attributes(password_confirmation: "erinerinerin").should eq false
-  end
-
-  #dont know why this is failing, maybe because password_confirmation is a field?
-  it "is valid if the password and password_confirmation do match" do
-    organization.update_attributes(password_confirmation: "erinerinerin").should eq true
-  end
+  it { should validate_uniqueness_of(:name) }
+  it { should validate_uniqueness_of(:address) }
+  it { should validate_uniqueness_of(:phone_number) }
+  it { should validate_uniqueness_of(:website_url) }
+  it { should validate_uniqueness_of(:email) }
+  it { should validate_uniqueness_of(:password) }
 end
-
-# TODO: Test uniqueness validation here (currently tested in controller)?

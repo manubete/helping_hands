@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Organization do
 
-  let(:organization){ Organization.create(username: "Test Org", email: "test@test.com", password: "password11", password_confirmation: "password11")}
+  let(:organization){ Organization.create( email: "test@test.com", password: "password11", password_confirmation: "password11")}
 
   it "is invalid without an email address" do
     organization.update_attributes(email: nil).should eq false

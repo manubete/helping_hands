@@ -28,9 +28,12 @@
       <li>
       <label class="form_label" for="operation_days">Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
       </li>
-      <li>
-      <label class="form_label" for="operation_hours">Operation Hours: <%= f.text_field :operation_hours, :placeholder => "ie 9am - 5pm, 9am - 4pm on Thursdays" %></label>
-      </li>
+       <li>
+      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time %></label>
+    </li>
+     <li>
+      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time %></label>
+    </li>
         <li>
           <label class="form_label" for="phone">Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
         </li>
@@ -44,6 +47,16 @@
           <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
         <li>
           <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
+
+           <li>
+            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => @organization.security_question %></label>
+          </li>
+
+          <li>
+            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => @organization.security_answer %></label>
+          </li>
+
+
         <li>
           <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
         </li>

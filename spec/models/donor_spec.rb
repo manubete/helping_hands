@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Donor do
-  let(:donor){ Donor.create(username: "ErinJoan", email: "erin@erin.com", password: "erinisgreat")}
+  let(:donor){ Donor.create(email: "erin@erin.com", password: "erinisgreat")}
 
   it "is invalid without an email address" do
     donor.update_attributes(email: nil).should eq false

@@ -53,13 +53,23 @@
              <nav id="menu">
               <% @contributions.each do |contribution| %>
                 <% @requests.each do |request| %>
-            <ul class="parent-menu">
-                <div style="float: left;"><%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %></div>
-                <div style="float: right;"><%= "End Date: #{request.end_date}" if contribution.request_id == request.id && (!request.end_date.nil? && request.end_date > Date.today) %></div>
-                <div style="float: right;"><%= "End Date: indefinite" if contribution.request_id == request.id && (!request.complete && request.end_date.nil? ) %></div>
-            </ul>
+                <ul class="parent-menu">
+
+                 <% if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %>
+                <div class="acc_reqMainContent"><strong> <%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) %></strong></div>
+                  <% end %>
+
+                   <% if contribution.request_id == request.id && (!request.end_date.nil? && request.end_date > Date.today) %>
+                <div style="float: right;"><%= "End Date: #{request.end_date}" %></div>
+                <% end %>
+
+                 <% if contribution.request_id == request.id && (!request.complete && request.end_date.nil? ) %>
+                <div style="float: right;"><%= "End Date: indefinite" %></div><hr></hr>
+                <% end %>
+
                   <% end %>
                <% end %>
+               </ul>
           </nav>
         </div>
 

@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20140715060559) do
     t.string "phone_number"
     t.string "email"
     t.string "password"
+    t.string "security_question"
+    t.string "security_answer"
   end
 
   create_table "organizations", :force => true do |t|
@@ -42,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20140715060559) do
     t.string "linked_in_url"
     t.string "facebook_url"
     t.string "password"
+    t.string "security_question"
+    t.string "security_answer"
   end
 
   create_table "requests", :force => true do |t|

@@ -380,6 +380,14 @@ li#input{
   width: 40%;
 }
 
+/*------------- SECURITY QUESTION FORM -------------- */
+
+.form_field {
+  text-align: center;
+}
+
+
+
 /*------------- SEARCH PAGE -------------- */
 .searchPage{
   width: 70%;

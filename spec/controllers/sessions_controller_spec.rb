@@ -2,16 +2,18 @@ require 'spec_helper'
 
 describe SessionsController do
 
-  context "#new_donor" do
-    it "should render the new donor view" do
-      get :new_donor
+
+  context "#find_security_question" do
+    it "should render the find security question view" do
+      get :find_security_question
       expect(response.status).to eq 200
     end
   end
 
-  context "#new_organization" do
-    it "should render the new organization view" do
-      get :new_organization
+
+  context "#security_question" do
+    it "should render the security_question view" do
+      get :security_question
       expect(response.status).to eq 200
     end
   end

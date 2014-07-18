@@ -1,7 +1,139 @@
-  <div id="needsBox">
+<div id="contentBox">
+  <div class="box" style="float: left; width: 40%;">
 
-      <p><%= @request.organization %></p>
-      <p>We need <%= @request.resource_count %> of <%= @request.resource %> to send to <%= @request.address %></p>
-      <p>Please let us know if you can donate </p>
-      <button type="button"> Donate </button>
+    <header class="fulfilled"><%= @request.organization %></header>
+
+    <ul class="account">
+      <li>
+          <div class="fill_label">
+            <label for="name">Need:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @request.resource %></p>
+          </div>
+      </li>
+      <li><hr></li>
+      <li>
+          <div class="fill_label">
+            <label for="name">Amount:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @request.resource_count %></p>
+          </div>
+      </li>
+      <li><hr></li>
+      <li>
+          <div class="fill_label">
+            <label for="name">Delivery Address:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @organization.address %></p>
+          </div>
+      </li>
+      <li><hr></li>
+      <li>
+          <div class="fill_label">
+            <label for="name">Purpose:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @request.description %></p>
+          </div>
+      </li>
+      <li><hr></li>
+      <li>
+          <div class="fill_label">
+            <label for="name">Date Posted:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @request.start_date %></p>
+          </div>
+      </li>
+      <li><hr></li>
+      <li>
+          <div class="fill_label">
+            <label for="name">End Date:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @request.end_date %></p>
+          </div>
+      </li>
+      <li><hr></li>
+           <li>
+          <div class="fill_label">
+            <label for="name">Status:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @request.complete || @request.end_date > Date.today ? "Complete" : "Ongoing" %></p>
+            <p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" if @request.complete %></p>
+          </div>
+      </li>
+      <li><hr></li>
+      <li>
+        <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
+          <p style="float: right"><%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%></p>
+        <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
+        <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete %>
+
+      </li>
+    </ul>
   </div>
+
+
+
+  <div class="box" style="height: 100%; width: 30em; float: right;">
+    <header class="smallHeader"><% if session[:donor_id] %>
+      <%= "Please complete the donation form." %>
+      <% elsif session[:organization_id] %>
+      <%= "Request Contribution Form" %>
+      <% end %></header>
+    <div class="donatePhoto">
+      <div class="donate_img">
+        <img alt="Insert Photo"src="images/donationPhoto.jpg" height="100%">
+      </div>
+      <div class="picButton">
+        <p style="margin-bottom: 0.1em">Upload a clear photo</p>
+        <p style="margin-top: 0.1em">of your donation</p>
+        <button class="tfbutton" onclick="window.location.href='dophot.html'" href="#">Upload Photo</button>
+      </div>
+    </div>
+
+
+    <div style="margin-top: 8%;">
+        <% if flash[:notice] %>
+          <div class="error"><%= flash[:notice] %></div>
+        <% end %>
+      <%= form_for @contribution do |f| %>
+      <ul class="aRequest">
+
+        <li>
+         <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
+          <p id="request_id"> <%= f.hidden_field :request_id, :value => @request.id %></p>
+          <label class="fill_label">How much are you donating?</label>
+          <%  if flash[:resource_amount] %>
+            <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
+          <% end %>
+          <p><%= f.number_field :resource_amount, :placeholder => 2 , :class=>"fillIn" %></p>
+        </li>
+        <li><br></br></li>
+        <li>
+          <div class="formButton">
+            <p><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>
+          </div>
+        </li>
+
+      </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+

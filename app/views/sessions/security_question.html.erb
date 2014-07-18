@@ -1,0 +1,27 @@
+<div class="box" style="width: 30em">
+
+        <%= form_tag("/sessions/verify_security_question", method:"get") do %>
+          <% if @donor %>
+          <%= hidden_field_tag :donor_id, params[:id], :value => @donor.id %>
+          <% elsif @organization %>
+            <%= hidden_field_tag :organization_id, params[:id], :value => @organization.id %>
+          <% end %>
+        <ul>
+          <li>
+            <p class="form_field"> <%= @donor.security_question  if @donor %> </p>
+            <p class="form_field"> <%= @organization.security_question  if @organization %> </p>
+          </li>
+          <li>
+            <p class="form_field"><%= text_field_tag :security_answer, params[:security_answer] %></p>
+          </li>
+          <li style="margin:0 auto; text-align:center">
+          <%= submit_tag 'Search', :class => 'tfbutton_login' %>
+        </li><br>
+        </ul>
+
+
+        <% end %>
+
+
+
+  </div>

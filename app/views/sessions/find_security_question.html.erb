@@ -1,0 +1,21 @@
+<div class="box" style="width: 30em">
+
+        <p>Please tell us your email so we can find your security question</p>
+        <%= form_tag("/sessions/security_question", method:"get") do %>
+
+        <ul>
+          <li>
+            <label class="login_label" for="email"> Email: </label>
+            <p><%= text_field_tag :email, params[:email] %></p>
+          </li>
+          <li style="margin:0 auto; text-align:center">
+          <%= submit_tag 'Search', :class => 'tfbutton_login' %>
+        </li><br>
+        </ul>
+
+
+        <% end %>
+
+
+
+  </div>

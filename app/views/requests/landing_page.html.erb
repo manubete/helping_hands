@@ -13,13 +13,13 @@
     <%= link_to "Log In",{ controller: "sessions", action: "user_type_login_confirmation" }, :class => "tfbutton" unless session[:organization_id] || session[:donor_id] %>
 
     <% if !session[:organization_id] && !session[:donor_id] %>
-      <p>Or start Searching</p>
+      <p>Or start searching:</p>
     <% else %>
       <p>Welcome back!</p>
     <% end %>
 
      <%= form_tag requests_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], :class => 'tftextinput' %>
+          <%= text_field_tag :search, params[:search], :class => 'tftextinput', :placeholder => 'Search by organization name' %>
           <%= submit_tag "Search", :class => 'tfbutton_search',:name => nil %>
 
     <%= link_to "Browse",{ controller: "requests", action: "index" }, :class => "tfbutton" %><br>

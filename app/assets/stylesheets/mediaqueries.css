@@ -1,80 +1,70 @@
-* { font-family: 'Comic sans' !important; }
+ /*----- iPhone 4, 4s, 5 and 5s ------ */
 
-/* ----- iPhone 5 ------ */
-
-@media(max-width: 320px){
-  html {
-    background-color: red;
-    font-size: 3em !important;
-    color: green !important;
+@media (min-width: 320px){
+  html, body{
+    width:320px;
+    font-size: large;
   }
-  a {
-    color: blue;
-  }
-  p {
-    color: yellow;
-  }
-  #promiseBox {
+  .promiseBox{
+    width: 100%;
     height: 90%;
-    width: 90%;
+    margin: 12% 12%;
   }
-  #promiseBox a {
+  .promiseBox a{
+    width: 90%;
+    font-size: large;
+  }
+  .promiseBox p{
+    width: 90%;
+    font-size: large;
+  }
+  .logoBig{
     width: 100%;
   }
   .tfbutton {
     width: 100%;
+    margin: 5px 0;
+  }
+  .tfbutton_search {
+    width: 100%;
+    margin-top: 5px;
+    font-size: large;
   }
   input {
     width: 100%;
   }
-  .bottomLinks {
-    position: fixed;
-    display: block;
-    bottom: 0;
-    width: 100%;
-    background: #000;
+  .topLinks{
+    display: none;
   }
-  #needsBox {
-    width: 100%;
-    text-align: center;
+  .bottomLinks{
+    display: none;
   }
-  .fillBox{
-    width: 100%;
-  }
-  .box {
-    width: 100%
+  .button_to{
+    font-size: large;
   }
 }
 
-/* ----- iPhone 4 and 4s ------ */
-
-/*@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
-    html, body {height: 480px; width: 320px;}
-  };*/
-
 /* ----- iPad (portrait and landscape) ------ */
 
-@media(max-width: 1024px){
-    html, body {
-      height:768px;
-      width:1024px;
-    }
-    .logoBig {
-      height: 100px;
-      border: 10px solid red;
-    }
+/*@media (min-width: 1024px){
+  html, body {
+    width:1024px;
   }
+  .logoBig img{
+    width:100px;
+    border: 10px solid red;
+  }
+}
 
-@media (max-width : 768px){
-    html, body {
-      height: 1024px;
-      width:768px;
-    }
-    .logoBig {
-      height: 100px;
-      border: 10px solid pink;
-    }
+@media (min-width: 768px){
+  html, body {
+    width:768px;
   }
+  .logoBig img{
+    width: 100px;
+    border: 10px solid pink;
+  }
+}*/
 
 /* ----- Samsung Galaxy S4 ------ */
 
@@ -92,4 +82,4 @@
 
 /*@media screen and (device-width: 360px) and (device-height: 640px){
     html, body { height: 640px; width:360px;}
-  }*/
+  }

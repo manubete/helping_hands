@@ -196,12 +196,14 @@ ul li {
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    border: solid 1px #0076a3; border-right:0px;
+    border: solid 1px #0076a3;
+    border-right:0px;
     background: #0095cd;
     background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
     background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-    border-top-right-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
+    border-radius: 5px;
+/*    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;*/
   }
 
   .tfbutton_search {
@@ -215,12 +217,14 @@ ul li {
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    border: solid 1px #0076a3; border-right:0px;
+    border: solid 1px #0076a3;
+    border-right:0px;
     background: #0095cd;
     background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
     background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-    border-top-right-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
+    border-radius: 5px;
+/*    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;*/
   }
 
   .tfbutton_login {
@@ -238,8 +242,9 @@ ul li {
     background: #0095cd;
     background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
     background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-    border-top-right-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
+    border-radius: 5px;
+/*    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;*/
   }
 
 

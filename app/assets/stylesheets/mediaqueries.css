@@ -1,12 +1,12 @@
+* { font-family: 'Comic sans' !important; }
+
 /* ----- iPhone 5 ------ */
 
-@media only screen and (max-device-width: 320px) and (max-device-height: 568px) {
-  body {
-    background: red;
-  }
-  img {
-    height: 100px;
-    width: 100px;
+@media(max-width: 320px){
+  html {
+    background-color: red;
+    font-size: 3em !important;
+    color: green !important;
   }
   a {
     color: blue;
@@ -54,13 +54,27 @@
 
 /* ----- iPad (portrait and landscape) ------ */
 
-/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
-    html, body {height:768px; width:1024px;}
-  }*/
-/*
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
-    html, body {height: 1024px; width:768px;}
-  }*/
+@media(max-width: 1024px){
+    html, body {
+      height:768px;
+      width:1024px;
+    }
+    .logoBig {
+      height: 100px;
+      border: 10px solid red;
+    }
+  }
+
+@media (max-width : 768px){
+    html, body {
+      height: 1024px;
+      width:768px;
+    }
+    .logoBig {
+      height: 100px;
+      border: 10px solid pink;
+    }
+  }
 
 /* ----- Samsung Galaxy S4 ------ */
 

@@ -6,25 +6,28 @@ FactoryGirl.define do
     address "Lovely dovely Street"
     phone_number "555-555-5555"
     email "erin@erin.com"
-    username "ErinJoan"
     password "erinisgreat"
-    password_confirmation "erinisgreat"
+    security_question "dog name?"
+    security_answer "pepper"
   end
 
   factory :organization do
     name "Sample Org"
+    description "Peppers paws gives stray french bulldogs a second chance"
     city "San Francisco"
     address "Lovely Org Street"
     operation_days "M-Th"
-    operation_hours "9 to 5"
+    opening_time Time.now
+    closing_time Time.now + (60*60*5)
     phone_number "555-555-5555"
     email "name@sample.org"
     website_url "http://www.google.com"
     linked_in_url "https://www.linkedin.com/profile/view?id=137499030"
     facebook_url "http://facebook.com/sample"
-    username "SampleOrg"
     password "password"
     password_confirmation "password"
+    security_question "dog name?"
+    security_answer "pepper"
   end
 
   factory :request do

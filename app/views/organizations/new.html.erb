@@ -1,7 +1,5 @@
-<div class="fillBox">
-  <header class="fulfilled">Make an Account</header>
-  <p class="centered_text">*Required Fields</p>
-
+<div style="height: 120%;"class="box">
+  <header class="fulfilled">Make an Organization Account</header>
 
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
@@ -10,35 +8,50 @@
   <%= form_for @organization do |f| %>
   <ul class="longSign">
 
-    <li>
-      <%  if flash[:name] %>
-        <p class="error"> Name <%= flash[:name].join(', and ') %></p>
+       <li>
+          <%  if flash[:name] %>
+            <p class="error"> Name <%= flash[:name].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie 'Helper Hank Charity'" %></label>
-    </li>
-    <li>
-      <%  if flash[:city] %>
-        <p class="error"> City <%= flash[:city].join(', and ') %></p>
+          <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "Organization" %></label>
+       </li>
+        <li>
+          <%  if flash[:description] %>
+            <p class="error"> Description <%= flash[:description].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "ie 'San Francisco'" %></label>
-    </li>
+          <label class="form_label" for="description">*Description: <%= f.text_area :description, :cols => 33, :rows => 5, :placeholder => "Our organization delivers quality care to homeless people all over our community" %></label>
+       </li>
+      <li>
+        <%  if flash[:city] %>
+          <p class="error"> City <%= flash[:city].join(', and ') %></p>
+            <% end %>
+        <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
+      </li>
+
      <li>
         <%  if flash[:address] %>
         <p class="error"> Address <%= flash[:address].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "ie 637 15th Street" %></label>
+      <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "door, street" %></label>
     </li>
+
+
      <li>
        <%  if flash[:operation_days] %>
-        <p class="error"> Operation Days <%= flash[:operation_days].join(', and ') %></p>
+        <p class="error"> Open on Operating Days <%= flash[:operation_days].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="operation_days">*Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
+      <label class="form_label" for="operation_days">*Open on Operating Days: <%= f.text_field :operation_days, :placeholder => "Monday to Friday" %></label>
     </li>
     <li>
-      <%  if flash[:operation_hours] %>
-        <p class="error"> Operation Hours <%= flash[:operation_hours].join(', and ') %></p>
+      <%  if flash[:opening_time] %>
+        <p class="error"> Open from <%= flash[:opening_time].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="operation_hours">*Operation Hours: <%= f.text_field :operation_hours, :placeholder => "ie 9am - 5pm, 9am - 4pm on Thursdays" %></label>
+      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time %></label>
+    </li>
+     <li>
+      <%  if flash[:closing_time] %>
+        <p class="error"> Until <%= flash[:closing_time].join(', and ') %></p>
+          <% end %>
+      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time %></label>
     </li>
     <li>
        <%  if flash[:phone_number] %>
@@ -62,12 +75,22 @@
       <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
     <li>
       <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
-    <li>
-      <%  if flash[:username] %>
-        <p class="error"> Username <%= flash[:username].join(', and ') %></p>
-          <% end %>
-      <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "ie 'HandyHank2001'" %></label>
-    </li>
+
+
+          <li>
+            <%  if flash[:security_question] %>
+              <p class="error"> Security Question <%= flash[:security_question].join(', and ') %></p>
+            <% end %>
+            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => "eg What is your first pets name" %></label>
+          </li>
+
+          <li>
+            <%  if flash[:security_answer] %>
+              <p class="error"> Security Answer <%= flash[:security_answer].join(', and ') %></p>
+            <% end %>
+            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => "eg Tigger" %></label>
+          </li>
+
     <li>
         <%  if flash[:password] %>
         <p class="error"> Password <%= flash[:password].join(', and ') %></p>
@@ -77,7 +100,11 @@
     <li>
        <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
     </li>
-    <li><%= f.submit 'Register', :class => 'tfbutton' %></li>
+    <li>
+      <div class="formButton" >
+      <%= f.submit 'Register', :class => 'tfbutton' %>
+    </div>
+    </li><br>
   </ul>
   <% end %>
 </div>

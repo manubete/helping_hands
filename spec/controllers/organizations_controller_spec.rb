@@ -23,7 +23,7 @@ describe OrganizationsController do
 
     it "should not save an organization to the database when params are left blank" do
       expect{
-        Organization.create(name: nil, city: nil, phone_number: nil, email: nil, website_url: nil, linked_in_url: nil, facebook_url: nil, username: nil, password: nil, password_confirmation: nil)
+        Organization.create(name: nil, city: nil, phone_number: nil, email: nil, website_url: nil, linked_in_url: nil, facebook_url: nil, password: nil, password_confirmation: nil)
       }.to_not change { Organization.count }.by(1)
     end
 
@@ -32,8 +32,9 @@ describe OrganizationsController do
         Organization.create(name: "Sample Org", city: "San Francisco",
         address: "huey street",
         operation_days: "m - t",
-        operation_hours: "9 - 5",
-         phone_number: "555-555-5555", email: "name@sample.org", website_url: "http://www.google.com", linked_in_url: "https://www.linkedin.com/profile/view?id=137499030", facebook_url: "http://facebook.com/sample", username: "SampleOrg", password: "password", password_confirmation: "password1")
+        opening_time: Time.now,
+        closing_time: Time.now + (60*60*5),
+         phone_number: "555-555-5555", email: "name@sample.org", website_url: "http://www.google.com", linked_in_url: "https://www.linkedin.com/profile/view?id=137499030", facebook_url: "http://facebook.com/sample", password: "password", password_confirmation: "password21")
       }.to_not change { Organization.count }.by(1)
     end
 
@@ -43,10 +44,14 @@ describe OrganizationsController do
       expect{
         2.times do
         Organization.create(name: "Sample Org", city: "San Francisco",
+          description: "Insert Org description here",
         address: "huey street",
         operation_days: "m - t",
-        operation_hours: "9 - 5",
-         phone_number: "555-555-5555", email: "name@sample.org", website_url: "http://www.google.com", linked_in_url: "https://www.linkedin.com/profile/view?id=137499030", facebook_url: "http://facebook.com/sample", username: "SampleOrg", password: "password", password_confirmation: "password")
+        opening_time: Time.now,
+        closing_time: Time.now + (60*60*5),
+         phone_number: "555-555-5555", email: "name@sample.org", website_url: "http://www.google.com", linked_in_url: "https://www.linkedin.com/profile/view?id=137499030", facebook_url: "http://facebook.com/sample", password: "password", password_confirmation: "password",
+         security_question: "dog name?",
+    security_answer: "pepper")
         end
       }.to change { Organization.count }.by(1)
     end

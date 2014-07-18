@@ -1,5 +1,7 @@
-<div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
-    <div class="box" style="float: left; width: 40%;">
+<div class="contentBox" style="margin: 3% auto 5% auto; width: 90em">
+
+    <!-- form box -->
+    <div class="box" style="float: right; width: 40em;">
       <%= form_for @organization do |f| %>
         <% if @organization.errors %>
           <div>
@@ -11,49 +13,85 @@
           </div>
         <% end %>
 
-      <img src="/assets/salvationArmy.jpg" height="100%"><br>
         <ul class="longSign">
 
         <li>
-          <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie 'Helper Hank Charity'" %></label>
+          <label class="form_label" for="name">Name: <%= f.text_field :name, :placeholder => "ie 'Helper Hank Charity'" %></label>
         </li>
         <li>
-          <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "ie 'San Francisco'" %></label>
+          <label class="form_label" for="address">Address: <%= f.text_field :address, :placeholder => "ie 637 15th Street" %></label>
+          </li>
+        <li>
+          <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "ie 'San Francisco'" %></label>
         </li>
-          <li>
-      <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "ie 637 15th Street" %></label>
+
+      <li>
+      <label class="form_label" for="operation_days">Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
+      </li>
+       <li>
+      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time %></label>
     </li>
      <li>
-      <label class="form_label" for="operation_days">*Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
-    </li>
-    <li>
-      <label class="form_label" for="operation_hours">*Operation Hours: <%= f.text_field :operation_hours, :placeholder => "ie 9am - 5pm, 9am - 4pm on Thursdays" %></label>
+      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time %></label>
     </li>
         <li>
-          <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
+          <label class="form_label" for="phone">Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
         </li>
         <li>
-          <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "ie 'name@company.com'" %></label>
+          <label class="form_label" for="email">Email: <%= f.email_field :email, :placeholder => "ie 'name@company.com'" %></label>
         </li>
         <li>
-          <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
+          <label class="form_label" for="website">Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
         </li>
         <li>
           <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
         <li>
           <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
+
+           <li>
+            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => @organization.security_question %></label>
+          </li>
+
+          <li>
+            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => @organization.security_answer %></label>
+          </li>
+
+
         <li>
-          <label class="form_label" for="username">*Username <%= f.text_field :username, :placeholder => "ie 'HandyHank2001'" %></label>
+          <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
         </li>
         <li>
-          <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
+          <label class="form_label" for="password">Verify Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
         </li>
-        <li><%= f.submit 'Save Changes', :class => 'tfbutton' %></li>
+        <li>
+        </li>
       </ul>
+      <div class="formButton">
+          <%= f.submit 'Save Changes', :class => 'tfbutton' %>
+      </div>
       <% end %>
 
     </div>
 
+    <!-- photo and description box -->
+    <div class="box" style="float: left; width: 30em">
+      <div class="proPhoto">
+        <img src="/assets/salvationArmy.jpg" height="100%">
+      </div>
+      <div class="photoButton">
 
+        <!--make this real button-->
+        <button class="tfbutton">Edit Photo</button>
+      </div>
+
+      <div style="clear: both;">
+        <label for="description">Description:</label>
+        <form style="margin-bottom: 2em;">
+            <textarea class="desRequest" rows="10" cols="50" placeholder="The Salvation Army, an international movement, is an evangelical part of the universal Christian church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination."></textarea><br />
+        </form>
+      </div>
+        <!--make this real button-->
+        <button class="tfbutton">Save Description</button>
+    </div>
 
   </div>

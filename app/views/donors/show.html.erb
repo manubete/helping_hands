@@ -2,65 +2,80 @@
     <div class="box" style="float: left; width: 40%;">
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @donor.name %> </header>
 
-      <img src="/assets/salvationArmy.jpg" height="100%"><br>
-
-
       <ul class="account">
 
-
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
-            <label for="name">Location:<%= @donor.city %></label>
+          <div class="fill_label">
+            <label for="name">Location:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @donor.city %></p>
           </div>
 
-        </li><hr>
+        </li>
+        <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">Phone Number:<%= @donor.phone_number %> </label>
+          <div class="fill_label">
+            <label for="name">Phone Number:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @donor.phone_number %></p>
           </div>
 
-        </li><hr>
+        <li><hr></li>
 
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">E-mail:<%= @donor.email %></label>
+          <div class="fill_label">
+            <label for="name">E-mail:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @donor.email %></p>
           </div>
         </li>
 
-        <hr>
-            <%= link_to "Edit Profile", edit_donor_path(session[:donor_id]), :class => "tfbutton" %><br><br>
+        <li><hr></li>
+            <%= link_to "Edit Profile", edit_donor_path(session[:donor_id]), :class => "tfbutton" if session[:donor_id]%><br><br>
       </ul>
 
 
     </div>
 
 
-      <div class="reqAcctBox">
-      <div class="box" style="height: 15em; margin-bottom: 3%;">
+    <div class="reqAcctBox" style="margin-top: 2%;">
+      <div class="box" style="width: 100%; margin-top: 0;">
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
         <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
+             <nav id="menu">
               <% @contributions.each do |contribution| %>
                 <% @requests.each do |request| %>
-            <ul class="parent-menu">
-                <div style="float: left;"><%= link_to "Donated #{contribution.resource_amount} #{request.resource} needed at #{request.address} for the #{request.organization}", request_path(request.id) if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %></div>
-                <div style="float: right;"><%= "End Date: #{request.end_date}" if contribution.request_id == request.id && (!request.end_date.nil? && request.end_date > Date.today) %></div>
-                <div style="float: right;"><%= "End Date: indefinite" if contribution.request_id == request.id && (!request.complete && request.end_date.nil? ) %></div>
-            </ul>
+                <ul class="parent-menu">
+
+                 <% if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %>
+                <div class="acc_reqMainContent"><strong> <%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) %></strong></div>
+                  <% end %>
+
+                   <% if contribution.request_id == request.id && (!request.end_date.nil? && request.end_date > Date.today) %>
+                <div style="float: right;"><%= "End Date: #{request.end_date}" %></div>
+                <% end %>
+
+                 <% if contribution.request_id == request.id && (!request.complete && request.end_date.nil? ) %>
+                <div style="float: right;"><%= "End Date: indefinite" %></div><hr></hr>
+                <% end %>
+
                   <% end %>
                <% end %>
+               </ul>
           </nav>
         </div>
 
       </div>
 
-
-
-      <div class="box" style=" height: 20em; ">
+      <div class="box" style=" height: 20em; width: 100%;">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
 
         <div style="height: 85%; overflow-y: scroll">
@@ -80,3 +95,4 @@
     </div>
 
   </div>
+</div>

@@ -1,18 +1,19 @@
-  <div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
+  <div class="contentBox" style="margin: 5% auto 5% auto; width: 90em;">
     <div class="box" style="float: left; width: 40%;">
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
 
-      <img src="/assets/salvationArmy.jpg" height="100%"><br>
-
+      <div class="profileImg">
+        <img src="/assets/salvationArmy.jpg" height="100%"><br>
+      </div>
 
       <ul class="account">
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
+          <div class="fill_label">
             <label for="name">Description:</label>
           </div>
 
-          <div style="width: 65%; float: right; height: 80%;">
-          <p class="orgDes">The Salvation Army, an international movement, is an evangelical part of the universal Christian church. </p>
+          <div class="fill_p">
+          <p class="orgDes"><%= @organization.description %> </p>
           </div>
 
         </li>
@@ -20,8 +21,12 @@
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">Location:<%= @organization.city %></label>
+          <div class="fill_label">
+            <label for="name">Location:</label>
+          </div>
+
+          <div class="fill_p">
+            <p><%= @organization.city %></p>
           </div>
 
         </li>
@@ -29,8 +34,11 @@
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">Phone Number:<%= @organization.phone_number %> </label>
+          <div class="fill_label">
+            <label for="name">Phone Number:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @organization.phone_number %> </p>
           </div>
 
         </li>
@@ -38,16 +46,22 @@
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left; height: 80%;">
-            <label for="name">E-mail:<%= @organization.email %></label>
+          <div class="fill_label">
+            <label for="name">E-mail:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @organization.email %></p>
           </div>
         </li>
 
         <li><hr></li>
 
         <li>
-          <div style="width: 80%; float: left;">
-            <label for="name">Website: <%= @organization.website_url %></label>
+          <div class="fill_label">
+            <label for="name">Website:</label>
+          </div>
+          <div class="fill_p">
+            <p><%= @organization.website_url %></p>
           </div>
         </li>
 
@@ -58,8 +72,8 @@
 
     </div>
 
-    <div class="reqAcctBox">
-      <div class="box" >
+    <div class="reqAcctBox" style="margin-top: 2%";>
+      <div class="box" style="margin-top: 0; width: 100%">
         <div>
           <%= link_to "Make New Request", new_request_path, :class => "tfbutton" if session[:organization_id] %>
 
@@ -72,30 +86,49 @@
             <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
-                <div style="float: left;"><%= link_to "#{request.resource_count} of #{request.resource} needed at #{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></div>
-                <div style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
-                <div style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+                <div class="acc_reqMainContent">
+                  <strong><%= link_to "#{request.resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
+                </div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+                <hr></hr>
             </li>
             </ul>
             <% end %>
           </nav>
+            <% if @requests.size == 0 %>
+              <p> No requests active </p>
+            <% end %>
+
         </div>
 
       </div>
-      <div class="box" style=" height: 20em; ">
+      <div class="box" style="width: 100%; height: 20em; ">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
 
         <div style="height: 85%; overflow-y: scroll">
+
           <nav id="menu">
              <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
 
-                <div style="float: left;"><%= link_to "#{request.resource_count} of #{request.resource} needed at #{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></div>
-                <div style="float: right;"><%= "Finished at #{request.end_date}" if !request.end_date.nil? && request.end_date < Date.today %></div>
+                <div style="float: left;">
+                  <%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></p>
+                </div>
+                <div style="float: right;">
+                  <%= "Finished at #{request.end_date}" if !request.end_date.nil? && request.end_date < Date.today %>
+                </div>
             </li>
             </ul>
             <% end %>
+
+            <% if @requests.size == 0 %>
+              <p> No requests in history </p>
+            <% end %>
+
           </nav>
         </div>
       </div>

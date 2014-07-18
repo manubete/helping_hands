@@ -85,6 +85,8 @@ GEM
     pg (0.17.1)
     phantomjs (1.9.7.0)
     polyglot (0.3.4)
+    pony (1.10)
+      mail (>= 2.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -136,6 +138,8 @@ GEM
       websocket (~> 1.0.4)
     shoulda-matchers (2.6.0)
       activesupport (>= 3.0.0)
+    simple-navigation (3.13.0)
+      activesupport (>= 2.3.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -172,11 +176,13 @@ DEPENDENCIES
   jasmine-jquery-rails
   jquery-rails
   pg
+  pony
   rails (= 3.2.13)
   rake (= 10.3.2)
   rspec-rails
   sass-rails (~> 3.2.3)
   selenium-webdriver
   shoulda-matchers
+  simple-navigation
   uglifier (>= 1.0.3)
   unicorn

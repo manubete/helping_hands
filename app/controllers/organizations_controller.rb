@@ -18,12 +18,15 @@ class OrganizationsController < ApplicationController
      flash[:city] = @organization.errors[:city] unless @organization.errors[:city].empty?
     flash[:address] = @organization.errors[:address] unless @organization.errors[:address].empty?
     flash[:operation_days] = @organization.errors[:operation_days] unless @organization.errors[:operation_days].empty?
-    flash[:operation_hours] = @organization.errors[:operation_hours] unless @organization.errors[:operation_hours].empty?
+    flash[:opening_time] = @organization.errors[:opening_time] unless @organization.errors[:opening_time].empty?
+     flash[:closing_time] = @organization.errors[:closing_time] unless @organization.errors[:closing_time].empty?
     flash[:phone_number] = @organization.errors[:phone_number] unless @organization.errors[:phone_number].empty?
     flash[:email] = @organization.errors[:email] unless @organization.errors[:email].empty?
     flash[:website_url] = @organization.errors[:website_url] unless @organization.errors[:website_url].empty?
-    flash[:username] = @organization.errors[:username] unless @organization.errors[:username].empty?
+    flash[:description] = @organization.errors[:description] unless @organization.errors[:description].empty?
      flash[:password] = @organization.errors[:password] unless @organization.errors[:password].empty?
+        flash[:security_question] = @organization.errors[:security_question] unless @organization.errors[:security_question].empty?
+      flash[:security_answer] = @organization.errors[:security_answer] unless @organization.errors[:security_answer].empty?
 
 
       @organization = Organization.new

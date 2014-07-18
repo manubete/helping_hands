@@ -3,7 +3,7 @@ require 'spec_helper'
 describe RequestsController do
   context "#index" do
 
-    # TODO: Test the search functionality
+    # TODO: Test the sort_column and sort_direction helpers
 
     it "should render the index view" do
       get :index
@@ -17,14 +17,13 @@ describe RequestsController do
     end
   end
 
-  # context "#new" do
-  #   it "should render the new view" do
-  #     req = FactoryGirl.create(:request)
-  #     org = FactoryGirl.create(:organization)
-  #     get :show, id: req.org
-  #     expect(response.status).to eq 200
-  #   end
-  # end
+  context "#new" do
+    it "should render the new view" do
+      @req = FactoryGirl.create(:request)
+      get :show, id: @req.id
+      expect(response.status).to eq 200
+    end
+  end
 
   context "#create" do
     it "should save a request with valid params to the database" do
@@ -33,9 +32,9 @@ describe RequestsController do
       }.to change { Request.count }.by(1)
     end
 
-    it "should redirect to the root path after creating a new request" do
+    it "should redirect to the requests path after creating a new request" do
       expect{
-        redirect_to root_path
+        redirect_to requests_path
       }
     end
 
@@ -44,21 +43,15 @@ describe RequestsController do
         Request.create(organization: nil, resource: nil, resource_count: nil, address: nil, description: nil)
       }.to_not change { Request.count }.by(1)
     end
-
-    it "should not save a request with invalid resource_count field to the database" do
-      expect{
-        Request.create(organization: "Blah", resource: "Blah", resource_count: "eighty", address: "Blah", description: "Blah")
-      }.to_not change { Request.count }.by(1)
-    end
   end
 
-  # context "#edit" do
-  #   it "should render the edit view when given a valid request id" do
-  #     req = FactoryGirl.create(:request)
-  #     get :show, id: req
-  #     expect(response.status).to eq 200
-  #   end
-  # end
+  context "#edit" do
+    it "should render the edit view when given a valid request id" do
+      @req = FactoryGirl.create(:request)
+      get :show, id: @req.id
+      expect(response.status).to eq 200
+    end
+  end
 
   context "#update" do
     before(:each) do
@@ -91,18 +84,16 @@ describe RequestsController do
     end
   end
 
-  # context "#show" do
-  #   it "should render the show view when given a valid Request id" do
-  #     req = FactoryGirl.create(:request)
-  #     org = FactoryGirl.create(:organization)
-  #     get :show, id: req.org
-  #     expect(response.status).to eq 200
-  #   end
-  # end
+  context "#show" do
+    it "should render the show view when given a valid Request id" do
+      req = FactoryGirl.create(:request)
+      get :show, id: @req.id
+      expect(response.status).to eq 200
+    end
+  end
 
   context "api request" do
-
+    pending
     # TODO: Not sure how to test this.
-
   end
 end

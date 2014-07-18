@@ -14,37 +14,28 @@ class RequestsController < ApplicationController
 
   def donor_index
     #returns the list of donors that contributed to a particular request
-    p "#{params.inspect}"
     @request = Request.find(params["request"]["id"])
     @contributions = @request.contributions
-
     @donors = []
-
     @contributions.each do |contribution|
-
       @donor = Donor.find(contribution.donor_id)
       @donors.push(@donor)
     end
-
     render :donor_index
   end
 
   def new
-  @request = Request.new
+    @request = Request.new
     @organization = Organization.find(session[:organization_id])
     render :new
   end
 
   def create
-    p "#{params["request"]["organization"]}"
     @request = Request.new(params["request"])
-
-
     if @request.save
       flash[:notice] = "You have successfully created the request!"
       redirect_to requests_path
     else
-      #flash errors on user signup
       flash[:notice] = "Incorrect signup information for the request"
       flash[:resource] = @request.errors[:resource] unless @request.errors[:resource].empty?
      flash[:resource_count] = @request.errors[:resource_count] unless @request.errors[:resource_count].empty?

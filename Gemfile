@@ -5,7 +5,9 @@ gem 'rails', '3.2.13'
 
 gem 'rake', '10.3.2'
 
-gem"simple-navigation"
+gem "simple-navigation"
+
+gem 'sprockets'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

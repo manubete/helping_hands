@@ -4,6 +4,10 @@
   body {
     background: red;
   }
+  img {
+    height: 100px;
+    width: 100px;
+  }
   a {
     color: blue;
   }
@@ -38,40 +42,40 @@
     width: 100%;
   }
   .box {
-    width: 100%;
+    width: 100%
   }
 }
 
 /* ----- iPhone 4 and 4s ------ */
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
     html, body {height: 480px; width: 320px;}
-  }
+  };*/
 
 /* ----- iPad (portrait and landscape) ------ */
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
     html, body {height:768px; width:1024px;}
-  }
-
+  }*/
+/*
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
     html, body {height: 1024px; width:768px;}
-  }
+  }*/
 
 /* ----- Samsung Galaxy S4 ------ */
 
-@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+/*@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
     html, body { height: 640px; width:320px;}
-  }
+  }*/
 
 /* ----- Asus Nexus 7 ------ */
 
-@media screen and (device-width: 601px) and (device-height: 906px){
+/*@media screen and (device-width: 601px) and (device-height: 906px){
     html, body { height: 906px; width:601px;}
-  }
+  }*/
 
 /* ----- HTC One ------ */
 
-@media screen and (device-width: 360px) and (device-height: 640px){
+/*@media screen and (device-width: 360px) and (device-height: 640px){
     html, body { height: 640px; width:360px;}
-  }
+  }*/

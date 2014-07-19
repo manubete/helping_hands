@@ -4,16 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-     #p "#{params.inspect} #{params["password"]}"
      @donor = Donor.authenticate(params[:email], params[:password])
-
      @organization = Organization.authenticate(params[:email], params[:password])
-
      if @donor
       session[:donor_id] = @donor.id
       flash[:notice]="successful login!!"
         redirect_to requests_path
-
       elsif @organization
         session[:organization_id] = @organization.id
         flash[:notice]="successful login!!"

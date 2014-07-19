@@ -5,4 +5,6 @@ class Contribution < ActiveRecord::Base
 
   validates :resource_amount, presence: true
 
+  validates :resource_amount, :numericality => {:only_integer => true}
+
 end

@@ -1,10 +1,7 @@
 class ContributionsController < ApplicationController
 
     def create
-    p "#{params["contribution"]}"
     @contribution = Contribution.new(params["contribution"])
-
-
     if @contribution.save
       flash[:notice] = "You have successfully created the contribution!"
         #make this into a class method, that way it makes it complete if its 0

@@ -15,7 +15,7 @@ class CreateOrganizations < ActiveRecord::Migration
       col.string :facebook_url
       col.string :password
       col.string :security_question
-       col.string :security_answer
+      col.string :security_answer
 
     end
   end

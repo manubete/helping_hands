@@ -28,8 +28,6 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    acts-as-taggable-on (3.3.0)
-      activerecord (>= 3, < 5)
     arel (3.0.3)
     builder (3.0.4)
     capybara (2.4.1)
@@ -85,8 +83,6 @@ GEM
     pg (0.17.1)
     phantomjs (1.9.7.1)
     polyglot (0.3.5)
-    pony (1.10)
-      mail (>= 2.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -140,10 +136,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
-    shoulda-matchers (2.6.1)
+    shoulda-matchers (2.6.2)
       activesupport (>= 3.0.0)
-    simple-navigation (3.13.0)
-      activesupport (>= 2.3.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -170,7 +164,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on
   capybara
   coffee-rails (~> 3.2.1)
   database_cleaner
@@ -180,14 +173,11 @@ DEPENDENCIES
   jasmine-jquery-rails
   jquery-rails
   pg
-  pony
   rails (= 3.2.13)
   rake (= 10.3.2)
   rspec-rails
   sass-rails (~> 3.2.3)
   selenium-webdriver
   shoulda-matchers
-  simple-navigation
-  sprockets
   uglifier (>= 1.0.3)
   unicorn

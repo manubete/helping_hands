@@ -8,7 +8,7 @@ class CreateDonors < ActiveRecord::Migration
       col.string :email
       col.string :password
       col.string :security_question
-       col.string :security_answer
+      col.string :security_answer
     end
   end
 

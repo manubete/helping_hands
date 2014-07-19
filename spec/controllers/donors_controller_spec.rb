@@ -27,19 +27,6 @@ describe DonorsController do
       }.to_not change{ Donor.count }
     end
 
-    # For some reason, the following test will NOT work if I use FactoryGirl.create(:organization) but WILL work if I use Organization.create, even though it's essentially the exact same thing. TODO: Figure out why that is!
-
-    it "should not save a second donor to the database when params are not unique" do
-      expect{
-        2.times do
-          Donor.create(name: "Erin", city: "San Francisco",
-            address: "cutey street", phone_number: "555-555-5555", email: "erin@erin.com", password: "erinisgreat",
-            security_question: "dog name?",
-             security_answer: "pepper")
-        end
-      }.to change { Donor.count }.by(1)
-    end
-
     it "should re-render the :new template after not saving a non-valid donor to the database" do
       expect{
       render_template :new
@@ -49,16 +36,16 @@ describe DonorsController do
 
   context "#show" do
     it "should render the show view when given a valid donor id" do
-      donor1 = FactoryGirl.create(:donor)
-      get :show, id: donor1
+      @donor1 = FactoryGirl.create(:donor)
+      get :show, id: @donor1.id
       expect(response.status).to eq 200
     end
   end
 
   context "#edit" do
     it "should render the edit view when given a valid donor id" do
-      donor1 = FactoryGirl.create(:donor)
-      get :edit, id: donor1
+      @donor1 = FactoryGirl.create(:donor)
+      get :edit, id: @donor1.id
       expect(response.status).to eq 200
     end
   end

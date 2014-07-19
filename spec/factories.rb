@@ -12,6 +12,7 @@ FactoryGirl.define do
   end
 
   factory :organization do
+    id 1
     name "Sample Org"
     description "Peppers paws gives stray french bulldogs a second chance"
     city "San Francisco"
@@ -31,15 +32,21 @@ FactoryGirl.define do
   end
 
   factory :request do
-    organization "Test Organization"
-    organization_id 2
-    start_date Date.today
-    end_date Date.today.next_day
+    organization_id 1
     resource "bottled water"
     resource_count 100
-    complete false
     address "100 Fake Street"
+    organization "Test Org"
     description "Refugees without clean water supply"
+    start_date Date.today
+    end_date Date.today.next_day
+    complete false
     tag_list ["sdf","sds"]
+  end
+
+  factory :contribution do
+    donor_id 1
+    request_id 1
+    resource_amount 100
   end
 end

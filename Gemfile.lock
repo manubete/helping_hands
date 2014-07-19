@@ -113,6 +113,10 @@ GEM
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    rspec (3.0.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -183,11 +187,11 @@ DEPENDENCIES
   pony
   rails (= 3.2.13)
   rake (= 10.3.2)
+  rspec (~> 3.0.0)
   rspec-rails
   sass-rails (~> 3.2.3)
   selenium-webdriver
   shoulda-matchers
   simple-navigation
-  sprockets
   uglifier (>= 1.0.3)
   unicorn

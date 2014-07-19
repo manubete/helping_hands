@@ -7,8 +7,6 @@ gem 'rake', '10.3.2'
 
 gem "simple-navigation"
 
-gem 'sprockets'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'unicorn'
@@ -25,6 +23,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'rspec', '~> 3.0.0'
   gem 'rspec-rails'
   gem 'jasmine', '~> 2.0.1'
   gem 'jasmine-jquery-rails'

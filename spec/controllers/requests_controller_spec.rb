@@ -20,7 +20,9 @@ describe RequestsController do
   context "#new" do
     it "should render the new view" do
       @req = FactoryGirl.create(:request)
-      get :show, id: @req.id
+      session[:organization_id] = 1
+      FactoryGirl.create(:organization)
+      get :new, id: @req
       expect(response.status).to eq 200
     end
   end
@@ -48,7 +50,7 @@ describe RequestsController do
   context "#edit" do
     it "should render the edit view when given a valid request id" do
       @req = FactoryGirl.create(:request)
-      get :show, id: @req.id
+      get :edit, id: @req
       expect(response.status).to eq 200
     end
   end
@@ -86,14 +88,15 @@ describe RequestsController do
 
   context "#show" do
     it "should render the show view when given a valid Request id" do
-      req = FactoryGirl.create(:request)
-      get :show, id: @req.id
+      @req = FactoryGirl.create(:request)
+      FactoryGirl.create(:organization)
+      Organization.find(@req.organization_id)
+      get :show, id: @req
       expect(response.status).to eq 200
     end
   end
 
   context "api request" do
-    pending
     # TODO: Not sure how to test this.
   end
 end

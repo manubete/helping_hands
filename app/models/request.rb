@@ -1,5 +1,6 @@
 class Request < ActiveRecord::Base
   attr_accessible :organization_id, :resource, :resource_count, :address, :organization, :description, :start_date, :end_date, :complete, :tag_list
+
   has_many :contributions
   has_many :donors, through: :contributions
 

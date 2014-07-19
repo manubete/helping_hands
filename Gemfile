@@ -5,14 +5,12 @@ gem 'rails', '3.2.13'
 
 gem 'rake', '10.3.2'
 
-gem"simple-navigation"
+gem "simple-navigation"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'unicorn'
 gem 'pg'
-gem 'acts-as-taggable-on'
-gem 'pony'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,6 +34,3 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
 end
-
-# To use debugger
-# gem 'debugger'

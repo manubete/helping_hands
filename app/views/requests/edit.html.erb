@@ -1,0 +1,13 @@
+  <div class="fillBox">
+    <header class="fulfilled">Make a Request</header>
+      <%= form_for @request do |f| %>
+
+        <p id="rNeed">Resource Needed: <%= f.text_field :resource, :placeholder => "water bottles, blankets" %></p>
+        <p>Quantity Needed: <%= f.text_field :resource_count, :placeholder => "500, 200" %></p>
+        <p>Address: <%= f.text_field :address, :placeholder => "1234 Valencia St, CA 94103" %></p>
+        <p>Description: <%= f.text_field :description, :placeholder => "Dehydrated Refugees" %></p>
+        <p>Start Date: <%= f.date_select :start_date  %></p>
+        <p>End Date: <%= f.date_select :end_date, :include_blank => true  %></p>
+        <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
+      <% end %>
+  </div>

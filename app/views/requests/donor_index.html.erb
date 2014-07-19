@@ -1,0 +1,25 @@
+ <div class="reqAcctBox" style="margin: 2% 28% 2% auto;";>
+      <div class="box" style="margin-top: 0; width: 100%">
+
+        <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Donors</header>
+
+        <div style="height: 85%; overflow-y: scroll">
+          <nav id="menu">
+            <% @donors.each do |donor| %>
+               <% @contributions.each do |contribution| %>
+
+            <ul class="parent-menu">
+            <li>
+                <div class="acc_reqMainContent">
+                  <strong><%= link_to "#{donor.name} donated #{contribution.resource_amount} #{@request.resource}", donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %></strong>
+                </div>
+                <hr></hr>
+            </li>
+            </ul>
+            <% end %>
+          <% end %>
+          </nav>
+
+        </div>
+
+      </div>

@@ -34,4 +34,10 @@ PolarBear::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.assets.precompile = ['.js', '.css']
+
+  config.assets.debug = false
+
+  config.serve_static_assets = false
 end

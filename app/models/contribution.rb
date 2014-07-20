@@ -4,5 +4,6 @@ class Contribution < ActiveRecord::Base
   belongs_to :request
 
   validates :resource_amount, presence: true
+  validates :resource_amount, numericality: true
 
 end

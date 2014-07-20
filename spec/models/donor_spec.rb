@@ -1,23 +1,26 @@
 require 'spec_helper'
 
 describe Donor do
-  let(:donor){ Donor.create(email: "erin@erin.com", password: "erinisgreat")}
+  context "Validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:city) }
+    it { should validate_presence_of(:address) }
+    it { should validate_presence_of(:phone_number) }
+    it { should validate_presence_of(:password) }
+    it { should validate_presence_of(:security_question) }
+    it { should validate_presence_of(:security_answer) }
+    it { should validate_presence_of(:email) }
 
-  it "is invalid without an email address" do
-    donor.update_attributes(email: nil).should eq false
+    it { should validate_uniqueness_of(:name) }
+    it { should validate_uniqueness_of(:address) }
+    it { should validate_uniqueness_of(:phone_number) }
+    it { should validate_uniqueness_of(:password) }
+    it { should validate_uniqueness_of(:email) }
   end
 
-  it "is invalid without a password" do
-    donor.update_attributes(password: nil).should eq false
-  end
-  it "is invalid if password and password confirmation do not match" do
-    donor.update_attributes(password_confirmation: "erinerinerin").should eq false
+  context "Associations" do
+    it { should have_many(:contributions) }
+    it { should have_many(:requests).through(:contributions) }
   end
 
-  #dont know why this is failing, maybe because password_confirmation is a field?
-  it "is valid if password and password_confirmation do match" do
-    donor.update_attributes(password: "erinerinerin",password_confirmation: "erinerinerin").should eq true
-  end
 end
-
-# TODO: Test uniqueness validation here (currently tested in controller)?

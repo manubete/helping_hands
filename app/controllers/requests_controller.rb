@@ -74,12 +74,27 @@ class RequestsController < ApplicationController
     end
   end
 
+  def destroy
+    @request = Request.find(params[:id])
+    if @request
+      @request.destroy
+      flash[:notice] = "Request was deleted"
+      redirect_to organization_path(session[:organization_id])
+    else
+
+    end
+  end
+
   def api_request
     requests = Request.all
 
     respond_to do |format|
       format.json {render json: requests, status:200 }
     end
+  end
+
+  def landing_page
+    render :landing_page
   end
 
   def show

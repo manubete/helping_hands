@@ -1,5 +1,6 @@
 
-<div class="box" style="height: 120%;">
+<div style="height: 10%">
+  <div class="box">
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
@@ -13,21 +14,23 @@
         <%  if flash[:name] %>
         <p class="error"> Name <%= flash[:name].join(', and ') %></p>
         <% end %>
-            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank" %></label>
-          </li>
-          <li>
-          <%  if flash[:city] %>
-        <p class="error"> City <%= flash[:city].join(', and ') %></p>
-        <% end %>
-            <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "eg San Francisco" %></label>
+            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "First Last" %></label>
           </li>
 
            <li>
           <%  if flash[:address] %>
           <p class="error"> Address <%= flash[:address].join(', and ') %></p>
           <% end %>
-              <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "eg 768 15th Street" %></label>
+              <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "Door, Street" %></label>
             </li>
+
+        <li>
+          <%  if flash[:city] %>
+        <p class="error"> City <%= flash[:city].join(', and ') %></p>
+        <% end %>
+            <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "City, State, Zip" %></label>
+          </li>
+
             <li>
           <%  if flash[:phone_number] %>
           <p class="error"> Phone Number <%= flash[:phone_number].join(', and ') %></p>
@@ -73,6 +76,6 @@
         </ul>
 
         <% end %>
-
+   </div>
 </div>
 

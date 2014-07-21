@@ -28,10 +28,11 @@
 
         <li>
           <div class="fill_label">
-            <label for="name">Location:</label>
+            <label for="name">Address:</label>
           </div>
 
           <div class="fill_p">
+            <p><%= @organization.address %></p>
             <p><%= @organization.city %></p>
           </div>
 
@@ -115,7 +116,7 @@
 
         <div style="height: 85%; overflow-y: scroll">
 
-          <nav id="menu">
+          <nav class="menu">
              <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>

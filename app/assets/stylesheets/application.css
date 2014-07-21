@@ -1,21 +1,3 @@
-
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require 'mediaqueries'
- *= require_self
- */
-
 /* ------ Landing Page Styling -------------- */
 
 html {
@@ -134,7 +116,7 @@ header.fulfilled{
 }
 
 .logoBig img{
-  height: 20em;
+  height: 15em;
 }
 
 .logo{
@@ -210,7 +192,7 @@ div.donatePhoto{
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   padding: 2.5em 1.5em 2.5em 1.5em;
-  margin: 2% auto 0 auto;
+  margin: 2% auto 2% auto;
   width: 50em;
   }
 
@@ -512,10 +494,7 @@ header.contHead{
   background-color: #000000;
 }
 
-
-
 div .error {
-
   color: red;
   text-decoration: underline;
   width:40%;
@@ -524,14 +503,11 @@ div .error {
 
 p.error {
   color: red;
-
 }
 
 div .signup {
-  border: 2px solid white;
-  border-radius: 3px;
-  color: white;
-  background-color: #0095cc;
+  text-decoration: underline;
+  color: #0095cc;
   width:40%;
   margin: 0 auto;
 }

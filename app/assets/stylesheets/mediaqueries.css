@@ -1,23 +1,30 @@
  /*----- iPhone 4, 4s, 5 and 5s ------ */
 
-@media (max-width: 320px){
+@media (max-width: 480px){
   html, body{
     width:320px;
     font-size: large;
   }
-  .promiseBox{
+  .box{
     width: 100%;
+    float: none;
     height: 90%;
     margin: 12% 12%;
   }
-  .promiseBox a{
+  .box a{
     width: 90%;
     font-size: large;
   }
-  .promiseBox p{
+  .box p{
     width: 90%;
     font-size: large;
   }
+
+.reqAcctBox{
+  float: none;
+  width: 100%;
+}
+
   .logoBig{
     width: 100%;
   }
@@ -46,7 +53,7 @@
 
 /* ----- iPad (portrait and landscape) ------ */
 
-/*@media (max-width: 1024px){
+@media (max-width: 1024px){
   html, body {
     width:1024px;
   }
@@ -64,7 +71,7 @@
     width: 100px;
     border: 10px solid pink;
   }
-}*/
+}
 
 /* ----- Samsung Galaxy S4 ------ */
 

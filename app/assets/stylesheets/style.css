@@ -9,8 +9,6 @@ html {
   background-size: cover;
 }
 
-
-
 .bottomLinks {
   position: fixed;
   bottom: 0;
@@ -44,7 +42,6 @@ html {
   text-align:center;
   line-height:1.5;
 }
-
 
 .profileImg{
   margin-left: 1em;
@@ -155,7 +152,7 @@ header.reqHead{
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   padding: 3%;
-  margin: 2% auto 0 auto;
+  margin: 2% auto 2% auto;
   width: 40%;
   }
 
@@ -395,16 +392,6 @@ header.contHead{
   background-color: #536985;
   min-width:200px;
   float:left;
-}
-
-
-div .error {
-  border: 2px solid white;
-  border-radius: 3px;
-  color: white;
-  background-color: red;
-  width:40%;
-  margin: 0 auto;
 }
 
 div .signup {

@@ -1,12 +1,13 @@
-<div style="height: 120%;"class="box">
-  <header class="fulfilled">Make an Organization Account</header>
+<div style="height: 120%">
+  <div class="box">
+    <header class="fulfilled">Make an Organization Account</header>
 
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
           <% end %>
 
-  <%= form_for @organization do |f| %>
-  <ul class="longSign">
+    <%= form_for @organization do |f| %>
+    <ul class="longSign">
 
        <li>
           <%  if flash[:name] %>
@@ -20,12 +21,6 @@
           <% end %>
           <label class="form_label" for="description">*Description: <%= f.text_area :description, :cols => 33, :rows => 5, :placeholder => "Our organization delivers quality care to homeless people all over our community" %></label>
        </li>
-      <li>
-        <%  if flash[:city] %>
-          <p class="error"> City <%= flash[:city].join(', and ') %></p>
-            <% end %>
-        <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
-      </li>
 
      <li>
         <%  if flash[:address] %>
@@ -33,7 +28,12 @@
           <% end %>
       <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "door, street" %></label>
     </li>
-
+    <li>
+        <%  if flash[:city] %>
+          <p class="error"> City <%= flash[:city].join(', and ') %></p>
+            <% end %>
+        <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "city, state, zip" %></label>
+      </li>
 
      <li>
        <%  if flash[:operation_days] %>
@@ -103,9 +103,10 @@
     <li>
       <div class="formButton" >
       <%= f.submit 'Register', :class => 'tfbutton' %>
-    </div>
-    </li><br>
-  </ul>
-  <% end %>
+      </div>
+      </li><br>
+    </ul>
+    <% end %>
+  </div>
 </div>
 

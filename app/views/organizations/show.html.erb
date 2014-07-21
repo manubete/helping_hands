@@ -93,7 +93,7 @@
             <ul class="parent-menu">
             <li>
                 <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{request.resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
+                  <strong><%= link_to "#{request.target_resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
                   <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
                 </div>
                 <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
@@ -121,7 +121,7 @@
             <li>
 
                 <div style="float: left;">
-                  <%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %>
+                  <%= link_to "#{request.target_resource_count} of #{request.resource}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %>
                   <p><%= link_to "#{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></p>
                 </div>
                 <div style="float: right;">

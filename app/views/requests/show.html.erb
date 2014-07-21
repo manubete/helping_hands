@@ -16,11 +16,11 @@
       <li><hr></li>
       <li>
           <div class="fill_label">
-            <label for="name">Amount:</label>
+            <label for="name">Amount Needed:</label>
           </div>
 
           <div class="fill_p">
-            <p><%= @request.resource_count %></p>
+            <p><%= @request.target_resource_count %></p>
           </div>
       </li>
       <li><hr></li>
@@ -60,18 +60,24 @@
           </div>
 
           <div class="fill_p">
-            <p><%= @request.end_date %></p>
+            <p><%= @request.end_date == nil ? "Indefinite" : @request.end_date %></p>
           </div>
       </li>
       <li><hr></li>
            <li>
           <div class="fill_label">
-            <label for="name">Status:</label>
+            <label for="name">Status:
+            </label>
           </div>
 
           <div class="fill_p">
-            <p><%= @request.complete  ? "Complete" : "Ongoing" %></p>
-            <p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" if @request.complete %></p>
+            <progress value="<%= @request.current_resource_count %>" max="<%= @request.target_resource_count %>">
+            </progress>
+            <% if @request.complete && session[:donor_id] %>
+            <br><br><p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" %></p>
+            <% elsif @request.complete && session[:organization_id] %>
+              <br><br><p> This Request has be fullfilled! </p>
+            <% end %>
           </div>
       </li>
       <li><hr></li>
@@ -80,7 +86,7 @@
           <p style="float: right"><%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%></p>
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
-        <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete %>
+        <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete && session[:donor_id] %>
 
       </li>
     </ul>

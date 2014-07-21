@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
     @contributions.each do |contribution|
 
       @donor = Donor.find(contribution.donor_id)
-      @donors.push(@donor)
+      @donors.push(@donor) if !(@donors.include? @donor)
     end
 
     render :donor_index
@@ -47,7 +47,8 @@ class RequestsController < ApplicationController
       #flash errors on user signup
       flash[:notice] = "Incorrect signup information for the request"
       flash[:resource] = @request.errors[:resource] unless @request.errors[:resource].empty?
-     flash[:resource_count] = @request.errors[:resource_count] unless @request.errors[:resource_count].empty?
+      flash[:current_resource_count] = @request.errors[:current_resource_count] unless @request.errors[:current_resource_count].empty?
+     flash[:target_resource_count] = @request.errors[:target_resource_count] unless @request.errors[:target_resource_count].empty?
     flash[:address] = @request.errors[:address] unless @request.errors[:address].empty?
     flash[:description] = @request.errors[:description] unless @request.errors[:description].empty?
     flash[:tag_list] = @request.errors[:tag_list] unless @request.errors[:tag_list].empty?

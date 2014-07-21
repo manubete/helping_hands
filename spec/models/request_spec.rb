@@ -4,10 +4,12 @@ describe Request do
   context "Validations" do
     it { should validate_presence_of(:organization) }
     it { should validate_presence_of(:resource) }
-    it { should validate_presence_of(:resource_count) }
+    it { should validate_presence_of(:current_resource_count) }
+    it { should validate_presence_of(:target_resource_count) }
     it { should validate_presence_of(:address) }
     it { should validate_presence_of(:description) }
-    it { should validate_numericality_of(:resource_count) }
+    it { should validate_numericality_of(:current_resource_count) }
+    it { should validate_numericality_of(:target_resource_count) }
   end
 
   context "Associations" do

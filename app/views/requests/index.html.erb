@@ -16,7 +16,7 @@
 
     <div class="sorting">
       <span class = "sorting_category"><%= sortable "organization" %></span>
-      <span class = "sorting_category"><%= sortable "resource_count", "Quantity" %></span>
+      <span class = "sorting_category"><%= sortable "target_resource_count", "Quantity" %></span>
       <span class = "sorting_category"><%= sortable  "resource", "Resource Needed" %></span>
       <span class = "sorting_category"><%= sortable  "start_date", "Date Posted" %></span>
       <span class = "sorting_category"><%= sortable  "end_date", "Expiration" %></span>
@@ -27,7 +27,7 @@
     <ul>
       <% @requests.each do |request| %>
         <li>
-
+          <% if !request.complete %>
           <div class="searchResults">
 
             <div class="photo">
@@ -36,11 +36,11 @@
 
             <div class="searchContent">
               <div class="searchOrgName">
-                <%= link_to "#{request.organization}", request_path(request) unless request.complete %>
+                <%= link_to "#{request.organization}", request_path(request) %>
                 <p></p>
                 <div class="reqPre">
 
-                  <%= link_to "Needs #{request.resource}", request_path(request) unless request.complete %>
+                  <%= link_to "Needs #{request.resource}", request_path(request) %>
                   <p>
                   <%= "#{request.address}" %>
                 </p>
@@ -58,6 +58,7 @@
           </div>
         </li>
         <li><hr class="style-six"></hr></li>
+        <% end %>
       <% end %>
     </ul>
   </div>

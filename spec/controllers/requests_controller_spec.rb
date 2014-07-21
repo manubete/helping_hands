@@ -42,7 +42,7 @@ describe RequestsController do
 
     it "should not save a request to the database when params are left blank" do
       expect{
-        Request.create(organization: nil, resource: nil, resource_count: nil, address: nil, description: nil)
+        Request.create(organization: nil, resource: nil, current_resource_count: nil, target_resource_count: nil, address: nil, description: nil)
       }.to_not change { Request.count }.by(1)
     end
   end

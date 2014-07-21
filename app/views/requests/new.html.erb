@@ -26,15 +26,19 @@
           </div>
         </li>
         <li><br></br></li>
+           <%  if flash[:current_resource_count] %>
+            <p class="error" > Quantity Needed <%= flash[:current_resource_count].join(', and ') %></p>
+          <% end %>
+            <p><%= f.hidden_field :current_resource_count, :value => 0 %></p>
         <li>
-           <%  if flash[:resource_count] %>
-            <p class="error" > Quantity Needed <%= flash[:resource_count].join(', and ') %></p>
+           <%  if flash[:target_resource_count] %>
+            <p class="error" > Quantity Needed <%= flash[:target_resource_count].join(', and ') %></p>
           <% end %>
           <div class="reqLabel">
             <label>Quantity Needed:</label>
           </div>
           <div class="reqInput">
-            <p><%= f.text_field :resource_count, :placeholder => "500, 200" %></p>
+            <p><%= f.text_field :target_resource_count, :placeholder => "500, 200" %></p>
           </div>
         </li>
         <li><br></br></li>

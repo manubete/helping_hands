@@ -1,0 +1,56 @@
+<div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
+    <div class="box" style=" width: 40em;">
+      <header class="fulfilled" style="margin-bottom: 5%;">Edit Account</header>
+
+      <%= form_for @donor do |f| %>
+        <% if @donor.errors %>
+          <div>
+            <ul>
+              <% for message in @donor.errors.full_messages %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <ul class="longSign">
+
+        <li>
+          <label class="form_label" for="name">Name: <%= f.text_field :name, :placeholder => @donor.name %></label>
+        </li>
+        <li>
+          <label class="form_label" for="city">Address: <%= f.text_field :city, :placeholder => @donor.address %></label>
+        </li>
+         <li>
+            <label class="form_label" for="address"><%= f.text_field :address, :placeholder => "city state zip" %></label>
+          </li>
+        <li>
+          <label class="form_label" for="phone">Phone: <%= f.telephone_field :phone_number, :placeholder => @donor.phone_number %></label>
+        </li>
+        <li>
+          <label class="form_label" for="email">Email: <%= f.email_field :email, :placeholder => @donor.email %></label>
+        </li>
+
+         <li>
+            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => @donor.security_question %></label>
+          </li>
+
+          <li>
+            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => @donor.security_answer %></label>
+          </li>
+
+        <li>
+          <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
+        </li>
+        <li>
+          <label class="form_label" for="password">Confirm New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
+        </li>
+        <li><%= f.submit 'Save Changes', :class => 'tfbutton' %></li>
+      </ul>
+      <% end %>
+
+    </div>
+
+
+
+  </div>

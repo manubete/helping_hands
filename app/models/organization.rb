@@ -1,9 +1,12 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :city, :phone_number, :email, :website_url, :linked_in_url, :facebook_url, :username, :password, :password_confirmation
+  attr_accessible :name, :description, :city, :address, :operation_days, :opening_time, :closing_time, :phone_number, :email, :website_url, :linked_in_url, :facebook_url, :password,:security_question, :security_answer, :password_confirmation
+
+  has_many :requests
 
   validates :password, confirmation: true
-  validates :password, :email, presence: true
-  validates :username, :password, :email, uniqueness: true
+
+  validates :name, :description, :city, :address,:operation_days, :opening_time, :closing_time, :phone_number, :website_url, :password,:security_question, :security_answer, :email, presence: true
+  validates :name, :description, :address, :phone_number, :website_url, :password,:security_question, :security_answer, :email, uniqueness: true
 
 
   def self.authenticate(email, password)

@@ -1,29 +1,19 @@
-<div class="introBox">
-      <div style="float: left; width: 20%; margin-bottom: 2rem">
-      <img style="width: 70%;" src="helpLogo.png">
-      </div>
-
-      <div class="log" style="float: right; margin: 0 2rem 2rem 0">
-      <a href="contAccount.html" id="orgName">Salvation Army</a>
-      <a action="logOut">Log Out</a>
-      </div>
-  </div>
-
-  <div class="overflowBox" style="margin: 5% auto 5% auto; width: 80%;">
+  <div class="contentBox" style="margin: 5% auto 5% auto; width: 90em;">
     <div class="box" style="float: left; width: 40%;">
-      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;">Salvation Army</header>
+      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
+
       <div class="profileImg">
-      <img src="images/salvationArmy.jpg" height="100%">
+        <img src="/assets/salvationArmy.jpg" height="100%"><br>
       </div>
 
       <ul class="account">
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
+          <div class="fill_label">
             <label for="name">Description:</label>
           </div>
 
-          <div style="width: 65%; float: right; height: 80%;">
-          <p class="orgDes">The Salvation Army, an international movement, is an evangelical part of the universal Christian church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination.</p>
+          <div class="fill_p">
+          <p class="orgDes"><%= @organization.description %> </p>
           </div>
 
         </li>
@@ -31,118 +21,114 @@
         <li><hr></li>
 
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
+          <div class="fill_label">
             <label for="name">Location:</label>
           </div>
 
-          <div style="width: 65%; float: right; height: 80%;">
-          <p class="orgDes">We have many locations through the United States.</p>
+          <div class="fill_p">
+            <p><%= @organization.city %></p>
           </div>
+
         </li>
 
         <li><hr></li>
 
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
+          <div class="fill_label">
             <label for="name">Phone Number:</label>
           </div>
-
-          <div style="width: 65%; float: right; height: 80%;">
-          <p class="orgDes">415-222-8323</p>
+          <div class="fill_p">
+            <p><%= @organization.phone_number %> </p>
           </div>
+
         </li>
 
         <li><hr></li>
 
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
+          <div class="fill_label">
             <label for="name">E-mail:</label>
           </div>
-
-          <div style="width: 65%; float: right; height: 80%;">
-          <p class="orgDes">something@something.org</p>
+          <div class="fill_p">
+            <p><%= @organization.email %></p>
           </div>
         </li>
 
         <li><hr></li>
 
         <li>
-          <div style="width: 35%; float: left; height: 80%;">
+          <div class="fill_label">
             <label for="name">Website:</label>
           </div>
-
-          <div style="width: 65%; float: right; height: 80%;">
-          <p class="orgDes">www.salvationarmy.org</p>
+          <div class="fill_p">
+            <p><%= @organization.website_url %></p>
           </div>
         </li>
 
         <li><hr></li>
-
+            <%= link_to "Edit Profile", edit_organization_path(session[:organization_id]), :class => "tfbutton" if session[:organization_id] %><br><br>
       </ul>
 
-      <button class="tfbutton" onclick="window.location.href='orgAccountEdit.html'" href="orgAccountEdit.html">Edit Profile</button>
 
     </div>
 
-    <div class="reqAcctBox">
-      <div class="box" style="height: 15em; margin-bottom: 3%;">
+    <div class="reqAcctBox" style="margin-top: 2%";>
+      <div class="box" style="margin-top: 0; width: 100%">
         <div>
-          <button class="tfbutton" onclick="window.location.href='orgAccount.html'" href="postings.html">Make New Request</button>
+          <%= link_to "Make New Request", new_request_path, :class => "tfbutton" if session[:organization_id] %>
+
         </div>
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
         <div style="height: 85%; overflow-y: scroll">
           <nav id="menu">
+            <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">6/20/14</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">6/16/14</div>
-              </a>
+                <div class="acc_reqMainContent">
+                  <strong><%= link_to "#{request.resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
+                </div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+                <hr></hr>
             </li>
             </ul>
+            <% end %>
           </nav>
+            <% if @requests.size == 0 %>
+              <p> No requests active </p>
+            <% end %>
+
         </div>
 
       </div>
-      <div id="box" style=" height: 20em; ">
+      <div class="box" style="width: 100%; height: 20em; ">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
 
         <div style="height: 85%; overflow-y: scroll">
+
           <nav id="menu">
+             <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">6/13/14</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">5/10/14</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">5/1/14</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div style="float: left;">Request Name</div>
-                <div style="float: right;">4/1/14</div>
-              </a>
+
+                <div style="float: left;">
+                  <%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></p>
+                </div>
+                <div style="float: right;">
+                  <%= "Finished at #{request.end_date}" if !request.end_date.nil? && request.end_date < Date.today %>
+                </div>
             </li>
             </ul>
+            <% end %>
+
+            <% if @requests.size == 0 %>
+              <p> No requests in history </p>
+            <% end %>
+
           </nav>
         </div>
       </div>

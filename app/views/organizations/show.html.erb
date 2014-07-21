@@ -1,4 +1,10 @@
   <div class="contentBox" style="margin: 5% auto 5% auto; width: 90em;">
+
+
+    <% if flash[:notice] %>
+          <div class="signup"><%= flash[:notice] %></div>
+          <% end %>
+
     <div class="box" style="float: left; width: 40%;">
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
 
@@ -82,7 +88,7 @@
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
         <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
+          <nav class="menu">
             <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>

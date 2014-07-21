@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-PolarBear::Application.load_tasks
+HelpingHands::Application.load_tasks

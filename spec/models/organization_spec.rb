@@ -1,25 +1,32 @@
 require 'spec_helper'
 
 describe Organization do
+  context "Validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:city) }
+    it { should validate_presence_of(:address) }
+    it { should validate_presence_of(:operation_days) }
+    it { should validate_presence_of(:opening_time) }
+    it { should validate_presence_of(:closing_time) }
+    it { should validate_presence_of(:phone_number) }
+    it { should validate_presence_of(:website_url) }
+    it { should validate_presence_of(:password) }
+    it { should validate_presence_of(:security_question) }
+    it { should validate_presence_of(:security_answer) }
+    it { should validate_presence_of(:email) }
 
-  let(:organization){ Organization.create( email: "test@test.com", password: "password11", password_confirmation: "password11")}
-
-  it "is invalid without an email address" do
-    organization.update_attributes(email: nil).should eq false
+    it { should validate_uniqueness_of(:name) }
+    it { should validate_uniqueness_of(:description) }
+    it { should validate_uniqueness_of(:address) }
+    it { should validate_uniqueness_of(:phone_number) }
+    it { should validate_uniqueness_of(:website_url) }
+    it { should validate_uniqueness_of(:email) }
+    it { should validate_uniqueness_of(:password) }
   end
 
-  it "is invaid without a password" do
-    organization.update_attributes(password: nil).should eq false
+  context "Associations" do
+    it { should have_many(:requests) }
   end
 
-  it "is invalid if the password and password_confirmation do not match" do
-    organization.update_attributes(password_confirmation: "erinerinerin").should eq false
-  end
-
-  #dont know why this is failing, maybe because password_confirmation is a field?
-  it "is valid if the password and password_confirmation do match" do
-    organization.update_attributes(password_confirmation: "erinerinerin").should eq true
-  end
 end
-
-# TODO: Test uniqueness validation here (currently tested in controller)?

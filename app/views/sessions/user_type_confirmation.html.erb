@@ -1,10 +1,8 @@
-  <div class="promiseBox">
-    <div style="float: none; margin-bottom: 2rem">
-      <img class="logo" style="width: 70%;" src="/assets/helping_hands_logo.png">
-    </div>
-
-      <p> Would you like to contribute?</p>
-      <%= button_to("Register as a Donor", new_donor_path, :method => :get, :class => "tfbutton") %>
-      <p> Are you an Organization?</p>
-      <%= button_to("Register as an Organization", new_organization_path, :method => :get, :class => "tfbutton") %>
-  </div>
+<div class="promiseBox">
+    <img class="logo" src="/assets/helping_hands_logo.png">
+    <p> Would you like to contribute?</p>
+<!-- Do these two buttons need to be forms? Can they just be links? -->
+    <%= button_to("Register as a Donor", new_donor_path, :method => :get, :class => "tfbutton") %>
+    <p> Are you an Organization?</p>
+    <%= button_to("Register as an Organization", new_organization_path, :method => :get, :class => "tfbutton") %>
+</div>

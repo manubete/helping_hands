@@ -70,7 +70,7 @@
           </div>
 
           <div class="fill_p">
-            <p><%= @request.complete || @request.end_date > Date.today ? "Complete" : "Ongoing" %></p>
+            <p><%= @request.complete  ? "Complete" : "Ongoing" %></p>
             <p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" if @request.complete %></p>
           </div>
       </li>

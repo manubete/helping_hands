@@ -1,4 +1,4 @@
- PolarBear::Application.routes.draw do
+ HelpingHands::Application.routes.draw do
 
   #requests resources has custom routes that serve as a landing page, API endpoints and a user type confirmation for registration as both a donor or an organization
     resources :requests do

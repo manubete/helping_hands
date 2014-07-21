@@ -50,14 +50,21 @@
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
         <div style="height: 85%; overflow-y: scroll">
-             <nav id="menu">
+             <nav class="menu">
+
+
+
               <% @contributions.each do |contribution| %>
                 <% @requests.each do |request| %>
                 <ul class="parent-menu">
-
+                <li>
                  <% if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %>
-                <div class="acc_reqMainContent"><strong> <%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) %></strong></div>
+                <div class="acc_reqMainContent">
+                  <strong> <%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) %></strong>
+
+                </div>
                   <% end %>
+                </li>
 
                    <% if contribution.request_id == request.id && (!request.end_date.nil? && request.end_date > Date.today) %>
                 <div style="float: right;"><%= "End Date: #{request.end_date}" %></div>
@@ -70,6 +77,10 @@
                   <% end %>
                <% end %>
                </ul>
+
+
+
+
           </nav>
         </div>
 

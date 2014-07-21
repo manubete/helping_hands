@@ -513,17 +513,16 @@ header.contHead{
 
 
 div .error {
-  border: 2px solid white;
-  border-radius: 3px;
-  color: white;
-  background-color: red;
+
+  color: red;
+  text-decoration: underline;
   width:40%;
   margin: 0 auto;
 }
 
 p.error {
   color: red;
-  background-color: red;
+
 }
 
 div .signup {
@@ -583,27 +582,27 @@ div .signup {
   font-size: 1.5em;
 }
 
-#menu ul{
+.menu ul{
   list-style-type:none;
 }
 
-#menu ul li a {
+.menu ul li a {
   display:block;
   text-decoration:none;
 }
 
-#menu ul li:hover{
+.menu ul li:hover{
   background-color:#97b7d8;
 }
 
-#menu ul li{
+.menu ul li{
   background: -webkit-linear-gradient(#405461, #232E36); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#405461, #232E36); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#405461, #232E36); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#405461, #232E36);
  }
 
-#menu ul li:hover > ul {
+.menu ul li:hover > ul {
   left: 200px;
   -webkit-transition: left 200ms ease-in;
   -moz-transition: left 200ms ease-in;
@@ -611,7 +610,7 @@ div .signup {
   transition: left 200ms ease-in;
 }
 
-#menu ul li > ul {
+.menu ul li > ul {
   position: absolute;
   background-color: #333;
   top: 0;
@@ -625,6 +624,6 @@ div .signup {
   transition: left 200ms ease-in;
 }
 
-#menu ul li > ul li a:hover{
+.menu ul li > ul li a:hover{
   background-color:#2e2e2e;
 }

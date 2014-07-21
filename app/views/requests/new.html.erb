@@ -1,11 +1,11 @@
   <div class="box">
+     <% if flash[:notice] %>
+          <div class="error"><%= flash[:notice] %></div>
+        <% end %>
     <header class="fulfilled">Make a Request</header>
       <%= form_for @request do |f| %>
       <ul>
         <li>
-          <div class="reqLabel">
-            <label>Organization: </label>
-          </div>
           <div class="reqInput">
             <p id="rNeed"><%= f.hidden_field :organization, :value => @organization.name %></p>
           </div>
@@ -15,6 +15,9 @@
           <p id="organization_id" ><%= f.hidden_field :organization_id, :value => session[:organization_id] %></p>
         </li>
         <li>
+           <%  if flash[:resource] %>
+            <p class="error"> Resource Needed <%= flash[:resource].join(', and ') %></p>
+          <% end %>
           <div class="reqLabel">
             <label>Resource Needed:</label>
           </div>
@@ -24,6 +27,9 @@
         </li>
         <li><br></br></li>
         <li>
+           <%  if flash[:resource_count] %>
+            <p class="error" > Quantity Needed <%= flash[:resource_count].join(', and ') %></p>
+          <% end %>
           <div class="reqLabel">
             <label>Quantity Needed:</label>
           </div>
@@ -33,6 +39,9 @@
         </li>
         <li><br></br></li>
         <li>
+          <%  if flash[:address] %>
+            <p class="error"> Address <%= flash[:address].join(', and ') %></p>
+          <% end %>
           <div class="reqLabel">
             <label>Address:</label>
           </div>
@@ -42,11 +51,26 @@
         </li>
         <li><br></br></li>
         <li>
+           <%  if flash[:description] %>
+            <p class="error"> Description <%= flash[:description].join(', and ') %></p>
+          <% end %>
           <div class="reqLabel">
             <label>Description:</label>
           </div>
           <div class="reqInput">
             <p><%= f.text_field :description, :placeholder => "Dehydrated Refugees" %></p>
+          </div>
+        </li>
+        <li><br></br></li>
+          <li>
+          <%  if flash[:tag_list] %>
+            <p class="error"> Tag list <%= flash[:tag_list].join(', and ') %></p>
+          <% end %>
+          <div class="reqLabel">
+            <label>Tag list:</label>
+          </div>
+          <div class="reqInput">
+            <p><%= f.text_field :tag_list, :placeholder => "Clothing" %></p>
           </div>
         </li>
         <li><br></br></li>
@@ -73,6 +97,5 @@
             <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
           </div>
         </li>
-
       <% end %>
   </div>

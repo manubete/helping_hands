@@ -1,21 +1,28 @@
-PolarBear::Application.routes.draw do
+ HelpingHands::Application.routes.draw do
 
-  #requests resources has custom routes that serve as a landing page, API endpoints and a user type confirmation for registration as both a donor or an organization
+  #requests resources has custom routes, namely donor index and api request, that serve as api endpoints or a route where multiple resources(including donors) are loaded based on a particular requests information and ARecord associations
     resources :requests do
       collection do
         get :api_request
+        get :donor_index
       end
     end
 
+     #route for tags-----------------------------------------------
+    get 'tags/:tag' => 'requests#index', as: 'tag'
+
+
+    #routes for contributions, the joint table for requests and donors-------
     resources :contributions
 
-    #added routes for the sessions
+    #added routes for the sessions------------------------------------
      resources :sessions do
       collection do
         get :user_type_confirmation
         get :user_type_login_confirmation
-        get :new_donor
-        get :new_organization
+        get :find_security_question
+        get :security_question
+        get :verify_security_question
       end
     end
 
@@ -23,7 +30,7 @@ PolarBear::Application.routes.draw do
     get "log_out" => "sessions#destroy", :as => "log_out"
     get "log_in" => "sessions#user_type_login_confirmation", :as => "log_in"
 
-    #renames some of the paths for clarity
+    #renamed some of the paths for clarity----------------------------------
     resources :donors, :controller => "donors", :path_names => { :new => "sign_up"}
     resources :organizations, :controller => "organizations", :path_names => { :new => "sign_up"}
 

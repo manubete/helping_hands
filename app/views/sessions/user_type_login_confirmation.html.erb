@@ -1,13 +1,31 @@
-  <div class="loginBox">
-    <div style="float: none; margin-bottom: 2rem">
-      <img class="logo" style="width: 70%;" src="/assets/helping_hands_logo.png">
+<div class="box" style="width: 30em">
 
-    <% if flash[:notice] %>
+        <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
-    </div>
 
-      <%= button_to("Donor Login", new_donor_sessions_path, :method => :get, :class => "tfbuttonWhich") %><br>
+        <%= form_tag sessions_path do %>
 
-      <%= button_to("Organization Login", new_organization_sessions_path, :method => :get, :class => "tfbuttonWhich") %><br>
+        <ul>
+          <li>
+            <label class="login_label" for="username">Email </label>
+            <p><%= text_field_tag :email, params[:email] %></p>
+          </li>
+          <li>
+            <label class="login_label" for="password">Password</label>
+            <p><%= password_field_tag :password, params[:password] %></p>
+          </li>
+          <li style="margin:0 auto; text-align:center">
+          <%= submit_tag 'Log In', :class => 'tfbutton_login' %>
+        </li><br>
+        <li style="margin:0 auto; text-align:center">
+             <%= link_to "Forgot Your Password?",{ controller: "sessions", action: "find_security_question" }  unless session[:organization_id] || session[:donor_id] %>
+        </li>
+        </ul>
+
+
+        <% end %>
+
+
+
   </div>

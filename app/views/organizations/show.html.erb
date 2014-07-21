@@ -1,4 +1,10 @@
   <div class="contentBox" style="margin: 5% auto 5% auto; width: 90em;">
+
+
+    <% if flash[:notice] %>
+          <div class="signup"><%= flash[:notice] %></div>
+          <% end %>
+
     <div class="box" style="float: left; width: 40%;">
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
 
@@ -13,7 +19,7 @@
           </div>
 
           <div class="fill_p">
-          <p class="orgDes">The Salvation Army, an international movement, is an evangelical part of the universal Christian church. </p>
+          <p class="orgDes"><%= @organization.description %> </p>
           </div>
 
         </li>
@@ -82,15 +88,15 @@
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
         <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
+          <nav class="menu">
             <% @requests.each do |request| %>
             <ul class="parent-menu">
             <li>
                 <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></strong>
-                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></p>
+                  <strong><%= link_to "#{request.resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
                 </div>
-                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
+                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
                 <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
                 <hr></hr>
             </li>

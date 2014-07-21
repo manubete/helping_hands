@@ -1,9 +1,4 @@
 class ContributionsController < ApplicationController
-  def new
-    @contribution = Contribution.new(params[:contribution])
-    p "#{@contribution.inspect} yes"
-    render :new
-  end
 
     def create
     p "#{params["contribution"]}"
@@ -17,10 +12,18 @@ class ContributionsController < ApplicationController
 
       @request.update_count(@contribution.resource_amount)
 
+      #send an email
+        @donor = Donor.find(@contribution.donor_id)
+
+         #sent it
+
       redirect_to requests_path
     else
       flash[:notice] = "Incorrect signup information for the contribution"
-      render :new
+
+       flash[:resource_amount] = @contribution.errors[:resource_amount] unless @contribution.errors[:resource_amount].empty?
+
+      redirect_to request_path(@contribution.request_id)
     end
 
   end

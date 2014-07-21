@@ -37,11 +37,12 @@
         </li>
 
         <li><hr></li>
-            <%= link_to "Edit Profile", edit_donor_path(session[:donor_id]), :class => "tfbutton" %><br><br>
+            <%= link_to "Edit Profile", edit_donor_path(session[:donor_id]), :class => "tfbutton" if session[:donor_id]%><br><br>
       </ul>
 
 
     </div>
+
 
     <div class="reqAcctBox" style="margin-top: 2%;">
       <div class="box" style="width: 100%; margin-top: 0;">
@@ -49,46 +50,39 @@
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
         <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
-              <% @requests.each do |request| %>
-            <ul class="parent-menu">
-            <li>
-                <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></strong>
-                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></p>
-                </div>
-                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
-                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
-                <hr></hr>
-            </li>
-            </ul>
-               <% end %>
-          </nav>
-        </div>
 
-      </div>
-
-      <div class="box" style="width: 100%;">
-
-        <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Contribution</header>
-
-        <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
+             <nav class="menu">
               <% @contributions.each do |contribution| %>
                 <% @requests.each do |request| %>
-            <ul class="parent-menu">
-            <li>
-                <div style="float: left;"><%= "Donated #{contribution.resource_amount} #{request.resource} needed at #{request.address}" if contribution.request_id == request.id %></div>
-            </li>
-            </ul>
+                <ul class="parent-menu">
+                <li>
+                 <% if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %>
+                <div class="acc_reqMainContent">
+                  <strong> <%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) %></strong>
+
+                </div>
+                  <% end %>
+                </li>
+
+                   <% if contribution.request_id == request.id && (!request.end_date.nil? && request.end_date > Date.today) %>
+                <div style="float: right;"><%= "End Date: #{request.end_date}" %></div>
+                <% end %>
+
+                 <% if contribution.request_id == request.id && (!request.complete && request.end_date.nil? ) %>
+                <div style="float: right;"><%= "End Date: indefinite" %></div><hr></hr>
+                <% end %>
+
                   <% end %>
                <% end %>
+               </ul>
+
+
+
+
           </nav>
         </div>
 
       </div>
-
-
 
       <div class="box" style=" height: 20em; width: 100%;">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>

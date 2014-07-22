@@ -1,7 +1,7 @@
 class ContributionsController < ApplicationController
 
     def create
-    p "#{params["contribution"]}"
+    # p "#{params["contribution"]}"
     @contribution = Contribution.new(params["contribution"])
 
 

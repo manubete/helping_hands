@@ -24,10 +24,21 @@ feature 'Registered user' do
     expect(page).to have_content('Unsuccessful login')
   end
 
+  scenario 'should be able to view their profile after logging in' do
+    FactoryGirl.create(:donor)
+    log_in_with 'erin@erin.com', 'erinisgreat'
+    expect(page).to have_content("successful login!!")
+    click_on 'PROFILE'
+    expect(page).to have_content('Location')
+    expect(page).to have_content('San Francisco')
+    expect(page).to have_content('Active Requests')
+    expect(page).to have_content('Request History')
+  end
+
   def log_in_with(email, password)
     visit user_type_login_confirmation_sessions_path
     fill_in 'Email', with: email
     fill_in 'Password', with: password
-    click_button 'Log In'
+    click_on 'Log In'
   end
 end

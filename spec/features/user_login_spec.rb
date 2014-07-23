@@ -13,12 +13,14 @@ feature 'Registered user' do
   end
 
   scenario 'should not be able to log in with invalid params' do
-    log_in_with 'invalid_email', 'test'
+    FactoryGirl.create(:donor)
+    log_in_with 'invalid_email', 'erinisgreat'
     expect(page).to have_content('Unsuccessful login')
   end
 
   scenario 'should not be able to log in with blank password' do
-    log_in_with 'test@test.com', ''
+    FactoryGirl.create(:donor)
+    log_in_with 'erin@erin.com', ''
     expect(page).to have_content('Unsuccessful login')
   end
 

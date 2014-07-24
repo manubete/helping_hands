@@ -13,8 +13,13 @@ class ContributionsController < ApplicationController
 
       #send an email
         @donor = Donor.find(@contribution.donor_id)
+        @organization = Organization.find(@request.organization_id)
 
-         #sent it
+        @email_hash = { donor: @donor, organization: @organization, contribution: @contribution, request: @request
+
+        }
+
+        OrganizationMailer.notify_contribution(@email_hash).deliver
 
       redirect_to requests_path
     else

@@ -2,7 +2,7 @@
   <header class="fulfilled">Make an Organization Account</header>
 
         <% if flash[:notice] %>
-          <div class="error"><%= flash[:notice] %></div>
+          <div ><%= flash[:notice] %></div>
           <% end %>
 
   <%= form_for @organization do |f| %>

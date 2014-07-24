@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140715060559) do
+ActiveRecord::Schema.define(:version => 20140724052540) do
 
   create_table "contributions", :force => true do |t|
     t.integer "donor_id"
@@ -46,19 +46,19 @@ ActiveRecord::Schema.define(:version => 20140715060559) do
     t.string "password"
     t.string "security_question"
     t.string "security_answer"
+    t.string "avatar"
   end
 
   create_table "requests", :force => true do |t|
     t.integer "organization_id"
     t.string  "resource"
-    t.integer "target_resource_count"
-    t.integer "current_resource_count", :default => 0
+    t.integer "resource_count",  :default => 0
     t.string  "address"
     t.string  "organization"
     t.string  "description"
     t.date    "start_date"
     t.date    "end_date"
-    t.boolean "complete",               :default => false
+    t.boolean "complete",        :default => false
   end
 
   create_table "taggings", :force => true do |t|

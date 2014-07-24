@@ -14,3 +14,6 @@
 /log/*.log
 /tmp
 .env
+
+# ignore OS X DS_Store file
+DS_Store

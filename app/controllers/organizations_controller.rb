@@ -1,11 +1,12 @@
 class OrganizationsController < ApplicationController
-   def new
+  def new
     @organization = Organization.new
     render :new
   end
 
    def create
     @organization = Organization.new(params["organization"])
+    @organization.update_attributes(params[:organization])
 
     if @organization.save
       flash[:notice] = "You have successfully signed up!"

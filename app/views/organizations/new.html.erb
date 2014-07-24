@@ -5,7 +5,14 @@
           <div class="error"><%= flash[:notice] %></div>
           <% end %>
 
+  <%= cloudinary_js_config %>
+
   <%= form_for @organization do |f| %>
+
+    <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
+    <%= f.file_field(:avatar) %>
+    <%= f.hidden_field(:avatar_cache) %>
+
   <ul class="longSign">
 
        <li>
@@ -108,4 +115,3 @@
   </ul>
   <% end %>
 </div>
-

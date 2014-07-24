@@ -1,5 +1,7 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :name, :description, :city, :address, :operation_days, :opening_time, :closing_time, :phone_number, :email, :website_url, :linked_in_url, :facebook_url, :password,:security_question, :security_answer, :password_confirmation
+  mount_uploader :avatar, AvatarUploader
+
+  attr_accessible :name, :description, :city, :address, :operation_days, :opening_time, :closing_time, :phone_number, :email, :website_url, :linked_in_url, :facebook_url, :password,:security_question, :security_answer, :password_confirmation, :avatar, :avatar_cache
 
   has_many :requests
 

@@ -1,3 +1,6 @@
+
+@import url('mediaqueries.css');
+
 /* ------ Landing Page Styling -------------- */
 
 html {
@@ -25,6 +28,14 @@ html {
   background-color: rgba(0,0,0, 0.5);
 }
 
+.landBox{
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.70);
+  padding: 2.5em 1.5em 2.5em 1.5em;
+  margin: 10% auto 0 auto;
+  width: 50em;
+  text-align: center;
+}
 
 .introBox.log{
   float: right;
@@ -34,10 +45,18 @@ html {
 
 .overflowBox{
   height: 100%;
-  width: 100%;
+  width: 80%;
+  margin: 5% auto 5% auto;
 }
 
-.fill_label{
+.placeholderBox{
+  width:100%;
+  height: 5em;
+  background: rgba( 0,0,0,0);
+  clear: both;
+}
+
+.fill_label, .fillReqLabel{
   width: 40%;
   float: left;
   height: 80%;
@@ -85,7 +104,8 @@ header.fulfilled{
 }
 
 .adjustBox, .contentBox{
-  height: 100%;
+  margin: 0;
+  height: auto;
 }
 
 /*------------- Requests Index and Show Pages -------------- */
@@ -131,6 +151,24 @@ header.fulfilled{
 .reqAcctBox{
   float: right;
   width: 50%;
+  height: 100%;
+}
+
+.orgBox, .donBox{
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.70);
+  padding: 2.5em 1.5em 2.5em 1.5em;
+  margin: 2% auto 2% auto;
+  float: left;
+  width: 40%;
+}
+
+.reqAcctBox_box, .reqAcctBox_box2{
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.70);
+  padding: 2.5em 1.5em 2.5em 1.5em;
+  margin: 2% auto 2% auto;
+  width: 100%;
 }
 
 header.reqHead{
@@ -152,7 +190,7 @@ header.reqHead{
   width: 40%;
   float: left;
   text-align: right;
-  margin: 0.5em 0 0.5em 0.5em;
+  margin: 0.7em 0 0.65em 0.5em;
 }
 
 /*------------- Donation form -------------- */
@@ -180,6 +218,11 @@ div.donatePhoto{
   height: 80%;
   margin-bottom: 1em;
 }
+.donFormBox{
+  height: auto;
+  width: 40%;
+  float: right;
+}
 
 #contentBox{
   width: 70em;
@@ -188,20 +231,38 @@ div.donatePhoto{
 
 /*------------- Donor Index and New Pages -------------- */
 
-.box, .loginBox {
+.box, .loginBox, .searchBox, .userBox, .showReqBox, .donFormBox {
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   padding: 2.5em 1.5em 2.5em 1.5em;
   margin: 2% auto 2% auto;
-  width: 50em;
-  }
+}
 
-.loginBox{
-  width: 45em;
-  margin: 5% auto 0 auto;
+.box, .loginBox, .searchBox, .userBox{width: 50em;}
+
+.loginBox, .userBox{
   padding:1em;
   text-align:center;
   line-height:1.5;
+}
+
+.userBox{
+  margin: 15% auto 0 auto;
+  width: 45em;
+}
+.loginBox{
+  margin: 5% auto 0 auto;
+  width: 30em;
+}
+
+.showReqBox{
+  float:left;
+  width: 40%;
+}
+
+.logoUserDiv{
+  float: none;
+  margin-bottom: 2rem;
 }
 
 /*------------- Donors New and Organizations New Forms -------------- */
@@ -230,7 +291,7 @@ ul li {
   color:white;
 }
 
-.tfbutton, .tfbutton_login, .tfbuttonWhich{
+.tfbutton, .tfbutton_login, .tfbuttonWhich, .tfbuttonSearchPage, .tfbutton_cont{
     margin: 0 auto;
     padding: 5px 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -277,7 +338,6 @@ ul li {
   .tftextinput{
     margin: 0;
     padding: 5px 15px;
-    /*font-family: Arial, Helvetica, sans-serif;*/
     font-size:14px;
     border:1px solid #0076a3; border-right:0px;
     border-top-left-radius: 5px 5px;
@@ -359,7 +419,7 @@ label.form_label {
   margin: 0.5em 0 0.5em 0;
 }
 
-li#input{
+div.input{
   float: right;
   width: 40%;
 }
@@ -378,7 +438,7 @@ li#input{
   margin: 0 auto 2em auto;
 }
 
-.searchInput{
+.searchInput, .searchPageInput{
   width: 70%;
   border-top-left-radius: 5px 5px;
     border-bottom-left-radius: 5px 5px;
@@ -444,13 +504,18 @@ div.searchOrgName{
   width: 50%;
 }
 
+/*------------- donation form page-------------- */
+.reqAmtBox{
+    margin-top: 8%;
+  }
+
 /*------------- WHERE DO THESE THINGS BELONG? -------------- */
 
 
 header.contHead{
   font-size: 2.5em;
   text-align: center;
-  font-family: 'Tahoma', sans-serif;
+  font-family: Tahoma, sans-serif;
   font-weight: bold;
  }
 
@@ -522,16 +587,20 @@ div .signup {
   color:white;
   font-size: 1.2em;
   margin:0 1em 0 0;
-  width: 30%;
+  width: 40%;
   text-align: right;
   float: left;
+}
+
+input#email, input#password{
+  width: 50%;
 }
 
 /*------------- account display requests -------------- */
 
 #menu {
   position:relative;
-  font-family: 'Tahoma';
+  font-family: Tahoma;
 }
 
 .parent-menu {
@@ -604,5 +673,325 @@ div .signup {
 
 .menu ul li > ul li a:hover{
   background-color:#2e2e2e;
+}
+
+/*****************media queries ******************/
+/*tablet landscape*/
+.reqAmtBox{
+    margin-top: 33%;
+}
+.picButton{
+  float: left;
+}
+
+/*ipad portrait*/
+@media (max-width: 808px){
+  html, body {
+    width:100%;
+    height: 100%;
+  }
+  .logoBig img{
+    width: 30em;
+    height: auto;
+  }
+
+  .reqAcctBox{
+  float: none;
+  margin: 2% auto 2% auto;
+  width: 80%;
+  }
+
+  .box{
+    width: 80%;
+  }
+  .landBox{
+    margin: 30% auto 0 auto;
+    width: 30em;
+    height: auto;
+  }
+  .userBox{
+    width: 80%;
+  }
+  .donFormBox{
+    width: 80%;
+    float: none;
+  }
+  .showReqBox{
+    float: none;
+    width: 80%;
+  }
+
+  label.form_label{
+    width: 100%;
+  }
+  div.input{
+    width: 50%;
+  }
+  .reqAmtBox{
+    margin-top: 12%;
+  }
+  .donate_img{
+    margin: 4% 0 0 0;
+    padding: 0;
+  }
+  .picButton{
+    padding-left: 0;
+    float: right;
+  }
+  div.donatePhoto{
+    margin: 5%;
+  }
+  .reqInput p input{
+    width: 80%;
+  }
+  p{
+    margin: 0.2em;
+  }
+  p a.tfbutton{
+    font-size: 0.9em;
+    padding: 1px 3px;
+  }
+  div.date{
+    width:76.5%;
+  }
+  div.searchOrgName{
+    width:67%;
+  }
+  .orgBox, .donBox{
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.70);
+  padding: 2.5em 1.5em 2.5em 1.5em;
+  margin: 2% auto 2% auto;
+  float: none;
+  width: 80%;
+  }
+
+  .searchBox{
+    width: 80%;
+    margin: 2% auto 0 auto;
+  }
+}
+
+/*mobile landscape*/
+@media (max-width: 500px){
+  html{
+    width: 100%;
+  }
+
+  body{
+    width:320px;
+    font-size: small;
+  }
+
+  .overflowBox{
+      width: 100%;
+  }
+
+  .landBox{
+    margin: 13% auto 0 auto;
+    width: 27em;
+    height: 14em;
+    padding: 0.2em;
+  }
+  .loginBox{
+    width: 80%;
+    margin: 15% auto 0 auto;
+    padding:0.5em;
+  }
+  .userBox{
+    width: 80%;
+    margin: 15% auto 0 auto;
+  }
+
+  .logoUserDiv{
+    float: none;
+    margin-bottom: 0.2em;
+  }
+  .orgBox{
+    float: none;
+    width: 80%;
+    margin: 15% auto 0 auto;
+  }
+
+  input#email, input#password{
+    width: 65%;
+  }
+  .login_label{
+    float: none;
+  }
+
+  header.fulfilled{
+    font-size: 1.8em;
+  }
+
+  label.form_label{
+    float: none;
+  }
+  div.input{
+    width: 100%;
+    float: none;
+  }
+
+  .searchBox{
+    margin: 28% auto 0 auto;
+  }
+  .searchPage{
+    width: 100%;
+  }
+  .searchPageInput{
+    width: 65%;
+    border-top-right-radius: 0px 0px;
+    border-bottom-right-radius: 0px 0px;
+  }
+  .tfbuttonSearchPage{
+    width: 5em;
+    padding: 4px 10px 4px 10px;
+    border-top-left-radius: 0px 0px;
+    border-bottom-left-radius: 0px 0px;
+  }
+  div.searchOrgName{
+    font-size: 1em;
+    width: 67%;
+  }
+  div.searchContent{
+    width: 100%;
+  }
+  div.date{
+    width: 67%;
+    font-size: 0.8em;
+  }
+  div.date p{
+    margin: 0;
+  }
+  .searchOrgName p{
+    margin: 0;
+  }
+  .reqPre p{
+    margin: 0;
+    font-size: 1.5em;
+  }
+  .reqPre a{
+    margin: 0;
+    font-size: 1.5em;
+  }
+  p a.tfbutton{
+    font-size: 0.6em;
+    padding: 1px 3px;
+  }
+  .topLinks{
+    width: 100%;
+    padding: 0.7em;
+    height: 1em;
+    font-size: 0.7em;
+  }
+
+  .tftextinput{
+    width: 70%;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 0.2em auto;
+  }
+
+  .donBox{
+    width: 100%;
+    margin: 27% auto 8% auto;
+  }
+
+  .reqBox_box, .reqAcctBox_box2{
+    margin: 7% auto 7% auto;
+  }
+
+  .showReqBox{
+    margin: 15% auto 5% auto;
+  }
+  .reqAmtBox{
+    margin-top: 60%;
+  }
+  .fillIn{
+    float: none;
+  }
+  .fillReqLabel{
+    float: none;
+  }
+  .tfbutton_search{
+    border-radius: 5px;
+    width: auto;
+  }
+
+  .logoBig img{
+    width: 15em;
+  }
+
+  .logoBig{
+    margin: 0.1em;
+  }
+
+  .box{
+    width: 80%;
+    float: none;
+    height: auto;
+    margin: 12% auto 0 auto;
+  }
+  .box a{
+    width: 90%;
+    font-size: large;
+  }
+  .box p{
+    width: 90%;
+    font-size: 1em;
+  }
+
+  .reqAcctBox{
+    float: none;
+    width: 85%;
+  }
+
+  .logoBig{
+    width: 100%;
+  }
+  .logoBig img{
+    width: 15em;
+    height: auto;
+  }
+
+  .introBox{
+    display: none;
+  }
+
+  .bottomLinks{
+    display: none;
+  }
+  .button_to{
+    font-size: large;
+  }
+
+  .picButton{
+    float: none;
+  }
+  .donate_img{
+    height: auto;
+  }
+}
+
+/* mobile portrait */
+@media (max-width: 350px){
+  .landBox{
+    margin: 30% auto 0 auto;
+    width: 17em;
+    height: auto;
+    padding: 0.4em 0.2em 0.4em 0.2em;
+  }
+
+  p{
+    margin: 1em auto 1em auto;
+  }
+
+  .tfbutton_search, .tfbutton{
+    margin: 0.5em 0.2em 0.5em 0.2em;
+  }
+
+  .logoBig{
+    margin-bottom: 1em;
+  }
 }
 

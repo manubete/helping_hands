@@ -1,4 +1,4 @@
-<div class="box" style="width: 30em">
+<div class="loginBox">
 
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
@@ -9,7 +9,7 @@
         <ul>
           <li>
             <label class="login_label" for="username">Email </label>
-            <p><%= text_field_tag :email, params[:email] %></p>
+            <p><%= email_field_tag :email, params[:email] %></p>
           </li>
           <li>
             <label class="login_label" for="password">Password</label>

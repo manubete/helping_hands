@@ -1,4 +1,4 @@
-@import url('media_queries.css');
+@import url('mediaqueries.css');
 /* ------ Landing Page Styling -------------- */
 
 html {
@@ -29,18 +29,6 @@ html {
 .overflowBox{
   height: 100%;
   width: 100%;
-}
-
-.promiseBox{
-  border-radius:1em;
-  width: 50%;
-  height: 50%;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 10% auto 0 auto;
-  padding: 2.5%;
-  box-sizing: border-box;
-  text-align:center;
-  line-height:1.5;
 }
 
 .profileImg{
@@ -85,11 +73,6 @@ div.log{
   line-height:1.5;
   text-transform:uppercase;
 }
-
-
-
-.promiseBox a{display:block;}
-
 
 /*------------- Requests Index and Show Pages -------------- */
 

@@ -37,39 +37,12 @@
     margin-top: 5px;
     font-size: large;
   }
-  input {
-    width: 100%;
-  }
-  .topLinks{
-    display: none;
-  }
+
   .bottomLinks{
     display: none;
   }
   .button_to{
     font-size: large;
-  }
-}
-
-/* ----- iPad (portrait and landscape) ------ */
-
-@media (max-width: 1024px){
-  html, body {
-    width:1024px;
-  }
-  .logoBig img{
-    width:100px;
-    border: 10px solid red;
-  }
-}
-
-@media (max-width: 768px){
-  html, body {
-    width:768px;
-  }
-  .logoBig img{
-    width: 100px;
-    border: 10px solid pink;
   }
 }
 

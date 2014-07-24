@@ -1,5 +1,5 @@
 
-<div style="height: 10%">
+<div style="height: 130%">
   <div class="box">
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
@@ -7,7 +7,7 @@
 
         <%= form_for @donor do |f| %>
 
-        <header class="fulfilled" style="margin-bottom: 5%;">Make a Donor Account</header>
+        <header class="fulfilled" style="margin-bottom: 5%;">Make a Contributor Account</header>
         <p style="text-align: center;">*Required Fields</p>
         <ul class="longSign">
           <li>
@@ -66,7 +66,7 @@
             <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909" %></label>
           </li>
           <li>
-            <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
+            <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
           </li>
           <li>
             <div class="formButton">

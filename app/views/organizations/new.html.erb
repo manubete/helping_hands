@@ -69,12 +69,12 @@
       <%  if flash[:website_url] %>
         <p class="error"> Website url <%= flash[:website_url].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
+      <label class="form_label" for="website">*Website: <%= f.url_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
     </li>
     <li>
-      <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
+      <label class="form_label" for="linked_in">LinkedIn: <%= f.url_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
     <li>
-      <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
+      <label class="form_label" for="facebook">Facebook: <%= f.url_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
 
 
           <li>
@@ -98,7 +98,7 @@
       <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
     </li>
     <li>
-       <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
+       <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
     </li>
     <li>
       <div class="formButton" >

@@ -1,7 +1,10 @@
-<div id="contentBox">
-  <div class="box" style="float: left; width: 40%;">
+<div class="overflowBox">
+  <div class="showReqBox">
 
     <header class="fulfilled"><%= @request.organization %></header>
+    <% if flash[:notice] %>
+          <div class="error"><%= flash[:notice] %></div>
+        <% end %>
 
     <ul class="account">
       <li>
@@ -74,21 +77,11 @@
             <p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" if @request.complete %></p>
           </div>
       </li>
-      <li><hr></li>
-      <li>
-        <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
-          <p style="float: right"><%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%></p>
-        <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
-        <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
-        <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete %>
 
-      </li>
     </ul>
   </div>
 
-
-
-  <div class="box" style="height: 100%; width: 30em; float: right;">
+  <div class="donFormBox">
     <header class="smallHeader"><% if session[:donor_id] %>
       <%= "Please complete the donation form." %>
       <% elsif session[:organization_id] %>
@@ -106,7 +99,7 @@
     </div>
 
 
-    <div style="margin-top: 8%;">
+    <div class="reqAmtBox">
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
@@ -116,7 +109,7 @@
         <li>
          <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
           <p id="request_id"> <%= f.hidden_field :request_id, :value => @request.id %></p>
-          <label class="fill_label">How much are you donating?</label>
+          <label class="fillReqLabel">How much are you donating?</label>
           <%  if flash[:resource_amount] %>
             <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
           <% end %>
@@ -132,6 +125,9 @@
       </ul>
       <% end %>
     </div>
+  </div>
+
+  <div class="placeholderBox">
   </div>
 </div>
 

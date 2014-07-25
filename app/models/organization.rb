@@ -6,13 +6,13 @@ class Organization < ActiveRecord::Base
   validates :password, confirmation: true
 
   validates :name, :description, :city, :address,:operation_days, :opening_time, :closing_time, :phone_number, :website_url, :password,:security_question, :security_answer, :email, presence: true
-  validates :name, :description, :address, :phone_number, :website_url, :password,:security_question, :security_answer, :email, uniqueness: true
+  validates :name, :description, :address, :phone_number, :website_url, :email, uniqueness: true
 
 
   def self.authenticate(email, password)
     @organization = Organization.find_by_email(email)
     if @organization && @organization.password == password
-      p "#{email} #{password} #{@organization}"
+      # p "#{email} #{password} #{@organization}"
       @organization
     else
       nil

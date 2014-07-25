@@ -22,7 +22,7 @@ describe Organization do
     it { should validate_uniqueness_of(:phone_number) }
     it { should validate_uniqueness_of(:website_url) }
     it { should validate_uniqueness_of(:email) }
-    it { should validate_uniqueness_of(:password) }
+    xit { should validate_uniqueness_of(:password) }
   end
 
   context "Associations" do

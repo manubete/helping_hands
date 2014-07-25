@@ -10,4 +10,9 @@ class OrganizationMailer < ActionMailer::Base
     mail to: @organization.email, subject: "New Contribution"
   end
 
+  def password_reset(organization)
+    @organization = organization
+    mail :to => organization.email, :subject => "Password Reset"
+  end
+
 end

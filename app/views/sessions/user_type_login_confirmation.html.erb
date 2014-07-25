@@ -14,7 +14,7 @@
         <li style="margin:0 auto; text-align:center"><%= link_to "Forgot Your Password?",{ controller: "sessions", action: "find_security_question" }  unless session[:organization_id] || session[:donor_id] %></li>
           <li style="margin:0 auto; text-align:center">
                  <%= link_to "Forgot Your Password Again?", new_password_reset_path  unless session[:organization_id] || session[:donor_id] %></li>
-   </ul>
+        </ul>
 
 
         <% end %>

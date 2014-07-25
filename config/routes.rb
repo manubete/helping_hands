@@ -1,5 +1,7 @@
  HelpingHands::Application.routes.draw do
 
+  get "password_resets/new"
+
   #requests resources has custom routes, namely donor index and api request, that serve as api endpoints or a route where multiple resources(including donors) are loaded based on a particular requests information and ARecord associations
     resources :requests do
       collection do
@@ -35,6 +37,9 @@
     resources :organizations, :controller => "organizations", :path_names => { :new => "sign_up"}
 
    root to: "requests#landing_page"
+
+   #added routes for donor or organization password resets--------------------------------------
+   resources :password_resets
 
 
 end

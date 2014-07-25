@@ -1,8 +1,11 @@
 <div style="height: 120%;"class="box">
   <header class="fulfilled">Make an Organization Account</header>
-    <% if flash[:notice] %>
-      <div class="error"><%= flash[:notice] %></div>
-    <% end %>
+
+
+        <% if flash[:notice] %>
+          <div ><%= flash[:notice] %></div>
+          <% end %>
+
 
   <%= form_for @organization do |f| %>
     <ul class="longSign">

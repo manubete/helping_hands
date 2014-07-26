@@ -9,7 +9,7 @@
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
 
       <div class="profileImg">
-        <img src="/assets/salvationArmy.jpg" height="100%"><br>
+        <%= cl_image_tag(@organization.avatar_url) %><br>
       </div>
 
       <ul class="account">

@@ -3,6 +3,7 @@ class ContributionsController < ApplicationController
     def create
     # p "#{params["contribution"]}"
     @contribution = Contribution.new(params["contribution"])
+    @contribution.update_attributes(params[:contribution])
 
 
     if @contribution.save

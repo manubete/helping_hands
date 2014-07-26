@@ -2,14 +2,17 @@ class RequestsController < ApplicationController
   helper_method :sort_column,:sort_direction
 
   def index
-    if params[:search]
-      @requests = Request.search(params[:search])
-    elsif params[:tag]
-      @requests = Request.tagged_with(params[:tag])
-    else
-      @requests = Request.order("#{sort_column} #{sort_direction}")
-    end
-    render :index
+      if params[:search]
+        @requests = Request.search(params[:search])
+        @organizations = Organization.all
+      elsif params[:tag]
+        @requests = Request.tagged_with(params[:tag])
+        @organizations = Organization.all
+      else
+        @requests = Request.order("#{sort_column} #{sort_direction}")
+        @organizations = Organization.all
+      end
+      render :index
   end
 
   def donor_index

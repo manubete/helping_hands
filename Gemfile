@@ -7,6 +7,9 @@ gem 'rake', '10.3.2'
 
 gem"simple-navigation"
 
+gem 'carrierwave'
+gem 'cloudinary'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'unicorn'

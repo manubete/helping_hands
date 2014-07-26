@@ -7,14 +7,29 @@
           <% end %>
 
 
+
+
+
+
+
   <%= form_for @organization do |f| %>
     <ul class="longSign">
+
+        <%= cloudinary_js_config %>
+
+    <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
+    <%= f.file_field(:avatar) %>
+    <%= f.hidden_field(:avatar_cache) %>
+
+
       <li>
         <% if flash[:name] %>
           <p class="error"> Name <%= flash[:name].join(', and ') %></p>
         <% end %>
         <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "Organization" %></label>
       </li>
+
+
       <li>
         <% if flash[:description] %>
           <p class="error"> Description <%= flash[:description].join(', and ') %></p>

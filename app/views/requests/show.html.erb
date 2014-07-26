@@ -20,7 +20,7 @@
           </div>
 
           <div class="fill_p">
-            <p><%= @request.target_resource_count %></p>
+            <p><%= @request.target_resource_count - @request.current_resource_count %></p>
           </div>
       </li>
       <li><hr></li>
@@ -100,23 +100,27 @@
       <% elsif session[:organization_id] %>
       <%= "Request Contribution Form" %>
       <% end %></header>
-    <div class="donatePhoto">
-      <div class="donate_img">
-        <img alt="Insert Photo"src="images/donationPhoto.jpg" height="100%">
+
+      <%= cloudinary_js_config %>
+      <%= form_for @contribution do |f| %>
+      <div class="donatePhoto">
+        <div class="upload-preview">
+        </div>
+        <div class="picButton">
+          <p style="margin-bottom: 0.1em">Upload a clear photo</p>
+          <p style="margin-top: 0.1em">of your donation</p>
+          <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
+          <%= f.file_field(:photo, accept: 'image/*;capture=camera',:class => "file") %>
+
+        </div>
       </div>
-      <div class="picButton">
-        <p style="margin-bottom: 0.1em">Upload a clear photo</p>
-        <p style="margin-top: 0.1em">of your donation</p>
-        <button class="tfbutton" onclick="window.location.href='dophot.html'" href="#">Upload Photo</button>
-      </div>
-    </div>
 
 
     <div style="margin-top: 8%;">
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
-      <%= form_for @contribution do |f| %>
+
       <ul class="aRequest">
 
         <li>
@@ -140,7 +144,3 @@
     </div>
   </div>
 </div>
-
-
-
-

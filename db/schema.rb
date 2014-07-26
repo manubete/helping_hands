@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140724215733) do
+ActiveRecord::Schema.define(:version => 20140725050053) do
 
   create_table "contributions", :force => true do |t|
     t.integer "donor_id"
     t.integer "request_id"
     t.integer "resource_amount"
+    t.string  "photo"
   end
 
   create_table "donors", :force => true do |t|
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20140724215733) do
     t.string "password"
     t.string "security_question"
     t.string "security_answer"
+    t.string "avatar"
     t.string "password_reset_token"
   end
 

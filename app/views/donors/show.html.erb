@@ -62,7 +62,10 @@
                 <div class="acc_reqMainContent">
                   <strong> <%= link_to "Donated #{contribution.resource_amount} #{request.resource} at #{request.address} for the #{request.organization}", request_path(request.id) %></strong>
 
+                  <%= cl_image_tag(contribution.photo_url) %>
+
                 </div>
+
                   <% end %>
                 </li>
 

@@ -1,7 +1,7 @@
 <div class="contentBox" style="margin: 3% auto 5% auto; width: 90em">
 
     <!-- form box -->
-    <div class="box" style="float: right; width: 40em;">
+    <div class="box" >
       <%= form_for @organization do |f| %>
         <% if @organization.errors %>
           <div>
@@ -14,6 +14,10 @@
         <% end %>
 
         <ul class="longSign">
+
+          <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
+    <%= f.file_field(:avatar) %>
+    <%= f.hidden_field(:avatar_cache) %>
 
         <li>
           <label class="form_label" for="name">Name: <%= f.text_field :name, :placeholder => "ie 'Helper Hank Charity'" %></label>
@@ -73,25 +77,5 @@
 
     </div>
 
-    <!-- photo and description box -->
-    <div class="box" style="float: left; width: 30em">
-      <div class="proPhoto">
-        <img src="/assets/salvationArmy.jpg" height="100%">
-      </div>
-      <div class="photoButton">
-
-        <!--make this real button-->
-        <button class="tfbutton">Edit Photo</button>
-      </div>
-
-      <div style="clear: both;">
-        <label for="description">Description:</label>
-        <form style="margin-bottom: 2em;">
-            <textarea class="desRequest" rows="10" cols="50" placeholder="The Salvation Army, an international movement, is an evangelical part of the universal Christian church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination."></textarea><br />
-        </form>
-      </div>
-        <!--make this real button-->
-        <button class="tfbutton">Save Description</button>
-    </div>
 
   </div>

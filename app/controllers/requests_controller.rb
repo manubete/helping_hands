@@ -4,10 +4,13 @@ class RequestsController < ApplicationController
   def index
       if params[:search]
         @requests = Request.search(params[:search])
+        @organizations = Organization.all
       elsif params[:tag]
         @requests = Request.tagged_with(params[:tag])
+        @organizations = Organization.all
       else
         @requests = Request.order("#{sort_column} #{sort_direction}")
+        @organizations = Organization.all
       end
       render :index
   end

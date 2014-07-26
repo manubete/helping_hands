@@ -26,12 +26,17 @@
   <div class="request">
     <ul>
       <% @requests.each do |request| %>
+         <% @organizations.each do |organization| %>
         <li>
           <% if !request.complete %>
           <div class="searchResults">
 
             <div class="photo">
-              <img alt="OrganizationName" class="photo" src="images/salvationArmy.jpg">
+              <% if request.organization == organization.name %>
+
+              <%= cl_image_tag(organization.avatar_url) %>
+
+              <% end %>
             </div>
 
             <div class="searchContent">
@@ -58,6 +63,7 @@
           </div>
         </li>
         <li><hr class="style-six"></hr></li>
+          <% end %>
         <% end %>
       <% end %>
     </ul>

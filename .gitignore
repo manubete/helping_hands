@@ -15,6 +15,9 @@
 /tmp
 .env
 
+#Ignore the cloudinary file
+/config/cloudinary.yml
+
 # ignore OS X DS_Store file
 .DS_Store
 

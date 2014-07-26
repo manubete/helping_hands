@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe SessionsController do
   context "#create" do
-    it "should create a new session with valid params" do
+    xit "should create a new session with valid params" do
     end
   end
 
   context "#destroy" do
-    it "should clear the session and redirect to the root path" do
+    xit "should clear the session and redirect to the root path" do
 
       redirect_to root_path
     end

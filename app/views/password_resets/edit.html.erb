@@ -1,0 +1,44 @@
+<div class="fillBox">
+  <% if @donor %>
+      <%= form_for @donor, :url => password_reset_path(params[:id]) do |f| %>
+       <% if @donor.errors.any? %>
+        <h5>Form is invalid</h5>
+        <ul>
+          <% for message in @donor.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
+
+          <p><%= f.label :password %>
+          <%= f.password_field :password %></p>
+
+          <p><%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %></p>
+        <p><%= f.submit "Update Password", :class => "tfbutton" %></p>
+      <% end %>
+
+    <% elsif @organization %>
+
+         <%= form_for @organization, :url => password_reset_path(params[:id]) do |f| %>
+       <% if @organization.errors.any? %>
+        <h5>Form is invalid</h5>
+        <ul>
+          <% for message in @organization.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
+
+          <p><%= f.label :password %>
+          <%= f.password_field :password %></p>
+
+          <p><%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %></p>
+        <p><%= f.submit "Update Password", :class => "tfbutton" %></p>
+      <% end %>
+
+
+    <% end %>
+</div>
+

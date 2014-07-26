@@ -1,105 +1,54 @@
-  <div class="box">
-     <% if flash[:notice] %>
-          <div class="error"><%= flash[:notice] %></div>
+<div class="box">
+  <% if flash[:notice] %>
+    <div class="error"><%= flash[:notice] %></div>
+  <% end %>
+  <header class="fulfilled">Make a Request</header>
+    <%= form_for @request do |f| %>
+    <ul id="new_request_ul">
+      <li class="reqInput" id="rNeed"><%= f.hidden_field :organization, :value => @organization.name %></li>
+      <li id="organization_id"><%= f.hidden_field :organization_id, :value => session[:organization_id] %></li>
+      <li>
+        <%  if flash[:resource] %>
+          <p class="error"> Resource Needed <%= flash[:resource].join(', and ') %></p>
         <% end %>
-    <header class="fulfilled">Make a Request</header>
-      <%= form_for @request do |f| %>
-      <ul>
-        <li>
-          <div class="reqInput">
-            <p id="rNeed"><%= f.hidden_field :organization, :value => @organization.name %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-        <li>
-          <p id="organization_id" ><%= f.hidden_field :organization_id, :value => session[:organization_id] %></p>
-        </li>
-        <li>
-           <%  if flash[:resource] %>
-            <p class="error"> Resource Needed <%= flash[:resource].join(', and ') %></p>
-          <% end %>
-          <div class="reqLabel">
-            <label>Resource Needed:</label>
-          </div>
-          <div class="reqInput">
-            <p id="rNeed"><%= f.text_field :resource, :placeholder => "water bottles, blankets" %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-           <%  if flash[:current_resource_count] %>
-            <p class="error" > Quantity Needed <%= flash[:current_resource_count].join(', and ') %></p>
-          <% end %>
-            <p><%= f.hidden_field :current_resource_count, :value => 0 %></p>
-        <li>
-           <%  if flash[:target_resource_count] %>
-            <p class="error" > Quantity Needed <%= flash[:target_resource_count].join(', and ') %></p>
-          <% end %>
-          <div class="reqLabel">
-            <label>Quantity Needed:</label>
-          </div>
-          <div class="reqInput">
-            <p><%= f.text_field :target_resource_count, :placeholder => "500, 200" %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-        <li>
-          <%  if flash[:address] %>
-            <p class="error"> Address <%= flash[:address].join(', and ') %></p>
-          <% end %>
-          <div class="reqLabel">
-            <label>Address:</label>
-          </div>
-          <div class="reqInput">
-            <p><%= f.text_field :address, :placeholder => "1234 Valencia St, CA 94103" %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-        <li>
-           <%  if flash[:description] %>
-            <p class="error"> Description <%= flash[:description].join(', and ') %></p>
-          <% end %>
-          <div class="reqLabel">
-            <label>Description:</label>
-          </div>
-          <div class="reqInput">
-            <p><%= f.text_field :description, :placeholder => "Dehydrated Refugees" %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-          <li>
-          <%  if flash[:tag_list] %>
-            <p class="error"> Tag list <%= flash[:tag_list].join(', and ') %></p>
-          <% end %>
-          <div class="reqLabel">
-            <label>Tag list:</label>
-          </div>
-          <div class="reqInput">
-            <p><%= f.text_field :tag_list, :placeholder => "Clothing" %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-        <li>
-          <div class="reqLabel">
-            <label>Start Date: </label>
-          </div>
-          <div class="reqInput">
-            <p><%= f.date_select :start_date  %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-        <li>
-          <div class="reqLabel">
-            <label>End Date: </label>
-          </div>
-          <div class="reqInput">
-            <p><%= f.date_select :end_date, :include_blank => true  %></p>
-          </div>
-        </li>
-        <li><br></br></li>
-        <li>
-          <div class="formButtom">
-            <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
-          </div>
-        </li>
-      <% end %>
-  </div>
+        <p><label class="reqLabel">Resource Needed:</label> <%= f.text_field :resource, class: "reqInput", id: "rNeed", :placeholder => "water bottles, blankets" %></p></li>
+      <li>
+        <%  if flash[:current_resource_count] %>
+          <p class="error" > Quantity Needed <%= flash[:current_resource_count].join(', and ') %></p>
+        <% end %>
+        <p><%= f.hidden_field :current_resource_count, :value => 0 %></p>
+      </li>
+
+      <br>
+      <li>
+        <%  if flash[:target_resource_count] %>
+          <p class="error" > Quantity Needed <%= flash[:target_resource_count].join(', and ') %></p>
+        <% end %>
+          <p><label class="reqLabel">Quantity Needed:</label> <%= f.text_field :target_resource_count, class: "reqInput", :placeholder => "500, 200" %></p></li>
+      <br>
+      <li>
+        <%  if flash[:address] %>
+          <p class="error"> Address <%= flash[:address].join(', and ') %></p>
+        <% end %>
+        <p><label class="reqLabel">Address:</label> <%= f.text_field :address, class: "reqInput", :placeholder => "1234 Valencia St, CA 94103" %></p></li>
+      <br>
+      <li>
+        <%  if flash[:description] %>
+          <p class="error"> Description <%= flash[:description].join(', and ') %></p>
+        <% end %>
+        <p><label class="reqLabel">Description:</label> <%= f.text_field :description, class: "reqInput", :placeholder => "Dehydrated Refugees" %></p></li>
+      <br>
+      <li>
+        <%  if flash[:tag_list] %>
+          <p class="error"> Tag list <%= flash[:tag_list].join(', and ') %></p>
+        <% end %>
+        <p><label class="reqLabel">Tag list:</label> <%= f.text_field :tag_list, class: "reqInput", :placeholder => "Clothing" %></p></li>
+      <br>
+      <li><p><label class="reqLabel">Start Date: </label>&nbsp;<%= f.date_select :start_date, class: "reqInput" %></p></li>
+      <br>
+      <li><p><label class="reqLabel">End Date: </label>&nbsp;<%= f.date_select :end_date, class: "reqInput", :include_blank => true  %></p></li>
+      <br>
+      <li><p class="formButtom"><%= f.submit 'Submit', :class => 'tfbutton'%></p></li>
+  <% end %>
+  </ul>
+</div>

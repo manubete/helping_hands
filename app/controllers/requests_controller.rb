@@ -17,14 +17,13 @@ class RequestsController < ApplicationController
 
   def donor_index
     #returns the list of donors that contributed to a particular request
-    p "#{params.inspect}"
+    # p "#{params.inspect}"
     @request = Request.find(params["request"]["id"])
     @contributions = @request.contributions
 
     @donors = []
 
     @contributions.each do |contribution|
-
       @donor = Donor.find(contribution.donor_id)
       @donors.push(@donor) if !(@donors.include? @donor)
     end
@@ -33,13 +32,13 @@ class RequestsController < ApplicationController
   end
 
   def new
-  @request = Request.new
+    @request = Request.new
     @organization = Organization.find(session[:organization_id])
     render :new
   end
 
   def create
-    p "#{params["request"]["organization"]}"
+    # p "#{params["request"]["organization"]}"
     @request = Request.new(params["request"])
 
 
@@ -51,17 +50,15 @@ class RequestsController < ApplicationController
       flash[:notice] = "Incorrect signup information for the request"
       flash[:resource] = @request.errors[:resource] unless @request.errors[:resource].empty?
       flash[:current_resource_count] = @request.errors[:current_resource_count] unless @request.errors[:current_resource_count].empty?
-     flash[:target_resource_count] = @request.errors[:target_resource_count] unless @request.errors[:target_resource_count].empty?
-    flash[:address] = @request.errors[:address] unless @request.errors[:address].empty?
-    flash[:description] = @request.errors[:description] unless @request.errors[:description].empty?
-    flash[:tag_list] = @request.errors[:tag_list] unless @request.errors[:tag_list].empty?
+      flash[:target_resource_count] = @request.errors[:target_resource_count] unless @request.errors[:target_resource_count].empty?
+      flash[:address] = @request.errors[:address] unless @request.errors[:address].empty?
+      flash[:description] = @request.errors[:description] unless @request.errors[:description].empty?
+      flash[:tag_list] = @request.errors[:tag_list] unless @request.errors[:tag_list].empty?
 
-
-       @request = Request.new
-       @organization = Organization.find(session[:organization_id])
+      @request = Request.new
+      @organization = Organization.find(session[:organization_id])
       render :new
     end
-
   end
 
   def edit
@@ -71,7 +68,7 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-     if @request.update_attributes(params[:request])
+    if @request.update_attributes(params[:request])
       redirect_to(@request)
     else
       render :edit
@@ -84,8 +81,6 @@ class RequestsController < ApplicationController
       @request.destroy
       flash[:notice] = "Request was deleted"
       redirect_to organization_path(session[:organization_id])
-    else
-
     end
   end
 

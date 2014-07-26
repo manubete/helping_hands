@@ -1,3 +1,18 @@
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#img_prev').attr('src', e.target.result);
+      $( ".donate_img" ).removeAttr('style');
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
 <div id="contentBox">
   <div class="box" style="float: left; width: 40%;">
 
@@ -104,14 +119,14 @@
       <%= cloudinary_js_config %>
       <%= form_for @contribution do |f| %>
       <div class="donatePhoto">
-        <div class="donate_img">
-          <img alt="Insert Photo"src="images/donationPhoto.jpg" height="100%">
+        <div class="donate_img" style="visibility:hidden;">
+          <img id="img_prev" alt="Image Preview" src="#">
         </div>
         <div class="picButton">
           <p style="margin-bottom: 0.1em">Upload a clear photo</p>
           <p style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
-          <%= f.file_field(:photo, accept: 'image/*;capture=camera') %>
+          <%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);') %>
 
         </div>
       </div>

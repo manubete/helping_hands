@@ -1,3 +1,18 @@
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#img_prev').attr('src', e.target.result);
+      $( ".org_avatar" ).removeAttr('style');
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
 <div style="height: 120%;"class="box">
   <header class="fulfilled">Make an Organization Account</header>
 
@@ -18,8 +33,11 @@
         <%= cloudinary_js_config %>
 
     <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
-    <%= f.file_field(:avatar) %>
+    <%= f.file_field(:avatar, onchange:'readURL(this);') %>
     <%= f.hidden_field(:avatar_cache) %>
+    <div class="org_avatar" style="visibility:hidden;">
+      <img id="img_prev" alt="Image Preview" src="#">
+    </div>
 
 
       <li>

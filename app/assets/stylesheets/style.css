@@ -1,4 +1,5 @@
 @import url('mediaqueries.css');
+
 /* ------ Landing Page Styling -------------- */
 
 html {
@@ -8,8 +9,6 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-
-
 
 .bottomLinks {
   position: fixed;
@@ -401,8 +400,7 @@ header.contHead{
 div .error {
   border: 2px solid white;
   border-radius: 3px;
-  color: white;
-  background-color: red;
+  color: red;
   width:40%;
   margin: 0 auto;
 }
@@ -469,5 +467,624 @@ div .signup {
 }
 
 #menu ul li > ul li a:hover{
+  background-color:#2e2e2e;
+}
+
+/* ------ Landing Page Styling -------------- */
+
+html {
+  background: url(/assets/helping_hands_bckground_img.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bottomLinks {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background: #000;
+  padding: 0 1%;
+}
+
+.introBox{
+  margin-top: 3em;
+  padding: 2.5em 1.5em 2em 1.5em;
+  width: 100%;
+  height: 9%;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+
+.introBox.log{
+  float: right;
+  width: 10%;
+  margin-bottom: 2rem;
+}
+
+.overflowBox{
+  height: 100%;
+  width: 100%;
+}
+
+.promiseBox{
+  border-radius:1em;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.70);
+  margin: 10% auto 0 auto;
+  padding: 2.5%;
+  box-sizing: border-box;
+  text-align:center;
+  line-height:1.5;
+}
+
+.text_area {
+  height:5%;
+  width:45%;
+}
+
+.fill_label{
+  width: 40%;
+  float: left;
+  height: 80%;
+  text-align: right;
+}
+
+.fill_p{
+  width: 55%;
+  float: right;
+  height: 80%;
+  margin-bottom: 1em;
+}
+
+.fill_p p{
+  margin: 0;
+}
+
+.profileImg{
+  margin: 0 10em 2em 3em;
+  width: 10em;
+  height: 10em;
+  overflow: hidden;
+  float: left;
+  display: block;
+}
+
+div.log{
+  float: right;
+  margin-bottom: 2rem;
+  margin: 0 2rem 2rem 0;
+}
+
+
+
+/*------------- general -------------- */
+header.fulfilled{
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.smallHeader{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.adjustBox, .contentBox{
+  height: 100%;
+}
+
+/*------------- Requests Index and Show Pages -------------- */
+
+.sorting_category {
+  list-style: none;
+}
+.sorting_category li {
+  display: inline;
+  text-decoration: underline;
+}
+
+.request {
+}
+
+
+/*------------- Requests New and Organizations New Pages -------------- */
+
+.logoDiv{
+  float: left;
+  width: 20%;
+  margin-bottom: 2rem;
+}
+
+.logoBig{
+  float: none;
+  margin-bottom: 2rem;
+}
+
+.logoBig img{
+  height: 20em;
+}
+
+.logo{
+  width: 70%;
+  height: 70%;
+}
+
+.request {
+  width: 80%;
+}
+
+.reqAcctBox{
+  float: right;
+  width: 50%;
+}
+
+header.reqHead{
+  padding-left: 5%;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.reqInput{
+  width: 55%;
+  float: right;
+}
+
+.reqInput p{
+  margin: .5em 0 .5em 0;
+}
+
+.reqLabel{
+  width: 40%;
+  float: left;
+  text-align: right;
+  margin: 0.5em 0 0.5em 0.5em;
+}
+
+/*------------- Donation form -------------- */
+div.donatePhoto{
+  margin: 2em;
+  height: 10em;
+}
+
+.donate_img{
+  padding-left: 4%;
+  float: left;
+  height: 100%;
+
+}
+
+.picButton{
+  float: right;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.fillIn{
+  width: 55%;
+  float: right;
+  height: 80%;
+  margin-bottom: 1em;
+}
+
+#contentBox{
+  width: 70em;
+  margin: 3% auto 5% auto;
+}
+
+/*------------- Donor Index and New Pages -------------- */
+
+.box, .loginBox {
+  border-radius: 0.5em;
+  background: rgba(0, 0, 0, 0.70);
+  padding: 2.5em 1.5em 2.5em 1.5em;
+  margin: 2% auto 0 auto;
+  width: 50em;
+  }
+
+.loginBox{
+  width: 45em;
+  margin: 5% auto 0 auto;
+  padding:1em;
+  text-align:center;
+  line-height:1.5;
+}
+
+/*------------- Donors New and Organizations New Forms -------------- */
+
+header.fulfilled{
+  font-size: 2.5em;
+  text-align: center;
+  font-family: Tahoma;
+  font-weight: bold;
+  color:white;
+  margin-bottom: 5%;
+}
+.longSign li {
+  list-style: none;
+  padding: 1%;
+}
+
+
+.account li label{
+  text-align: left;
+  font-size: 1em;
+  font-color: #408c99;
+}
+
+ul li {
+  color:white;
+}
+
+.tfbutton, .tfbutton_login, .tfbuttonWhich{
+    margin: 0 auto;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.9em;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    border-radius: 0.45em;
+  }
+
+.tfbuttonWhich {
+  width:10em;
+  margin: 0 auto 0 auto;
+}
+
+.tfbutton_login {
+  width:7em;
+  margin: 0 auto 0 auto;
+}
+
+  .formButton{
+    width: 100%;
+    clear: both;
+  }
+
+  .photoButton{
+    width: 50%;
+    margin: 20% 0 15% 0;
+    float: right;
+  }
+
+  .proPhoto{
+    float: left;
+    width: 20%;
+    margin-bottom: 2em;
+  }
+
+  .tftextinput{
+    margin: 0;
+    padding: 5px 15px;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-size:14px;
+    border:1px solid #0076a3; border-right:0px;
+    border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+  }
+
+  .tfbutton_search {
+    width:20%;
+    margin: 0 auto;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.9em;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3; border-right:0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+  }
+
+
+
+  .tfbutton:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+  }
+
+   .tfbutton_search:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+  }
+
+   .tfbutton_login:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+  }
+
+  /* Fixes submit button height problem in Firefox */
+  .tfbutton::-moz-focus-inner {
+    border: 0;
+  }
+
+.contactInput{
+  background-color: #ffffff;
+  margin: 0em 1em 0em 1em;
+  float: right;
+  align: center;
+}
+
+.topLinks{
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  padding:1em;
+  top: 0;
+  background-color: #000;
+  height: 70px;
+}
+
+.longSign li label{
+  display: inline;
+}
+
+label.form_label {
+  width: 80%;
+  float:left;
+  text-align: right;
+  margin: 0.5em 0 0.5em 0;
+}
+
+li#input{
+  float: right;
+  width: 40%;
+}
+
+/*------------- SECURITY QUESTION FORM -------------- */
+
+.form_field {
+  text-align: center;
+}
+
+
+
+/*------------- SEARCH PAGE -------------- */
+.searchPage{
+  width: 70%;
+  margin: 0 auto 2em auto;
+}
+
+.searchInput{
+  width: 70%;
+  border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+  border: solid 1px #9e9e9e;
+  outline: 0;
+  height: 1.5em;
+  margin-top: 0.1em;
+}
+
+.sorting{
+  text-align: center;
+}
+
+hr.style-six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.request{
+  width: 100%;
+  margin: 2em auto 2em auto;
+}
+
+div.searchContent{
+  height: 5em;
+  margin: 0 2em 2em 0;
+}
+
+ul.searchResults{
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  z-index:2;
+  top:0px;
+  left:0px;
+}
+
+div.date{
+  float: right;
+  width: 30%;
+}
+
+div.photo img{
+  float: left;
+  width: 5em;
+  height: 5em;
+  overflow: hidden;
+  margin: 0 0.5em 0 1em;
+}
+
+.reqPre{
+  text-align: left;
+  font-size: 0.5em;
+  float:left;
+}
+
+div.searchOrgName{
+  float: left;
+  font-size: 2em;
+  width: 50%;
+}
+
+/*------------- WHERE DO THESE THINGS BELONG? -------------- */
+
+
+header.contHead{
+  font-size: 2.5em;
+  text-align: center;
+  font-family: 'Tahoma', sans-serif;
+  font-weight: bold;
+ }
+
+.contactInput{
+  background-color: #fff;
+  margin: 0em 1em 0em 1em;
+  float: right;
+  text-align: center;
+}
+
+
+#buttonDiv{
+  position: relative;
+  float: right;
+}
+
+.textbox {
+  height:25px;
+  width: 300px;
+  border: solid 1px #9e9e9e;
+  outline: 0;
+  font: normal 13px/100% Verdana, Tahoma, sans-serif;
+  background: #FFFFFF url('bg_form.png') left top repeat-x;
+  background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  }
+
+.textbox :focus {
+  border-color: #797979;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+
+#titleLine{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 5px;
+  color: #000000;
+  background-color: #000000;
+}
+
+p.error {
+  color: white;
+}
+
+div .signup {
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  background-color: #0095cc;
+  width:40%;
+  margin: 0 auto;
+}
+.form_label {
+  width: 4em;
+  text-align: left;
+  margin-right: 0.5em;
+  display: block;
+}
+
+.login_label {
+  color:white;
+  font-size: 1.2em;
+  margin:0 1em 0 0;
+  width: 30%;
+  text-align: right;
+  float: left;
+}
+
+/*------------- account display requests -------------- */
+
+#menu {
+  position:relative;
+  font-family: 'Tahoma';
+}
+
+.parent-menu {
+  /*background-color: #536985;*/
+  width: 95%;
+  padding: 0;
+  float:left;
+}
+
+.parent-menu li div p{
+  margin: 0.1em 1em 0.1em 0.1em;
+  font-size: 0.8em;
+}
+
+.acc_reqMainContent{
+  float: left;
+  margin: 1em 1em 1em 1em;
+}
+
+.acc_reqDate{
+  float: right;
+  margin: 1em 1em 1em 1em;
+}
+
+.parent-menu li div a{
+  font-size: 1.5em;
+}
+
+.menu ul{
+  list-style-type:none;
+}
+
+.menu ul li a {
+  display:block;
+  text-decoration:none;
+}
+
+.menu ul li:hover{
+  background-color:#97b7d8;
+}
+
+.menu ul li{
+  background: -webkit-linear-gradient(#405461, #232E36); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#405461, #232E36); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#405461, #232E36); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#405461, #232E36);
+ }
+
+.menu ul li:hover > ul {
+  left: 200px;
+  -webkit-transition: left 200ms ease-in;
+  -moz-transition: left 200ms ease-in;
+  -ms-transition: left 200ms ease-in;
+  transition: left 200ms ease-in;
+}
+
+.menu ul li > ul {
+  position: absolute;
+  background-color: #333;
+  top: 0;
+  left: -200px;
+  min-width: 200px;
+  z-index: -1;
+  height: 100%;
+  -webkit-transition: left 200ms ease-in;
+  -moz-transition: left 200ms ease-in;
+  -ms-transition: left 200ms ease-in;
+  transition: left 200ms ease-in;
+}
+
+.menu ul li > ul li a:hover{
   background-color:#2e2e2e;
 }

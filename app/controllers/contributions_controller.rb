@@ -1,7 +1,7 @@
 class ContributionsController < ApplicationController
 
     def create
-    p "#{params["contribution"]}"
+    # p "#{params["contribution"]}"
     @contribution = Contribution.new(params["contribution"])
     @contribution.update_attributes(params[:contribution])
 
@@ -14,8 +14,15 @@ class ContributionsController < ApplicationController
 
       #send an email
         @donor = Donor.find(@contribution.donor_id)
+        @organization = Organization.find(@request.organization_id)
 
-         #sent it
+        @email_hash = { donor: @donor, organization: @organization, contribution: @contribution, request: @request
+
+        }
+
+        OrganizationMailer.notify_contribution(@email_hash).deliver
+
+        DonorMailer.donor_contribution_notification(@email_hash).deliver
 
       redirect_to requests_path
     else

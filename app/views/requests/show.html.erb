@@ -35,7 +35,7 @@ function readURL(input) {
           </div>
 
           <div class="fill_p">
-            <p><%= @request.target_resource_count %></p>
+            <p><%= @request.target_resource_count - @request.current_resource_count %></p>
           </div>
       </li>
       <li><hr></li>
@@ -119,14 +119,18 @@ function readURL(input) {
       <%= cloudinary_js_config %>
       <%= form_for @contribution do |f| %>
       <div class="donatePhoto">
+
         <div class="donate_img" style="visibility:hidden;">
           <img id="img_prev" alt="Image Preview" src="#">
+
         </div>
         <div class="picButton">
           <p style="margin-bottom: 0.1em">Upload a clear photo</p>
           <p style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
+
           <%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);') %>
+
 
         </div>
       </div>

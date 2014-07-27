@@ -34,7 +34,6 @@ class Organization < ActiveRecord::Base
     end while Organization.exists?(column => self[column])
   end
 
-
+  has_secure_password
 
 end
-

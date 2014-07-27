@@ -18,14 +18,6 @@
           <% end %>
             <label class="form_label">Resource Needed:<%= f.text_field :resource, :id=> "rNeed", :placeholder => "water bottles, blankets" %></label>
         </li>
-        <li>
-           <%  if flash[:resource_count] %>
-            <p class="error" > Quantity Needed <%= flash[:resource_count].join(', and ') %></p>
-          <% end %>
-            <label class="form_label">Quantity Needed:
-            <%= f.text_field :resource_count, :placeholder => "500, 200" %>
-            </label>
-        </li>
 
 
           <li>

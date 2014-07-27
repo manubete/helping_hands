@@ -10,6 +10,8 @@ gem"simple-navigation"
 gem 'carrierwave'
 gem 'cloudinary'
 
+gem 'bcrypt-ruby', '~> 3.0.0'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'unicorn'

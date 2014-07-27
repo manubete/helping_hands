@@ -31,5 +31,6 @@ class Donor < ActiveRecord::Base
     end while Donor.exists?(column => self[column])
   end
 
+  has_secure_password
 
 end

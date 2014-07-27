@@ -55,6 +55,7 @@
               <% @contributions.each do |contribution| %>
                 <% @requests.each do |request| %>
                 <ul class="parent-menu">
+
                   <li>
                   <% if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %>
                     <div class="acc_reqMainContent">
@@ -63,6 +64,7 @@
                     </div>
                     <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
                   <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+
                   <% end %>
                   <hr></hr>
                 </li>
@@ -96,14 +98,16 @@
                   </div>
                 <hr></hr>
                 </li>
-                <% end %>
-                <% end %>
-              </ul>
+                  </ul>
 
-          </nav>
-            <% if @requests.size == 0 %>
-              <p> No requests in history </p>
-            <% end %>
+                </nav>
+                    <% if @requests.size == 0 %>
+                      <p> No requests in history </p>
+                    <% end %>
+
+                <% end %>
+                <% end %>
+
         </div>
       </div>
     </div>

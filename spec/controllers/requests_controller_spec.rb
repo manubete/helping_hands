@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 describe RequestsController do
+
   context "#index" do
-
     # TODO: Test the sort_column and sort_direction helpers
-
     it "should render the index view" do
       get :index
       expect(response.status).to eq 200
@@ -14,6 +13,18 @@ describe RequestsController do
       req = FactoryGirl.create(:request)
       get :index
       assigns(:requests).should eq([req])
+    end
+  end
+
+  context "#donor_index" do
+    xit "should render the donor_index view" do
+      get :donor_index
+      expect(response.status).to eq 200
+    end
+
+    xit "should return the list of donors that contributed to a particular request" do
+      get :donor_index
+      pending
     end
   end
 
@@ -42,7 +53,7 @@ describe RequestsController do
 
     it "should not save a request to the database when params are left blank" do
       expect{
-        Request.create(organization: nil, resource: nil, resource_count: nil, address: nil, description: nil)
+        Request.create(organization: nil, resource: nil, current_resource_count: nil, target_resource_count: nil, address: nil, description: nil)
       }.to_not change { Request.count }.by(1)
     end
   end
@@ -83,6 +94,16 @@ describe RequestsController do
      expect{
       render_template :edit
      }
+    end
+  end
+
+  context "#destroy" do
+    xit "should delete the request and redirect to the organization path" do
+      @req = FactoryGirl.create(:request)
+      @org = FactoryGirl.create(:organization)
+
+      @req.destroy
+      redirect_to organization_path(session[@org.id])
     end
   end
 

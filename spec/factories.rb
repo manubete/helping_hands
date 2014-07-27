@@ -34,7 +34,8 @@ FactoryGirl.define do
   factory :request do
     organization_id 1
     resource "bottled water"
-    resource_count 100
+    current_resource_count 0
+    target_resource_count 100
     address "100 Fake Street"
     organization "Test Org"
     description "Refugees without clean water supply"

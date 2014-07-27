@@ -7,7 +7,7 @@
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
 
       <div class="profileImg">
-        <img src="/assets/salvationArmy.jpg" height="100%"><br>
+        <%= cl_image_tag(@organization.avatar_url) %><br>
       </div>
 
       <ul class="account">
@@ -90,7 +90,7 @@
             <ul class="parent-menu">
               <li>
                 <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{request.resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
+                  <strong><%= link_to "#{request.target_resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
                   <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
                 </div>
                 <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
@@ -115,10 +115,15 @@
           <nav class="menu">
              <% @requests.each do |request| %>
             <ul class="parent-menu">
-              <li>
+
+            <li>
+
                 <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{request.resource_count} of #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></strong>
-                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></p>
+                  <strong><%= link_to "#{request.target_resource_count} of #{request.resource}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></strong>
+                  <p><%= link_to "#{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></p>
+                </div>
+                <div style="float: right;">
+                  <%= "Finished at #{request.end_date}" if !request.end_date.nil? && request.end_date < Date.today %>
                 </div>
                 <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
                 <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>

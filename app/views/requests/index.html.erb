@@ -3,65 +3,66 @@
   <header class="fulfilled">Needs of Organizations:</header>
 
 
-      <% if flash[:notice] %>
-          <div class="signup"><%= flash[:notice] %></div>
-          <% end %>
+    <% if flash[:notice] %>
+      <div class="signup"><%= flash[:notice] %></div>
+    <% end %>
 
-
-      <%= form_tag requests_path, :method => 'get', :class => 'searchPage' do %>
-          <%= text_field_tag :search, params[:search], :class =>"searchPageInput"%>
-          <%= submit_tag "Search", :name => nil, :class=>"tfbuttonSearchPage" %>
-      <% end %>
-
+    <%= form_tag requests_path, :method => 'get', :class => 'searchPage' do %>
+      <%= text_field_tag :search, params[:search], :class =>"searchInput"%>
+      <%= submit_tag "Search", :name => nil, :class=>"tfbutton_search" %>
+    <% end %>
 
     <div class="sorting">
       <span class = "sorting_category"><%= sortable "organization" %></span>
-      <span class = "sorting_category"><%= sortable "resource_count", "Quantity" %></span>
+      <span class = "sorting_category"><%= sortable "target_resource_count", "Quantity" %></span>
       <span class = "sorting_category"><%= sortable  "resource", "Resource Needed" %></span>
       <span class = "sorting_category"><%= sortable  "start_date", "Date Posted" %></span>
       <span class = "sorting_category"><%= sortable  "end_date", "Expiration" %></span>
     </div>
 
-
-  <div class="request">
+    <div class="request">
     <ul>
       <% @requests.each do |request| %>
-        <li>
 
+         <% @organizations.each do |organization| %>
+        <li>
+          <% if !request.complete %>
           <div class="searchResults">
 
             <div class="photo">
-              <img alt="OrganizationName" class="photo" src="images/salvationArmy.jpg">
+              <% if request.organization == organization.name %>
+
+              <%= cl_image_tag(organization.avatar_url) %>
+
+              <% end %>
             </div>
 
-            <div class="searchContent">
-              <div class="searchOrgName">
-                <%= link_to "#{request.organization}", request_path(request) unless request.complete %>
-                <p></p>
-                <div class="reqPre">
 
-                  <%= link_to "Needs #{request.resource}", request_path(request) unless request.complete %>
-                  <p>
-                  <%= "#{request.address}" %>
-                </p>
+          <div class="searchContent">
+            <div class="searchOrgName">
+              <%= link_to "#{request.organization}", request_path(request) %>
+              <div class="reqPre">
+                <%= link_to "Needs #{request.resource}", request_path(request) %>
+                <p><%= "#{request.address}" %></p>
                 <p>Tags: <%= raw request.tag_list.map { |tag| link_to tag, tag_path(tag), :class => 'tfbutton'}.join(', ') %></p>
-                </div>
-
-              </div>
-              <div class="date">
-                <%= "Posted #{request.start_date}" %>
-                <p></p>
-                <%= "Ends #{request.end_date}" %>
               </div>
             </div>
-
+            <div class="date">
+              <%= "Posted #{request.start_date}" %>
+              <%= "Ends #{request.end_date}" %>
+            </div>
           </div>
+        </div>
         </li>
+
         <li><hr class="style-six"></hr></li>
+          <% end %>
         <% end %>
-      </ul>
+    <% end %>
+    </ul>
     </div>
   </div>
+
   <div class="placeholderBox">
     </div>
 </div>

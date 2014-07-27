@@ -1,5 +1,6 @@
 <div class="loginBox">
 
+
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
@@ -7,20 +8,23 @@
         <%= form_tag sessions_path do %>
 
         <ul>
+
           <li>
-            <label class="login_label" for="username">Email </label>
+            <label class="login_label" for="email">Email </label>
             <p><%= email_field_tag :email, params[:email] %></p>
           </li>
           <li>
             <label class="login_label" for="password">Password</label>
             <p><%= password_field_tag :password, params[:password] %></p>
           </li>
+
+          <li style="margin:0 auto; text-align:center">
+                 <%= link_to "Forgot Your Password Again?", new_password_reset_path  unless session[:organization_id] || session[:donor_id] %></li>
+
           <li style="margin:0 auto; text-align:center">
           <%= submit_tag 'Log In', :class => 'tfbutton_login' %>
         </li><br>
-        <li style="margin:0 auto; text-align:center">
-             <%= link_to "Forgot Your Password?",{ controller: "sessions", action: "find_security_question" }  unless session[:organization_id] || session[:donor_id] %>
-        </li>
+
         </ul>
 
 
@@ -29,3 +33,4 @@
 
 
   </div>
+

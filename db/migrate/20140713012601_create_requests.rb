@@ -3,7 +3,8 @@ class CreateRequests < ActiveRecord::Migration
     create_table :requests do |col|
       col.belongs_to :organization
       col.string :resource
-      col.integer :resource_count, :default => 0
+      col.integer :target_resource_count
+      col.integer :current_resource_count, :default => 0
       col.string :address
       col.string :organization
       col.string :description

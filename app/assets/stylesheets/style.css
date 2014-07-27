@@ -32,19 +32,6 @@ html {
   width: 100%;
 }
 
-.promiseBox{
-  border-radius:1em;
-  width: 50%;
-  height: 50%;
-  background: rgba(0, 0, 0, 0.70);
-  margin: 10% auto 0 auto;
-  padding: 2.5%;
-  box-sizing: border-box;
-  text-align:center;
-  line-height:1.5;
-}
-
-
 .profileImg{
   margin-left: 1em;
   margin-right: 1em;
@@ -87,11 +74,6 @@ div.log{
   line-height:1.5;
   text-transform:uppercase;
 }
-
-
-
-.promiseBox a{display:block;}
-
 
 /*------------- Requests Index and Show Pages -------------- */
 
@@ -154,7 +136,7 @@ header.reqHead{
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   padding: 3%;
-  margin: 2% auto 0 auto;
+  margin: 2% auto 2% auto;
   width: 40%;
   }
 
@@ -397,6 +379,7 @@ header.contHead{
 }
 
 
+
 div .error {
   border: 2px solid white;
   border-radius: 3px;
@@ -404,6 +387,7 @@ div .error {
   width:40%;
   margin: 0 auto;
 }
+
 
 div .signup {
   border: 2px solid white;

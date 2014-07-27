@@ -1,33 +1,36 @@
 
-<div class="box" style="height: 120%;">
+<div style="height: 130%">
+  <div class="box">
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
 
         <%= form_for @donor do |f| %>
 
-        <header class="fulfilled" style="margin-bottom: 5%;">Make a Donor Account</header>
+        <header class="fulfilled" style="margin-bottom: 5%;">Make a Contributor Account</header>
         <p style="text-align: center;">*Required Fields</p>
         <ul class="longSign">
           <li>
         <%  if flash[:name] %>
         <p class="error"> Name <%= flash[:name].join(', and ') %></p>
         <% end %>
-            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "ie Helper Hank" %></label>
-          </li>
-          <li>
-          <%  if flash[:city] %>
-        <p class="error"> City <%= flash[:city].join(', and ') %></p>
-        <% end %>
-            <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "eg San Francisco" %></label>
+            <label class="form_label" for="name">*Name: <%= f.text_field :name, :placeholder => "First Last" %></label>
           </li>
 
            <li>
           <%  if flash[:address] %>
           <p class="error"> Address <%= flash[:address].join(', and ') %></p>
           <% end %>
-              <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "eg 768 15th Street" %></label>
+              <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "Door, Street" %></label>
             </li>
+
+        <li>
+          <%  if flash[:city] %>
+        <p class="error"> City <%= flash[:city].join(', and ') %></p>
+        <% end %>
+            <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "City, State, Zip" %></label>
+          </li>
+
             <li>
           <%  if flash[:phone_number] %>
           <p class="error"> Phone Number <%= flash[:phone_number].join(', and ') %></p>
@@ -63,7 +66,7 @@
             <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909" %></label>
           </li>
           <li>
-            <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
+            <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
           </li>
           <li>
             <div class="formButton">
@@ -73,6 +76,6 @@
         </ul>
 
         <% end %>
-
+   </div>
 </div>
 

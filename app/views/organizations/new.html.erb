@@ -12,6 +12,13 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+$(document).ready(function(){
+  $(".fakeButton").click(function(){
+    $(".actualButton").click();
+  });
+});
+
 </script>
 
 <div style="height: 120%">
@@ -25,17 +32,20 @@ function readURL(input) {
 
     <%= form_for @organization do |f| %>
     <ul class="longSign">
-
+      <li>
+        <div class="signUpPic">
+          <div class="org_avatar">
+            <img id="img_prev" alt="Add Logo Image" src="/assets/placeholderPic.jpg">
+          </div>
         <%= cloudinary_js_config %>
 
         <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
-        <%= f.file_field(:avatar, onchange:'readURL(this);') %>
+        <%= f.file_field(:avatar, onchange:'readURL(this);', :class=>'actualButton') %>
         <%= f.hidden_field(:avatar_cache) %>
-        <div class="org_avatar" style="visibility:hidden;">
-          <img id="img_prev" alt="Image Preview" src="#">
+        <div class="fakeButton">Choose File</div>
         </div>
-
-       <li>
+      </li>
+      <li>
           <%  if flash[:name] %>
             <p class="error"> Name <%= flash[:name].join(', and ') %></p>
           <% end %>
@@ -135,4 +145,6 @@ function readURL(input) {
     <% end %>
   </div>
 
+  <div class="placeholderBox">
+  </div>
 </div>

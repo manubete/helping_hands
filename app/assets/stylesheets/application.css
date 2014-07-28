@@ -1,7 +1,3 @@
-
-
-@import url('mediaqueries.css');
-
 /* ------ Landing Page Styling -------------- */
 
 html {
@@ -292,7 +288,7 @@ ul li {
   color:white;
 }
 
-.tfbutton, .tfbutton_login, .tfbuttonWhich, .tfbuttonSearchPage, .tfbutton_cont{
+.tfbutton, .tfbutton_login, .tfbuttonWhich, .tfbuttonSearchPage, .tfbutton_cont, .fakeButton, .fakeButton2{
     margin: 0 auto;
     padding: 5px 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -307,7 +303,16 @@ ul li {
     background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
     background: -moz-linear-gradient(top,  #00adee,  #0078a5);
     border-radius: 0.45em;
-  }
+}
+
+.fakeButton{
+  width: 8em;
+  margin-left: 50%;
+}
+
+.actualButton{
+  display: none;
+}
 
 .tfbuttonWhich {
   width:10em;
@@ -338,6 +343,7 @@ ul li {
 
   .tftextinput{
     margin: 0;
+    width: 20em;
     padding: 5px 15px;
     font-size:14px;
     border:1px solid #0076a3; border-right:0px;
@@ -346,7 +352,6 @@ ul li {
   }
 
   .tfbutton_search {
-    width:20%;
     margin: 0 auto;
     padding: 5px 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -364,7 +369,12 @@ ul li {
     border-bottom-right-radius: 5px 5px;
   }
 
-
+  .tfbuttonSearchPage{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+  }
 
   .tfbutton:hover {
     text-decoration: none;
@@ -419,7 +429,12 @@ label.form_label {
   text-align: right;
   margin: 0.5em 0 0.5em 0;
 }
+.signUpPic{
+  width: 20em;
+  margin: auto;
+  text-align: right;
 
+}
 div.input{
   float: right;
   width: 40%;
@@ -678,11 +693,13 @@ input#email, input#password{
 
 /*****************media queries ******************/
 /*tablet landscape*/
-.reqAmtBox{
+@media (max-width: 1024px){
+  .reqAmtBox{
     margin-top: 33%;
-}
-.picButton{
-  float: left;
+  }
+  .picButton{
+    float: left;
+  }
 }
 
 /*ipad portrait*/

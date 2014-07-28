@@ -11,6 +11,12 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+$(document).ready(function(){
+  $(".fakeButton").click(function(){
+    $(".actualButton").click();
+  });
+});
 </script>
 
 <div class="overflowBox">
@@ -123,8 +129,8 @@ function readURL(input) {
       <%= form_for @contribution do |f| %>
       <div class="donatePhoto">
 
-        <div class="donate_img" style="visibility:hidden;">
-          <img id="img_prev" alt="Image Preview" src="#">
+        <div class="donate_img">
+          <img id="img_prev" alt="Donation Preview" src="/assets/placeholderDonate.jpg">
 
         </div>
         <div class="picButton">
@@ -132,8 +138,9 @@ function readURL(input) {
           <p style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
 
-          <p class ='tfbutton'><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);') %></p>
-
+          <p><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);', :class=>'actualButton') %>
+          </p>
+          <div class="fakeButton2">Choose File</div>
 
         </div>
       </div>

@@ -18,30 +18,19 @@
           <% end %>
             <label class="form_label">Resource Needed:<%= f.text_field :resource, :id=> "rNeed", :placeholder => "water bottles, blankets" %></label>
         </li>
-        <li>
-           <%  if flash[:resource_count] %>
-            <p class="error" > Quantity Needed <%= flash[:resource_count].join(', and ') %></p>
-          <% end %>
-            <label class="form_label">Quantity Needed:
-            <%= f.text_field :resource_count, :placeholder => "500, 200" %>
-            </label>
-        </li>
 
 
           <li>
         <%  if flash[:current_resource_count] %>
-          <p class="error" > Quantity Needed <%= flash[:current_resource_count].join(', and ') %></p>
+          <p class="error" > Current Quantity <%= flash[:current_resource_count].join(', and ') %></p>
         <% end %>
         <label class="form_label"><%= f.hidden_field :current_resource_count, :value => 0 %></label>
       </li>
-
-      <br>
       <li>
         <%  if flash[:target_resource_count] %>
           <p class="error" > Quantity Needed <%= flash[:target_resource_count].join(', and ') %></p>
         <% end %>
-          <label class="form_label">Quantity Needed:</label> <%= f.text_field :target_resource_count, class: "reqInput", :placeholder => "500, 200" %></label></li>
-      <br>
+          <label class="form_label">Quantity Needed: <%= f.text_field :target_resource_count, :placeholder => "500, 200" %></label></li>
 
         <li>
           <%  if flash[:address] %>

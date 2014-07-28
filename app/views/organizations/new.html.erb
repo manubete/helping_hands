@@ -56,9 +56,9 @@ function readURL(input) {
     </li>
     <li>
         <%  if flash[:city] %>
-          <p class="error"> City <%= flash[:city].join(', and ') %></p>
+          <p class="error"> *City <%= flash[:city].join(', and ') %></p>
             <% end %>
-        <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "city, state, zip" %></label>
+        <label class="form_label" for="city">  *City <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
       </li>
 
      <li>

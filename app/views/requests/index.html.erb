@@ -26,15 +26,11 @@
 
          <% @organizations.each do |organization| %>
         <li>
-          <% if !request.complete %>
+          <% if !request.complete && request.organization == organization.name %>
           <div class="searchResults">
 
             <div class="photo">
-              <% if request.organization == organization.name %>
-
               <%= cl_image_tag(organization.avatar_url) %>
-
-              <% end %>
             </div>
 
 

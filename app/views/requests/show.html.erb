@@ -1,7 +1,26 @@
-<div id="contentBox">
-  <div class="box" style="float: left; width: 40%;">
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#img_prev').attr('src', e.target.result);
+      $( ".donate_img" ).removeAttr('style');
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+<div class="overflowBox">
+  <div class="showReqBox">
+
 
     <header class="fulfilled"><%= @request.organization %></header>
+    <% if flash[:notice] %>
+          <div class="error"><%= flash[:notice] %></div>
+        <% end %>
 
     <ul class="account">
       <li>
@@ -16,11 +35,11 @@
       <li><hr></li>
       <li>
           <div class="fill_label">
-            <label for="name">Amount:</label>
+            <label for="name">Amount Needed:</label>
           </div>
 
           <div class="fill_p">
-            <p><%= @request.resource_count %></p>
+            <p><%= @request.target_resource_count - @request.current_resource_count %></p>
           </div>
       </li>
       <li><hr></li>
@@ -60,62 +79,77 @@
           </div>
 
           <div class="fill_p">
-            <p><%= @request.end_date %></p>
+            <p><%= @request.end_date == nil ? "Indefinite" : @request.end_date %></p>
           </div>
       </li>
       <li><hr></li>
            <li>
           <div class="fill_label">
-            <label for="name">Status:</label>
+            <label for="name">Status:
+            </label>
           </div>
 
           <div class="fill_p">
-            <p><%= @request.complete || @request.end_date > Date.today ? "Complete" : "Ongoing" %></p>
-            <p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" if @request.complete %></p>
+            <progress value="<%= @request.current_resource_count %>" max="<%= @request.target_resource_count %>">
+            </progress>
+            <% if @request.complete && session[:donor_id] %>
+            <br><br><p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" %></p>
+            <% elsif @request.complete && session[:organization_id] %>
+              <br><br><p> This Request has be fullfilled! </p>
+            <% end %>
           </div>
       </li>
+
       <li><hr></li>
       <li>
         <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
           <p style="float: right"><%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%></p>
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
-        <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete %>
+        <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
+        <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete && session[:donor_id] %>
 
-      </li>
+
     </ul>
   </div>
 
-
-
-  <div class="box" style="height: 100%; width: 30em; float: right;">
+  <div class="donFormBox">
     <header class="smallHeader"><% if session[:donor_id] %>
       <%= "Please complete the donation form." %>
       <% elsif session[:organization_id] %>
       <%= "Request Contribution Form" %>
       <% end %></header>
-    <div class="donatePhoto">
-      <div class="donate_img">
-        <img alt="Insert Photo"src="images/donationPhoto.jpg" height="100%">
-      </div>
-      <div class="picButton">
-        <p style="margin-bottom: 0.1em">Upload a clear photo</p>
-        <p style="margin-top: 0.1em">of your donation</p>
-        <button class="tfbutton" onclick="window.location.href='dophot.html'" href="#">Upload Photo</button>
-      </div>
-    </div>
+
+      <%= cloudinary_js_config %>
+      <%= form_for @contribution do |f| %>
+      <div class="donatePhoto">
+
+        <div class="donate_img" style="visibility:hidden;">
+          <img id="img_prev" alt="Image Preview" src="#">
+
+        </div>
+        <div class="picButton">
+          <p style="margin-bottom: 0.1em">Upload a clear photo</p>
+          <p style="margin-top: 0.1em">of your donation</p>
+          <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
+
+          <p class ='tfbutton'><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);') %></p>
 
 
-    <div style="margin-top: 8%;">
+        </div>
+      </div>
+
+
+    <div class="reqAmtBox">
         <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
-      <%= form_for @contribution do |f| %>
+
       <ul class="aRequest">
 
         <li>
          <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
           <p id="request_id"> <%= f.hidden_field :request_id, :value => @request.id %></p>
-          <label class="fill_label">How much are you donating?</label>
+          <label class="fillReqLabel">How much are you donating?</label>
           <%  if flash[:resource_amount] %>
             <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
           <% end %>
@@ -132,8 +166,7 @@
       <% end %>
     </div>
   </div>
+
+  <div class="placeholderBox">
+  </div>
 </div>
-
-
-
-

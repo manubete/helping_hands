@@ -1,12 +1,39 @@
-<div style="height: 120%;"class="box">
+
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#img_prev').attr('src', e.target.result);
+      $( ".org_avatar" ).removeAttr('style');
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+<div style="height: 120%">
+  <div class="box">
   <header class="fulfilled">Make an Organization Account</header>
 
         <% if flash[:notice] %>
-          <div class="error"><%= flash[:notice] %></div>
+          <div ><%= flash[:notice] %></div>
           <% end %>
 
-  <%= form_for @organization do |f| %>
-  <ul class="longSign">
+
+    <%= form_for @organization do |f| %>
+    <ul class="longSign">
+
+        <%= cloudinary_js_config %>
+
+        <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
+        <%= f.file_field(:avatar, onchange:'readURL(this);') %>
+        <%= f.hidden_field(:avatar_cache) %>
+        <div class="org_avatar" style="visibility:hidden;">
+          <img id="img_prev" alt="Image Preview" src="#">
+        </div>
 
        <li>
           <%  if flash[:name] %>
@@ -20,12 +47,6 @@
           <% end %>
           <label class="form_label" for="description">*Description: <%= f.text_area :description, :cols => 33, :rows => 5, :placeholder => "Our organization delivers quality care to homeless people all over our community" %></label>
        </li>
-      <li>
-        <%  if flash[:city] %>
-          <p class="error"> City <%= flash[:city].join(', and ') %></p>
-            <% end %>
-        <label class="form_label" for="city">*City: <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
-      </li>
 
      <li>
         <%  if flash[:address] %>
@@ -33,7 +54,12 @@
           <% end %>
       <label class="form_label" for="address">*Address: <%= f.text_field :address, :placeholder => "door, street" %></label>
     </li>
-
+    <li>
+        <%  if flash[:city] %>
+          <p class="error"> *City <%= flash[:city].join(', and ') %></p>
+            <% end %>
+        <label class="form_label" for="city">  *City <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
+      </li>
 
      <li>
        <%  if flash[:operation_days] %>
@@ -69,12 +95,12 @@
       <%  if flash[:website_url] %>
         <p class="error"> Website url <%= flash[:website_url].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
+      <label class="form_label" for="website">*Website: <%= f.url_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
     </li>
     <li>
-      <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
+      <label class="form_label" for="linked_in">LinkedIn: <%= f.url_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
     <li>
-      <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
+      <label class="form_label" for="facebook">Facebook: <%= f.url_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
 
 
           <li>
@@ -98,14 +124,15 @@
       <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
     </li>
     <li>
-       <label class="form_label" for="password">*Password Confirmation: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
+       <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
     </li>
     <li>
       <div class="formButton" >
       <%= f.submit 'Register', :class => 'tfbutton' %>
-    </div>
-    </li><br>
-  </ul>
-  <% end %>
-</div>
+      </div>
+      </li><br>
+    </ul>
+    <% end %>
+  </div>
 
+</div>

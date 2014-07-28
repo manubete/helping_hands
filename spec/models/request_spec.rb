@@ -1,16 +1,21 @@
 require 'spec_helper'
 
 describe Request do
-  let(:request){ Request.create(organization: "Test Org", resource: "test resource", resource_count: 100, address: "100 fake street", description: "test desc")}
-
-  it "is invalid with non-integers in the resource_count field" do
-    request.update_attributes(resource_count: "One Hundred").should eq false
+  context "Validations" do
+    it { should validate_presence_of(:organization) }
+    it { should validate_presence_of(:resource) }
+    it { should validate_presence_of(:current_resource_count) }
+    it { should validate_presence_of(:target_resource_count) }
+    it { should validate_presence_of(:address) }
+    it { should validate_presence_of(:description) }
+    it { should validate_numericality_of(:current_resource_count) }
+    it { should validate_numericality_of(:target_resource_count) }
   end
 
-  it "is invalid with blank fields" do
-    request.update_attributes(organization: nil, resource: nil, resource_count: nil, address: nil, description: nil).should eq false
+  context "Associations" do
+    it { should have_many(:contributions) }
+    it { should have_many(:donors).through(:contributions) }
   end
 
-  # TO DO: How do I write a unit test for the search function? Should that just be a feature test?
-
+  # TO DO: How do I write a unit test for the search function? Should that be a feature test?
 end

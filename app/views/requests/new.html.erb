@@ -21,7 +21,7 @@
 
           <li>
         <%  if flash[:current_resource_count] %>
-          <p class="error" > Quantity Current <%= flash[:current_resource_count].join(', and ') %></p>
+          <p class="error" > Current Quantity <%= flash[:current_resource_count].join(', and ') %></p>
         <% end %>
         <label class="form_label"><%= f.hidden_field :current_resource_count, :value => 0 %></label>
       </li>

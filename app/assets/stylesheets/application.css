@@ -884,6 +884,9 @@ input#email, input#password{
   .searchOrgName p{
     margin: 0;
   }
+  .reqPre{
+    float: none;
+  }
   .reqPre p{
     margin: 0;
     font-size: 1.5em;
@@ -893,7 +896,7 @@ input#email, input#password{
     font-size: 1.5em;
   }
   p a.tfbutton{
-    font-size: 0.6em;
+    font-size: 1.1em;
     padding: 1px 3px;
   }
   .topLinks{
@@ -985,6 +988,11 @@ input#email, input#password{
 
   .picButton{
     float: none;
+    clear: both;
+  }
+  .fakeButton2{
+    height: 1.5em;
+    width: 9em;
   }
   .donate_img{
     height: auto;

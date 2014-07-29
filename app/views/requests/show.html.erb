@@ -11,6 +11,12 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+$(document).ready(function(){
+  $(".fakeButton").click(function(){
+    $(".actualButton").click();
+  });
+});
 </script>
 
 <div class="overflowBox">
@@ -103,9 +109,11 @@ function readURL(input) {
       <li><hr></li>
       <li>
         <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
-          <p style="float: right"><%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%></p>
+
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
+        <%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%>
+
         <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete && session[:donor_id] %>
 
 
@@ -123,8 +131,8 @@ function readURL(input) {
       <%= form_for @contribution do |f| %>
       <div class="donatePhoto">
 
-        <div class="donate_img" style="visibility:hidden;">
-          <img id="img_prev" alt="Image Preview" src="#">
+        <div class="donate_img">
+          <img id="img_prev" alt="Donation Preview" src="/assets/placeholderDonate.jpg">
 
         </div>
         <div class="picButton">
@@ -132,8 +140,9 @@ function readURL(input) {
           <p style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
 
-          <p class ='tfbutton'><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);') %></p>
-
+          <p><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);', :class=>'actualButton') %>
+          </p>
+          <div class="fakeButton2">Choose File</div>
 
         </div>
       </div>

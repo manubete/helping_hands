@@ -140,9 +140,7 @@ $(document).ready(function(){
           <p style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
 
-          <p><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);', :class=>'actualButton') %>
-          </p>
-          <div class="fakeButton2">Choose File</div>
+          <div class="fakeButton2"><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);') %></div>
 
         </div>
       </div>

@@ -1,0 +1,18 @@
+development:
+  cloud_name: helping-hands
+  api_key: '187351834114245'
+  api_secret: xu7U8RiZonvoiv2ePR3uDr4gNrY
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: helping-hands
+  api_key: '187351834114245'
+  api_secret: xu7U8RiZonvoiv2ePR3uDr4gNrY
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: helping-hands
+  api_key: '187351834114245'
+  api_secret: xu7U8RiZonvoiv2ePR3uDr4gNrY
+  enhance_image_tag: true
+  static_image_support: false

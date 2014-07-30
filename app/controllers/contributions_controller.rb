@@ -7,7 +7,7 @@ class ContributionsController < ApplicationController
 
 
     if @contribution.save
-      flash[:notice] = "You have successfully created the contribution!"
+      flash[:notice] = "Thank you for your contribution!"
       @request = Request.find(@contribution.request_id)
 
       @request.update_count(@contribution.resource_amount)

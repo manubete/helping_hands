@@ -84,7 +84,7 @@
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
-        <div style="height: 85%; overflow-y: scroll">
+        <div class="reqInner">
           <nav class="menu">
             <% @requests.each do |request| %>
             <ul class="parent-menu">
@@ -110,7 +110,7 @@
       <div class="reqAcctBox_box2">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
 
-        <div style="height: 85%; overflow-y: scroll">
+        <div class="reqInner">
 
           <nav class="menu">
              <% @requests.each do |request| %>

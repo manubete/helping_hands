@@ -150,6 +150,10 @@ header.fulfilled{
   width: 50%;
   height: 100%;
 }
+.reqInner{
+  height: 15em;
+  overflow-y: scroll;
+}
 
 .orgBox, .donBox{
   border-radius: 0.5em;
@@ -587,10 +591,11 @@ p.error {
 }
 
 div .signup {
+  font-size: 2em;
   text-decoration: underline;
   color: #0095cc;
   width:40%;
-  margin: 0 auto;
+  margin: 3% auto 0 auto;
 }
 .form_label {
   width: 4em;

@@ -46,20 +46,6 @@
           </li>
 
           <li>
-            <%  if flash[:security_question] %>
-              <p class="error"> Security Question <%= flash[:security_question].join(', and ') %></p>
-            <% end %>
-            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => "eg What is your first pets name" %></label>
-          </li>
-
-          <li>
-            <%  if flash[:security_answer] %>
-              <p class="error"> Security Answer <%= flash[:security_answer].join(', and ') %></p>
-            <% end %>
-            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => "eg Tigger" %></label>
-          </li>
-
-          <li>
             <%  if flash[:password] %>
               <p class="error"> Password <%= flash[:password].join(', and ') %></p>
             <% end %>

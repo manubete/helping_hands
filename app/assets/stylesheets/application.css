@@ -8,6 +8,10 @@ html {
   background-size: cover;
 }
 
+.footDiv{
+  width: 12em;
+  float: right;
+}
 .bottomLinks {
   position: fixed;
   bottom: 0;
@@ -86,7 +90,23 @@ div.log{
   margin: 0 2rem 2rem 0;
 }
 
+/*------------- footer links -------------- */
+.aboutImg{
+  width: 20em;
+  height: auto;
+}
 
+.aboutImg img{
+  width: 100%;
+  height: auto;
+  float:left;
+}
+
+.descDiv{
+  margin-top: 20%;
+  width: 50%;
+  float: right;
+}
 
 /*------------- general -------------- */
 header.fulfilled{
@@ -235,14 +255,17 @@ div.donatePhoto{
 
 /*------------- Donor Index and New Pages -------------- */
 
-.box, .loginBox, .searchBox, .userBox, .showReqBox, .donFormBox {
+.box, .loginBox, .searchBox, .userBox, .showReqBox, .donFormBox, .descBox {
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   padding: 2.5em 1.5em 2.5em 1.5em;
   margin: 2% auto 2% auto;
 }
+.descBox{
+  padding: 2.5em 5% 2.5em 5%;
+}
 
-.box, .loginBox, .searchBox, .userBox{width: 50em;}
+.box, .loginBox, .searchBox, .userBox, .descBox{width: 50em;}
 
 .loginBox, .userBox{
   padding:1em;

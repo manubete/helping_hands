@@ -93,7 +93,7 @@ $(document).ready(function(){
        <%  if flash[:phone_number] %>
         <p class="error"> Phone Number <%= flash[:phone_number].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
+      <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "Don't include 1" %></label>
     </li>
     <li>
       <%  if flash[:email] %>

@@ -224,6 +224,9 @@ div.donatePhoto{
   width: 40%;
   float: right;
 }
+.progBar{
+  margin-bottom: 0.7em;
+}
 
 #contentBox{
   width: 70em;
@@ -484,7 +487,7 @@ hr.style-six {
   margin: 2em auto 2em auto;
 }
 
-div.searchContent{
+div.searchContent, div.contContent{
   height: 5em;
   margin: 0 2em 2em 0;
 }
@@ -518,11 +521,14 @@ div.photo img{
   float:left;
 }
 
-div.searchOrgName{
+div.searchOrgName, div.contName{
   float: left;
   font-size: 2em;
   width: 50%;
 }
+.contP{
+    margin:0;
+  }
 
 /*------------- donation form page-------------- */
 .reqAmtBox{
@@ -777,7 +783,7 @@ input#email, input#password{
   div.date{
     width:76.5%;
   }
-  div.searchOrgName{
+  div.searchOrgName, div.contName{
     width:67%;
   }
   .orgBox, .donBox{
@@ -876,7 +882,7 @@ input#email, input#password{
     font-size: 1em;
     width: 67%;
   }
-  div.searchContent{
+  div.searchContent, div.contContent{
     width: 100%;
   }
   div.date{

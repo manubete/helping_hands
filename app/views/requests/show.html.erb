@@ -96,8 +96,9 @@ $(document).ready(function(){
           </div>
 
           <div class="fill_p">
-            <progress value="<%= @request.current_resource_count %>" max="<%= @request.target_resource_count %>">
+            <progress class="progBar" value="<%= @request.current_resource_count %>" max="<%= @request.target_resource_count %>">
             </progress>
+            <p><%= @request.current_resource_count %> / <%= @request.target_resource_count %></p>
             <% if @request.complete && session[:donor_id] %>
             <br><br><p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" %></p>
             <% elsif @request.complete && session[:organization_id] %>
@@ -108,7 +109,6 @@ $(document).ready(function(){
 
       <li><hr></li>
       <li>
-        <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
 
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>

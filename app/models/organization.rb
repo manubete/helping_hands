@@ -34,7 +34,11 @@ class Organization < ActiveRecord::Base
     end while Organization.exists?(column => self[column])
   end
 
-
+  def fixlistname
+    self.name = name.lstrip
+    self.name += '...' unless name.ends_with?('...')
+    self.name[0] = name.slice(0,1).capitalize + name.slice(1..-1)
+  end
 
 end
 

@@ -3,22 +3,27 @@
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Donors</header>
 
-        <div style="height: 85%; overflow-y: scroll">
-          <nav id="menu">
+        <div class="request">
             <% @donors.each do |donor| %>
                <% @contributions.each do |contribution| %>
-
-            <ul class="parent-menu">
+            <hr></hr>
+          <ul>
             <li>
-                <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{donor.name} donated #{contribution.resource_amount} #{@request.resource}", donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %></strong>
+                <div class="contContent">
+                  <div class="contName">
+                    <strong><%= link_to "#{donor.name}", donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %></strong>
+                      <p class="contP"><%= @request.resource %></p>
+                  </div>
+                <div class="date">
+                  <p>Responded on 4/23/14</p>
+                  <%= contribution.resource_amount %>/<%= @request.target_resource_count %>
                 </div>
+              </div>
                 <hr></hr>
             </li>
-            </ul>
+          </ul>
             <% end %>
           <% end %>
-          </nav>
 
         </div>
 

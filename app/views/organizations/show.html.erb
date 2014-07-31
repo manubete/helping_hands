@@ -14,7 +14,7 @@
           <% end %>
 
     <div class="orgBox">
-      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><p class="aP"><%= @organization.name %></p> </header>
+      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><p class="aP"><%= @organization.name.titleize %></p> </header>
 
       <div class="profileImg">
         <%= cl_image_tag(@organization.avatar_url) %><br>

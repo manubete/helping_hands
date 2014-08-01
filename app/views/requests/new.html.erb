@@ -41,12 +41,7 @@
             <%= f.text_field :address, :placeholder => "Door, Street" %>
             </label>
         </li>
-        <li>
-        <%  if flash[:city] %>
-          <p class="error"> City <%= flash[:city].join(', and ') %></p>
-            <% end %>
-        <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "city, state, zip" %></label>
-      </li>
+
         <li>
            <%  if flash[:description] %>
             <p class="error"> Description <%= flash[:description].join(', and ') %></p>

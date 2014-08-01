@@ -72,19 +72,16 @@
                       <p><%= link_to "#{request.organization}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
                     </div>
 
-                    <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %>
-                    </div>
-                    <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %>
-                    </div>
+                    <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
+                    <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
 
                     <hr></hr>
-
+                    <% end %>
                   </li>
-                  </ul>
                   <% end %>
-                <% end %>
+                </ul>
+               <% end %>
 
-              <% end %>
 
           </nav>
             <% if @requests.size == 0 %>

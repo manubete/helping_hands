@@ -1,5 +1,9 @@
  HelpingHands::Application.routes.draw do
 
+  get "static_pages/about", to: "static_pages#about", as: :about_static_pages
+
+  get "static_pages/questions", to: "static_pages#questions", as: :questions_static_pages
+
   get "password_resets/new"
 
   #requests resources has custom routes, namely donor index and api request, that serve as api endpoints or a route where multiple resources(including donors) are loaded based on a particular requests information and ARecord associations
@@ -41,5 +45,5 @@
    #added routes for donor or organization password resets--------------------------------------
    resources :password_resets
 
-
+   resources :static_pages
 end

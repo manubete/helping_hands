@@ -12,6 +12,13 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+$(document).ready(function(){
+  $(".fakeButton").click(function(){
+    $(".actualButton").click();
+  });
+});
+
 </script>
 
 <div style="height: 120%">
@@ -25,17 +32,20 @@ function readURL(input) {
 
     <%= form_for @organization do |f| %>
     <ul class="longSign">
-
+      <li>
+        <div class="signUpPic">
+          <div class="org_avatar">
+            <img id="img_prev" alt="Add Logo Image" src="/assets/placeholderPic.jpg">
+          </div>
         <%= cloudinary_js_config %>
 
         <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
-        <%= f.file_field(:avatar, onchange:'readURL(this);') %>
+        <%= f.file_field(:avatar, onchange:'readURL(this);', :class=>'actualButton') %>
         <%= f.hidden_field(:avatar_cache) %>
-        <div class="org_avatar" style="visibility:hidden;">
-          <img id="img_prev" alt="Image Preview" src="#">
+        <div class="fakeButton">Choose File</div>
         </div>
-
-       <li>
+      </li>
+      <li>
           <%  if flash[:name] %>
             <p class="error"> Name <%= flash[:name].join(', and ') %></p>
           <% end %>
@@ -65,7 +75,7 @@ function readURL(input) {
        <%  if flash[:operation_days] %>
         <p class="error"> Open on Operating Days <%= flash[:operation_days].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="operation_days">*Open on Operating Days: <%= f.text_field :operation_days, :placeholder => "Monday to Friday" %></label>
+      <label class="form_label" for="operation_days">*Operating Days: <%= f.text_field :operation_days, :placeholder => "Monday to Friday" %></label>
     </li>
     <li>
       <%  if flash[:opening_time] %>
@@ -83,7 +93,7 @@ function readURL(input) {
        <%  if flash[:phone_number] %>
         <p class="error"> Phone Number <%= flash[:phone_number].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
+      <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "Don't include 1" %></label>
     </li>
     <li>
       <%  if flash[:email] %>
@@ -101,21 +111,6 @@ function readURL(input) {
       <label class="form_label" for="linked_in">LinkedIn: <%= f.url_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
     <li>
       <label class="form_label" for="facebook">Facebook: <%= f.url_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
-
-
-          <li>
-            <%  if flash[:security_question] %>
-              <p class="error"> Security Question <%= flash[:security_question].join(', and ') %></p>
-            <% end %>
-            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => "eg What is your first pets name" %></label>
-          </li>
-
-          <li>
-            <%  if flash[:security_answer] %>
-              <p class="error"> Security Answer <%= flash[:security_answer].join(', and ') %></p>
-            <% end %>
-            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => "eg Tigger" %></label>
-          </li>
 
     <li>
         <%  if flash[:password] %>
@@ -135,4 +130,6 @@ function readURL(input) {
     <% end %>
   </div>
 
+  <div class="placeholderBox">
+  </div>
 </div>

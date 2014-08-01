@@ -1,10 +1,20 @@
+<script>
+  $(document).ready(function(){
+    $('.views-field-phone').each(function(){
+      var string = $(this).html();
+      $(this).html(string.substring(0,3) + '-' + string.substring(3,6) + '-' + string.substring(6,10))
+    });
+  });
+
+</script>
+
 <div class="overflowBox">
     <% if flash[:notice] %>
           <div class="signup"><%= flash[:notice] %></div>
           <% end %>
 
     <div class="orgBox">
-      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @organization.name %> </header>
+      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><p class="aP"><%= @organization.name.titleize %></p> </header>
 
       <div class="profileImg">
         <%= cl_image_tag(@organization.avatar_url) %><br>
@@ -43,7 +53,7 @@
             <label for="name">Phone Number:</label>
           </div>
           <div class="fill_p">
-            <p><%= @organization.phone_number %> </p>
+            <p class="views-field-phone"><%= @organization.phone_number %> </p>
           </div>
 
         </li>
@@ -84,7 +94,7 @@
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
 
-        <div style="height: 85%; overflow-y: scroll">
+        <div class="reqInner">
           <nav class="menu">
             <% @requests.each do |request| %>
             <ul class="parent-menu">
@@ -110,7 +120,7 @@
       <div class="reqAcctBox_box2">
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
 
-        <div style="height: 85%; overflow-y: scroll">
+        <div class="reqInner">
 
           <nav class="menu">
              <% @requests.each do |request| %>

@@ -1,15 +1,14 @@
 <div class="adjustBox" style="height: 120%">
+  <% if flash[:notice] %>
+    <div class="signup"><%= flash[:notice] %></div>
+  <% end %>
+
 <div class="searchBox">
   <header class="fulfilled">Needs of Organizations:</header>
 
-
-    <% if flash[:notice] %>
-      <div class="signup"><%= flash[:notice] %></div>
-    <% end %>
-
     <%= form_tag requests_path, :method => 'get', :class => 'searchPage' do %>
-      <%= text_field_tag :search, params[:search], :class =>"searchInput"%>
-      <%= submit_tag "Search", :name => nil, :class=>"tfbutton_search" %>
+      <%= text_field_tag :search, params[:search], :class =>"searchPageInput"%>
+      <%= submit_tag "Search", :name => nil, :class=>"tfbuttonSearchPage" %>
     <% end %>
 
     <div class="sorting">
@@ -26,19 +25,17 @@
 
          <% @organizations.each do |organization| %>
         <li>
-          <% if !request.complete && request.organization == organization.name %>
+          <% if !request.complete && request.organization == organization.name%>
           <div class="searchResults">
-
             <div class="photo">
               <%= cl_image_tag(organization.avatar_url) %>
             </div>
-
 
           <div class="searchContent">
             <div class="searchOrgName">
               <%= link_to "#{request.organization}", request_path(request) %>
               <div class="reqPre">
-                <%= link_to "Needs #{request.resource}", request_path(request) %>
+                <%= link_to "#{request.resource}", request_path(request) %>
                 <p><%= "#{request.address}" %></p>
                 <p>Tags: <%= raw request.tag_list.map { |tag| link_to tag, tag_path(tag), :class => 'tfbutton'}.join(', ') %></p>
               </div>

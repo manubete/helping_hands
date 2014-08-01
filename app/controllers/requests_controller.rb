@@ -2,15 +2,23 @@ class RequestsController < ApplicationController
   helper_method :sort_column,:sort_direction
 
   def index
+    p "#{@requests.inspect}"
+    p  "#{@organizations.inspect}"
       if params[:search]
         @requests = Request.search(params[:search])
         @organizations = Organization.all
+        p "#{@requests.inspect}"
+        p  "#{@organizations.inspect}"
       elsif params[:tag]
         @requests = Request.tagged_with(params[:tag])
         @organizations = Organization.all
+        p "#{@requests}"
+        p  "#{@organizations.inspect}"
       else
         @requests = Request.order("#{sort_column} #{sort_direction}")
         @organizations = Organization.all
+        p "#{@requests.inspect}"
+        p  "#{@organizations.inspect}"
       end
       render :index
   end

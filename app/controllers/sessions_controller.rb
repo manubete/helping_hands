@@ -11,15 +11,15 @@ class SessionsController < ApplicationController
 
      if @donor
       session[:donor_id] = @donor.id
-      flash[:notice]="successful login!!"
+      flash[:notice]="Successfully logged in."
         redirect_to requests_path
 
       elsif @organization
         session[:organization_id] = @organization.id
-        flash[:notice]="successful login!!"
+        flash[:notice]="Successfully logged in."
         redirect_to requests_path
       else
-        flash[:notice]=" Unsuccessful login"
+        flash[:notice]="Unsuccessful login"
         redirect_to user_type_login_confirmation_sessions_path
      end
   end

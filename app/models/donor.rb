@@ -3,8 +3,8 @@ class Donor < ActiveRecord::Base
 
   validates :password, confirmation: true
 
-  validates :name, :city, :address, :phone_number, :password,:security_question, :security_answer, :email, presence: true
-  validates :name, :address, :phone_number, :password, :email,:security_question, :security_answer, uniqueness: true
+  validates :name, :city, :address, :phone_number, :password, :email, presence: true
+  validates :name, :address, :phone_number, :password, :email, uniqueness: true
 
   has_many :contributions
   has_many :requests, through: :contributions

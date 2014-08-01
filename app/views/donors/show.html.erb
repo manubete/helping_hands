@@ -1,6 +1,16 @@
+<script>
+  $(document).ready(function(){
+    $('.views-field-phone').each(function(){
+      var string = $(this).html();
+      $(this).html(string.substring(0,3) + '-' + string.substring(3,6) + '-' + string.substring(6,10))
+    });
+  });
+
+</script>
+
 <div class="overflowBox">
     <div class="donBox">
-      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @donor.name %> </header>
+      <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><%= @donor.name.titleize %> </header>
 
       <ul class="account">
 
@@ -20,7 +30,7 @@
             <label for="name">Phone Number:</label>
           </div>
           <div class="fill_p">
-            <p><%= @donor.phone_number %></p>
+            <p class="views-field-phone"><%= @donor.phone_number %></p>
           </div>
 
         <li><hr></li>
@@ -50,27 +60,31 @@
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Contributions</header>
 
         <div class="reqInner">
+          <nav class="menu">
 
-             <nav class="menu">
               <% @contributions.each do |contribution| %>
                 <% @requests.each do |request| %>
-                <ul class="parent-menu">
-
-                  <li>
                   <% if contribution.request_id == request.id && ( request.end_date.nil? || request.end_date > Date.today ) %>
+                  <ul class="parent-menu">
+                    <li>
                     <div class="acc_reqMainContent">
                       <strong><%= link_to "#{contribution.resource_amount} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
                       <p><%= link_to "#{request.organization}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
                     </div>
-                    <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
-                    <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
+
+                    <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %>
+                    </div>
+                    <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %>
+                    </div>
 
                     <hr></hr>
-                    <% end %>
+
                   </li>
+                  </ul>
                   <% end %>
-                </ul>
-               <% end %>
+                <% end %>
+
+              <% end %>
 
           </nav>
             <% if @requests.size == 0 %>
@@ -90,7 +104,7 @@
               <ul class="parent-menu">
                 <li>
                   <div class="acc_reqMainContent">
-                    <strong><%= link_to "#{contribution.resource_amount} of #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></strong>
+                    <strong><%= link_to "#{contribution.resource_amount} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></strong>
                     <p><%= link_to "#{request.organization}", request_path(request.id) if request.end_date.nil? || request.end_date > Date.today %></p>
                   </div>
                   <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %>
@@ -99,15 +113,15 @@
                   </div>
                 <hr></hr>
                 </li>
-                  </ul>
-
-                </nav>
+              </ul>
+              <% end %>
+            <% end %>
+          </nav>
                     <% if @requests.size == 0 %>
                       <p> No requests in history </p>
                     <% end %>
 
-                <% end %>
-                <% end %>
+
 
         </div>
       </div>

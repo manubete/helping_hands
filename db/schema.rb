@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140725050053) do
+ActiveRecord::Schema.define(:version => 20140803021311) do
 
   create_table "contributions", :force => true do |t|
     t.integer "donor_id"
     t.integer "request_id"
     t.integer "resource_amount"
     t.string  "photo"
+    t.boolean "tax_form_flag"
   end
 
   create_table "donors", :force => true do |t|

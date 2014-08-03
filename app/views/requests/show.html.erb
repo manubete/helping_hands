@@ -5,7 +5,6 @@ function readURL(input) {
 
     reader.onload = function (e) {
       $('#img_prev').attr('src', e.target.result);
-      $( ".donate_img" ).removeAttr('style');
     };
 
     reader.readAsDataURL(input.files[0]);
@@ -16,7 +15,15 @@ $(document).ready(function(){
   $(".fakeButton").click(function(){
     $(".actualButton").click();
   });
+
+  $('#tax-form-checkbox').change(function() {
+    if (this.checked) {
+      alert("Note that your address will be sent to the organization that you are donating to so that they can mail you the tax deduction form.");
+    }
+  });
 });
+
+
 </script>
 
 <div class="overflowBox">
@@ -140,8 +147,11 @@ $(document).ready(function(){
           <p style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
 
-          <div class="fakeButton2"><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);') %></div>
-
+          <div class="fakeButton">
+            Choose Image
+          </div>
+          <%= f.file_field(:photo, accept: 'image/*;capture=camera',
+                            class: 'actualButton', onchange:'readURL(this);') %>
         </div>
       </div>
 
@@ -163,6 +173,11 @@ $(document).ready(function(){
           <p><%= f.number_field :resource_amount, :placeholder => 2 , :class=>"fillIn" %></p>
         </li>
         <li><br></br></li>
+        <li>
+          <%= f.check_box :tax_form_flag, id: 'tax-form-checkbox' %>
+          <%= f.label :tax_form_flag, "Check if you want a tax deduction form mailed to you." %>
+        </li>
+
         <li>
           <div class="formButton">
             <p><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>

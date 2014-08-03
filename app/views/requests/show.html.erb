@@ -52,7 +52,8 @@ $(document).ready(function(){
           </div>
 
           <div class="fill_p">
-            <p><%= @request.target_resource_count - @request.current_resource_count %></p>
+            <% amount_needed = @request.target_resource_count - @request.current_resource_count %>
+            <p><%= amount_needed %></p>
           </div>
       </li>
       <li><hr></li>
@@ -171,7 +172,7 @@ $(document).ready(function(){
             <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
           <% end %>
           <%= f.label :resource_amount, 'How much are you donating?', id: "resource-amt-label" %>
-          <%= f.number_field :resource_amount, :class=>"fillIn", min: 0, step: 1 %>
+          <%= f.number_field :resource_amount, :class=>"fillIn", min: 0, max: amount_needed, step: 1 %>
         </li>
         <li>
           <%= f.check_box :tax_form_flag, id: 'tax-form-checkbox' %>

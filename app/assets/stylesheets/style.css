@@ -32,15 +32,6 @@ html {
   width: 100%;
 }
 
-.profileImg{
-  margin-left: 1em;
-  margin-right: 1em;
-  width: 7em;
-  height: 7em;
-  overflow: hidden;
-  float: left;
-}
-
 div.log{
   float: right;
   margin-bottom: 2rem;
@@ -528,7 +519,8 @@ html {
 }
 
 .profileImg{
-  margin: 0 10em 2em 3em;
+  margin-left: auto;
+  margin-right: auto;
   width: 10em;
   height: 10em;
   overflow: hidden;

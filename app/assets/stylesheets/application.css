@@ -72,12 +72,18 @@ html {
 }
 
 .profileImg{
-  margin: 0 10em 2em 3em;
-  width: 10em;
-  height: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 12em;
   overflow: hidden;
-  float: left;
+  float: none;
   display: block;
+}
+
+.profileImg-container {
+  text-align: center; /* ensures the image is always in the h-middle */
+  overflow: hidden; /* hide the cropped portion */
 }
 
 div.log{
@@ -1020,5 +1026,3 @@ input#email, input#password{
     margin-bottom: 1em;
   }
 }
-
-

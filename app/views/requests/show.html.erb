@@ -139,12 +139,13 @@ $(document).ready(function(){
       <div class="donatePhoto">
 
         <div class="donate_img">
-          <img id="img_prev" alt="Donation Preview" src="/assets/placeholderDonate.jpg">
-
+          <div class="profileImg-container">
+            <img id="img_prev" class="avatar" alt="Donation Preview" src="/assets/placeholderDonate.jpg">
+          </div>
         </div>
         <div class="picButton">
-          <p style="margin-bottom: 0.1em">Upload a clear photo</p>
-          <p style="margin-top: 0.1em">of your donation</p>
+          <p align="center" style="margin-bottom: 0.1em">Upload a clear photo</p>
+          <p align="center" style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
 
           <div class="fakeButton">
@@ -166,21 +167,20 @@ $(document).ready(function(){
         <li>
          <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
           <p id="request_id"> <%= f.hidden_field :request_id, :value => @request.id %></p>
-          <label class="fillReqLabel">How much are you donating?</label>
           <%  if flash[:resource_amount] %>
             <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
           <% end %>
-          <p><%= f.number_field :resource_amount, :placeholder => 2 , :class=>"fillIn" %></p>
+          <%= f.label :resource_amount, 'How much are you donating?', id: "resource-amt-label" %>
+          <%= f.number_field :resource_amount, :class=>"fillIn", min: 0, step: 1 %>
         </li>
-        <li><br></br></li>
         <li>
           <%= f.check_box :tax_form_flag, id: 'tax-form-checkbox' %>
-          <%= f.label :tax_form_flag, "Check if you want a tax deduction form mailed to you." %>
+          <%= f.label :tax_form_flag, "Do you want a tax deduction form?", id: "tax-form-label" %>
         </li>
 
         <li>
           <div class="formButton">
-            <p><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>
+            <p align="center"><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>
           </div>
         </li>
 

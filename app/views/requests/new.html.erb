@@ -23,7 +23,7 @@
         <%  if flash[:current_resource_count] %>
           <p class="error" > Current Quantity <%= flash[:current_resource_count].join(', and ') %></p>
         <% end %>
-        <label class="form_label"><%= f.hidden_field :current_resource_count, :value => 0 %></label>
+        <%= f.hidden_field :current_resource_count, :value => 0 %>
       </li>
       <li>
         <%  if flash[:target_resource_count] %>
@@ -52,7 +52,10 @@
             <p class="error"> Tag list <%= flash[:tag_list].join(', and ') %></p>
           <% end %>
             <label class="form_label">Tag list:
-            <%= f.text_field :tag_list, :placeholder => "Clothing" %>
+              <% tags = ['Clothing', 'Food', 'Pet Food', 'Water',
+                         'Hygiene', 'Medical', 'Furniture',
+                         'Technology', 'Books'] %>
+              <%= f.select :tag_list, tags.collect { |t| [ t, t ] } %>
             </label>
         </li>
         <li>
@@ -71,7 +74,7 @@
         </li>
         <li>
           <div class="formButton">
-            <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
+            <p align="center"><%= f.submit 'Submit', :class => 'tfbutton'%></p>
           </div>
         </li>
       </ul>

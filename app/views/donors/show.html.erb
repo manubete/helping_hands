@@ -63,7 +63,11 @@
                     <li>
                       <hr>
                       <div class="acc_reqMainContent">
-                        <% resource_str = contribution.resource_amount != 1 ? request.resource : request.resource.singularize %>
+                        <% if request.resource.pluralize == request.resource %>
+                          <% resource_str = contribution.resource_amount != 1 ? request.resource : request.resource.singularize %>
+                        <% elsif request.resource.singularize == request.resource %>
+                          <% resource_str = contribution.resource_amount == 1 ? request.resource : request.resource.pluralize %>
+                        <% end %>
                         <strong>
                           <%= link_to "#{contribution.resource_amount} #{resource_str}", request_path(request.id) %>
                         </strong>
@@ -103,7 +107,11 @@
                     <li>
                       <hr>
                       <div class="acc_reqMainContent">
-                        <% resource_str = contribution.resource_amount != 1 ? request.resource : request.resource.singularize %>
+                        <% if request.resource.pluralize == request.resource %>
+                          <% resource_str = contribution.resource_amount != 1 ? request.resource : request.resource.singularize %>
+                        <% elsif request.resource.singularize == request.resource %>
+                          <% resource_str = contribution.resource_amount == 1 ? request.resource : request.resource.pluralize %>
+                        <% end %>
                         <strong>
                           <%= link_to "#{contribution.resource_amount}  #{resource_str}", request_path(request.id) %>
                         </strong>

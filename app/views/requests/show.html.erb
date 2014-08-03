@@ -101,7 +101,7 @@ $(document).ready(function(){
             <% if @request.complete && session[:donor_id] %>
             <br><br><p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" %></p>
             <% elsif @request.complete && session[:organization_id] %>
-              <br><br><p> This Request has be fullfilled! </p>
+              <br><br><p> This request has been fullfilled! </p>
             <% end %>
           </div>
       </li>

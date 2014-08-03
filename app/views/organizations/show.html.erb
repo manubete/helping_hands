@@ -103,7 +103,7 @@
                   <li>
                     <hr>
                     <div class="acc_reqMainContent">
-                      <% resource_str = request.target_resource_count != 1 ? request.target_resource : request.target_resource.singularize %>
+                      <% resource_str = request.target_resource_count != 1 ? request.resource : request.resource.singularize %>
                       <strong>
                         <%= link_to "#{request.target_resource_count} #{resource_str}",
                                       request_path(request.id) %>
@@ -144,7 +144,7 @@
                     <hr>
                     <div class="acc_reqMainContent">
                       <strong>
-                        <% resource_str = request.target_resource_count != 1 ? request.target_resource : request.target_resource.singularize %>
+                        <% resource_str = request.target_resource_count != 1 ? request.resource : request.resource.singularize %>
                         <%= link_to "#{request.target_resource_count} #{resource_str}",
                               request_path(request.id) %>
                       </strong>

@@ -36,7 +36,7 @@
             <p class="error"> Address <%= flash[:address].join(', and ') %></p>
           <% end %>
             <label class="form_label">Address:
-            <%= f.text_field :address, :placeholder => "1234 Valencia St, CA 94103" %>
+            <%= f.text_field :address, :value => "#{@organization.address}, #{@organization.city}" %>
             </label>
         </li>
         <li>

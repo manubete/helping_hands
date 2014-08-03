@@ -178,7 +178,7 @@ $(document).ready(function(){
           <%= f.check_box :tax_form_flag, id: 'tax-form-checkbox' %>
           <%= f.label :tax_form_flag, "Do you want a tax deduction form?", id: "tax-form-label" %>
         </li>
-
+        <%= f.hidden_field :contribution_date, :value => Date.today %>
         <li>
           <div class="formButton">
             <p align="center"><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>

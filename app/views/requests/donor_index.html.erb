@@ -11,7 +11,10 @@
             <ul class="parent-menu">
             <li>
                 <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{donor.name} donated #{contribution.resource_amount} #{@request.resource}", donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %></strong>
+                  <strong>
+                    <%= link_to "#{donor.name} donated #{contribution.resource_amount} #{@request.resource} on #{contribution.contribution_date}", 
+                              donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
+                  </strong>
                 </div>
                 <hr></hr>
             </li>

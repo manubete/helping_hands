@@ -120,20 +120,17 @@ $(document).ready(function(){
 
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
-        <%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%>
 
         <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete && session[:donor_id] %>
 
 
     </ul>
   </div>
-
+  <% if session[:donor_id] %>
   <div class="donFormBox">
-    <header class="smallHeader"><% if session[:donor_id] %>
+    <header class="smallHeader">
       <%= "Please complete the donation form." %>
-      <% elsif session[:organization_id] %>
-      <%= "Request Contribution Form" %>
-      <% end %></header>
+    </header>
 
       <%= cloudinary_js_config %>
       <%= form_for @contribution do |f| %>
@@ -189,6 +186,37 @@ $(document).ready(function(){
       <% end %>
     </div>
   </div>
+  <% end %>
+
+  <% if session[:organization_id] %>
+    <div class="donFormBox">
+
+      <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Donors</header>
+
+      <div style="height: 85%; overflow-y: scroll">
+        <nav id="menu">
+          <% @donors.each do |donor| %>
+             <% @contributions.each do |contribution| %>
+
+          <ul class="parent-menu">
+          <li>
+              <div class="acc_reqMainContent">
+                <strong>
+                  <%= link_to "#{donor.name} donated #{contribution.resource_amount} #{@request.resource} on #{contribution.contribution_date}",
+                            donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
+                </strong>
+              </div>
+              <hr></hr>
+          </li>
+          </ul>
+          <% end %>
+        <% end %>
+        </nav>
+
+      </div>
+
+    </div>
+  <% end %>
 
   <div class="placeholderBox">
   </div>

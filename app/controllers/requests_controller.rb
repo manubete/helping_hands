@@ -108,6 +108,16 @@ class RequestsController < ApplicationController
     @request = Request.find( params["id"])
     @organization = Organization.find(@request.organization_id)
     @contribution = Contribution.new
+
+    @contributions = @request.contributions
+
+    @donors = []
+
+    @contributions.each do |contribution|
+      @donor = Donor.find(contribution.donor_id)
+      @donors.push(@donor) if !(@donors.include? @donor)
+    end
+
     render :show
   end
 

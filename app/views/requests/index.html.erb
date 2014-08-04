@@ -1,6 +1,6 @@
 <div class="adjustBox" style="height: 120%">
 <div class="searchBox">
-  <header class="fulfilled">Needs of Organizations:</header>
+  <header class="fulfilled">Needs of Organizations</header>
 
 
     <% if flash[:notice] %>
@@ -45,7 +45,7 @@
             </div>
             <div class="date">
               <%= "Posted #{request.start_date}" %>
-              <%= "Ends #{request.end_date}" %>
+              <%= "Ends #{request.end_date}" if !request.end_date.nil? %>
             </div>
           </div>
         </div>

@@ -116,8 +116,7 @@ $(document).ready(function(){
 
       <li><hr></li>
       <li>
-        <p><%= link_to "Donate", new_contribution_path(:contribution => {:donor_id => session[:donor_id], :request_id => @request.id}), :class => "tfbutton" if session[:donor_id]%></p>
-
+        
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
 

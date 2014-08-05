@@ -49,6 +49,7 @@ HelpingHands::Application.configure do
   config.assets.precompile += %w( layout.css )
   config.assets.precompile += %w( jquery.ui.widget.js )
   config.assets.precompile += %w( jquery.iframe-transport.js)
+  config.assets.precompile += %w( jquery.fileupload.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = true

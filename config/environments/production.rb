@@ -46,10 +46,7 @@ HelpingHands::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( layout.css )
-  config.assets.precompile += %w( jquery.ui.widget.js )
-  config.assets.precompile += %w( jquery.iframe-transport.js)
-  config.assets.precompile += %w( jquery.fileupload.js)
+  config.assets.precompile += %w( layout.css, jquery.ui.widget.js, jquery.iframe-transport.js, jquery.fileupload.js, jquery.tools.min.js, jquery.ui.widget.js, jquery.1.11.1.min.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = true

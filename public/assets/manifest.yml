@@ -19,10 +19,14 @@ up21.png: up21-b18edde36abe2ecc42c96e0761788c28.png
 up21/index.png: up21-b18edde36abe2ecc42c96e0761788c28.png
 application.js: application-a419041a74205b40e1cdee6fa2d5306c.js
 application/index.js: application-a419041a74205b40e1cdee6fa2d5306c.js
+jquery.1.11.1.min.js: jquery.1.11.1.min-db225fbd23749dea766c8cdc6df0e11e.js
+jquery/index.1.11.1.min.js: jquery.1.11.1.min-db225fbd23749dea766c8cdc6df0e11e.js
 jquery.fileupload.js: jquery.fileupload-6261306a7b1c53b767b24d0a5b8aa5ad.js
 jquery/index.fileupload.js: jquery.fileupload-6261306a7b1c53b767b24d0a5b8aa5ad.js
 jquery.iframe-transport.js: jquery.iframe-transport-00c8871e6d70f63642ded3c6779474b9.js
 jquery/index.iframe-transport.js: jquery.iframe-transport-00c8871e6d70f63642ded3c6779474b9.js
+jquery.tools.min.js: jquery.tools.min-2c6bc506c849a3b913e0a3265f7cfd57.js
+jquery/index.tools.min.js: jquery.tools.min-2c6bc506c849a3b913e0a3265f7cfd57.js
 jquery.ui.widget.js: jquery.ui.widget-936b85d986166a748e494748bc828002.js
 jquery/index.ui.widget.js: jquery.ui.widget-936b85d986166a748e494748bc828002.js
 application.css: application-27d1cc51eedd830b2d3f4fc82aeecbef.css

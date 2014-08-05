@@ -21,6 +21,8 @@ application.js: application-a419041a74205b40e1cdee6fa2d5306c.js
 application/index.js: application-a419041a74205b40e1cdee6fa2d5306c.js
 application.css: application-27d1cc51eedd830b2d3f4fc82aeecbef.css
 application/index.css: application-27d1cc51eedd830b2d3f4fc82aeecbef.css
+layout.css: layout-f8514f97a4a4c1c5455278446bccc543.css
+layout/index.css: layout-f8514f97a4a4c1c5455278446bccc543.css
 jasmine_favicon.png: jasmine_favicon-df8ee986de8237571dea5c99aade2de7.png
 jasmine_favicon/index.png: jasmine_favicon-df8ee986de8237571dea5c99aade2de7.png
 jquery.min.map: jquery.min-388372ef65cc311f6a3df4a6ceac8d22.map

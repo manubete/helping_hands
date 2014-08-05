@@ -1,12 +1,20 @@
 class Request < ActiveRecord::Base
   attr_accessible :organization_id, :resource, :current_resource_count, :target_resource_count, :address, :organization, :description, :start_date, :end_date, :complete, :tag_list
+
   has_many :contributions
   has_many :donors, through: :contributions
 
   validates :current_resource_count, :target_resource_count, :numericality => {:only_integer => true}
   validates :organization, :resource, :current_resource_count, :target_resource_count, :address, :description, :tag_list, presence: true
+  validates_inclusion_of :start_date, :in => (Date.today)..(Date.today + 1.month)
+  validate :end_date_valid?
   acts_as_taggable
 
+  def end_date_valid?
+    if !end_date.nil? && end_date < start_date
+      errors.add :base, "End date must be after start date."
+    end
+  end
 
   def self.search(search)
     if search

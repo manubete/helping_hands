@@ -59,6 +59,9 @@
             </label>
         </li>
         <li>
+            <%  if flash[:start_date] %>
+               <p class="error"> Start date <%= flash[:start_date].join(', and') %></p>
+            <% end %>
             <label class="form_label">Start Date:
               <div class="input">
                 <%= f.date_select :start_date  %>

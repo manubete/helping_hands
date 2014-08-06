@@ -4,15 +4,24 @@ class Request < ActiveRecord::Base
   has_many :contributions
   has_many :donors, through: :contributions
 
-  validates :current_resource_count, :target_resource_count, :numericality => {:only_integer => true}
-  validates :organization, :resource, :current_resource_count, :target_resource_count, :address, :description, :tag_list, presence: true
-  validates_inclusion_of :start_date, :in => (Date.today)..(Date.today + 1.month)
+  validates :current_resource_count, :target_resource_count,
+            :numericality => {:only_integer => true}
+  validates :organization, :resource, :current_resource_count,
+            :target_resource_count, :address, :description, :tag_list,
+            :start_date, presence: true
+  validate :start_date_valid?
   validate :end_date_valid?
   acts_as_taggable
 
+  def start_date_valid?
+    if !start_date.between?(Date.today, Date.today + 1.month) 
+      errors.add :start_date, "Start date must within a month from today."
+    end
+  end
+
   def end_date_valid?
     if !end_date.nil? && end_date < start_date
-      errors.add :base, "End date must be after start date."
+      errors.add :end_date, "End date must be after start date."
     end
   end
 

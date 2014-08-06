@@ -62,8 +62,9 @@ class RequestsController < ApplicationController
       flash[:address] = @request.errors[:address] unless @request.errors[:address].empty?
       flash[:description] = @request.errors[:description] unless @request.errors[:description].empty?
       flash[:tag_list] = @request.errors[:tag_list] unless @request.errors[:tag_list].empty?
+      flash[:start_date] = @request.errors[:start_date] unless @request.errors[:start_date].empty?
+      flash[:end_date] = @request.errors[:end_date] unless @request.errors[:end_date].empty?
 
-      @request = Request.new
       @organization = Organization.find(session[:organization_id])
       render :new
     end

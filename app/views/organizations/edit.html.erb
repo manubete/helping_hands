@@ -1,3 +1,25 @@
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#img_prev').attr('src', e.target.result);
+      $( ".org_avatar" ).removeAttr('style');
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$(document).ready(function(){
+  $(".fakeButton").click(function(){
+    $(".actualButton").click();
+  });
+});
+
+</script>
+
 <div class="contentBox" style="margin: 3% auto 5% auto; width: 90em">
 
     <!-- form box -->
@@ -14,10 +36,19 @@
         <% end %>
 
         <ul class="longSign">
+          <div class="signUpPic">
+          <div class="org_avatar">
+            <% if @organization.avatar_url == 0 %>
+              <img id="img_prev" alt="Add Logo Image" src="/assets/placeholderPic.jpg">
+            <% end %>
+          </div>
+        <%= cloudinary_js_config %>
 
-          <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
-    <%= f.file_field(:avatar) %>
-    <%= f.hidden_field(:avatar_cache) %>
+        <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
+        <%= f.file_field(:avatar, onchange:'readURL(this);', :class=>'actualButton') %>
+        <%= f.hidden_field(:avatar_cache) %>
+        <div class="fakeButton">Choose File</div>
+        </div>
 
         <li>
           <label class="form_label" for="name">Name: <%= f.text_field :name, :placeholder => "ie 'Helper Hank Charity'" %></label>
@@ -33,10 +64,10 @@
       <label class="form_label" for="operation_days">Operation Days: <%= f.text_field :operation_days, :placeholder => "ie Monday - Thursday" %></label>
       </li>
        <li>
-      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time %></label>
+      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time, {:minute_step => 30, :ampm => true}  %></label>
     </li>
      <li>
-      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time %></label>
+      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time, {:minute_step => 30, :ampm => true}  %></label>
     </li>
         <li>
           <label class="form_label" for="phone">Phone: <%= f.telephone_field :phone_number, :placeholder => "ie '646-832-08394'" %></label>
@@ -48,24 +79,15 @@
           <label class="form_label" for="website">Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
         </li>
         <li>
-          <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
+          <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "your LinkedIn URL" %></label></li>
         <li>
-          <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
-
-           <li>
-            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => @organization.security_question %></label>
-          </li>
-
-          <li>
-            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => @organization.security_answer %></label>
-          </li>
-
+          <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "your Facebook URL" %></label></li>
 
         <li>
-          <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
+          <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => @organization.password %></label>
         </li>
         <li>
-          <label class="form_label" for="password">Verify Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
+          <label class="form_label" for="password">Verify Password: <%= f.password_field :password, :placeholder => @organization.password  %></label>
         </li>
         <li>
         </li>
@@ -75,6 +97,8 @@
       </div>
       <% end %>
 
+    </div>
+    <div class="placeholderBox">
     </div>
 
 

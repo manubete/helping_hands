@@ -20,7 +20,7 @@ class ContributionsController < ApplicationController
 
         }
 
-        OrganizationMailer.notify_contribution(@email_hash).deliver
+          OrganizationMailer.notify_contribution(@email_hash).deliver
 
         DonorMailer.donor_contribution_notification(@email_hash).deliver
 

@@ -1,5 +1,15 @@
-Dear <%= @organization.name %>
+Dear <%= @organization.name.titleize %>,
 
-<%= @donor.name %> has promised to donate <%= @contribution.resource_amount %> <%= @request.resource %>!
+<%= @donor.name.titleize %> has promised to donate <%= @contribution.resource_amount %> <%= @request.resource %>!
 
-Feel free to reach out to him/her at <%= @donor.email %>
+<% if @contribution.tax_form_flag %>
+Also, a tax decuction form has been requested to be mailed to
+<%= @donor.address %>, <%= @donor.city %>.
+<% end %>
+
+If you have questions, please email <%= @donor.name.titleize %> at <%= @donor.email %>.
+
+Sincerely,
+Helpful Hand Team
+
+www.helpfulhand.org

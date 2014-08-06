@@ -52,7 +52,8 @@ class RequestsController < ApplicationController
 
     if @request.save
       flash[:notice] = "You have successfully created the request!"
-      redirect_to requests_path
+      #redirect_to requests_path
+      redirect_to organization_path(session[:organization_id])
     else
       #flash errors on user signup
       flash[:notice] = "Incorrect signup information for the request"
@@ -62,8 +63,9 @@ class RequestsController < ApplicationController
       flash[:address] = @request.errors[:address] unless @request.errors[:address].empty?
       flash[:description] = @request.errors[:description] unless @request.errors[:description].empty?
       flash[:tag_list] = @request.errors[:tag_list] unless @request.errors[:tag_list].empty?
+      flash[:start_date] = @request.errors[:start_date] unless @request.errors[:start_date].empty?
+      flash[:end_date] = @request.errors[:end_date] unless @request.errors[:end_date].empty?
 
-      @request = Request.new
       @organization = Organization.find(session[:organization_id])
       render :new
     end
@@ -108,6 +110,16 @@ class RequestsController < ApplicationController
     @request = Request.find( params["id"])
     @organization = Organization.find(@request.organization_id)
     @contribution = Contribution.new
+
+    @contributions = @request.contributions
+
+    @donors = []
+
+    @contributions.each do |contribution|
+      @donor = Donor.find(contribution.donor_id)
+      @donors.push(@donor) if !(@donors.include? @donor)
+    end
+
     render :show
   end
 

@@ -81,13 +81,13 @@ $(document).ready(function(){
       <%  if flash[:opening_time] %>
         <p class="error"> Open from <%= flash[:opening_time].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time %></label>
+      <label class="form_label" for="opening_time">*Open from: <%= f.time_select :opening_time, {:minute_step => 30, :ampm => true} %></label>
     </li>
      <li>
       <%  if flash[:closing_time] %>
         <p class="error"> Until <%= flash[:closing_time].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time %></label>
+      <label class="form_label" for="closing_time">*Until: <%= f.time_select :closing_time, {:minute_step => 30, :ampm => true} %></label>
     </li>
     <li>
        <%  if flash[:phone_number] %>
@@ -105,12 +105,12 @@ $(document).ready(function(){
       <%  if flash[:website_url] %>
         <p class="error"> Website url <%= flash[:website_url].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="website">*Website: <%= f.url_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
+      <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
     </li>
     <li>
-      <label class="form_label" for="linked_in">LinkedIn: <%= f.url_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
+      <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
     <li>
-      <label class="form_label" for="facebook">Facebook: <%= f.url_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
+      <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
 
     <li>
         <%  if flash[:password] %>

@@ -76,12 +76,18 @@ html {
 }
 
 .profileImg{
-  margin: 0 10em 2em 3em;
-  width: 10em;
-  height: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+  height: 12em;
   overflow: hidden;
-  float: left;
+  float: none;
   display: block;
+}
+
+.profileImg-container {
+  text-align: center; /* ensures the image is always in the h-middle */
+  overflow: hidden; /* hide the cropped portion */
 }
 
 div.log{
@@ -221,20 +227,21 @@ div.donatePhoto{
 }
 
 .donate_img{
-  padding-left: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 12em;
   float: left;
   height: 100%;
-
 }
 
 .picButton{
   float: right;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 
 .fillIn{
-  width: 55%;
+  width: 45%;
   float: right;
   height: 80%;
   margin-bottom: 1em;
@@ -251,6 +258,18 @@ div.donatePhoto{
 #contentBox{
   width: 70em;
   margin: 3% auto 5% auto;
+}
+
+#tax-form-checkbox {
+  margin-top: 1.5em;
+  margin-right: 0.5em;
+  float: left;
+}
+
+#tax-form-label {
+  width: 75%;
+  display: inline-block;
+  float: none;
 }
 
 /*------------- Donor Index and New Pages -------------- */
@@ -337,7 +356,6 @@ ul li {
 
 .fakeButton{
   width: 8em;
-  margin-left: 50%;
 }
 
 .actualButton{
@@ -355,6 +373,7 @@ ul li {
 }
 
   .formButton{
+    padding-top: 0.5em;
     width: 100%;
     clear: both;
   }
@@ -726,13 +745,28 @@ input#email, input#password{
 }
 
 /*****************media queries ******************/
-/*tablet landscape*/
-@media (max-width: 1024px){
+/*tablet landscape and small laptop screens*/
+@media (max-width: 1310px){
   .reqAmtBox{
-    margin-top: 33%;
+    margin-top: 8em;
   }
-  .picButton{
-    float: left;
+  .picButton, .donate_img, .fillIn {
+    float: none;
+  }
+  .aRequest {
+    text-align: center;
+  }
+
+  #tax-form-checkbox {
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    float: none  ;
+  }
+
+  #tax-form-label {
+    width: 75%;
+    display: inline-block;
+    float: none;
   }
 }
 
@@ -783,12 +817,16 @@ input#email, input#password{
     margin-top: 12%;
   }
   .donate_img{
-    margin: 4% 0 0 0;
-    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 12em;
+    float: left;
+    height: 100%;
   }
   .picButton{
-    padding-left: 0;
     float: right;
+    padding-right: 2%;
+    padding-left: 2%;
   }
   div.donatePhoto{
     margin: 5%;
@@ -821,6 +859,24 @@ input#email, input#password{
   .searchBox{
     width: 80%;
     margin: 2% auto 0 auto;
+  }
+  .fillIn{
+    width: 45%;
+    float: right;
+    height: 80%;
+    margin-bottom: 1em;
+  }
+
+  #tax-form-checkbox {
+    margin-top: 1.5em;
+    margin-right: 0.5em;
+    float: left;
+  }
+
+  #tax-form-label {
+    width: 75%;
+    display: inline-block;
+    float: left;
   }
 }
 
@@ -1054,5 +1110,3 @@ input#email, input#password{
     margin-bottom: 1em;
   }
 }
-
-

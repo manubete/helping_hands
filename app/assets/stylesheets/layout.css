@@ -44,6 +44,12 @@ img {
   height: 170px;
 }
 
+img.avatar {
+  position: relative; /* allows repositioning */
+  left: 100%; /* move the whole width of the image to the right */
+  margin-left: -200%; /* magic! */
+}
+
 p {
   font-family: 'Tahoma', sans-serif;
   /*font-size: 1rem;*/

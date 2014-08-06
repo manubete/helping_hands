@@ -52,7 +52,8 @@ class RequestsController < ApplicationController
 
     if @request.save
       flash[:notice] = "You have successfully created the request!"
-      redirect_to requests_path
+      #redirect_to requests_path
+      redirect_to organization_path(session[:organization_id])
     else
       #flash errors on user signup
       flash[:notice] = "Incorrect signup information for the request"

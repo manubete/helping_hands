@@ -4,7 +4,7 @@
   <% end %>
 
 <div class="searchBox">
-  <header class="fulfilled">Needs of Organizations:</header>
+  <header class="fulfilled">Needs of Organizations</header>
 
     <%= form_tag requests_path, :method => 'get', :class => 'searchPage' do %>
       <%= text_field_tag :search, params[:search], :class =>"searchPageInput"%>
@@ -25,7 +25,9 @@
 
          <% @organizations.each do |organization| %>
         <li>
-          <% if !request.complete && request.organization == organization.name%>
+
+          <% if !request.complete && request.organization == organization.name %>
+
           <div class="searchResults">
             <div class="photo">
               <%= cl_image_tag(organization.avatar_url) %>
@@ -42,7 +44,7 @@
             </div>
             <div class="date">
               <%= "Posted #{request.start_date}" %>
-              <%= "Ends #{request.end_date}" %>
+              <%= "Ends #{request.end_date}" if !request.end_date.nil? %>
             </div>
           </div>
         </div>

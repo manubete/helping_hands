@@ -21,10 +21,9 @@
 
           <li>
         <%  if flash[:current_resource_count] %>
-          <p class="error" > Quantity Current <%= flash[:current_resource_count].join(', and ') %></p>
-
+          <p class="error" > Current Quantity <%= flash[:current_resource_count].join(', and ') %></p>
         <% end %>
-        <label class="form_label"><%= f.hidden_field :current_resource_count, :value => 0 %></label>
+        <%= f.hidden_field :current_resource_count, :value => 0 %>
       </li>
       <li>
         <%  if flash[:target_resource_count] %>
@@ -32,13 +31,12 @@
         <% end %>
           <label class="form_label">Quantity Needed: <%= f.text_field :target_resource_count, :placeholder => "500, 200" %></label>
         </li>
-
         <li>
           <%  if flash[:address] %>
             <p class="error"> Address <%= flash[:address].join(', and ') %></p>
           <% end %>
             <label class="form_label">Address:
-            <%= f.text_field :address, :placeholder => "Door, Street" %>
+            <%= f.text_field :address, :value => "#{@organization.address}, #{@organization.city}" %>
             </label>
         </li>
 
@@ -55,10 +53,16 @@
             <p class="error"> Tag list <%= flash[:tag_list].join(', and ') %></p>
           <% end %>
             <label class="form_label">Tag list:
-            <%= f.text_field :tag_list, :placeholder => "Clothing" %>
+              <% tags = ['Clothing', 'Food', 'Pet Food', 'Water',
+                         'Hygiene', 'Medical', 'Furniture',
+                         'Technology', 'Books'] %>
+              <%= f.select :tag_list, tags.collect { |t| [ t, t ] } %>
             </label>
         </li>
         <li>
+            <%  if flash[:start_date] %>
+               <p class="error"> <%= flash[:start_date].join(', and') %></p>
+            <% end %>
             <label class="form_label">Start Date:
               <div class="input">
                 <%= f.date_select :start_date  %>
@@ -66,6 +70,9 @@
             </label>
         </li>
         <li>
+            <%  if flash[:end_date] %>
+               <p class="error"> <%= flash[:end_date].join(', and') %></p>
+            <% end %>
             <label class="form_label">End Date:
               <div class="input">
                 <%= f.date_select :end_date, :include_blank => true  %>
@@ -74,7 +81,7 @@
         </li>
         <li>
           <div class="formButton">
-            <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
+            <p align="center"><%= f.submit 'Submit', :class => 'tfbutton'%></p>
           </div>
         </li>
       </ul>

@@ -5,7 +5,6 @@ function readURL(input) {
 
     reader.onload = function (e) {
       $('#img_prev').attr('src', e.target.result);
-      $( ".donate_img" ).removeAttr('style');
     };
 
     reader.readAsDataURL(input.files[0]);
@@ -16,7 +15,15 @@ $(document).ready(function(){
   $(".fakeButton2").click(function(){
     $(".actualButton").click();
   });
+
+  $('#tax-form-checkbox').change(function() {
+    if (this.checked) {
+      alert("Note that your address will be sent to the organization that you are donating to so that they can mail you the tax deduction form.");
+    }
+  });
 });
+
+
 </script>
 
 <div class="overflowBox">
@@ -45,7 +52,8 @@ $(document).ready(function(){
           </div>
 
           <div class="fill_p">
-            <p><%= @request.target_resource_count - @request.current_resource_count %></p>
+            <% amount_needed = @request.target_resource_count - @request.current_resource_count %>
+            <p><%= amount_needed %></p>
           </div>
       </li>
       <li><hr></li>
@@ -102,48 +110,47 @@ $(document).ready(function(){
             <% if @request.complete && session[:donor_id] %>
             <br><br><p><%= "Our Donation Goal for #{@request.resource} has been met!, if you wish to donate more #{@request.resource}, please contact the #{@request.organization} to see if this is possible. Feel free to follow the link below" %></p>
             <% elsif @request.complete && session[:organization_id] %>
-              <br><br><p> This Request has be fullfilled! </p>
+              <br><br><p> This request has been fullfilled! </p>
             <% end %>
           </div>
       </li>
 
       <li><hr></li>
       <li>
-
+        
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
-        <%= link_to "Contributors", donor_index_requests_path(:organization => {:id => session[:organization_id]}, :request  => {:id => @request.id}), :class => "tfbutton" if session[:organization_id]%>
 
         <%= link_to "#{@organization.name}", organization_path(@organization.id), :class => "tfbutton" if @request.complete && session[:donor_id] %>
 
 
     </ul>
   </div>
-
+  <% if session[:donor_id] %>
   <div class="donFormBox">
-    <header class="smallHeader"><% if session[:donor_id] %>
+    <header class="smallHeader">
       <%= "Please complete the donation form." %>
-      <% elsif session[:organization_id] %>
-      <%= "Request Contribution Form" %>
-      <% end %></header>
+    </header>
 
       <%= cloudinary_js_config %>
       <%= form_for @contribution do |f| %>
       <div class="donatePhoto">
 
         <div class="donate_img">
-          <img id="img_prev" alt="Donation Preview" src="/assets/placeholderDonate.jpg">
-
+          <div class="profileImg-container">
+            <img id="img_prev" class="avatar" alt="Donation Preview" src="/assets/placeholderDonate.jpg">
+          </div>
         </div>
         <div class="picButton">
-          <p style="margin-bottom: 0.1em">Upload a clear photo</p>
-          <p style="margin-top: 0.1em">of your donation</p>
+          <p align="center" style="margin-bottom: 0.1em">Upload a clear photo</p>
+          <p align="center" style="margin-top: 0.1em">of your donation</p>
           <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
 
-          <p><%= f.file_field(:photo, accept: 'image/*;capture=camera', onchange:'readURL(this);', :class=>'actualButton') %>
-          </p>
-          <div class="fakeButton2">Choose File</div>
-
+          <div class="fakeButton2">
+            Choose Image
+          </div>
+          <%= f.file_field(:photo, accept: 'image/*;capture=camera',
+                            class: 'actualButton', onchange:'readURL(this);') %>
         </div>
       </div>
 
@@ -158,16 +165,20 @@ $(document).ready(function(){
         <li>
          <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
           <p id="request_id"> <%= f.hidden_field :request_id, :value => @request.id %></p>
-          <label class="fillReqLabel">How much are you donating?</label>
           <%  if flash[:resource_amount] %>
             <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
           <% end %>
-          <p><%= f.number_field :resource_amount, :placeholder => 2 , :class=>"fillIn" %></p>
+          <%= f.label :resource_amount, 'How much are you donating?', id: "resource-amt-label" %>
+          <%= f.number_field :resource_amount, :class=>"fillIn", min: 0, max: amount_needed, step: 1 %>
         </li>
-        <li><br></br></li>
+        <li>
+          <%= f.check_box :tax_form_flag, id: 'tax-form-checkbox' %>
+          <%= f.label :tax_form_flag, "Do you want a tax deduction form?", id: "tax-form-label" %>
+        </li>
+        <%= f.hidden_field :contribution_date, :value => Date.today %>
         <li>
           <div class="formButton">
-            <p><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>
+            <p align="center"><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>
           </div>
         </li>
 
@@ -175,6 +186,37 @@ $(document).ready(function(){
       <% end %>
     </div>
   </div>
+  <% end %>
+
+  <% if session[:organization_id] %>
+    <div class="donFormBox">
+
+      <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Donors</header>
+
+      <div style="height: 85%; overflow-y: scroll">
+        <nav id="menu">
+          <% @donors.each do |donor| %>
+             <% @contributions.each do |contribution| %>
+
+          <ul class="parent-menu">
+          <li>
+              <div class="acc_reqMainContent">
+                <strong>
+                  <%= link_to "#{donor.name} donated #{contribution.resource_amount} #{@request.resource} on #{contribution.contribution_date}",
+                            donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
+                </strong>
+              </div>
+              <hr>
+          </li>
+          </ul>
+          <% end %>
+        <% end %>
+        </nav>
+
+      </div>
+
+    </div>
+  <% end %>
 
   <div class="placeholderBox">
   </div>

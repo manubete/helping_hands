@@ -17,7 +17,9 @@
       <header class="reqHead" style="margin: 2% auto 5% auto; text-align: center;"><p class="aP"><%= @organization.name.titleize %></p> </header>
 
       <div class="profileImg">
-        <%= cl_image_tag(@organization.avatar_url) %><br>
+        <div class="profileImg-container">
+          <%= cl_image_tag(@organization.avatar_url, class: "avatar") %><br>
+        </div>
       </div>
 
       <ul class="account">
@@ -81,69 +83,105 @@
         </li>
 
         <li><hr></li>
-            <%= link_to "Edit Profile", edit_organization_path(session[:organization_id]), :class => "tfbutton" if session[:organization_id] %><br><br>
+        <p align="center">
+          <%= link_to "Edit Profile", edit_organization_path(session[:organization_id]),
+                  :class => "tfbutton" if session[:organization_id] %>
+        </p>
       </ul>
     </div>
 
     <div class="reqAcctBox" style="margin-top: 2%";>
       <div class="reqAcctBox_box">
         <div>
-          <%= link_to "Make New Request", new_request_path, :class => "tfbutton" if session[:organization_id] %>
-
+          <%= link_to "Make New Request", new_request_path,
+                  :class => "tfbutton" if session[:organization_id] %>
         </div>
 
-        <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Requests</header>
+        <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">
+          Active Requests
+        </header>
 
         <div class="reqInner">
           <nav class="menu">
-            <% @requests.each do |request| %>
             <ul class="parent-menu">
-              <li>
-                <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{request.target_resource_count} #{request.resource}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></strong>
-                  <p><%= link_to "#{request.address}", request_path(request.id) if request.end_date.nil? || request.end_date >= Date.today %></p>
-                </div>
-                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date >= Date.today %></div>
-                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
-                <hr></hr>
-              </li>
+              <% @requests_active = 0 %>
+              <% @requests.each do |request| %>
+                <% if request.end_date.nil? || request.end_date > Date.today %>
+                  <% @requests_active += 1 %>
+                  <li>
+                    <hr>
+                    <div class="acc_reqMainContent">
+                      <% if request.resource.pluralize == request.resource %>
+                        <% resource_str = request.target_resource_count != 1 ? request.resource : request.resource.singularize %>
+                      <% elsif request.resource.singularize == request.resource %>
+                        <% resource_str = request.target_resource_count == 1 ? request.resource : request.resource.pluralize %>
+                      <% end %>
+
+                      <strong>
+                        <%= link_to "#{request.target_resource_count} #{resource_str}",
+                                      request_path(request.id) %>
+                      </strong>
+                      <p>
+                        <%= link_to "#{request.address}", request_path(request.id) %>
+                      </p>
+                    </div>
+                    <div class="acc_reqDate" style="float: right;">
+                      <%= "End Date: #{request.end_date}" if !request.end_date.nil? %>
+                      <%= "End Date: indefinite" if request.end_date.nil? %>
+                    </div>
+                    <hr>
+                  </li>
+                <% end %>
+              <% end %>
             </ul>
+            <% if @requests_active == 0 %>
+              <p align="center"> No requests active </p>
             <% end %>
           </nav>
-            <% if @requests.size == 0 %>
-              <p> No requests active </p>
-            <% end %>
-
         </div>
-
       </div>
+
       <div class="reqAcctBox_box2">
-        <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Request History</header>
+        <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">
+          Request History
+        </header>
 
         <div class="reqInner">
 
           <nav class="menu">
-             <% @requests.each do |request| %>
             <ul class="parent-menu">
+              <% @requests_in_history = 0 %>
+              <% @requests.each do |request| %>
+                <% if !request.end_date.nil? && request.end_date < Date.today %>
+                  <% @requests_in_history += 1 %>
+                  <li>
+                    <hr>
+                    <div class="acc_reqMainContent">
+                      <strong>
+                        <% if request.resource.pluralize == request.resource %>
+                          <% resource_str = request.target_resource_count != 1 ? request.resource : request.resource.singularize %>
+                        <% elsif request.resource.singularize == request.resource %>
+                          <% resource_str = request.target_resource_count == 1 ? request.resource : request.resource.pluralize %>
+                        <% end %>
 
-            <li>
-
-                <div class="acc_reqMainContent">
-                  <strong><%= link_to "#{request.target_resource_count} of #{request.resource}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></strong>
-                  <p><%= link_to "#{request.address}", request_path(request.id) if !request.end_date.nil? && request.end_date < Date.today  %></p>
-                </div>
-                <div style="float: right;">
-                  <%= "Finished at #{request.end_date}" if !request.end_date.nil? && request.end_date < Date.today %>
-                </div>
-                <div class="acc_reqDate" style="float: right;"><%= "End Date: #{request.end_date}" if !request.end_date.nil? && request.end_date > Date.today %></div>
-                <div class="acc_reqDate" style="float: right;"><%= "End Date: indefinite" if request.end_date.nil?  %></div>
-                <hr></hr>
-              </li>
+                        <%= link_to "#{request.target_resource_count} #{resource_str}",
+                              request_path(request.id) %>
+                      </strong>
+                      <p>
+                        <%= link_to "#{request.address}", request_path(request.id) %>
+                      </p>
+                    </div>
+                    <div class="acc_reqDate" style="float: right;">
+                      <%= "End Date: #{request.end_date}" %>
+                    </div>
+                    <hr>
+                  </li>
+                <% end %>
+              <% end %>
             </ul>
-            <% end %>
 
-            <% if @requests.size == 0 %>
-              <p> No requests in history </p>
+            <% if @requests_in_history == 0 %>
+              <p align="center"> No requests in history </p>
             <% end %>
 
           </nav>

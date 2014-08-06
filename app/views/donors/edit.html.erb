@@ -31,26 +31,21 @@
           <label class="form_label" for="email">Email: <%= f.email_field :email, :placeholder => @donor.email %></label>
         </li>
 
-         <li>
-            <label class="form_label" for="security_question">*Security Question: <%= f.text_field :security_question, :placeholder => @donor.security_question %></label>
-          </li>
-
-          <li>
-            <label class="form_label" for="security_answer">*Security Answer: <%= f.password_field :security_answer, :placeholder => @donor.security_answer %></label>
-          </li>
-
         <li>
           <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
         </li>
         <li>
           <label class="form_label" for="password">Confirm New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
         </li>
-        <li><%= f.submit 'Save Changes', :class => 'tfbutton' %></li>
+        <li>
+          <div class="formButton">
+            <%= f.submit 'Save Changes', :class => 'tfbutton' %>
+          </div>
+        </li>
       </ul>
       <% end %>
 
     </div>
-
-
-
+    <div class="placeholderBox">
+    </div>
   </div>

@@ -560,13 +560,18 @@ div.photo img{
 .reqPre{
   text-align: left;
   font-size: 0.5em;
-  float:left;
+  /*float:left;*/
+  margin-top: 1em;
+}
+.reqPre p{
+  margin-top: 0.2em;
 }
 
 div.searchOrgName, div.contName{
   float: left;
   font-size: 2em;
   width: 50%;
+  margin-left: 0.8em
 }
 .contP{
     margin:0;
@@ -834,9 +839,7 @@ input#email, input#password{
   .reqInput p input{
     width: 80%;
   }
-  p{
-    margin: 0.2em;
-  }
+
   p a.tfbutton{
     font-size: 0.9em;
     padding: 1px 3px;
@@ -926,6 +929,9 @@ input#email, input#password{
   }
   .login_label{
     float: none;
+  }
+  p{
+    margin: 0.2em;
   }
 
   header.fulfilled{

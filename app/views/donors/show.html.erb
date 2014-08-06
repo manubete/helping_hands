@@ -2,6 +2,7 @@
   $(document).ready(function(){
     $('.views-field-phone').each(function(){
       var string = $(this).html();
+      string = string.replace(/\D/g,'');
       $(this).html(string.substring(0,3) + '-' + string.substring(3,6) + '-' + string.substring(6,10))
     });
   });
@@ -70,7 +71,6 @@
                   <% if contribution.request_id == request.id && (request.end_date.nil? || request.end_date > Date.today) %>
                     <% @requests_active += 1 %>
                     <li>
-                      <hr>
                       <div class="acc_reqMainContent">
                         <% if request.resource.pluralize == request.resource %>
                           <% resource_str = contribution.resource_amount != 1 ? request.resource : request.resource.singularize %>
@@ -96,7 +96,7 @@
             </ul>
           </nav>
           <% if @requests_active == 0 %>
-            <p> No requests active </p>
+            <p align="center"> No requests active </p>
           <% end %>
         </div>
 
@@ -139,7 +139,7 @@
             </ul>
           </nav>
           <% if @requests_in_history == 0 %>
-            <p> No requests in history </p>
+            <p align="center"> No requests in history </p>
           <% end %>
         </div>
       </div>

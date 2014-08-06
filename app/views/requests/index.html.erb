@@ -35,9 +35,10 @@
 
           <div class="searchContent">
             <div class="searchOrgName">
-              <%= link_to "#{request.organization}", request_path(request) %>
+              <%= link_to "#{request.resource.titleize}", request_path(request) %>
+
               <div class="reqPre">
-                <%= link_to "#{request.resource}", request_path(request) %>
+                <%= link_to "#{request.organization.titleize}", request_path(request), :class=> 'reqA'%>
                 <p><%= "#{request.address}" %></p>
                 <p>Tags: <%= raw request.tag_list.map { |tag| link_to tag, tag_path(tag), :class => 'tfbutton'}.join(', ') %></p>
               </div>

@@ -1,16 +1,22 @@
 class Organization < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
-  attr_accessible :name, :description, :city, :address, :operation_days, :opening_time, :closing_time, :phone_number, :email, :website_url, :linked_in_url, :facebook_url, :password,:security_question, :security_answer, :password_confirmation, :avatar, :avatar_cache
+  attr_accessible :name, :description, :city, :address, :operation_days,
+                  :opening_time, :closing_time, :phone_number, :email,
+                  :website_url, :linked_in_url, :facebook_url, :password,
+                  :password_confirmation, :avatar, :avatar_cache
 
   has_many :requests
   has_secure_password
 
-  validates :password, confirmation: true
+  validates :password, :length => { :minimum => 6 }, :if => :password_digest_changed?
+  validates :password_confirmation, :presence => true, :if => :password_digest_changed? 
 
-  validates :name, :description, :city, :address,:operation_days, :opening_time, :closing_time, :phone_number, :website_url, :password, :email, presence: true
-  validates :name, :description, :address, :phone_number, :website_url, :email, uniqueness: true
-
+  validates :name, :description, :city, :address, :operation_days, :opening_time,
+            :closing_time, :phone_number, :website_url, :email,
+            :presence => true
+  validates :name, :description, :address, :phone_number, :website_url, :email,
+            :uniqueness => true
 
   def self.authenticate(email, password)
     @organization = Organization.find_by_email(email)

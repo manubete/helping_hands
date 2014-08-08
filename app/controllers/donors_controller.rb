@@ -20,8 +20,6 @@ class DonorsController < ApplicationController
     flash[:phone_number] = @donor.errors[:phone_number] unless @donor.errors[:phone_number].empty?
     flash[:email] = @donor.errors[:email] unless @donor.errors[:email].empty?
      flash[:password] = @donor.errors[:password] unless @donor.errors[:password].empty?
-     flash[:security_question] = @donor.errors[:security_question] unless @donor.errors[:security_question].empty?
-      flash[:security_answer] = @donor.errors[:security_answer] unless @donor.errors[:security_answer].empty?
 
       render :new
     end
@@ -52,4 +50,3 @@ class DonorsController < ApplicationController
   end
 
 end
-

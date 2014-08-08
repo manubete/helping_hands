@@ -84,10 +84,10 @@ $(document).ready(function(){
           <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "your Facebook URL" %></label></li>
 
         <li>
-          <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => @organization.password %></label>
+          <label class="form_label" for="password">New Password: <%= f.password_field :password %></label>
         </li>
         <li>
-          <label class="form_label" for="password">Verify Password: <%= f.password_field :password, :placeholder => @organization.password  %></label>
+          <label class="form_label" for="password">Verify Password: <%= f.password_field :password_confirmation %></label>
         </li>
         <li>
         </li>

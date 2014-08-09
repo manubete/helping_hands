@@ -4,6 +4,8 @@
 
   get "static_pages/questions", to: "static_pages#questions", as: :questions_static_pages
 
+  get "contacts/new", to: "contacts#new", as: :contacts_new
+
   get "password_resets/new"
 
   #requests resources has custom routes, namely donor index and api request, that serve as api endpoints or a route where multiple resources(including donors) are loaded based on a particular requests information and ARecord associations
@@ -46,4 +48,6 @@
    resources :password_resets
 
    resources :static_pages
+
+   resources :contacts
 end

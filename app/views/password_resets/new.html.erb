@@ -1,8 +1,17 @@
 <div class="fillBox"><br>
   <%= form_tag password_resets_path, :method => :post do %>
-    <p><%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %></p>
+    <% if flash[:error] %>
+      <p class="error">
+        <%= flash[:error] %>
+        <%= link_to "Register Now!",
+          { controller: "sessions", action: "user_type_confirmation"} %>
+      </p>
+    <% end %>
+    <p align="center">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+    </p>
 
-    <p><%= submit_tag "Reset Password", :class => 'tfbutton' %></p>
+    <p align="center"><%= submit_tag "Reset Password", :class => 'tfbutton' %></p>
   <% end %>
 </div>

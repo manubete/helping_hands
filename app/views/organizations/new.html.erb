@@ -68,14 +68,22 @@ $(document).ready(function(){
         <%  if flash[:city] %>
           <p class="error"> *City <%= flash[:city].join(', and ') %></p>
             <% end %>
-        <label class="form_label" for="city">  *City <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
+        <label class="form_label" for="city">  *City: <%= f.text_field :city, :placeholder => "city, state, zip" %></label>
       </li>
 
      <li>
        <%  if flash[:operation_days] %>
         <p class="error"> Open on Operating Days <%= flash[:operation_days].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="operation_days">*Operating Days: <%= f.text_field :operation_days, :placeholder => "Monday to Friday" %></label>
+      <label class="form_label" for="operation_days">*Operating Days:
+        Sun <%= f.check_box(:operation_days, { :multiple => true }, 'Sun', nil) %>
+        | Mon <%= f.check_box(:operation_days, { :multiple => true }, 'Mon', nil) %>
+        | Tue <%= f.check_box(:operation_days, { :multiple => true }, 'Tue', nil) %>
+        | Wed <%= f.check_box(:operation_days, { :multiple => true }, 'Wed', nil) %>
+        <br>Thu <%= f.check_box(:operation_days, { :multiple => true }, 'Thu', nil) %>
+        | Fri <%= f.check_box(:operation_days, { :multiple => true }, 'Fri', nil) %>
+        | Sat <%= f.check_box(:operation_days, { :multiple => true }, 'Sat', nil) %>
+      </label>
     </li>
     <li>
       <%  if flash[:opening_time] %>

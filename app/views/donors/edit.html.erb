@@ -25,17 +25,17 @@
             <label class="form_label" for="address"><%= f.text_field :address, :placeholder => "city state zip" %></label>
           </li>
         <li>
-          <label class="form_label" for="phone">Phone: <%= f.telephone_field :phone_number, :placeholder => @donor.phone_number %></label>
+          <label class="form_label" for="phone_number">Phone: <%= f.telephone_field :phone_number, :placeholder => @donor.phone_number %></label>
         </li>
         <li>
           <label class="form_label" for="email">Email: <%= f.email_field :email, :placeholder => @donor.email %></label>
         </li>
 
         <li>
-          <label class="form_label" for="password">New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
+          <label class="form_label" for="password">New Password: <%= f.password_field :password %></label>
         </li>
         <li>
-          <label class="form_label" for="password">Confirm New Password: <%= f.password_field :password, :placeholder => @donor.password %></label>
+          <label class="form_label" for="password_confirmation">Confirm New Password: <%= f.password_field :password_confirmation %></label>
         </li>
         <li>
           <div class="formButton">

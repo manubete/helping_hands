@@ -4,17 +4,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-     #p "#{params.inspect} #{params["password"]}"
-     @donor = Donor.authenticate(params[:email], params[:password])
 
-     @organization = Organization.authenticate(params[:email], params[:password])
+     @donor = Donor.find_by_email(params[:email])
 
-     if @donor
+     @organization = Organization.find_by_email(params[:email])
+
+
+     if @donor && @donor.authenticate(params[:password])
       session[:donor_id] = @donor.id
       flash[:notice]="Successfully logged in."
         redirect_to requests_path
 
-      elsif @organization
+      elsif @organization && @organization.authenticate(params[:password])
         session[:organization_id] = @organization.id
         flash[:notice]="Successfully logged in."
         redirect_to requests_path

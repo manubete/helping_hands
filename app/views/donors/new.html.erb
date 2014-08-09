@@ -49,10 +49,10 @@
             <%  if flash[:password] %>
               <p class="error"> Password <%= flash[:password].join(', and ') %></p>
             <% end %>
-            <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "eg secretpassword909" %></label>
+            <label class="form_label" for="password">*Password: <%= f.password_field :password %></label>
           </li>
           <li>
-            <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909", :id=> "input" %></label>
+            <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation, :id=> "input" %></label>
           </li>
           <li>
             <div class="formButton">
@@ -66,4 +66,3 @@
    <div class="placeholderBox">
   </div>
 </div>
-

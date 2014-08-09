@@ -1,10 +1,13 @@
 class Donor < ActiveRecord::Base
-  attr_accessible :name, :city, :address, :phone_number, :email, :password,:security_question, :security_answer, :password_confirmation
+  attr_accessible :name, :city, :address, :phone_number, :email, :password, :password_confirmation
 
-  validates :password, confirmation: true
+  has_secure_password
 
-  validates :name, :city, :address, :phone_number, :password, :email, presence: true
-  validates :name, :address, :phone_number, :password, :email, uniqueness: true
+  validates :password, :length => { :minimum => 6 }, :if => :password_digest_changed?
+  validates :password_confirmation, :presence => true, :if => :password_digest_changed?
+
+  validates :name, :city, :address, :phone_number, :email, presence: true
+  validates :name, :address, :phone_number, :email, uniqueness: true
 
   has_many :contributions
   has_many :requests, through: :contributions
@@ -30,6 +33,5 @@ class Donor < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
     end while Donor.exists?(column => self[column])
   end
-
 
 end

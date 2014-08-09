@@ -26,10 +26,7 @@ class OrganizationsController < ApplicationController
       flash[:website_url] = @organization.errors[:website_url] unless @organization.errors[:website_url].empty?
       flash[:description] = @organization.errors[:description] unless @organization.errors[:description].empty?
       flash[:password] = @organization.errors[:password] unless @organization.errors[:password].empty?
-      flash[:security_question] = @organization.errors[:security_question] unless @organization.errors[:security_question].empty?
-      flash[:security_answer] = @organization.errors[:security_answer] unless @organization.errors[:security_answer].empty?
 
-      @organization = Organization.new
       render :new
     end
   end

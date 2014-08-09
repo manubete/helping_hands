@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20140809165859) do
     t.string "security_question"
     t.string "security_answer"
     t.string "password_reset_token"
+    t.string "password_digest"
   end
 
   create_table "organizations", :force => true do |t|
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20140809165859) do
     t.string "security_answer"
     t.string "avatar"
     t.string "password_reset_token"
+    t.string "password_digest"
   end
 
   create_table "requests", :force => true do |t|

@@ -758,6 +758,10 @@ input#email, input#password{
 .faqWords{
   width: 10em;
 }
+.socialDiv{
+  width: 25em;
+  margin: auto;
+}
 
 /*****************media queries ******************/
 /*tablet landscape and small laptop screens*/

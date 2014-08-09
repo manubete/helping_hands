@@ -55,7 +55,7 @@ $(document).ready(function(){
           <%  if flash[:description] %>
             <p class="error"> Description <%= flash[:description].join(', and ') %></p>
           <% end %>
-          <label class="form_label" for="description">*Description: <%= f.text_area :description, :cols => 33, :rows => 5, :placeholder => "Our organization delivers quality care to homeless people all over our community" %></label>
+          <label class="form_label" for="description">*Description: <%= f.text_area :description, :cols => 33, :rows => 5, :placeholder => "A short description of the mission of the organization" %></label>
        </li>
 
      <li>
@@ -93,33 +93,33 @@ $(document).ready(function(){
        <%  if flash[:phone_number] %>
         <p class="error"> Phone Number <%= flash[:phone_number].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "Don't include 1" %></label>
+      <label class="form_label" for="phone">*Phone: <%= f.telephone_field :phone_number, :placeholder => "Don't include the 1" %></label>
     </li>
     <li>
       <%  if flash[:email] %>
         <p class="error"> Email <%= flash[:email].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="email">*Email: <%= f.email_field :email, :placeholder => "ie 'name@company.com'" %></label>
+      <label class="form_label" for="email">*Email: <%= f.email_field :email %></label>
     </li>
     <li>
       <%  if flash[:website_url] %>
         <p class="error"> Website url <%= flash[:website_url].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "ie 'www.handyhank.com'" %></label>
+      <label class="form_label" for="website">*Website: <%= f.text_field :website_url, :placeholder => "Website URL" %></label>
     </li>
     <li>
-      <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "ie 'linkedin.com/handyhank'" %></label></li>
+      <label class="form_label" for="linked_in">LinkedIn: <%= f.text_field :linked_in_url, :placeholder => "LinkedIn URL" %></label></li>
     <li>
-      <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "ie 'facebook.com/handyhank'" %></label></li>
+      <label class="form_label" for="facebook">Facebook: <%= f.text_field :facebook_url, :placeholder => "Facebook URL" %></label></li>
 
     <li>
         <%  if flash[:password] %>
         <p class="error"> Password <%= flash[:password].join(', and ') %></p>
           <% end %>
-      <label class="form_label" for="password">*Password: <%= f.password_field :password, :placeholder => "ie 'SecretPas$word9'" %></label>
+      <label class="form_label" for="password">*Password: <%= f.password_field :password %></label>
     </li>
     <li>
-       <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation, :placeholder => "eg secretpassword909" %></label>
+       <label class="form_label" for="password">*Password Confirm: <%= f.password_field :password_confirmation %></label>
     </li>
     <li>
       <div class="formButton" >

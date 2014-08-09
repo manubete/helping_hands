@@ -1,5 +1,12 @@
-Dear <%= @donor.name %>
+Dear <%= @donor.name.titleize %>
 
-Thank you so much for promising to donate <%= @contribution.resource_amount %> <%= @request.resource %> to the <%= @organization.name %> organization
+Thank you so much for promising to donate <%= @contribution.resource_amount %> <%= @request.resource %> to the <%= @organization.name %>. They are located at <%= @organization.address %>, <%= @organization.city %>. If you have questions on how to get there please call them at <%= @organization.phone_number %>, or email them at <%= @organization.email %>.
 
-Feel free to reach out to them at <%= @organization.email %>
+<% if @contribution.tax_form_flag %>
+The tax deduction form you request will be mailed to you shortly.
+<% end %>
+
+Sincerely,
+Helpful Hand Team
+
+www.helpfulhand.org

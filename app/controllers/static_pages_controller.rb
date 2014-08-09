@@ -6,4 +6,8 @@ class StaticPagesController < ApplicationController
   def questions
     render
   end
+
+  def social
+    render
+  end
 end

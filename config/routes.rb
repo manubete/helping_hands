@@ -4,7 +4,9 @@
 
   get "static_pages/questions", to: "static_pages#questions", as: :questions_static_pages
 
-  get "contacts/new", to: "contacts#new", as: :contacts_new
+  get "static_pages/social", to: "static_pages#social", as: :social_static_pages
+
+  get "contacts/new", to: "contacts#new", as: :contact_new
 
   get "password_resets/new"
 

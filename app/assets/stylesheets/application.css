@@ -749,6 +749,16 @@ input#email, input#password{
   background-color:#2e2e2e;
 }
 
+/************** static pages ******************/
+.faqWords_s{
+  width: 10em;
+  float: left;
+  margin: 0 1em 0 1em;
+}
+.faqWords{
+  width: 10em;
+}
+
 /*****************media queries ******************/
 /*tablet landscape and small laptop screens*/
 @media (max-width: 1310px){

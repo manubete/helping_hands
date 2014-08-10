@@ -497,6 +497,14 @@ label.error {
   float: left;
 }
 
+p.hint {
+  font-size: 0.6em;
+}
+
+.form-field {
+  width: 43%;
+}
+
 /*------------- SECURITY QUESTION FORM -------------- */
 
 .form_field {
@@ -643,13 +651,15 @@ header.contHead{
 div .error {
   color: red;
   text-decoration: underline;
-  width:30%;
   margin: 0 auto;
-  font-size: 0.8em;
 }
 
 p.error {
   color: red;
+}
+
+label.error {
+  font-size: 0.8em;
 }
 
 div .signup {

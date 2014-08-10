@@ -1,5 +1,27 @@
-Dear <%= @donor.name %>
+<p>Dear <%= @donor.name.titleize %>,</p>
 
-Thank you so much for promising to donate <%= @contribution.resource_amount %> <%= @request.resource %> to the <%= @organization.name %> organization
+<% if @request.resource.pluralize == @request.resource %>
+  <% resource_str = @contribution.resource_amount != 1 ? @request.resource : @request.resource.singularize %>
+<% elsif @request.resource.singularize == @request.resource %>
+  <% resource_str = @contribution.resource_amount == 1 ? @request.resource : @request.resource.pluralize %>
+<% end %>
 
-Feel free to reach out to them at <%= @organization.email %>
+<p>
+  Thank you so much for promising to donate <%= @contribution.resource_amount %>
+  <%= resource_str %> to <%= @organization.name.titleize %>!
+</p>
+
+<p>
+  <%= @organization.name.titleize %> will reach out to you to arrange for
+  receiving your donation. If you do not hear from them soon, you may
+  reach out to them at <%= @organization.email %>.
+</p>
+
+<p>
+  Sincerely,<br>
+  Helpful Hand Team
+</p>
+
+<p>
+  <a href="http://www.helpfulhand.org">www.helpfulhand.org</a>
+</p>

@@ -9,7 +9,7 @@ class DonorMailer < ActionMailer::Base
     @contribution = email_hash.fetch(:contribution)
     @request = email_hash.fetch(:request)
 
-    mail to: @donor.email, subject: "New Contribution"
+    mail to: @donor.email, subject: "New Contribution", :content_type => "text/html"
   end
 
   def password_reset(donor)

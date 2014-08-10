@@ -23,3 +23,6 @@
 
 # ignore diff orig files
 *.orig
+
+# ignore cached cloudinary files
+public/uploads/tmp

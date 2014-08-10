@@ -10,4 +10,8 @@ class StaticPagesController < ApplicationController
   def social
     render
   end
+
+  def contactTemp
+    render
+  end
 end

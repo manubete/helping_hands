@@ -9,6 +9,7 @@ gem"simple-navigation"
 
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'mini_magick'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 

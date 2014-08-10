@@ -1,14 +1,16 @@
 
 <script>
+
+var fileName = "";
+
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      $('#img_prev').attr('src', e.target.result);
-      $( ".org_avatar" ).removeAttr('style');
+      fileName = e.target.result
+      $('#img_prev').attr('src', fileName );
     };
-
     reader.readAsDataURL(input.files[0]);
   }
 }
@@ -16,6 +18,44 @@ function readURL(input) {
 $(document).ready(function(){
   $(".fakeButton").click(function(){
     $(".actualButton").click();
+  });
+
+  $("#new_organization").validate({
+    debug: true,
+    rules: {
+      "organization[name]": {required: true},
+      "organization[description]": {required: true},
+      "organization[address]": {required: true},
+      "organization[city]": {required: true},
+      "organization[operation_days]": {required: true},
+      "organization[opening_time(4i)]": {required: true},
+      "organization[opening_time(5i)]": {required: true},
+      "organization[closing_time(4i)]": {required: true},
+      "organization[closing_time(5i)]": {required: true},
+      "organization[phone_number]": {required: true},
+      "organization[email]": {required: true},
+      "organization[website_url]": {required: true},
+      "organization[password]": {required: true, minlength: 8},
+      "organization[password_confirmation]": {required: true, equalTo: "#organization_password"}
+    },
+    messages: {
+      "organization[name]": {required: "Name is required."},
+      "organization[description]": {required: "Description is required."},
+      "organization[address]": {required: "Address is required"},
+      "organization[city]": {required: "City is required."},
+      "organization[operation_days]": {required: "Days of operation is required."},
+      "organization[opening_time(4i)]": {required: "Opening time is required."},
+      "organization[opening_time(5i)]": {required: "Opening time is required."},
+      "organization[closing_time(4i)]": {required: "Closing time is required."},
+      "organization[closing_time(5i)]": {required: "Closing time is required."},
+      "organization[phone_number]": {required: "Phone number is required."},
+      "organization[email]": {required: "Email is required."},
+      "organization[website_url]": {required: "Website is required."},
+      "organization[password]": {required: "Please input a password.",
+                                 minlength: "Password must have at least 8 characters"},
+      "organization[password_confirmation]": {required: "Please confirm your password.",
+                                              equalTo: "Password confirmation does not match password."}
+    }
   });
 });
 
@@ -39,7 +79,6 @@ $(document).ready(function(){
           </div>
         <%= cloudinary_js_config %>
 
-        <%= image_tag(@organization.avatar_url) if @organization.avatar? %>
         <%= f.file_field(:avatar, onchange:'readURL(this);', :class=>'actualButton') %>
         <%= f.hidden_field(:avatar_cache) %>
         <div class="fakeButton">Choose File</div>
@@ -131,7 +170,7 @@ $(document).ready(function(){
     </li>
     <li>
       <div class="formButton" >
-      <%= f.submit 'Register', :class => 'tfbutton' %>
+      <p align="center"><%= f.submit 'Register', :class => 'tfbutton' %></p>
       </div>
       </li><br>
     </ul>

@@ -489,6 +489,14 @@ div.input{
   width: 40%;
 }
 
+input.error, select.error, textarea.error {
+  background: #FF8080;
+}
+
+label.error {
+  float: left;
+}
+
 /*------------- SECURITY QUESTION FORM -------------- */
 
 .form_field {
@@ -635,8 +643,9 @@ header.contHead{
 div .error {
   color: red;
   text-decoration: underline;
-  width:40%;
+  width:30%;
   margin: 0 auto;
+  font-size: 0.8em;
 }
 
 p.error {

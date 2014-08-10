@@ -1,0 +1,144 @@
+<%= form_for @organization do |f| %>
+  <ul class="longSign">
+    <li>
+      <div class="signUpPic">
+        <div class="profileImg">
+          <div class="profileImg-container">
+            <% if @organization.new_record? %>
+              <img id="img_prev" alt="Add Logo Image" src="/assets/placeholderPic.jpg">
+            <% else %>
+              <%= cl_image_tag(@organization.avatar_url, class: "avatar", id: "img_prev") %>
+            <% end %>
+          </div>
+        </div>
+      <%= cloudinary_js_config %>
+
+      <%= f.file_field(:avatar, onchange:'readURL(this);', :class=>'actualButton') %>
+      <%= f.hidden_field(:avatar_cache) %>
+      <div class="fakeButton">Choose File</div>
+      </div>
+    </li>
+    <li>
+      <%  if flash[:name] %>
+        <p class="error"> Name <%= flash[:name].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="name">*Name:
+        <%= f.text_field :name, :placeholder => "Enter organization name", :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:description] %>
+        <p class="error"> Description <%= flash[:description].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="description">*Description:
+        <%= f.text_area :description, :rows => 5,
+              :placeholder => "Provide a brief description of your organization.",
+              :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:address] %>
+        <p class="error">Address <%= flash[:address].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="address">*Street Address:
+        <%= f.text_field :address, :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:city] %>
+        <p class="error">City <%= flash[:city].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="city">*City:
+        <%= f.text_field :city, :placeholder => "City, State, Zip/Postal Code, Country",
+                         :class => "form-field" %></label>
+    </li>
+    <li>
+      <%  if flash[:operation_days] %>
+        <p class="error"> Open on Operating Days <%= flash[:operation_days].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="operation_days">
+        *Operating Days:
+        <p class="hint">(Ctrl-click or Command-click to select multiple days)</p>
+        <% days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                   'Friday', 'Saturday', 'Sunday'] %>
+        <%= f.select :operation_days, days.collect { |t| [ t, t ] },
+                   {}, { :multiple => true, :size => 7, :class => 'form-field' } %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:opening_time] %>
+        <p class="error"> Open from <%= flash[:opening_time].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="opening_time">*Open from:
+        <%= f.time_select :opening_time,
+              {:minute_step => 30, :ampm => true, :include_blank => true} %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:closing_time] %>
+        <p class="error"> Until <%= flash[:closing_time].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="closing_time">*Until:
+        <%= f.time_select :closing_time,
+            {:minute_step => 30, :ampm => true, :include_blank => true} %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:phone_number] %>
+        <p class="error"> Phone Number <%= flash[:phone_number].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="phone">*Phone Number:
+        <%= f.telephone_field :phone_number, :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:email] %>
+        <p class="error"> Email <%= flash[:email].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="email">*Email Address:
+        <%= f.email_field :email, :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:website_url] %>
+        <p class="error"> Website URL <%= flash[:website_url].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="website">*Website URL:
+        <%= f.text_field :website_url, :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <label class="form_label" for="linked_in">LinkedIn URL:
+        <%= f.text_field :linked_in_url, :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <label class="form_label" for="facebook">Facebook URL:
+        <%= f.text_field :facebook_url, :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <%  if flash[:password] %>
+        <p class="error"> Password <%= flash[:password].join(', and ') %></p>
+      <% end %>
+      <label class="form_label" for="password">*Password:
+        <%= f.password_field :password, :placeholder => "Please enter at least 8 characters",
+                             :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <label class="form_label" for="password">*Password Confirm:
+        <%= f.password_field :password_confirmation, :class => "form-field" %>
+      </label>
+    </li>
+    <li>
+      <div class="formButton" >
+        <p align="center">
+          <%= f.submit 'Register', :class => 'tfbutton' if @organization.new_record? %>
+          <%= f.submit 'Save Changes', :class => 'tfbutton' if !@organization.new_record? %>
+        </p>
+      </div>
+    </li>
+    <br>
+  </ul>
+<% end %>

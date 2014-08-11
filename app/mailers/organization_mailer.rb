@@ -7,7 +7,7 @@ class OrganizationMailer < ActionMailer::Base
     @contribution = email_hash.fetch(:contribution)
     @request = email_hash.fetch(:request)
 
-    mail to: @organization.email, subject: "New Contribution"
+    mail to: @organization.email, subject: "New Contribution", :content_type => 'text/html'
   end
 
   def password_reset(organization)

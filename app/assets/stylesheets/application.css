@@ -489,6 +489,22 @@ div.input{
   width: 40%;
 }
 
+input.error, select.error, textarea.error {
+  background: #FF8080;
+}
+
+label.error {
+  float: left;
+}
+
+p.hint {
+  font-size: 0.6em;
+}
+
+.form-field {
+  width: 43%;
+}
+
 /*------------- SECURITY QUESTION FORM -------------- */
 
 .form_field {
@@ -635,12 +651,15 @@ header.contHead{
 div .error {
   color: red;
   text-decoration: underline;
-  width:40%;
   margin: 0 auto;
 }
 
 p.error {
   color: red;
+}
+
+label.error {
+  font-size: 0.8em;
 }
 
 div .signup {

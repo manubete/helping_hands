@@ -14,7 +14,7 @@ class Request < ActiveRecord::Base
   acts_as_taggable
 
   def start_date_valid?
-    if !start_date.between?(Date.today, Date.today + 1.month) 
+    if !start_date.between?(Date.today, Date.today + 1.month)
       errors.add :start_date, "Start date must within a month from today."
     end
   end
@@ -36,11 +36,11 @@ class Request < ActiveRecord::Base
   def update_count(amount_donated)
     new_amount = self.current_resource_count + amount_donated
 
-    self.update_attributes(:current_resource_count => new_amount)
+    self.update_attribute(:current_resource_count, new_amount)
 
     if self.current_resource_count >= self.target_resource_count && !self.complete
 
-      self.update_attributes(:complete => true)
+      self.update_attribute(:complete, true)
 
     elsif self.current_resource_count >= self.target_resource_count && self.complete
       #ie if there is no need to donate anymore, do nothing

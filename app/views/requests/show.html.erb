@@ -1,15 +1,4 @@
 <script>
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      $('#img_prev').attr('src', e.target.result);
-    };
-
-    reader.readAsDataURL(input.files[0]);
-  }
-}
 
 $(document).ready(function(){
   $(".fakeButton2").click(function(){
@@ -22,6 +11,17 @@ $(document).ready(function(){
     }
   });
 });
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#img_prev').attr('src', e.target.result );
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
 
 
 </script>
@@ -117,7 +117,7 @@ $(document).ready(function(){
 
       <li><hr></li>
       <li>
-        
+
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
 

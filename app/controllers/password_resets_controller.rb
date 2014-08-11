@@ -3,14 +3,19 @@ class PasswordResetsController < ApplicationController
   def new
   end
 
-    def create
+  def create
     donor = Donor.find_by_email(params[:email])
     organization = Organization.find_by_email(params[:email])
 
     donor.send_password_reset if donor
     organization.send_password_reset if organization
 
-    redirect_to root_url, :notice => "Email sent with password reset instructions."
+    if donor || organization
+      redirect_to root_url, :notice => "Email sent with password reset instructions."
+    else
+      flash[:error] = "Email not found. Are you registered with Helpful Hand?"
+      render :new
+    end
   end
 
   def edit

@@ -1,12 +1,31 @@
-Dear <%= @donor.name.titleize %>
+<p>Dear <%= @donor.name.titleize %>,</p>
 
-Thank you so much for promising to donate <%= @contribution.resource_amount %> <%= @request.resource %> to the <%= @organization.name %>. They are located at <%= @organization.address %>, <%= @organization.city %>. If you have questions on how to get there please call them at <%= @organization.phone_number %>, or email them at <%= @organization.email %>.
-
-<% if @contribution.tax_form_flag %>
-The tax deduction form you request will be mailed to you shortly.
+<% if @request.resource.pluralize == @request.resource %>
+  <% resource_str = @contribution.resource_amount != 1 ? @request.resource : @request.resource.singularize %>
+<% elsif @request.resource.singularize == @request.resource %>
+  <% resource_str = @contribution.resource_amount == 1 ? @request.resource : @request.resource.pluralize %>
 <% end %>
 
-Sincerely,
-Helpful Hand Team
+<p>
+  Thank you so much for promising to donate <%= @contribution.resource_amount %>
+  <%= resource_str %> to <%= @organization.name.titleize %>!
+</p>
 
-www.helpfulhand.org
+<p>
+  They are located at <%= @organization.address %>, <%= @organization.city %>. 
+  If you have questions on how to get there please call them at 
+  <%= @organization.phone_number %>, or email them at <%= @organization.email %>.
+</p>
+
+<% if @contribution.tax_form_flag %>
+  The tax deduction form you request will be mailed to you shortly.
+<% end %>
+
+<p>
+  Sincerely,<br>
+  Helpful Hand Team
+</p>
+
+<p>
+  <a href="http://www.helpfulhand.org">www.helpfulhand.org</a>
+</p>

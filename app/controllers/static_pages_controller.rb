@@ -6,4 +6,12 @@ class StaticPagesController < ApplicationController
   def questions
     render
   end
+
+  def social
+    render
+  end
+
+  def contactTemp
+    render
+  end
 end

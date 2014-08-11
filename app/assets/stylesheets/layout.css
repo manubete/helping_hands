@@ -32,9 +32,13 @@ li hr{
 
 a {
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
   font-family: 'Tahoma', sans-serif;
   margin-right: 0.7em;
+}
+
+.colorA{
+  color: #0076DE;
 }
 
 a:hover {

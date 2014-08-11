@@ -52,7 +52,9 @@ class OrganizationsController < ApplicationController
   end
 
   def check_email
-    if Organization.where('email = ?', params[:email]).count == 0
+    organization = Organization.where('email = ?', params[:email]).count
+    donor = Donor.where('email = ?', params[:email]).count
+    if organization == 0 && donor == 0
       render :nothing => true, :status => 200
     else
       render :nothing => true, :status => 409

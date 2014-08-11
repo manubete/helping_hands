@@ -4,6 +4,12 @@
 
   get "static_pages/questions", to: "static_pages#questions", as: :questions_static_pages
 
+  get "static_pages/social", to: "static_pages#social", as: :social_static_pages
+
+  get "static_pages/contactTemp", to: "static_pages#contactTemp", as: :contactTemp_static_pages
+
+  get "contacts/new", to: "contacts#new", as: :contact_new
+
   get "password_resets/new"
 
   get "organizations/check_email"
@@ -48,4 +54,6 @@
    resources :password_resets
 
    resources :static_pages
+
+   resources :contacts
 end

@@ -1,4 +1,4 @@
-<div class="fillBox">
+<div class="loginBox">
   <% if @donor %>
       <%= form_for @donor, :url => password_reset_path(params[:id]) do |f| %>
        <% if @donor.errors.any? %>
@@ -10,12 +10,19 @@
         </ul>
         <% end %>
 
-          <p><%= f.label :password %>
-          <%= f.password_field :password %></p>
+        <ul>
+          <li>
+            <label class="login_label">New Password:</label>
+            <p><%= f.password_field :password %></p>
+          </li>
 
-          <p><%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %></p>
-        <p><%= f.submit "Update Password", :class => "tfbutton" %></p>
+          <li>
+            <label class="login_label">Confirm Password:</label>
+            <p><%= f.password_field :password_confirmation %></p>
+          </li>
+        <li style="margin:0 auto; text-align:center">
+          <%= f.submit "Update Password", :class => "tfbutton" %>
+        </li>
       <% end %>
 
     <% elsif @organization %>
@@ -30,12 +37,21 @@
         </ul>
         <% end %>
 
-          <p><%= f.label :password %>
-          <%= f.password_field :password %></p>
+        <ul>
+          <li>
+            <label class="login_label">New Password:</label>
+            <p><%= f.password_field :password %></p>
+          </li>
 
-          <p><%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %></p>
-        <p><%= f.submit "Update Password", :class => "tfbutton" %></p>
+          <li>
+            <label class="login_label">Confirm Password:</label>
+            <p><%= f.password_field :password_confirmation %></p>
+          </li>
+
+          <li style="margin:0 auto; text-align:center">
+            <%= f.submit "Update Password", :class => "tfbutton" %>
+          </li>
+        </ul>
       <% end %>
 
 

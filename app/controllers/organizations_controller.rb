@@ -50,4 +50,14 @@ class OrganizationsController < ApplicationController
       render :edit
     end
   end
+
+  def check_email
+    if Organization.where('email = ?', params[:email]).count == 0
+      render :nothing => true, :status => 200
+    else
+      render :nothing => true, :status => 409
+    end
+    return
+  end
+
 end

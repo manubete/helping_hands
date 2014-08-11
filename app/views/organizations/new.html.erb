@@ -1,6 +1,26 @@
 
 <script>
 
+$(function() {
+    $('#organization_email').on("blur", function() {
+        $this = $(this);
+        $.get("/organizations/check_email", {
+            email: $this.val()
+        }).success(function() {
+            $this.removeClass('error');
+        }).error(function() {
+            if ($("#organization_email-error").length == 0) {
+              $('#email_label').append(
+                '<label id="organization_email-error" class="error" for="organization_email">'
+              + 'Email has already been taken.</label>');
+            } else {
+              $("#organization_email-error").append("Email has already been taken.");
+              $("#organization_email-error").removeAttr("style");
+            }
+        });
+    });
+});
+
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -163,7 +183,7 @@ $(document).ready(function(){
           <%  if flash[:email] %>
             <p class="error"> Email <%= flash[:email].join(', and ') %></p>
           <% end %>
-          <label class="form_label" for="email">*Email Address:
+          <label class="form_label" for="email" id="email_label">*Email Address:
             <%= f.email_field :email, :class => "form-field" %>
           </label>
         </li>

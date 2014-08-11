@@ -6,6 +6,8 @@
 
   get "password_resets/new"
 
+  get "organizations/check_email"
+
   #requests resources has custom routes, namely donor index and api request, that serve as api endpoints or a route where multiple resources(including donors) are loaded based on a particular requests information and ARecord associations
     resources :requests do
       collection do

@@ -28,8 +28,6 @@ $(document).ready(function(){
 
 <div class="overflowBox">
   <div class="showReqBox">
-
-
     <header class="fulfilled"><%= @request.organization %></header>
     <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
@@ -117,7 +115,7 @@ $(document).ready(function(){
 
       <li><hr></li>
       <li>
-        
+
         <%= link_to "Edit", edit_request_path(@request.id), :class => "tfbutton" if session[:organization_id]%>
         <%= link_to "Delete", request_path(@request.id),:method => 'delete', :class => "tfbutton" if session[:organization_id]%>
 
@@ -199,15 +197,26 @@ $(document).ready(function(){
              <% @contributions.each do |contribution| %>
 
           <ul class="parent-menu">
-          <li>
+            <li>
+              <div class="photo">
+                <%= cl_image_tag(contribution.photo_url) %>
+              </div>
               <div class="acc_reqMainContent">
                 <strong>
-                  <%= link_to "#{donor.name} donated #{contribution.resource_amount} #{@request.resource} on #{contribution.contribution_date}",
+                <%= link_to "#{donor.name}",
                             donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
                 </strong>
+                <p>
+                  <%= link_to "#{contribution.resource_amount} #{@request.resource}s",
+                            donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
+                </p>
               </div>
+              <div class="acc_reqDate" style="float: right;">
+                  <%= link_to "#{contribution.contribution_date}",
+                            donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
+                </div>
               <hr>
-          </li>
+            </li>
           </ul>
           <% end %>
         <% end %>

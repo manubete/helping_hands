@@ -3,7 +3,7 @@ Dear <%= @organization.name.titleize %>,
 <%= @donor.name.titleize %> has promised to donate <%= @contribution.resource_amount %> <%= @request.resource %>!
 
 <% if @contribution.tax_form_flag %>
-Also, a tax decuction form has been requested to be mailed to
+Also, a tax deduction form has been requested to be mailed to
 <%= @donor.address %>, <%= @donor.city %>.
 <% end %>
 

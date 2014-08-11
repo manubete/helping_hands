@@ -76,8 +76,7 @@ html {
 }
 
 .profileImg{
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 1em auto;
   width: 15em;
   height: 12em;
   overflow: hidden;
@@ -828,14 +827,12 @@ input#email, input#password{
   .box{
     width: 80%;
   }
-  .landBox{
+  .landBox, .userBox{
     margin: 30% auto 0 auto;
     width: 30em;
     height: auto;
   }
-  .userBox{
-    width: 80%;
-  }
+
   .donFormBox{
     width: 80%;
     float: none;
@@ -931,7 +928,7 @@ input#email, input#password{
       width: 100%;
   }
 
-  .landBox{
+  .landBox, .userBox{
     margin: 13% auto 0 auto;
     width: 27em;
     height: 14em;
@@ -941,10 +938,6 @@ input#email, input#password{
     width: 80%;
     margin: 15% auto 0 auto;
     padding:0.5em;
-  }
-  .userBox{
-    width: 80%;
-    margin: 15% auto 0 auto;
   }
 
   .logoUserDiv{
@@ -973,6 +966,9 @@ input#email, input#password{
 
   label.form_label{
     float: none;
+  }
+  .form-field{
+    width: 100%;
   }
   div.input{
     width: 100%;
@@ -1135,6 +1131,10 @@ input#email, input#password{
     width: 17em;
     height: auto;
     padding: 0.4em 0.2em 0.4em 0.2em;
+  }
+  .userBox{
+    width: 80%;
+    height: auto;
   }
 
   p{

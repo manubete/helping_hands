@@ -14,10 +14,12 @@
 <p><%= cl_image_tag(@contribution.photo, width: 200) %></p>
 
 <% if @contribution.tax_form_flag %>
+
 <p>
   Also, a tax deduction form has been requested to be mailed to:
   <br><%= @donor.address %>, <%= @donor.city %>.
 </p>
+
 <% end %>
 
 <p>

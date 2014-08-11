@@ -28,7 +28,7 @@ function readURL(input) {
 
 <div class="overflowBox">
   <div class="showReqBox">
-    <header class="fulfilled"><%= @request.organization %></header>
+    <header class="fulfilled"><%= @request.organization.titleize %></header>
     <% if flash[:notice] %>
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
@@ -40,7 +40,7 @@ function readURL(input) {
           </div>
 
           <div class="fill_p">
-            <p><%= @request.resource %></p>
+            <p><%= @request.resource.titleize %></p>
           </div>
       </li>
       <li><hr></li>
@@ -203,11 +203,11 @@ function readURL(input) {
               </div>
               <div class="acc_reqMainContent">
                 <strong>
-                <%= link_to "#{donor.name}",
+                <%= link_to "#{donor.name.titleize}",
                             donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
                 </strong>
                 <p>
-                  <%= link_to "#{contribution.resource_amount} #{@request.resource}s",
+                  <%= link_to "#{contribution.resource_amount} #{@request.resource.titleize}s",
                             donor_path(donor.id), :method => :get if contribution.donor_id == donor.id %>
                 </p>
               </div>

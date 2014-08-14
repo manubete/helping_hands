@@ -27,7 +27,14 @@ class Request < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['organization LIKE?', "%#{search}%"])
+      search.downcase!
+      find(:all,
+           :conditions => ['lower(organization) LIKE? OR lower(resource) LIKE? OR lower(address) LIKE? OR lower(description) LIKE?',
+                           "%#{search}%",
+                           "%#{search}%",
+                           "%#{search}%",
+                           "%#{search}%"])
+
     else
       find(:all)
     end

@@ -1,4 +1,15 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $( ".dropNav" ).click(function() {
+  $( ".dropDiv" ).slideToggle( 20);
+});
+  });
+
+</script>
+
 <div class="topLinks">
+  <div class="homeLinks">
       <%= link_to "HOME", controller: "requests", action: "landing_page" %>
 
         <% if session[:organization_id] %>
@@ -11,6 +22,33 @@
       <% else %>
           <%= link_to "LOG IN", log_in_path %>
       <% end %>
+  </div>
+
+      <div class="hiddenDesktop">
+        <nav class="dropNav">
+          <ul>
+            <li><img src="/assets/menu-icon.png" class="menu-icon">
+              <div class="dropDiv">
+              <ul>
+                <li>
+                  <%= link_to "How It Works", questions_static_pages_path, :method => :get %>
+                </li>
+                <li>
+                  <%= link_to "About Us", about_static_pages_path, :method => :get %>
+                </li>
+                <li>
+                  <%= link_to "Contact Us", contactTemp_static_pages_path, :method => :get %>
+                </li>
+                <li>
+                  <%= link_to "Social", social_static_pages_path, :method => :get %>
+                </li>
+
+              </ul>
+            </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
       <div class="footDiv">
       <%= link_to "How It Works", questions_static_pages_path, :method => :get %>

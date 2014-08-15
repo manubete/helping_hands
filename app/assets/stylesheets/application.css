@@ -8,9 +8,54 @@ html {
   background-size: cover;
 }
 
+.hiddenDesktop{
+  display: none;
+}
+
+/*-----------mobile nav ---------------*/
+.menu-icon {
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  border: none;
+  margin-top: 0.2em;
+}
+
+.dropDiv{
+  display: none;
+  right: 0;
+  position: relative;
+  margin-left: -4em;
+}
+
+.dropNav ul ul{
+  position: absolute;
+}
+
+.dropNav {
+  width: 3em;
+  float: right;
+}
+
+.dropNav ul li{
+  width: 10em;
+  height: 1.5em;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.dropNav ul li a{
+  margin: 0.2em 0.2em 0.2em 0.5em;
+}
+
+.homeLinks{
+  width: 40%;
+  float: left;
+}
+
 .footDiv{
   width: 12em;
   float: right;
+  margin: 0.6em 0 0.5em 0;
 }
 .bottomLinks {
   position: fixed;
@@ -273,7 +318,7 @@ div.donatePhoto{
 
 /*------------- Donor Index and New Pages -------------- */
 
-.box, .loginBox, .searchBox, .userBox, .showReqBox, .donFormBox, .descBox {
+.box, .loginBox, .searchBox, .userBox, .showReqBox, .donFormBox, .descBox, .socialBox {
   border-radius: 0.5em;
   background: rgba(0, 0, 0, 0.70);
   padding: 2.5em 1.5em 2.5em 1.5em;
@@ -283,7 +328,7 @@ div.donatePhoto{
   padding: 2.5em 5% 2.5em 5%;
 }
 
-.box, .loginBox, .searchBox, .userBox, .descBox{width: 50em;}
+.box, .loginBox, .searchBox, .userBox, .descBox, .socialBox{width: 50em;}
 
 .loginBox, .userBox{
   padding:1em;
@@ -461,11 +506,13 @@ ul li {
   position: fixed;
   z-index: 10;
   width: 100%;
-  padding:1em;
   top: 0;
   background-color: #000;
-  height: 1.5em;
+  height: 3em;
 }
+.homeLinks{
+    margin: 1em 0 1em 0;
+  }
 
 .longSign li label{
   display: inline;
@@ -768,18 +815,21 @@ input#email, input#password{
 }
 
 /************** static pages ******************/
-.faqWords_s{
+.faqWords_s, .social_s{
   width: 10em;
   float: left;
   margin: 0 1em 0 1em;
 }
-.faqWords{
+.faqWords, .social{
   width: 10em;
 }
 .socialDiv{
   width: 25em;
   margin: auto;
 }
+#img_prev, #img_prev_s{
+    height: 170px;
+  }
 
 /*****************media queries ******************/
 /*tablet landscape and small laptop screens*/
@@ -840,6 +890,12 @@ input#email, input#password{
   .showReqBox{
     float: none;
     width: 80%;
+  }
+  .descBox{
+    width: 80%;
+  }
+  .desRequest{
+    width: 50%;
   }
 
   label.form_label{
@@ -924,6 +980,15 @@ input#email, input#password{
     font-size: small;
   }
 
+  .hiddenDesktop{
+    display: inline;
+  }
+
+  .footDiv{
+    display: none;
+    visibility: hidden;
+  }
+
   .overflowBox{
       width: 100%;
   }
@@ -939,6 +1004,10 @@ input#email, input#password{
     margin: 15% auto 0 auto;
     padding:0.5em;
   }
+  .socialBox{
+    width: 80%;
+    margin: 20% auto 0 auto;
+  }
 
   .logoUserDiv{
     float: none;
@@ -948,6 +1017,14 @@ input#email, input#password{
     float: none;
     width: 80%;
     margin: 15% auto 0 auto;
+  }
+  .descBox{
+    margin: 20% auto 0 auto;
+  }
+  .descDiv{
+    width: 100%;
+    margin-top: 15%;
+    font-size: 1.2em;
   }
 
   input#email, input#password{
@@ -973,6 +1050,15 @@ input#email, input#password{
   div.input{
     width: 100%;
     float: none;
+  }
+  .login_label{
+    float: none;
+  }
+  .longSign li input{
+    width: 100%;
+  }
+  .desRequest{
+    width: 100%;
   }
 
   .searchBox{
@@ -1026,9 +1112,11 @@ input#email, input#password{
   }
   .topLinks{
     width: 100%;
-    padding: 0.7em;
-    height: 1em;
-    font-size: 0.7em;
+    height: 3em;
+    font-size: 1.2em;
+  }
+  .homeLinks{
+    margin: 0.7em 0 0.7em 0;
   }
 
   .tftextinput{
@@ -1121,6 +1209,24 @@ input#email, input#password{
   }
   .donate_img{
     height: auto;
+  }
+
+  #img_prev_s{
+    height: 90px;
+  }
+  .social_s{
+    width: 8em;
+  }
+  .social{
+    font-size: 1.2em;
+    width: 7em;
+  }
+  .faqWords_s{
+    margin: 0 5% 0 19%;
+  }
+  .faqWords{
+    font-size: 1.2em;
+
   }
 }
 

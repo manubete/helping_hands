@@ -173,6 +173,27 @@ function readURL(input) {
           <%= f.check_box :tax_form_flag, id: 'tax-form-checkbox' %>
           <%= f.label :tax_form_flag, "Do you want a tax deduction form?", id: "tax-form-label" %>
         </li>
+        </li>
+          <label class="form_label" for="phone">Can you deliver or ship to the organization?
+            <%= radio_button_tag(:resource_amount, "yes") %>
+            <%= label_tag(:resource_amount, "yes") %>
+            <%= radio_button_tag(:resource_amount, "no") %>
+            <%= label_tag(:resource_amount, "no") %>
+          </label>
+        </li>
+        <div class="if_no">
+          </li>
+            <label class="form_label" for="phone">Provide an address for pick-up: <%= f.text_field :resource_amount %></label>
+          </li>
+          </li>
+            <label class="form_label" for="phone">Provide possible dates for pick-up: <%= f.text_field :resource_amount %></label>
+          </li>
+          </li>
+            <label class="form_label" for="phone">Provide possible times for pick-up: <%= f.text_field :resource_amount %></label>
+          </li>
+            <label class="form_label" for="phone">Best number to reach you: <%= f.telephone_field :resource_amount %></label>
+          </li>
+        </div>
         <%= f.hidden_field :contribution_date, :value => Date.today %>
         <li>
           <div class="formButton">

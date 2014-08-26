@@ -10,6 +10,22 @@ $(document).ready(function(){
       alert("Note that your address will be sent to the organization that you are donating to so that they can mail you the tax deduction form.");
     }
   });
+
+  $(function (){
+    $('#contribution_pickup_start_date').datepicker();
+    $('#pickup_end_date').datepicker();
+  });
+
+  $('.if_no').hide();
+
+  $("#contribution_pickup_no").click(function(){
+    $('.if_no').show();
+  });
+  $("#contribution_pickup_yes").click(function(){
+    $('.if_no').hide();
+  });
+
+
 });
 
 function readURL(input) {
@@ -174,24 +190,31 @@ function readURL(input) {
           <%= f.label :tax_form_flag, "Do you want a tax deduction form?", id: "tax-form-label" %>
         </li>
         </li>
-          <label class="form_label" for="phone">Can you deliver or ship to the organization?
-            <%= radio_button_tag(:resource_amount, "yes") %>
-            <%= label_tag(:resource_amount, "yes") %>
-            <%= radio_button_tag(:resource_amount, "no") %>
-            <%= label_tag(:resource_amount, "no") %>
+          <label class="form2_label" for="phone">Can you deliver or ship to the organization?
+            <%= f.radio_button :pickup, "yes", :checked => 'checked' %>Yes
+            <%= f.radio_button :pickup, "no" %>No
           </label>
         </li>
         <div class="if_no">
           </li>
-            <label class="form_label" for="phone">Provide an address for pick-up: <%= f.text_field :resource_amount %></label>
+            <label class="form2_label" for="phone">Provide an address for pick-up: <%= f.text_field :pickupAddress %></label>
           </li>
           </li>
-            <label class="form_label" for="phone">Provide possible dates for pick-up: <%= f.text_field :resource_amount %></label>
+            <label class="form2_label">Provide possible dates for pick-up:
+            <%= f.text_field :pickup_start_date %>
+            </label>
+            <label class="form2_label">
+            <%= f.text_field :pickup_end_date %></label>
           </li>
           </li>
-            <label class="form_label" for="phone">Provide possible times for pick-up: <%= f.text_field :resource_amount %></label>
+            <label class="form2_label" for="phone">Provide a range of time for pick-up:
+              <%= f.time_select :pickup_start_time,
+                  {:minute_step => 30, :ampm => true, :include_blank => true} %> to
+              <%= f.time_select :pickup_end_time,
+                  {:minute_step => 30, :ampm => true, :include_blank => true} %>
+          </label>
           </li>
-            <label class="form_label" for="phone">Best number to reach you: <%= f.telephone_field :resource_amount %></label>
+            <label class="form2_label" for="phone">Best number to reach you: <%= f.telephone_field :pickup_number %></label>
           </li>
         </div>
         <%= f.hidden_field :contribution_date, :value => Date.today %>

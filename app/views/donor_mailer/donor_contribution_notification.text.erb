@@ -12,13 +12,19 @@
 </p>
 
 <p>
-  They are located at <%= @organization.address %>, <%= @organization.city %>.
-  If you have questions on how to get there please call them at
+  If you have questions for <%= @organization.name %>, call them at
   <%= @organization.phone_number %>, or email them at <%= @organization.email %>.
 </p>
 
-<% if @contribution.tax_form_flag %>
-  The tax deduction form, you requested, will be mailed to you shortly.
+<% if @contribution.object.pickup == 'yes' %>
+  Just a reminder that a member of <%= @organization.name %> will pick up your donation at <%= @contribution.pickupAddress %>. Your available days are from <%= @contribution.pickup_start_date %> to <%= @contribution.pickup_date_time %>, <%= @contribution.pickup_start_time %> to <%= @contribution.pickup_end_time %>.
+<% end %>
+
+<% if (@contribution.tax_form_flag && @contribution.object.pickup == 'yes'%>
+  The tax deduction form, you requested, will be emailed to you after pick up.
+<% end %>
+<% if (@contribution.tax_form_flag && @contribution.object.pickup == 'no'%>
+  The tax deduction form, you requested, will be given to you after delivery.
 <% end %>
 
 <p>

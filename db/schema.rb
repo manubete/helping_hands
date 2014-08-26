@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140809165859) do
+ActiveRecord::Schema.define(:version => 20140826002210) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20140809165859) do
     t.string  "photo"
     t.boolean "tax_form_flag"
     t.date    "contribution_date"
+    t.string  "pickupAddress"
+    t.date    "pickup_start_date"
+    t.date    "pickup_end_date"
+    t.time    "pickup_start_time"
+    t.time    "pickup_end_time"
+    t.string  "pickup_number"
+    t.boolean "pickup"
   end
 
   create_table "donors", :force => true do |t|

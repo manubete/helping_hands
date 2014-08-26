@@ -8,13 +8,17 @@
   <%= stylesheet_link_tag "layout.css" %>
   <%= stylesheet_link_tag "application.css" %>
   <%= stylesheet_link_tag "normalize.css" %>
+  <%= stylesheet_link_tag
+  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
 
   <%= favicon_link_tag 'HH_ico.ico' %>
 
+  <%= javascript_include_tag("http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",
+  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js") %>
   <%= javascript_include_tag "application.js" %>
   <%= javascript_include_tag("jquery.ui.widget", "jquery.iframe-transport",
                              "jquery.fileupload", "jquery.cloudinary",
-                             "jquery.validate.min") %>
+                             "jquery.validate.min", "rails.js") %>
   <%= csrf_meta_tags %>
 
 </head>

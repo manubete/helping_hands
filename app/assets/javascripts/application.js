@@ -16,3 +16,4 @@
 //= require faker
 //= require jquery.validate.min
 //= require_tree .
+

@@ -1,5 +1,5 @@
 class OrganizationMailer < ActionMailer::Base
-  default :from => "helpfulhandorg@gmail.com"
+  default :from => "serena@helpfulhand.org"
   def notify_contribution(email_hash)
 
     @organization = email_hash.fetch(:organization)

@@ -8,7 +8,11 @@ class DonorsController < ApplicationController
     @donor = Donor.new(params["donor"])
 
     if @donor.save
-      flash[:notice] = "You have successfully signed up!"
+      DonorMailer.registration_confirmation(@donor).deliver
+
+      @donor.verified == false
+
+      flash[:notice] = "Please check your email"
       session[:donor_id] = @donor.id
       redirect_to requests_path
     else
@@ -23,6 +27,10 @@ class DonorsController < ApplicationController
 
       render :new
     end
+  end
+
+  def verified
+    @donor.verified == true
   end
 
   def show

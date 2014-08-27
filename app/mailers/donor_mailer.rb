@@ -16,4 +16,8 @@ class DonorMailer < ActionMailer::Base
     @donor = donor
     mail :to => donor.email, :subject => "Password Reset"
   end
+
+  def registration_confirmation(donor)
+    mail :to => donor.email, :subject => "Verify Account"
+  end
 end

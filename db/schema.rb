@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140826002210) do
+ActiveRecord::Schema.define(:version => 20140827230358) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -38,37 +38,39 @@ ActiveRecord::Schema.define(:version => 20140826002210) do
   end
 
   create_table "donors", :force => true do |t|
-    t.string "name"
-    t.string "city"
-    t.string "address"
-    t.string "phone_number"
-    t.string "email"
-    t.string "password"
-    t.string "security_question"
-    t.string "security_answer"
-    t.string "password_reset_token"
-    t.string "password_digest"
+    t.string  "name"
+    t.string  "city"
+    t.string  "address"
+    t.string  "phone_number"
+    t.string  "email"
+    t.string  "password"
+    t.string  "security_question"
+    t.string  "security_answer"
+    t.string  "password_reset_token"
+    t.string  "password_digest"
+    t.boolean "verified"
   end
 
   create_table "organizations", :force => true do |t|
-    t.string "name"
-    t.string "description"
-    t.string "city"
-    t.string "address"
-    t.string "operation_days"
-    t.time   "opening_time"
-    t.time   "closing_time"
-    t.string "phone_number"
-    t.string "email"
-    t.string "website_url"
-    t.string "linked_in_url"
-    t.string "facebook_url"
-    t.string "password"
-    t.string "security_question"
-    t.string "security_answer"
-    t.string "avatar"
-    t.string "password_reset_token"
-    t.string "password_digest"
+    t.string  "name"
+    t.string  "description"
+    t.string  "city"
+    t.string  "address"
+    t.string  "operation_days"
+    t.time    "opening_time"
+    t.time    "closing_time"
+    t.string  "phone_number"
+    t.string  "email"
+    t.string  "website_url"
+    t.string  "linked_in_url"
+    t.string  "facebook_url"
+    t.string  "password"
+    t.string  "security_question"
+    t.string  "security_answer"
+    t.string  "avatar"
+    t.string  "password_reset_token"
+    t.string  "password_digest"
+    t.boolean "verified"
   end
 
   create_table "requests", :force => true do |t|

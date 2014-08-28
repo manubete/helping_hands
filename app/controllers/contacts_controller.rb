@@ -1,10 +1,10 @@
 class ContactsController < ApplicationController
   def new
-    @contact = Contacts.new
+    @contact = Contact.new
   end
 
   def create
-    @contact = Contacts.new(params[:contacts])
+    @contact = Contact.new(params[:contact])
     if @contact.save
       redirect_to requests_path
     end

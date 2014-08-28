@@ -1,3 +1,4 @@
+
  HelpingHands::Application.routes.draw do
 
   get "static_pages/about", to: "static_pages#about", as: :about_static_pages
@@ -8,7 +9,7 @@
 
   get "static_pages/contactTemp", to: "static_pages#contactTemp", as: :contactTemp_static_pages
 
-  get "contacts/new", to: "contacts#new", as: :contact_new
+  get "contact_us/new", to: "contact_us#new", as: :new_contact_us
 
   get "password_resets/new"
 
@@ -55,5 +56,5 @@
 
    resources :static_pages
 
-   resources :contacts
+   resources :contactUs
 end

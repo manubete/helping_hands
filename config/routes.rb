@@ -1,6 +1,8 @@
 
  HelpingHands::Application.routes.draw do
 
+  get "contact_messages/new"
+
   get "static_pages/about", to: "static_pages#about", as: :about_static_pages
 
   get "static_pages/questions", to: "static_pages#questions", as: :questions_static_pages
@@ -48,6 +50,7 @@
     #renamed some of the paths for clarity----------------------------------
     resources :donors, :controller => "donors", :path_names => { :new => "sign_up"}
     resources :organizations, :controller => "organizations", :path_names => { :new => "sign_up"}
+    resources :contact_messages
 
    root to: "requests#landing_page"
 

@@ -11,11 +11,6 @@ $(document).ready(function(){
     }
   });
 
-  $(function (){
-    $('#contribution_pickup_start_date').datepicker();
-    $('#pickup_end_date').datepicker();
-  });
-
   $('.if_no').hide();
 
   $("#contribution_pickup_no").click(function(){
@@ -39,7 +34,13 @@ function readURL(input) {
   }
 }
 
+</script>
 
+<script>
+  $(function() {
+    $( "#pickup_start_date" ).datepicker();
+    $( "#pickup_end_date" ).datepicker();
+  });
 </script>
 
 <div class="overflowBox">
@@ -210,10 +211,10 @@ function readURL(input) {
           </li>
           </li>
             <label class="form2_label">Provide possible dates for pick-up:
-            <%= f.text_field :pickup_start_date %>
+            <%= f.text_field :pickup_start_date, id: "pickup_start_date" %>
             </label>
             <label class="form2_label">
-            <%= f.text_field :pickup_end_date %></label>
+            <%= f.text_field :pickup_end_date, id: "pickup_end_date" %></label>
           </li>
           </li>
             <label class="form2_label" for="phone">Provide a range of time for pick-up:

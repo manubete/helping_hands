@@ -1,0 +1,9 @@
+<div class="box">
+  <header class="fulfilled">Contact Us</header>
+  <%= form_for @contact_message do |f| %>
+    <p>Name:<%= f.text_field :name, :class => "form-field" %>
+    <p>Email:<%= f.text_field :email, :class => "form-field"%></p>
+    <p>Message:<%= f.text_area :message, :rows => 5, :class => "form-field" %></p>
+    <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
+  <% end %>
+</div>

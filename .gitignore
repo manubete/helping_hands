@@ -16,7 +16,7 @@
 .env
 
 #ignore the cloudinary api file
-#/config/cloudinary.yml
+/config/cloudinary.yml
 
 # ignore OS X DS_Store file
 .DS_Store

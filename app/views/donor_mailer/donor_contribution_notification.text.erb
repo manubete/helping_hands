@@ -16,15 +16,15 @@
   <%= @organization.phone_number %>, or email them at <%= @organization.email %>.
 </p>
 
-<% if @contribution.object.pickup == 'yes' %>
+<% if @contribution.pickup %>
   Just a reminder that a member of <%= @organization.name %> will pick up your donation at <%= @contribution.pickupAddress %>. Your available days are from <%= @contribution.pickup_start_date %> to <%= @contribution.pickup_date_time %>, <%= @contribution.pickup_start_time %> to <%= @contribution.pickup_end_time %>.
 <% end %>
 
-<% if (@contribution.tax_form_flag && @contribution.object.pickup == 'yes'%>
-  The tax deduction form, you requested, will be emailed to you after pick up.
+<% if @contribution.tax_form_flag && @contribution.pickup %>
+  The tax deduction form you requested will be emailed to you after pick up.
 <% end %>
-<% if (@contribution.tax_form_flag && @contribution.object.pickup == 'no'%>
-  The tax deduction form, you requested, will be given to you after delivery.
+<% if @contribution.tax_form_flag && !@contribution.pickup %>
+  The tax deduction form you requested will be given to you after delivery.
 <% end %>
 
 <p>

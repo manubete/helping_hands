@@ -1,3 +1,4 @@
+require 'mandrill'
 class ContributionsController < ApplicationController
 
     def create
@@ -12,17 +13,13 @@ class ContributionsController < ApplicationController
 
       @request.update_count(@contribution.resource_amount)
 
-      #send an email
-        @donor = Donor.find(@contribution.donor_id)
-        @organization = Organization.find(@request.organization_id)
+      # send an email
+      @donor = Donor.find(@contribution.donor_id)
+      @organization = Organization.find(@request.organization_id)
+      @email_hash = { donor: @donor, organization: @organization, contribution: @contribution, request: @request }
 
-        @email_hash = { donor: @donor, organization: @organization, contribution: @contribution, request: @request
-
-        }
-
-          OrganizationMailer.notify_contribution(@email_hash).deliver
-
-        DonorMailer.donor_contribution_notification(@email_hash).deliver
+      OrganizationMailer.notify_contribution(@email_hash).deliver
+      DonorMailer.donor_contribution_notification(@email_hash).deliver
 
       redirect_to requests_path
     else

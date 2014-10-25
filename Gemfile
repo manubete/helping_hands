@@ -10,6 +10,8 @@ gem"simple-navigation"
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'mini_magick'
+gem 'mandrill-api'
+gem 'figaro'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 

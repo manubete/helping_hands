@@ -8,22 +8,23 @@ class DonorsController < ApplicationController
     @donor = Donor.new(params["donor"])
 
     if @donor.save
-      DonorMailer.registration_confirmation(@donor).deliver
+      #DonorMailer.registration_confirmation(@donor).deliver
 
-      @donor.verified == false
+      #@donor.verified == false
 
-      flash[:notice] = "Please check your email"
+      #flash[:notice] = "Please check your email"
+      flash[:notice] = "Thanks for signing up!"
       session[:donor_id] = @donor.id
       redirect_to requests_path
     else
-       flash[:notice] = "Incorrect signup information"
+      flash[:notice] = "Incorrect signup information"
 
       flash[:name] = @donor.errors[:name] unless @donor.errors[:name].empty?
-     flash[:city] = @donor.errors[:city] unless @donor.errors[:city].empty?
-    flash[:address] = @donor.errors[:address] unless @donor.errors[:address].empty?
-    flash[:phone_number] = @donor.errors[:phone_number] unless @donor.errors[:phone_number].empty?
-    flash[:email] = @donor.errors[:email] unless @donor.errors[:email].empty?
-     flash[:password] = @donor.errors[:password] unless @donor.errors[:password].empty?
+      flash[:city] = @donor.errors[:city] unless @donor.errors[:city].empty?
+      flash[:address] = @donor.errors[:address] unless @donor.errors[:address].empty?
+      flash[:phone_number] = @donor.errors[:phone_number] unless @donor.errors[:phone_number].empty?
+      flash[:email] = @donor.errors[:email] unless @donor.errors[:email].empty?
+      flash[:password] = @donor.errors[:password] unless @donor.errors[:password].empty?
 
       render :new
     end

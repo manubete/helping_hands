@@ -26,3 +26,6 @@
 
 # ignore cached cloudinary files
 public/uploads/tmp
+
+# Ignore application configuration
+/config/application.yml

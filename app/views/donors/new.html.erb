@@ -28,7 +28,7 @@
           <%  if flash[:city] %>
         <p class="error"> City <%= flash[:city].join(', and ') %></p>
         <% end %>
-            <label class="form_label" for="city"><%= f.text_field :city, :placeholder => "City, State, Zip" %></label>
+            <label class="form_label" for="city">*City/State/Zip: <%= f.text_field :city, :placeholder => "City, State, Zip" %></label>
           </li>
 
             <li>

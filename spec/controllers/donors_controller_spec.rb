@@ -56,11 +56,12 @@ describe DonorsController do
     end
 
     it "should save valid changes to donor attributes" do
-      @attributes = { email: "test22test@test.com", password: "12345" }
+      @attributes = { email: "test22test@test.com", name: "Bob Saget" } #password: "12345678", password_confirmation: "12345678" }
       put :update, :id => @donor1.id, :donor => @attributes
       @donor1.reload
       @donor1.email.should eq("test22test@test.com")
-      @donor1.password.should eq("12345")
+      @donor1.name.should eq("Bob Saget")
+      #@donor1.password.should eq("12345678")
     end
 
     it "should redirect to the updated donor page" do

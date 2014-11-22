@@ -11,9 +11,7 @@ describe Organization do
     it { should validate_presence_of(:closing_time) }
     it { should validate_presence_of(:phone_number) }
     it { should validate_presence_of(:website_url) }
-    it { should validate_presence_of(:password) }
-    it { should validate_presence_of(:security_question) }
-    it { should validate_presence_of(:security_answer) }
+    it { should validate_presence_of(:password_digest) }
     it { should validate_presence_of(:email) }
 
     it { should validate_uniqueness_of(:name) }
@@ -22,7 +20,6 @@ describe Organization do
     it { should validate_uniqueness_of(:phone_number) }
     it { should validate_uniqueness_of(:website_url) }
     it { should validate_uniqueness_of(:email) }
-    xit { should validate_uniqueness_of(:password) }
   end
 
   context "Associations" do

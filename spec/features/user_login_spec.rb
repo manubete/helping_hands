@@ -9,7 +9,7 @@ feature 'Registered donor' do
   scenario 'should be able to log in with valid params' do
     FactoryGirl.create(:donor)
     log_in_with 'erin@erin.com', 'erinisgreat'
-    expect(page).to have_content("successful login!!")
+    expect(page).to have_content("Successfully logged in.")
   end
 
   scenario 'should not be able to log in with invalid params' do
@@ -27,12 +27,12 @@ feature 'Registered donor' do
   scenario 'should be able to view their profile after logging in' do
     FactoryGirl.create(:donor)
     log_in_with 'erin@erin.com', 'erinisgreat'
-    expect(page).to have_content("successful login!!")
+    expect(page).to have_content("Successfully logged in.")
     click_on 'PROFILE'
     expect(page).to have_content('Location')
     expect(page).to have_content('San Francisco')
-    expect(page).to have_content('Active Requests')
-    expect(page).to have_content('Request History')
+    expect(page).to have_content('Active Contributions')
+    expect(page).to have_content('Contribution History')
   end
 
   def log_in_with(email, password)
@@ -52,7 +52,7 @@ feature 'Registered organization' do
   scenario 'should be able to log in with valid params' do
     FactoryGirl.create(:organization)
     log_in_with 'name@sample.org', 'password'
-    expect(page).to have_content("successful login!!")
+    expect(page).to have_content("Successfully logged in.")
   end
 
   scenario 'should not be able to log in with invalid params' do
@@ -70,7 +70,7 @@ feature 'Registered organization' do
   scenario 'should be able to view their profile after logging in' do
     FactoryGirl.create(:organization)
     log_in_with 'name@sample.org', 'password'
-    expect(page).to have_content("successful login!!")
+    expect(page).to have_content("Successfully logged in.")
     click_on 'PROFILE'
     expect(page).to have_content('Make New Request')
     expect(page).to have_content('Active Requests')

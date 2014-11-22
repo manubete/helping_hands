@@ -17,21 +17,19 @@ feature 'new organization signing up' do
       fill_in 'Name', :with => 'test org name'
       fill_in 'Description', :with => 'test org desc'
       fill_in 'City', :with => 'test org city'
-      fill_in 'Address', :with => 'test org address'
-      fill_in 'Open on Operating Days', :with => 'Monday - Tuesday'
-      select '22', :from => 'Open from', :match => :first
+      fill_in 'Street Address', :with => 'test org address'
+      select 'Monday', :from => 'Operating Days'
+      select '12 PM', :from => 'Open from', :match => :first
       select '02', :from => 'Open from', :match => :prefer_exact
-      select '22', :from => 'Until', :match => :first
+      select '11 PM', :from => 'Until', :match => :first
       select '02', :from => 'Until', :match => :prefer_exact
-      fill_in 'Phone', :with => 'test org number'
-      fill_in 'Email', :with => 'test@test.com'
-      fill_in 'Website', :with => 'http://test.com'
-      fill_in 'LinkedIn', :with => 'linkedin.com/test'
-      fill_in 'Facebook', :with => 'facebook.com/test'
-      fill_in 'Security Question', :with => 'test question'
-      fill_in 'Security Answer', :with => 'test answer'
-      fill_in 'Password', :with => '12345', :match => :first
-      fill_in 'Password Confirmation', :with => '12345'
+      fill_in 'Phone Number', :with => 'test org number'
+      fill_in 'Email Address', :with => 'test@test.com'
+      fill_in 'Website URL', :with => 'http://test.com'
+      fill_in 'LinkedIn URL', :with => 'linkedin.com/test'
+      fill_in 'Facebook URL', :with => 'facebook.com/test'
+      fill_in 'Password', :with => '12345678', :match => :first
+      fill_in 'Password Confirm', :with => '12345678'
       click_on 'Register'
     end
     expect(page).to have_content("You have successfully signed up!")

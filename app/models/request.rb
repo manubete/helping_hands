@@ -14,7 +14,7 @@ class Request < ActiveRecord::Base
   acts_as_taggable
 
   def start_date_valid?
-    if !start_date.between?(Date.today, Date.today + 1.month)
+    if !start_date.nil? && !start_date.between?(Date.today, Date.today + 1.month)
       errors.add :start_date, "Start date must within a month from today."
     end
   end

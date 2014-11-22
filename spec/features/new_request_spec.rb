@@ -7,7 +7,7 @@ feature 'Logged in organization' do
     fill_in 'Email', with: 'name@sample.org'
     fill_in 'Password', with: 'password'
     click_on 'Log In'
-    expect(page).to have_content("successful login!!")
+    expect(page).to have_content("Successfully logged in.")
     click_on 'PROFILE'
     expect(page).to have_content('Make New Request')
     click_on 'Make New Request'
@@ -18,9 +18,9 @@ feature 'Logged in organization' do
       fill_in 'request[target_resource_count]', :with => 200
       fill_in 'request[address]', :with => 'my house'
       fill_in 'request[description]', :with => "I'm hungry and I want some pop tarts."
-      fill_in 'request[tag_list]', :with => 'erin'
+      select 'Food', :from => 'request[tag_list]', :match => :prefer_exact
       select '2014', :from => 'request[start_date(1i)]'
-      select 'July', :from => 'request[start_date(2i)]', :match => :prefer_exact
+      select 'November', :from => 'request[start_date(2i)]', :match => :prefer_exact
       select '23', :from => 'request[start_date(3i)]', :match => :prefer_exact
       select '2015', :from => 'request[end_date(1i)]', :match => :first
       select 'July', :from => 'request[end_date(2i)]', :match => :prefer_exact

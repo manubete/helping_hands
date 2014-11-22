@@ -7,8 +7,9 @@ FactoryGirl.define do
     phone_number "555-555-5555"
     email "erin@erin.com"
     password "erinisgreat"
-    security_question "dog name?"
-    security_answer "pepper"
+    password_confirmation "erinisgreat"
+    # security_question "dog name?"
+    # security_answer "pepper"
   end
 
   factory :organization do
@@ -27,8 +28,8 @@ FactoryGirl.define do
     facebook_url "http://facebook.com/sample"
     password "password"
     password_confirmation "password"
-    security_question "dog name?"
-    security_answer "pepper"
+    # security_question "dog name?"
+    # security_answer "pepper"
   end
 
   factory :request do
@@ -42,7 +43,7 @@ FactoryGirl.define do
     start_date Date.today
     end_date Date.today.next_day
     complete false
-    tag_list ["sdf","sds"]
+    tag_list "Water"
   end
 
   factory :contribution do

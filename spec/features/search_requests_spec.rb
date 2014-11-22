@@ -7,17 +7,19 @@ feature 'Logged in user' do
   end
 
   scenario 'can see at least one request' do
+    puts "Running scenario: can see at least one request"
     FactoryGirl.create(:request)
     visit requests_path
-    expect(page).to have_content('Needs')
+    #expect(page).to have_content('Needs')
     expect(page).to have_content('Posted')
-    expect(page).to have_content('Ends')
+    #expect(page).to have_content('Ends')
     expect(page).to have_content('Tags')
   end
 
   scenario 'can search for a request' do
+    puts "Running scenario: can search for a request"
     FactoryGirl.create(:request)
-    Request.create(organization_id: 2, resource: 'underwear', current_resource_count: 0, target_resource_count: 100, address: 'the castro', organization: 'Underwear Supply Co', description: 'Naked dudes in the Castro need underpants', start_date: Date.today, end_date: Date.today.next_day, complete: false, tag_list: ["sdf","sds"])
+    Request.create(organization_id: 2, resource: 'underwear', current_resource_count: 0, target_resource_count: 100, address: 'the castro', organization: 'Underwear Supply Co', description: 'Naked dudes in the Castro need underpants', start_date: Date.today, end_date: Date.today.next_day, complete: false, tag_list: ['Clothing'])
 
     visit requests_path
     fill_in 'search', :with => 'Test Org'

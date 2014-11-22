@@ -15,13 +15,13 @@ class Request < ActiveRecord::Base
 
   def start_date_valid?
     if !start_date.nil? && !start_date.between?(Date.today, Date.today + 1.month)
-      errors.add :start_date, "Start date must within a month from today."
+      errors.add :start_date, "Date posted must within a month from today."
     end
   end
 
   def end_date_valid?
     if !end_date.nil? && end_date < start_date
-      errors.add :end_date, "End date must be after start date."
+      errors.add :end_date, "Need by date must be after date posted."
     end
   end
 

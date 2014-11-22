@@ -53,7 +53,7 @@
             <p class="error"> Tag list <%= flash[:tag_list].join(', and ') %></p>
           <% end %>
             <label class="form_label">Tag list:
-              <% tags = ['Clothing', 'Food', 'Pet Food', 'Water',
+              <% tags = ['Food', 'Pet Food', 'Water',
                          'Hygiene', 'Medical', 'Furniture',
                          'Technology', 'Books'] %>
               <%= f.select :tag_list, tags.collect { |t| [ t, t ] } %>
@@ -63,7 +63,7 @@
             <%  if flash[:start_date] %>
                <p class="error"> <%= flash[:start_date].join(', and') %></p>
             <% end %>
-            <label class="form_label">Start Date:
+            <label class="form_label">Date Posted:
               <div class="input">
                 <%= f.date_select :start_date  %>
               </div>
@@ -73,7 +73,7 @@
             <%  if flash[:end_date] %>
                <p class="error"> <%= flash[:end_date].join(', and') %></p>
             <% end %>
-            <label class="form_label">End Date:
+            <label class="form_label">Need By:
               <div class="input">
                 <%= f.date_select :end_date, :include_blank => true  %>
               </div>

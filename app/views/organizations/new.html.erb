@@ -50,6 +50,7 @@ $(document).ready(function(){
       "organization[closing_time(5i)]": {required: true},
       "organization[phone_number]": {required: true},
       "organization[email]": {required: true},
+      "organization[tax_id]": {required: true},
       "organization[website_url]": {required: true},
       "organization[password]": {required: true, minlength: 8},
       "organization[password_confirmation]": {required: true, equalTo: "#organization_password"}
@@ -70,6 +71,7 @@ $(document).ready(function(){
       "organization[closing_time(5i)]": {required: "Closing time is required."},
       "organization[phone_number]": {required: "Phone number is required."},
       "organization[email]": {required: "Email is required."},
+      "organization[tax_id]": {required: "Tax ID is required. (Enter N/A if not applicable)"},
       "organization[website_url]": {required: "Website is required."},
       "organization[password]": {required: "Please input a password.",
                                  minlength: "Password must have at least 8 characters"},

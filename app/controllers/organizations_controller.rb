@@ -23,6 +23,7 @@ class OrganizationsController < ApplicationController
       flash[:closing_time] = @organization.errors[:closing_time] unless @organization.errors[:closing_time].empty?
       flash[:phone_number] = @organization.errors[:phone_number] unless @organization.errors[:phone_number].empty?
       flash[:email] = @organization.errors[:email] unless @organization.errors[:email].empty?
+      flash[:tax_id] = @organization.errors[:tax_id] unless @organization.errors[:tax_id].empty?
       flash[:website_url] = @organization.errors[:website_url] unless @organization.errors[:website_url].empty?
       flash[:description] = @organization.errors[:description] unless @organization.errors[:description].empty?
       flash[:password] = @organization.errors[:password] unless @organization.errors[:password].empty?

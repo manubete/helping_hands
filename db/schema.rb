@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140907222455) do
+ActiveRecord::Schema.define(:version => 20141122232549) do
 
   create_table "contact_messages", :force => true do |t|
     t.string   "name"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20140907222455) do
     t.string  "password_reset_token"
     t.string  "password_digest"
     t.boolean "verified"
+    t.string  "tax_id"
   end
 
   create_table "requests", :force => true do |t|

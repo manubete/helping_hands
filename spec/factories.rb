@@ -28,6 +28,7 @@ FactoryGirl.define do
     facebook_url "http://facebook.com/sample"
     password "password"
     password_confirmation "password"
+    tax_id '123456'
     # security_question "dog name?"
     # security_answer "pepper"
   end

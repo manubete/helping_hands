@@ -188,6 +188,14 @@ $(document).ready(function(){
           </label>
         </li>
         <li>
+          <%  if flash[:tax_id] %>
+          <p class="error"> Tax ID <%= flash[:tax_id].join(', and ') %></p>
+          <% end %>
+          <label class="form_label" for="email" id="email_label">*Tax ID (if not applicable, enter "N/A"):
+            <%= f.text_field :tax_id, :class => "form-field" %>
+          </label>
+        </li>
+        <li>
           <%  if flash[:website_url] %>
             <p class="error"> Website URL <%= flash[:website_url].join(', and ') %></p>
           <% end %>

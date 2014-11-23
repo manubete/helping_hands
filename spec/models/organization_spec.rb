@@ -13,6 +13,7 @@ describe Organization do
     it { should validate_presence_of(:website_url) }
     it { should validate_presence_of(:password_digest) }
     it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:tax_id) }
 
     it { should validate_uniqueness_of(:name) }
     it { should validate_uniqueness_of(:description) }
@@ -20,6 +21,7 @@ describe Organization do
     it { should validate_uniqueness_of(:phone_number) }
     it { should validate_uniqueness_of(:website_url) }
     it { should validate_uniqueness_of(:email) }
+    it { should validate_uniqueness_of(:tax_id) }
   end
 
   context "Associations" do

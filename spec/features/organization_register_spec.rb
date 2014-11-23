@@ -23,6 +23,7 @@ feature 'new organization signing up' do
       select '02', :from => 'Open from', :match => :prefer_exact
       select '11 PM', :from => 'Until', :match => :first
       select '02', :from => 'Until', :match => :prefer_exact
+      fill_in 'Tax ID', :with => '123456'
       fill_in 'Phone Number', :with => 'test org number'
       fill_in 'Email Address', :with => 'test@test.com'
       fill_in 'Website URL', :with => 'http://test.com'

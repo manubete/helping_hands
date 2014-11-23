@@ -27,17 +27,4 @@ describe SessionsController do
     end
   end
 
-  context "#find_security_question" do
-    it "should render the find security question view" do
-      get :find_security_question
-      expect(response.status).to eq 200
-    end
-  end
-
-  context "#security_question" do
-    it "should render the security_question view" do
-      get :security_question
-      expect(response.status).to eq 200
-    end
-  end
 end

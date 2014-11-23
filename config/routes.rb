@@ -37,9 +37,6 @@
       collection do
         get :user_type_confirmation
         get :user_type_login_confirmation
-        get :find_security_question
-        get :security_question
-        get :verify_security_question
       end
     end
 

@@ -16,8 +16,7 @@ feature 'new organization signing up' do
     within 'form#new_organization' do
       fill_in 'Name', :with => 'test org name'
       fill_in 'Description', :with => 'test org desc'
-      fill_in 'City', :with => 'test org city'
-      fill_in 'Street Address', :with => 'test org address'
+      fill_in 'organization_address', :with => '123 Market Street, San Francisco, CA'
       select 'Monday', :from => 'Operating Days'
       select '12 PM', :from => 'Open from', :match => :first
       select '02', :from => 'Open from', :match => :prefer_exact

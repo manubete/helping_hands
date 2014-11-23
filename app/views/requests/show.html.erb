@@ -104,7 +104,7 @@ function readURL(input) {
       <li><hr></li>
       <li>
           <div class="fill_label">
-            <label for="name">End Date:</label>
+            <label for="name">Need by:</label>
           </div>
 
           <div class="fill_p">
@@ -197,12 +197,12 @@ function readURL(input) {
           </label>
         </li>
         <div class="map">
-          <% @encoded_address = URI.encode(@organization.address + @organization.city) %>
+          <% @encoded_address = URI.encode(@request.address) %>
           <iframe
             width="100%"
             height="400"
             frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBd3ogLxA8o4PQSCaRinfLIxapaySnpe9k&q=<%=@encoded_address%>">
+            src="https://www.google.com/maps/embed/v1/search?q=<%=@encoded_address%>&key=AIzaSyBd3ogLxA8o4PQSCaRinfLIxapaySnpe9k"
           </iframe>
         </div>
         <div class="if_no">

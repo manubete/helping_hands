@@ -1,7 +1,7 @@
 class Organization < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
-  attr_accessible :name, :description, :city, :address, :operation_days,
+  attr_accessible :name, :description, :address, :operation_days,
                   :opening_time, :closing_time, :phone_number, :email,
                   :website_url, :linked_in_url, :facebook_url, :password,
                   :password_confirmation, :avatar, :avatar_cache, :tax_id
@@ -12,7 +12,7 @@ class Organization < ActiveRecord::Base
   validates :password, :length => { :minimum => 6 }, :if => :password_digest_changed?
   validates :password_confirmation, :presence => true, :if => :password_digest_changed?
 
-  validates :name, :description, :city, :address, :operation_days, :opening_time,
+  validates :name, :description, :address, :operation_days, :opening_time,
             :closing_time, :phone_number, :website_url, :email, :tax_id,
             :presence => true
   validates :name, :description, :address, :phone_number, :website_url, :email, :tax_id,

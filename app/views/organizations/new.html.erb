@@ -1,6 +1,13 @@
 
 <script>
 
+function initialize() {
+  var input = document.getElementById('organization_address');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
 $(function() {
     $('#organization_email').on("blur", function() {
         $this = $(this);
@@ -42,7 +49,6 @@ $(document).ready(function(){
       "organization[name]": {required: true},
       "organization[description]": {required: true},
       "organization[address]": {required: true},
-      "organization[city]": {required: true},
       "organization[operation_days][]": {required: true},
       "organization[opening_time(4i)]": {required: true},
       "organization[opening_time(5i)]": {required: true},
@@ -63,7 +69,6 @@ $(document).ready(function(){
       "organization[name]": {required: "Name is required."},
       "organization[description]": {required: "Description is required."},
       "organization[address]": {required: "Address is required"},
-      "organization[city]": {required: "City is required."},
       "organization[operation_days][]": {required: "Days of operation is required."},
       "organization[opening_time(4i)]": {required: "Opening time is required."},
       "organization[opening_time(5i)]": {required: "Opening time is required."},
@@ -130,17 +135,9 @@ $(document).ready(function(){
           <%  if flash[:address] %>
             <p class="error">Address <%= flash[:address].join(', and ') %></p>
           <% end %>
-          <label class="form_label" for="address">*Street Address:
+          <label class="form_label" for="address">*Address:
             <%= f.text_field :address, :class => "form-field" %>
           </label>
-        </li>
-        <li>
-          <%  if flash[:city] %>
-            <p class="error">City <%= flash[:city].join(', and ') %></p>
-          <% end %>
-          <label class="form_label" for="city">*City:
-            <%= f.text_field :city, :placeholder => "City, State, Zip/Postal Code, Country",
-                             :class => "form-field" %></label>
         </li>
         <li>
           <%  if flash[:operation_days] %>

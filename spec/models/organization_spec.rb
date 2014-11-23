@@ -4,7 +4,6 @@ describe Organization do
   context "Validations" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:description) }
-    it { should validate_presence_of(:city) }
     it { should validate_presence_of(:address) }
     it { should validate_presence_of(:operation_days) }
     it { should validate_presence_of(:opening_time) }

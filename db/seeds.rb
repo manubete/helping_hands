@@ -8,7 +8,7 @@ end
 
 10.times do
   Organization.create(name: Faker::Company.name, description: Faker::Lorem.sentence,
-                      city: Faker::Address.city, address: Faker::Address.street_address,
+                      address: Faker::Address.street_address,
                       operation_days: 'M-F', opening_time: Time.now, closing_time: Time.now + (60*60*5),
                       phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.email,
                       website_url: Faker::Internet.url, linked_in_url: Faker::Internet.url('linkedin.com'),

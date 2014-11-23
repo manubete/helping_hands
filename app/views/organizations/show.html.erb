@@ -44,7 +44,6 @@
 
           <div class="fill_p">
             <p><%= @organization.address %></p>
-            <p><%= @organization.city %></p>
           </div>
 
         </li>
@@ -126,8 +125,8 @@
                       </p>
                     </div>
                     <div class="acc_reqDate" style="float: right;">
-                      <%= "End Date: #{request.end_date}" if !request.end_date.nil? %>
-                      <%= "End Date: indefinite" if request.end_date.nil? %>
+                      <%= "Need by: #{request.end_date}" if !request.end_date.nil? %>
+                      <%= "Need by: indefinite" if request.end_date.nil? %>
                     </div>
                     <hr>
                   </li>
@@ -172,7 +171,7 @@
                       </p>
                     </div>
                     <div class="acc_reqDate" style="float: right;">
-                      <%= "End Date: #{request.end_date}" %>
+                      <%= "Need by: #{request.end_date}" %>
                     </div>
                     <hr>
                   </li>

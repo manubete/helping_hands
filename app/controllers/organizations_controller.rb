@@ -16,7 +16,6 @@ class OrganizationsController < ApplicationController
       flash[:notice] = "Incorrect signup information"
 
       flash[:name] = @organization.errors[:name] unless @organization.errors[:name].empty?
-      flash[:city] = @organization.errors[:city] unless @organization.errors[:city].empty?
       flash[:address] = @organization.errors[:address] unless @organization.errors[:address].empty?
       flash[:operation_days] = @organization.errors[:operation_days] unless @organization.errors[:operation_days].empty?
       flash[:opening_time] = @organization.errors[:opening_time] unless @organization.errors[:opening_time].empty?

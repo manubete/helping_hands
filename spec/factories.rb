@@ -16,8 +16,7 @@ FactoryGirl.define do
     id 1
     name "Sample Org"
     description "Peppers paws gives stray french bulldogs a second chance"
-    city "San Francisco"
-    address "Lovely Org Street"
+    address "123 Market Street, San Francisco, CA"
     operation_days "M-Th"
     opening_time Time.now
     closing_time Time.now + (60*60*5)

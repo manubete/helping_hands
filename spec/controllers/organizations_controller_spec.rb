@@ -24,7 +24,7 @@ describe OrganizationsController do
 
     it "should not save an organization to the database when params are left blank" do
       expect{
-        Organization.create(name: nil, city: nil, address: nil, operation_days: nil, opening_time: nil, closing_time: nil, phone_number: nil, email: nil, website_url: nil, description: nil, password: nil)
+        Organization.create(name: nil, address: nil, operation_days: nil, opening_time: nil, closing_time: nil, phone_number: nil, email: nil, website_url: nil, description: nil, password: nil)
       }.to_not change { Organization.count }.by(1)
     end
 
@@ -57,10 +57,9 @@ describe OrganizationsController do
     end
 
     it "should save valid changes to organization attributes" do
-      put :update, id: @org, organization: FactoryGirl.attributes_for(:organization, name: "JoeBobJim", city: "San Diego")
+      put :update, id: @org, organization: FactoryGirl.attributes_for(:organization, name: "JoeBobJim")
         @org.reload
         @org.name.should eq("JoeBobJim")
-        @org.city.should eq("San Diego")
     end
 
     it "should redirect to the updated organization page" do
@@ -72,7 +71,6 @@ describe OrganizationsController do
       put :update, id: @org, organization: FactoryGirl.attributes_for(:organization, email: nil)
         @org.reload
         @org.email.should_not eq(nil)
-        @org.city.should eq("San Francisco")
     end
 
     it "re-renders the edit view when params are invalid" do

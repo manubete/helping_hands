@@ -25,9 +25,9 @@ class Request < ActiveRecord::Base
     end
   end
 
-  def self.search(search)
-    if search
-      search.downcase!
+  def self.search(s)
+    if s
+      search = s.downcase.singularize
       find(:all,
            :conditions => ['lower(organization) LIKE? OR lower(resource) LIKE? OR lower(address) LIKE? OR lower(description) LIKE?',
                            "%#{search}%",

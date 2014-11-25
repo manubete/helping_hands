@@ -1,6 +1,11 @@
 require 'mandrill'
 class ContributionsController < ApplicationController
 
+    def new
+      @contribution = Contribution.new
+      render :new
+    end
+
     def create
     # p "#{params["contribution"]}"
     @contribution = Contribution.new(params["contribution"])
@@ -9,17 +14,20 @@ class ContributionsController < ApplicationController
 
     if @contribution.save
       flash[:notice] = "Thank you for your contribution!"
-      @request = Request.find(@contribution.request_id)
 
-      @request.update_count(@contribution.resource_amount)
+      if @contribution.request_id
+        @request = Request.find(@contribution.request_id)
+        @request.update_count(@contribution.resource_amount)
+        @organization = Organization.find(@request.organization_id)
 
-      # send an email
-      @donor = Donor.find(@contribution.donor_id)
-      @organization = Organization.find(@request.organization_id)
-      @email_hash = { donor: @donor, organization: @organization, contribution: @contribution, request: @request }
+        # send an email
+        @donor = Donor.find(@contribution.donor_id)
 
-      OrganizationMailer.notify_contribution(@email_hash).deliver
-      DonorMailer.donor_contribution_notification(@email_hash).deliver
+        @email_hash = { donor: @donor, organization: @organization, contribution: @contribution, request: @request }
+
+        OrganizationMailer.notify_contribution(@email_hash).deliver
+        DonorMailer.donor_contribution_notification(@email_hash).deliver
+      end
 
       redirect_to requests_path
     else

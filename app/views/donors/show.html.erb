@@ -59,6 +59,10 @@
 
     <div class="reqAcctBox" style="margin-top: 2%;">
       <div class="reqAcctBox_box">
+        <div>
+          <%= link_to "Make New Contribution", new_contribution_path,
+          :class => "tfbutton" if session[:donor_id] %>
+        </div>
 
         <header class="reqHead" style="margin: 2% auto 2% auto; text-align: center;">Active Contributions</header>
 

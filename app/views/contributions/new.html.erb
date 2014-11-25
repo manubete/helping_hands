@@ -1,9 +1,123 @@
-  <div class="fillBox">
-    <header class="fulfilled">Make a Contribution</header>
-      <%= form_for @contribution do |f| %>
-       <p id="donor_id"> <%= f.hidden_field :donor_id, :value => @contribution.donor_id %></p>
-       <p id="request_id"> <%= f.hidden_field :request_id, :value => @contribution.request_id %></p>
-         <p id="rNeed">Resource Amount: <%= f.number_field :resource_amount, :placeholder => 2  %></p>
-        <p><%= f.submit 'Submit', :class => 'tfbutton'%></p>
+<script>
+
+$(document).ready(function(){
+  $(".fakeButton2").click(function(){
+    $(".actualButton").click();
+  });
+
+  $('#tax-form-checkbox').change(function() {
+    if (this.checked) {
+      alert("Note that your address will be sent to the organization that you are donating to so that they can mail you the tax deduction form.");
+    }
+  });
+
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#img_prev').attr('src', e.target.result );
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function initialize() {
+  var input = document.getElementById('contribution_pickupAddress');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<script>
+$(function() {
+  $( "#pickup_start_date" ).datepicker();
+  $( "#pickup_end_date" ).datepicker();
+});
+</script>
+
+<div class="donFormBox">
+  <header class="smallHeader">
+    <%= "Please complete the donation form." %>
+  </header>
+
+  <%= cloudinary_js_config %>
+  <%= form_for @contribution do |f| %>
+    <div class="donatePhoto">
+
+      <div class="donate_img">
+        <div class="profileImg-container">
+          <img id="img_prev" class="avatar" alt="Donation Preview" src="/assets/placeholderDonate.jpg">
+        </div>
+      </div>
+      <div class="picButton">
+        <p align="center" style="margin-bottom: 0.1em">Upload a clear photo</p>
+        <p align="center" style="margin-top: 0.1em">of your donation</p>
+        <%= image_tag(@contribution.photo_url) if @contribution.photo? %>
+
+        <div class="fakeButton2">
+          Choose Image
+        </div>
+        <%= f.file_field(:photo, accept: 'image/*;capture=camera',
+        class: 'actualButton', onchange:'readURL(this);') %>
+      </div>
+    </div>
+
+
+    <div class="reqAmtBox">
+      <% if flash[:notice] %>
+      <div class="error"><%= flash[:notice] %></div>
       <% end %>
-  </div>
+
+      <ul class="aRequest">
+
+        <li>
+          <p id="donor_id"> <%= f.hidden_field :donor_id, :value => session[:donor_id] %></p>
+          <p id="request_id"> <%= f.hidden_field :request_id, :value => nil %></p>
+          <%  if flash[:resource_amount] %>
+          <p class="error"> Resource Amount <%= flash[:resource_amount].join(', and ') %></p>
+          <% end %>
+          <%= f.label :resource_amount, 'How much are you donating?', id: "resource-amt-label" %>
+          <%= f.number_field :resource_amount, :class=>"fillIn", min: 0, step: 1 %>
+        </li>
+        <li>
+          <%= f.check_box :tax_form_flag, id: 'tax-form-checkbox' %>
+          <%= f.label :tax_form_flag, "Do you want a tax deduction form?", id: "tax-form-label" %>
+        </li>
+        <div class="if_no">
+        <li>
+          <label class="form2_label" for="phone">Provide an address for pick-up: <%= f.text_field :pickupAddress %></label>
+        </li>
+        <li>
+          <label class="form2_label">Provide possible dates for pick-up:
+            <%= f.text_field :pickup_start_date, id: "pickup_start_date" %>
+          </label>
+          <label class="form2_label">
+            <%= f.text_field :pickup_end_date, id: "pickup_end_date" %></label>
+          </li>
+          <li>
+            <label class="form2_label" for="phone">Provide a range of time for pick-up:
+              <%= f.time_select :pickup_start_time,
+              {:minute_step => 30, :ampm => true, :include_blank => true} %> to
+              <%= f.time_select :pickup_end_time,
+              {:minute_step => 30, :ampm => true, :include_blank => true} %>
+            </label>
+          </li>
+          <li>
+            <label class="form2_label" for="phone">Best number to reach you: <%= f.telephone_field :pickup_number %></label>
+          </li>
+        </div>
+        <%= f.hidden_field :contribution_date, :value => Date.today %>
+        <li>
+          <div class="formButton">
+            <p align="center"><%= f.submit 'Complete Donation', :class => 'tfbutton' if session[:donor_id] %></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

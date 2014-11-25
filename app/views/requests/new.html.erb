@@ -2,6 +2,7 @@
  $(function() {
    $( "#start_date" ).datepicker();
    $( "#end_date" ).datepicker();
+   $("#start_date").datepicker('setDate', new Date());
  });
 
  function initialize() {
@@ -60,7 +61,7 @@
            <%  if flash[:description] %>
             <p class="error"> Description <%= flash[:description].join(', and ') %></p>
           <% end %>
-            <label class="form_label">Purpose:
+            <label class="form_label">What will this be used for?
             <%= f.text_field :description, :placeholder => "Dehydrated Refugees" %>
             </label>
         </li>

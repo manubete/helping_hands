@@ -70,9 +70,25 @@
             <p class="error"> Tag list <%= flash[:tag_list].join(', and ') %></p>
           <% end %>
             <label class="form_label">Tag list:
-              <% tags = ['Food', 'Pet Food', 'Water',
-                         'Hygiene', 'Medical', 'Furniture',
-                         'Technology', 'Books'] %>
+              <% tags = [ 'Appliances',
+                          'Art Supplies',
+                          'Books',
+                          'Collectibles',
+                          'Food',
+                          'Furniture',
+                          'Gift Cards',
+                          'Household Goods',
+                          'Hygiene',
+                          'Other',
+                          'Pet Items',
+                          'School/Office Supplies',
+                          'Sporting Goods',
+                          'Technology',
+                          'Tickets',
+                          'Tools',
+                          'Toys',
+                          'Water' ] %>    
+
               <%= f.select :tag_list, tags.collect { |t| [ t, t ] } %>
             </label>
         </li>

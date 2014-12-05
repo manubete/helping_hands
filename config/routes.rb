@@ -2,14 +2,20 @@
  HelpingHands::Application.routes.draw do
 
   get "contact_messages/new"
+
   get "static_pages/about", to: "static_pages#about", as: :about_static_pages
+
   get "static_pages/questions", to: "static_pages#questions", as: :questions_static_pages
+
   get "static_pages/social", to: "static_pages#social", as: :social_static_pages
+
   get "static_pages/contactTemp", to: "static_pages#contactTemp", as: :contactTemp_static_pages
+
   get "contact_us/new", to: "contact_us#new", as: :new_contact_us
+
   get "password_resets/new"
+
   get "organizations/check_email"
-  get "contributions/new"
 
   #requests resources has custom routes, namely donor index and api request, that serve as api endpoints or a route where multiple resources(including donors) are loaded based on a particular requests information and ARecord associations
     resources :requests do

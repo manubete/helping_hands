@@ -1,9 +1,11 @@
 <footer>
-  <nav class="bottomLinks">
+  <div class="bottomLinks">
+    <div class="homeLinks">
       <%= link_to "About Us", about_static_pages_path, :method => :get %>
       <%= link_to "Contact Us", new_contact_message_path, :method => :get %>
       <%= link_to "Social", social_static_pages_path, :method => :get %>
       <a href="#">Community</a>
-      <div class="footDiv">&copy Helpful Hand, 2014</div>
-  </nav>
+    </div>
+    <div class="footDiv">&copy Helpful Hand, 2014</div>
+  </div>
 </footer>

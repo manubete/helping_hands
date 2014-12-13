@@ -4,7 +4,7 @@
           <div class="error"><%= flash[:notice] %></div>
         <% end %>
     <div class="logoBig">
-      <img src="/assets/helping_hands_logo.png">
+      <img class="logo-img" src="/assets/ripple_logo2.PNG">
     </div>
     <p>See what your community needs</p>
       <%= link_to "Sign Up", { controller: "sessions", action: "user_type_confirmation"}, :class => "tfbutton" unless session[:organization_id] || session[:donor_id] %>

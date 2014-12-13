@@ -139,6 +139,10 @@ div.log{
   margin: 0 2rem 2rem 0;
 }
 
+.logo {
+  padding-top: 1em;
+}
+
 /*------------- footer links -------------- */
 .aboutImg{
   width: 20em;

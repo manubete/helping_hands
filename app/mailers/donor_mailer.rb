@@ -17,7 +17,7 @@ class DonorMailer < ActionMailer::Base
 
     message = {
      :subject=> "Thank you for your contribution!",
-     :from_name=> "Helpful Hand Team",
+     :from_name=> "Ripple in a Pond Team",
      :to=>[
        {
          :email=> @donor.email,
@@ -40,7 +40,7 @@ class DonorMailer < ActionMailer::Base
 
     message = {
      :subject=> "Password Reset",
-     :from_name=> "Helpful Hand Team",
+     :from_name=> "Ripple in a Pond Team",
      :to=>[
        {
          :email=> donor.email,

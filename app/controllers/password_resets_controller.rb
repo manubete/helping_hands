@@ -13,7 +13,7 @@ class PasswordResetsController < ApplicationController
     if donor || organization
       redirect_to root_url, :notice => "Email sent with password reset instructions."
     else
-      flash[:error] = "Email not found. Are you registered with Helpful Hand?"
+      flash[:error] = "Email not found. Are you registered with Ripple in a Pond?"
       render :new
     end
   end

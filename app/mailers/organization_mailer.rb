@@ -13,7 +13,7 @@ class OrganizationMailer < ActionMailer::Base
 
     message = {
      :subject=> "New contribution!",
-     :from_name=> "Helpful Hand Team",
+     :from_name=> "Ripple in a Pond Team",
      :to=>[
        {
          :email=> @organization.email,
@@ -34,7 +34,7 @@ class OrganizationMailer < ActionMailer::Base
 
     message = {
      :subject=> "Password Reset",
-     :from_name=> "Helpful Hand Team",
+     :from_name=> "Ripple in a Pond Team",
      :to=>[
        {
          :email=> organization.email,

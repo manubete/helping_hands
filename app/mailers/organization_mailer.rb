@@ -1,5 +1,5 @@
 class OrganizationMailer < ActionMailer::Base
-  default :from => "info@helpfulhand.org"
+  default :from => "info@rippleinapond.org"
   def notify_contribution(email_hash)
 
     @organization = email_hash.fetch(:organization)
@@ -21,7 +21,7 @@ class OrganizationMailer < ActionMailer::Base
        }
      ],
      :html=>render_to_string('organization_mailer/notify_contribution.text', :layout => false),
-     :from_email=>"info@helpfulhand.org"
+     :from_email=>"info@rippleinapond.org"
     }
     sending = m.messages.send message
     puts sending
@@ -42,7 +42,7 @@ class OrganizationMailer < ActionMailer::Base
        }
      ],
      :html=>render_to_string('organization_mailer/password_reset.text', :layout => false),
-     :from_email=>"info@helpfulhand.org"
+     :from_email=>"info@rippleinapond.org"
     }
     sending = m.messages.send message
     puts sending

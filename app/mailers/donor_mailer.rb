@@ -1,7 +1,7 @@
 require 'mandrill'
 
 class DonorMailer < ActionMailer::Base
-  default :from => "info@helpfulhand.org"
+  default :from => "info@rippleinapond.org"
 
 
   def donor_contribution_notification(email_hash)
@@ -25,7 +25,7 @@ class DonorMailer < ActionMailer::Base
        }
      ],
      :html=>render_to_string('donor_mailer/donor_contribution_notification.text', :layout => false),
-     :from_email=>"info@helpfulhand.org"
+     :from_email=>"info@rippleinapond.org"
     }
     sending = m.messages.send message
     puts sending
@@ -48,7 +48,7 @@ class DonorMailer < ActionMailer::Base
        }
      ],
      :html=>render_to_string('donor_mailer/password_reset.text', :layout => false),
-     :from_email=>"info@helpfulhand.org"
+     :from_email=>"info@rippleinapond.org"
     }
     sending = m.messages.send message
     puts sending

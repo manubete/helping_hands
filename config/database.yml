@@ -16,6 +16,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: helping_hands
+  database: helping_hands_production
   pool: 5
   timeout: 5000
